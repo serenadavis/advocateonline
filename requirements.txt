@@ -1,0 +1,7 @@
+Django
+MySQL-python
+Pillow==2.4.0
+South==0.8.4
+django-ajax-selects==1.3.4
+django-grappelli==2.5.3
+django-tinymce==1.5.2
