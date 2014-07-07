@@ -1,0 +1,5 @@
+*.sw[op]
+*.py[oc]
+._*
+advo/local_settings.py
+advo/media/*
