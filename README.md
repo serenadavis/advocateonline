@@ -23,4 +23,5 @@ Navigate to the root directory of the repo you just cloned ```/advocateonline```
 ## Contributing
 
 When installing new packages, always make sure to update the requirements file.
+
 ```pip freeze > requirements.txt```
