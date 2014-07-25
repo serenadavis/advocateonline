@@ -13,6 +13,6 @@ urlpatterns = patterns('',
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^admin/lookups/', include(ajax_select_urls)),
-
     url(r'^tinymce/', include('tinymce.urls')),
+    url(r'^payments/', include('djstripe.urls', namespace="djstripe")),
 )
