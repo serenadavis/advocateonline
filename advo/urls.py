@@ -7,12 +7,13 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'advo.views.home', name='home'),
+    url(r'^$', 'magazine.views.index'),
+    url(r'^article', 'magazine.views.index'),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^admin/lookups/', include(ajax_select_urls)),
-
     url(r'^tinymce/', include('tinymce.urls')),
+    url(r'^payments/', include('djstripe.urls', namespace="djstripe")),
 )
