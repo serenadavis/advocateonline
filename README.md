@@ -18,4 +18,13 @@ If you get an error while installing it, make sure you update your sources and t
 
 ### Run it locally
 Navigate to the root directory of the repo you just cloned ```/advocateonline``` and run
+<<<<<<< HEAD
 ```python manage.py runserver```. Now go to ```localhost:8000``` to view the site!
+=======
+```python manage.py runserver```. Now go to ```localhost:8000``` to view the site!
+
+## Contributing
+
+When installing new packages, always make sure to update the requirements file.
+```pip freeze > requirements.txt```
+
