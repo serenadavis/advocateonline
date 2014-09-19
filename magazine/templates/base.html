@@ -2,11 +2,12 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>The Harvard Advocate</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
-  <!--<link rel="stylesheet" href="css/styles.css?v=1.0">-->
+	<meta charset="utf-8">
+	<title>The Harvard Advocate</title>
+	<meta name="description" content="The HTML5 Herald">
+	<meta name="author" content="SitePoint">
+				{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'magazine/css/stylesheet.css' %}">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 	<!-- Optional theme -->
@@ -15,18 +16,71 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-  <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
 </head>
 
-<body>
-  <header>
-  	HERE'S A HEADER BANNER AND EVERYTHING GOES IN THIS!
-  </header>
-  <main>
-	  {% block content %}
-	  {% endblock %}
+<body class='container-fluid'>
+	<header>
+		<div class="row">
+
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+				Connect: Facebook, Twitter
+			</div>
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				<div class="row">
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search">
+						</div>
+						<button type="submit" class="btn btn-default">Submit</button>
+					</form>
+				</div>
+				<div>
+					Subscribe, Donate, Shop
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				{% load staticfiles %}
+				<figure><img src="{% static "magazine/images/Harvard_advocate_seal.png" %}"></figure>
+				<h1>The Harvard Advocate</h1>
+			</div>
+		</div>
+	</header>
+
+	<nav class="navbar navbar-default" role="navigation">
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="#">Title</a>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="collapse navbar-collapse navbar-ex1-collapse">
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="#">About</a></li>
+			<li><a href="#">Issues</a></li>
+			<li><a href="#">Art</a></li>
+			<li><a href="#">Fiction</a></li>
+			<li><a href="#">Features</a></li>
+			<li><a href="#">Poetry</a></li>
+			<li><a href="#">Blog</a></li>
+		</ul>
+		
+	</div><!-- /.navbar-collapse -->
+	</nav>
+	<main>
+	{% block content %}
+	{% endblock %}
 	</main>
 	<footer>
 		THIS IS THE FOOTER!
