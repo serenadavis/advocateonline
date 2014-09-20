@@ -25,21 +25,20 @@
 <body class='container-fluid'>
 	<header>
 		<div class="row">
- <div class="col-lg-1 col-centered">
+ <div class="container top-line">
 			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
-				Connect: Facebook, Twitter
+				Join us: F T
 			</div>
 			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 				<div class="row">
-					<form class="navbar-form navbar-left" role="search">
+					<form class="navbar-form navbar-right" role="search">
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="Search">
 						</div>
-						<button type="submit" class="btn btn-default">Submit</button>
 					</form>
 				</div>
-				<div>
+				<div class="top-header">
 					Subscribe, Donate, Shop
 				</div>
 			</div>
@@ -48,13 +47,13 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				{% load staticfiles %}
-				<figure><img src="{% static "magazine/images/Harvard_advocate_seal.png" %}"></figure>
-				<h1>The Harvard Advocate</h1>
+				<figure><img src="{% static "magazine/images/Harvard_advocate_seal.png" %}" class="main_image"></figure>
+				<h1 class="main_title">T H E &ensp; H A R V A R D &ensp; A D V O C A T E </h1>
 			</div>
 		</div>
 	</header>
-
-	<nav class="navbar navbar-default" role="navigation">
+<!-- <hr class = "navbar-divider"> -->
+	<nav class="navbar navbar-default main_navigation" role="navigation">
 	<!-- Brand and toggle get grouped for better mobile display -->
 	<div class="navbar-header">
 		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -63,23 +62,24 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="#">Title</a>
+
 	</div>
 
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">About</a></li>
-			<li><a href="#">Issues</a></li>
-			<li><a href="#">Art</a></li>
-			<li><a href="#">Fiction</a></li>
-			<li><a href="#">Features</a></li>
-			<li><a href="#">Poetry</a></li>
-			<li><a href="#">Blog</a></li>
+			<li class="active"><a href="#">A B O U T</a></li>
+			<li><a href="#">I S S U E S</a></li>
+			<li><a href="#">A R T</a></li>
+			<li><a href="#">F I C T I O N</a></li>
+			<li><a href="#">F E A T U R E S</a></li>
+			<li><a href="#">P O E T R Y</a></li>
+			<li><a href="#">B L O G</a></li>
 		</ul>
 
 	</div><!-- /.navbar-collapse -->
 	</nav>
+<!-- <hr class = "navbar-divider"> -->
 	<main>
 	{% block content %}
 	{% endblock %}
