@@ -9,9 +9,9 @@
 				{% load staticfiles %}
 
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet"  href="{% static 'magazine/css/bootstrap.css' %}">
+	<!--  Theme -->
+	<link rel="stylesheet"  href="{% static 'magazine/css/bootstrap-theme.css' %}">
 	<!-- Latest JQuery -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
@@ -26,7 +26,7 @@
 	<header>
 		<div class="row">
  <div class="container top-line">
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 f-t-links">
 
 				Join us: F T
 			</div>
@@ -34,13 +34,14 @@
 				<div class="row">
 					<form class="navbar-form navbar-right" role="search">
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Search">
+							<input type="text" class="search-form" placeholder="Search">
 						</div>
+							<div class="search-form-links">
+					Subscribe &emsp; Donate &emsp; Shop
+				</div>
 					</form>
 				</div>
-				<div class="top-header">
-					Subscribe, Donate, Shop
-				</div>
+
 			</div>
 		</div>
 	</div>
@@ -53,7 +54,8 @@
 		</div>
 	</header>
 <!-- <hr class = "navbar-divider"> -->
-	<nav class="navbar navbar-default main_navigation" role="navigation">
+<div class="container">
+	<nav class="navbar navbar-default  advo-navbar" role="navigation">
 	<!-- Brand and toggle get grouped for better mobile display -->
 	<div class="navbar-header">
 		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -79,13 +81,31 @@
 
 	</div><!-- /.navbar-collapse -->
 	</nav>
+</div>
 <!-- <hr class = "navbar-divider"> -->
 	<main>
 	{% block content %}
 	{% endblock %}
 	</main>
 	<footer>
-		THIS IS THE FOOTER!
+	<!-- <hr class = "navbar-divider"> -->
+<div class="container">
+	<nav class="navbar navbar-default advo-navbar footer-navbar" role="navigation">
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+
+		<ul class="nav navbar-nav footer-navbar">
+
+			<li><a href="#">C O N T A C T &ensp; U S</a></li>
+			<li><a href="#">S U B M I T</a></li>
+			<li><a href="#">S U B S C R I B E</a></li>
+
+		</ul>
+	</nav>
+	<div class="copyright">
+		C O P Y R I G H T &ensp; T H I N G S &ensp; H E R E
+	</div>
+</div>
 	</footer>
 </body>
 </html>
