@@ -24,6 +24,10 @@ h1 {
 	font-family: 'league_gothicregular';
 	text-align: center;
 }
+h2 {
+	font-family: 'league_gothicregular';
+	text-align: center;
+}
 
 figure {
 	text-align: center;
@@ -64,6 +68,27 @@ figure {
 .navbar .navbar-collapse {
   text-align: center;
 }
+.header{
+	font-family: futura;
+	color: black;
+	padding: 10px;
+	font-size: 18px;
+	border-bottom: 1px solid #000;
+}
+.subheader{
+	font-family: futura;
+	color: black;
+	padding: 10px;
+	margin: 200px;
+	font-size: 18px;
+	border-bottom: 1px solid #000;
+}
+.left-border{
+	border-left: 1px solid #000;
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+}
 .advo-navbar{
 	font-family: futura;
 	color: black;
@@ -76,6 +101,14 @@ figure {
 	box-shadow: none;
 	border-radius: 0px;
 	text-align:center;
+}
+.text{
+	font-family: Minion Pro Regular;
+	font-size: 12px;
+
+}
+.center{
+	text-align: center;
 }
 .footer-navbar li{
 	padding-right: 25px;
