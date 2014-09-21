@@ -44,8 +44,16 @@ figure {
   float: none;
   vertical-align: top;
 }
-.top-header{
-	float:right;
+.search-form-links{
+	text-align: center;
+	margin-top:8px;
+}
+.search-form{
+	border: 1px solid #fff;
+	border-bottom: 1px solid #000;
+}
+.f-t-links{
+	margin-top:8px;
 }
 .top-line{
 	font-family: futura;
@@ -53,10 +61,9 @@ figure {
 .navbar .navbar-collapse {
   text-align: center;
 }
-.main_navigation{
+.advo-navbar{
 	font-family: futura;
 	color: black;
-	width:60%;
 	margin:0 auto;
 	border: none;
 	border-top: 1px solid #000;
@@ -65,6 +72,17 @@ figure {
 	background-image: none;
 	box-shadow: none;
 	border-radius: 0px;
+	text-align:center;
+}
+.footer-navbar li{
+	padding-right: 25px;
+	padding-left: 25px;
+}
+.copyright{
+	font-family: futura;
+	text-align: center;
+	padding: 25px;
+	font-size: 12px;
 }
 .navbar-divider{
 	width:50%;
