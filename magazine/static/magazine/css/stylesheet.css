@@ -31,7 +31,10 @@ figure {
 
 .main_title{
 	font-size:42px;
+	margin:25px;
 }
+.foo{position: relative;} /* Main div for border to extend to 50% from bottom left corner */
+.foo:after{content:""; background: black; position: absolute; bottom: 0; left: 0; height: 50%; width: 1px;}
 .main_image{
 	width:100px;
 	height: auto;
