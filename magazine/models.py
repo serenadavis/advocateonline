@@ -19,9 +19,12 @@ def issue_upload_to(instance, filename):
 
 class Issue(models.Model):
     name = models.CharField(max_length=255, unique=True)
-    pub_date = models.DateField()
-    cover_image = models.ImageField(upload_to=issue_upload_to, blank=True,
-            null=True)
+    cover_image = models.ImageField(upload_to=issue_upload_to, blank=True, null=True)
+    issue_vol = models.IntegerField()
+    issue_number = models.IntegerField()
+    pub_season = models.CharField(max_length=200)
+    pub_year = models.IntegerField()
+    upload_date = models.DateTimeField('Date Uploaded')
 
     def __unicode__(self):
         return self.name
