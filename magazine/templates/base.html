@@ -1,6 +1,7 @@
 <!doctype html>
 
 <html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <head>
 	<meta charset="utf-8">
 	<title>The Harvard Advocate</title>
@@ -23,35 +24,30 @@
 	<![endif]-->
 	<link rel="stylesheet" href="{% static 'magazine/css/stylesheet.css' %}">
 
-	<header>
-		<div class="row">
- <div class="container top-line">
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 f-t-links">
+	<header class = "container">
 
+ <div class="top-line">
+			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 f-t-links">
 				Join us: F T
 			</div>
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-				<div class="row">
-					<form class="navbar-form navbar-right" role="search">
-						<div class="form-group">
-							<input type="text" class="search-form" placeholder="Search">
+			<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+					<div class="form-group search-group">
+						<form class=" search-form" role="search">
+							<input type="text" class="search-input" placeholder="Search">
+						</form>
+						<div class="search-form-links">
+							Subscribe &emsp; Donate &emsp; Shop
 						</div>
-							<div class="search-form-links">
-					Subscribe &emsp; Donate &emsp; Shop
 				</div>
-					</form>
-				</div>
-
-			</div>
 		</div>
 	</div>
-		<div class="row">
+		<div class="logo-container">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				{% load staticfiles %}
 				<figure><img src="{% static "magazine/images/Harvard_advocate_seal.png" %}" class="logo"></figure>
 				<h1 class="main-title">T H E &ensp; H A R V A R D &ensp; A D V O C A T E </h1>
 			</div>
-		</div>
+
 	</header>
 <!-- <hr class = "navbar-divider"> -->
 <div class="container">
@@ -86,7 +82,7 @@
 
 <body class='container-fluid'>
 
-<div class="foo"></div>
+<img src="{% static "magazine/images/oneworldad.jpg" %}" class = "ad "alt="Main Image" >
 <!-- <hr class = "navbar-divider"> -->
 	<main>
 <div class="container">
