@@ -36,10 +36,13 @@ footer{
 body{
 	color: #000;
 }
-
+.nav{
+	letter-spacing: 3px;
+}
 .main-title{
 	font-size:45px;
 	margin:25px;
+	letter-spacing: 3px;
 
 }
 .ad{
@@ -48,6 +51,12 @@ body{
 .logo{
 	width:100px;
 	height: auto;
+}
+.social-media-link{
+	padding: 0px 5px 0px 5px;
+	border: solid 1px #000;
+	color: #000;
+	text-decoration: none;
 }
 .header-image{
 width:90%;
@@ -64,14 +73,23 @@ margin-top: 20px;
 .search-form-links{
 	text-align: center;
 	margin-top:8px;
+	word-spacing: 10px;
 }
 .search-group{
 	float: right;
 }
+.search-bottom-border{
+	margin: 0 auto;
+	border-top: 1px solid #000;
+}
 .search-input{
 	border: 1px solid #fff;
-	width: 140px;
-	border-bottom: 1px solid #000;
+	width: 120px;
+	float:right;
+	/*border-bottom: 1px solid #000;*/
+}
+.search-icon{
+	float: left;
 }
 .search-form{
 	width: 140px;
@@ -171,3 +189,21 @@ margin-top: 20px;
 	margin-bottom:5px;
 	border-top: 1px solid #000;
 }
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+
+
+.main-title{
+	display: none;
+}
+.logo{
+	display: none;
+}
+
+
+/* Styles */
+}
+
