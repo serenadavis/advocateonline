@@ -19,12 +19,18 @@ def issue_upload_to(instance, filename):
 
 class Issue(models.Model):
     name = models.CharField(max_length=255, unique=True)
+    theme = models.CharField(max_length=255, blank=True, null=True)
     cover_image = models.ImageField(upload_to=issue_upload_to, blank=True, null=True)
-    issue_vol = models.IntegerField()
-    issue_number = models.IntegerField()
-    pub_season = models.CharField(max_length=200)
-    pub_year = models.IntegerField()
-    upload_date = models.DateTimeField('Date Uploaded')
+    
+    ISSUE_CHOICES = (
+        ('Fall', 'Fall'),
+        ('Winter', 'Winter'),
+        ('Spring', 'Spring'),
+        ('Commencement', 'Commencement'),
+    )
+    issue = models.CharField(max_length=255, choices=ISSUE_CHOICES, default='Fall')
+    year = models.IntegerField(blank=True, null=True)
+    pub_date = models.DateField()
 
     def __unicode__(self):
         return self.name
