@@ -2,17 +2,9 @@
 
 {% block content %}
 	<ul>
-		{% for article in articles %}
-		<li>{{ article.title }}</li>
-		{% endfor %}
-	</ul>
-{% endblock %}
-{% extends "base.html" %}
-
-{% block content %}
-	<ul>
-		{% for article in articles %}
-		<li>{{ article.title }}</li>
+		{% for issue in issues %}
+		<li>{{ issue.name }}</li>
+		<li>{{ issue.cover_image }}</li>
 		{% endfor %}
 	</ul>
 {% endblock %}
