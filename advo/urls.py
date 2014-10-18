@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'magazine.views.index'),
     url(r'^article', 'magazine.views.index'),
-    # url(r'^blog/', include('blog.urls')),
+     url(r'^blog/', include('advoblog.urls')),
 
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
