@@ -9,7 +9,8 @@ def index(request):
 	data = {
 		'articles': all_articles,	
 	}
-	template_name = 'index_v1.html',
+	#template_name = 'index_v1.html',
+	template_name = 'current_issues.html'
 	return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 def article(request, slug):
