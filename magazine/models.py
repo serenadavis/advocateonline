@@ -14,7 +14,7 @@ def now():
 
 def issue_upload_to(instance, filename):
     fname = ''.join([c for c in filename if c.isalnum() or c == '.'])
-    return os.path.join('issue_covers', str(instance.pub_date.year), 
+    return os.path.join('issue_covers', str(instance.pub_date.year),
             slugify(instance.name), now() + '_' + fname)
 
 class Issue(models.Model):
@@ -44,7 +44,7 @@ class Contributor(models.Model):
 class Tag(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=100)
-    
+
     def __unicode__(self):
         return self.name
 
@@ -77,7 +77,7 @@ class Article(Content):
 def upload_image_to(instance, filename):
     fname = ''.join([c for c in filename if c.isalnum() or c == '.'])
 
-    return os.path.join('images', slugify(instance.issue.name), 
+    return os.path.join('images', slugify(instance.issue.name),
             now() + '_' + fname)
 
 

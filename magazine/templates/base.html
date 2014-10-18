@@ -92,10 +92,52 @@
 </head>
 
 <body class='container-fluid'>
-<!--
-<img src="{% static "magazine/images/oneworldad.jpg" %}" class = "ad "alt="Main Image" > -->
-<!-- <hr class = "navbar-divider"> -->
 
+<img src="{% static "magazine/images/comm_crop.jpeg" %}" class = "header-image img-responsive" alt="Main Image" >
+<div class="container">
+<h1 class="header">CURRENT ISSUE: SPRING 2014 </h1>
+	<div class="row">
+	  <div class="col-md-6 left">
+	  	<h2 class="subheader">ART</h2>
+
+	  	<img src="{% static "magazine/images/coffee.png" %}" class="preview-image">
+
+	  	<h3 class="subheader-article-name"> Ryan Adams Murphy </h3>
+	  	<h4 class="subheader-article-author"> Bee Catcher</h4>
+	  </div>
+	  <div class="col-md-6 right">
+	  	<h2 class="subheader">FEATURES</h2>
+	  	<h3 class="subheader-article-name"> IN MEMORIAM</h3>
+	  	<h4 class="subheader-article-author"> Victoria Beana</h4>
+	  	<p class="article-summary"> The front page of the website for artist Alisdair Hopwood’s False Memory Archive, currently on tour in Edinburgh and soon to arrive at London’s Freud Museum, declares: “WE NEED FALSE MEMORIES.” One could interpret this phrase in one of two ways: the utilitarian—the collective is in need of false memories for its project ; or the more abstract—we human beings rely somehow upon a fabricated notion of the past. The False Memory Archive is based on both principles.... [Continue reading]</p>
+	  </div>
+	</div>
+	<hr class = "divide-bar">
+	<div class="row">
+	  <div class="col-md-6 left">
+	  	<h2 class="subheader">FICTION</h2>
+	  	<h3 class="subheader-article-name">THE ZOOLOGIST</h3>
+	  	<h4 class="subheader-article-author"> John Bryant</h4>
+	  	<p class="article-summary"> My name is Dr. Isaac Lahm, and I’m the associate director of the Munich Zoological Institute, next in line for the directorship once Pfizer steps down. When people ask me why I study bees, I joke that it’s for the honey. But I know better. I know that if we are to have an appreciation for the fundamental laws of life, an understanding of how the human body functions, we must study the sensory capacities of the world’s most marvelous crea- tures an understanding of how the human body functions, we must study the sensory capacities of the world’s most marvelous study the sensory capacities of the world’s most marvelous crea- tures.. [Continue reading]</p>
+
+	  </div>
+	  <div class="col-md-6 right">
+	  	<h2 class="subheader">POETRY</h2>
+	  	<h3 class="subheader-article-name"> LAGOMORPH</h3>
+	  	<h4 class="subheader-article-author"> Micheal Feehly</h4>
+	  	<p class="article-summary"> I’m really a fan of the rabbits, of slender ears
+of their long left ears, fickle, triangulating signals from the wind, beneath the bushes beside the large ferrovitreous cistern collecting dimensionless shadows of European attitudes. Now the right ear bends, turning toward ground the innominate blades under snow here.
+Now I’m really a rabbit, mostly dishabille,
+a shapka-ushanka with flopping ashen flaps above, bobbing ... [Continue reading]</p>
+	  </div>
+	</div>
+</div>
+
+<!-- <hr class = "navbar-divider"> -->
+	<main>
+	{% block content %}
+	{% endblock %}
+	</main>
 </body>
 <footer>
 	<!-- <hr class = "navbar-divider"> -->

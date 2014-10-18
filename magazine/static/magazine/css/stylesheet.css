@@ -56,11 +56,20 @@ body{
 	padding: 0px 5px 0px 5px;
 	border: solid 1px #000;
 	color: #000;
+	font-weight: bold;
 	text-decoration: none;
 }
+.preview-image{
+	width:300px;
+	max-width: 100%;
+	height: auto;
+	margin: 0 auto;
+	display: block;
+}
 .header-image{
-width:90%;
-height: 200px;
+width:1000px;
+max-width: 100%;
+height: auto;
 margin: 0 auto;
 display: block;
 margin-top: 20px;
@@ -113,6 +122,12 @@ margin-top: 20px;
 .f-t-links{
 
 }
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
 .top-line{
 	font-family: futura;
 	margin-top: 10px;
@@ -123,9 +138,11 @@ margin-top: 20px;
   text-align: center;
 }
 .header{
+	letter-spacing: 2px;
 	font-family: futura;
 	padding: 10px;
-	font-size: 18px;
+	font-size: 22px;
+	padding: 15px;
 	border-bottom: 1px solid #000;
 }
 .subheader{
@@ -133,6 +150,25 @@ margin-top: 20px;
 	padding: 10px;
 	font-size: 18px;
 
+}
+.subheader-article-name{
+	font-family: Times;
+	text-align: center;
+	margin: 5px 5px 0px 5px;
+	font-size: 16px;
+
+}
+.subheader-article-author{
+	font-family: Times;
+	text-align: center;
+	font-style: italic;
+	margin-top: 0px;
+	font-size: 14px;
+
+}
+.article-summary{
+	font-family: Times;
+	font-size: 14px;
 }
 .left-border{
 	border-left: 1px solid #000;
@@ -158,8 +194,6 @@ margin-top: 20px;
 	font-size: 14px;
 	width: 90%;
 	margin: 0 auto;
-
-
 }
 .container{
 	max-width: 900px;
@@ -172,12 +206,14 @@ margin-top: 20px;
 	padding-left: 25px;
 }
 .copyright{
+	letter-spacing: 2px;
 	font-family: futura;
 	text-align: center;
 	padding: 25px;
 	font-size: 12px;
 }
 .subheader-border{
+	letter-spacing: 2px;
 	width:30px;
 	margin-top:5px;
 	margin-bottom:5px;
@@ -187,6 +223,11 @@ margin-top: 20px;
 	width:50%;
 	margin-top:5px;
 	margin-bottom:5px;
+	border-top: 1px solid #000;
+}
+.divide-bar{
+	margin-top:15px;
+	margin-bottom:15px;
 	border-top: 1px solid #000;
 }
 
