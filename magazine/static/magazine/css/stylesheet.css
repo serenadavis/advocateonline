@@ -38,17 +38,23 @@ body{
 }
 
 .main-title{
-	font-size:42px;
+	font-size:45px;
 	margin:25px;
 
 }
-
+.ad{
+	float: left;
+}
 .logo{
 	width:100px;
 	height: auto;
 }
-.col-centered{
-
+.header-image{
+width:90%;
+height: 200px;
+margin: 0 auto;
+display: block;
+margin-top: 20px;
 }
 .navbar .navbar-nav {
   display: inline-block;
@@ -59,9 +65,17 @@ body{
 	text-align: center;
 	margin-top:8px;
 }
-.search-form{
+.search-group{
+	float: right;
+}
+.search-input{
 	border: 1px solid #fff;
+	width: 140px;
 	border-bottom: 1px solid #000;
+}
+.search-form{
+	width: 140px;
+	margin: 0 auto;
 }
 .board-list{
 	list-style-type: none;
@@ -79,10 +93,13 @@ body{
 }
 
 .f-t-links{
-	margin-top:8px;
+
 }
 .top-line{
 	font-family: futura;
+	margin-top: 10px;
+	margin-bottom: 15px;
+	height:60px;
 }
 .navbar .navbar-collapse {
   text-align: center;
