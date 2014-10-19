@@ -1,15 +1,10 @@
 from django.shortcuts import get_object_or_404, render_to_response
 from django.template.context import RequestContext
-# . signifies the current directory
-<<<<<<< HEAD
-from .models import Article
-=======
-from .models import Article, Issue
->>>>>>> 29f3c83e61fd871b1b08536c4a5ad4c66f71f3b7
+from .models import Article, Issue # '.' signifies the current directory
 
 # Create your views here.
 def index(request):
-	issue = Issues.objects.first()
+	issue = Issue.objects.first()
 
 # for each article with this issue id
 	articles_in_issue = Article.objects.filter(issue=issue)
@@ -19,8 +14,8 @@ def index(request):
 		'poetry': [],
 		'art': []
 	}
-	for article in articles_in_issue:
-		data[article.section].appen(article)
+	# for article in articles_in_issue:
+	# 	data[article.section].append(article)
 
 	#template_name = 'index_v1.html',
 	template_name = 'current_issues.html'
