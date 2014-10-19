@@ -1,170 +1,61 @@
-<!doctype html>
+{% extends "base_original.html" %}
 
-<html lang="en">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<head>
-	<meta charset="utf-8">
-	<title>The Harvard Advocate</title>
-	<meta name="description" content="The HTML5 Herald">
-	<meta name="author" content="SitePoint">
-				{% load staticfiles %}
+{% block content %}
 
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet"  href="{% static 'magazine/css/bootstrap.css' %}">
-	<!--  Theme -->
-	<link rel="stylesheet"  href="{% static 'magazine/css/bootstrap-theme.css' %}">
-	<!-- Latest JQuery -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-	<!-- Advocate Javascript -->
-	<script src="{% static 'magazine/js/main.js' %}"></script>
-	<!--[if lt IE 9]>
-	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-	<link rel="stylesheet" href="{% static 'magazine/css/stylesheet.css' %}">
 
-	<header class = "container">
-
- <div class="top-line">
-			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 f-t-links">
-				Join us: F T
-			</div>
-			<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-					<div class="form-group search-group">
-						<form class=" search-form" role="search">
-							<input type="text" class="search-input" placeholder="Search">
-						</form>
-						<div class="search-form-links">
-							Subscribe &emsp; Donate &emsp; Shop
-						</div>
-				</div>
-		</div>
-	</div>
-		<div class="logo-container">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				{% load staticfiles %}
-				<figure><img src="{% static "magazine/images/Harvard_advocate_seal.png" %}" class="logo"></figure>
-				<h1 class="main-title">T H E &ensp; H A R V A R D &ensp; A D V O C A T E </h1>
-			</div>
-
-	</header>
-<!-- <hr class = "navbar-divider"> -->
-<div class="container">
-	<nav class="navbar navbar-default  advo-navbar" role="navigation">
-	<!-- Brand and toggle get grouped for better mobile display -->
-	<div class="navbar-header">
-		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button>
-
-	</div>
-
-	<!-- Collect the nav links, forms, and other content for toggling -->
-	<div class="collapse navbar-collapse navbar-ex1-collapse">
-		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">A B O U T</a></li>
-			<li><a href="#">I S S U E S</a></li>
-			<li><a href="#">A R T</a></li>
-			<li><a href="#">F I C T I O N</a></li>
-			<li><a href="#">F E A T U R E S</a></li>
-			<li><a href="#">P O E T R Y</a></li>
-			<li><a href="#">B L O G</a></li>
-		</ul>
-
-	</div><!-- /.navbar-collapse -->
-	</nav>
-</div>
-</head>
-
-<body class='container-fluid'>
-<!-- 
-<img src="{% static "magazine/images/oneworldad.jpg" %}" class = "ad "alt="Main Image" > -->
-<!-- <hr class = "navbar-divider"> -->
-	<main>
 <div class="container">
 	<h1 class="header">A B O U T &ensp; U S </h1>
 	<p class="text"> The Harvard Advocate, founded in 1866, is the oldest continuously published collegiate literary magazine in the country. Over its past 146 years, it can count T.S. Eliot, Conrad Aiken, and Norman Mailer among its members and e.e. cummings, Jack Kerouac, and Tom Wolfe as contributors to its pages. A quarterly magazine, its mission is to publish the best art, fiction, poetry, and prose that the Harvard undergraduate community offers. </p>
 	<h2 class="subheader">E X E C U T I V E &ensp; B O A R D </h2>
-<ul class="board-list list-left">
-<li>President </li>
-<li>Publisher   </li>
-<li>Art Editor   </li>
-<li>Blog Editor   </li>
-<li>Business Manager   </li>
-<li>Design Editors     </li>
-<li></li>
-<li>Features Editor   </li>
-<li>Fiction Editor   </li>
-<li>Poetry Editor   </li>
-<li>Technology Editor      </li>
-<li>&ensp;</li>
-<li>Hermes   </li>
-
-<li>Pegasi      </li>
-<li>&ensp;</li>
-<li>Dionysi     </li>
-<li>&ensp;</li>
-<li>Circulation & Publicity Managers     </li>
-<li>&ensp;</li>
-<li>Librarian   </li>
-<li>Alumni Relations Manager   </li>
-<li>Communicorn     </li>
-
+	<ul class="board-list list-left">
+		<li>President</li>
+		<li>Publisher</li>
+		<li>Art Editor</li>
+		<li>Blog Editor</li>
+		<li>Business Manager</li>
+		<li>Design Editors</li>
+		<li></li>
+		<li>Features Editor</li>
+		<li>Fiction Editor</li>
+		<li>Poetry Editor</li>
+		<li>Technology Editor</li>
+		<li>&ensp;</li>
+		<li>Hermes</li>
+		<li>Pegasi</li>
+		<li>&ensp;</li>
+		<li>Dionysi</li>
+		<li>&ensp;</li>
+		<li>Circulation & Publicity Managers</li>
+		<li>&ensp;</li>
+		<li>Librarian</li>
+		<li>Alumni Relations Manager</li>
+		<li>Communicorn</li>
 	</ul>
-<ul class="board-list list-right">
-<li> JULIAN LUCAS  </li>
-<li> KEVIN HONG </li>
-<li> BRAD BOLMAN </li>
-<li> </li>
-<li>    CALVIN WILLETT </li>
-<li>    SIMONE HASSELMO </li>
-	<li>JEANNIE SUI WONDERS </li>
-<li>    INDIANA SERESIN </li>
-<li>    YEN PHAM </li>
-<li>COLTON VALENTINE </li>
-<li>JAWAD HOBALLAH </li>
-<li></a>JENNY GAO </li>
-<li>ISAAC DAYNO </li>
-<li> SAM REYNOLDS </li>
-<li>FAYE YAN ZHANG </li>
-<li> NELSON ARNOUS</li>
-<li> KIARA BARROW </li>
-<li>  MAHAN NEKOUI </li>
-<li>MAIA SILBER </li>
-<li> KURT SLAWITSCHKA </li>
-<li>   HAYDEN BETTS </li>
-<li>  EZRA HUANG STOLLER </li>
-
+	<ul class="board-list list-right">
+		<li>JULIAN LUCAS  </li>
+		<li>KEVIN HONG </li>
+		<li>BRAD BOLMAN </li>
+		<li>MOEKO FUJII</li>
+		<li>CALVIN WILLETT </li>
+		<li>SIMONE HASSELMO </li>
+		<li>JEANNIE SUI WONDERS </li>
+		<li>INDIANA SERESIN </li>
+		<li>YEN PHAM </li>
+		<li>COLTON VALENTINE </li>
+		<li>JAWAD HOBALLAH </li>
+		<li>JENNY GAO </li>
+		<li>ISAAC DAYNO </li>
+		<li> SAM REYNOLDS </li>
+		<li>FAYE YAN ZHANG </li>
+		<li> NELSON ARNOUS</li>
+		<li> KIARA BARROW </li>
+		<li>  MAHAN NEKOUI </li>
+		<li>MAIA SILBER </li>
+		<li> KURT SLAWITSCHKA </li>
+		<li>   HAYDEN BETTS </li>
+		<li>  EZRA HUANG STOLLER </li>
 	</ul>
 </div>
-	</main>
-
-</body>
-<footer>
-	<!-- <hr class = "navbar-divider"> -->
-<div class="container">
-	<nav class="navbar navbar-default advo-navbar footer-navbar" role="navigation">
-
-	<!-- Collect the nav links, forms, and other content for toggling -->
-
-		<ul class="nav navbar-nav footer-navbar">
-
-			<li><a href="#">C O N T A C T &ensp; U S</a></li>
-			<li><a href="#">S U B M I T</a></li>
-			<li><a href="#">S U B S C R I B E</a></li>
-
-		</ul>
-	</nav>
-	<div class="copyright">
-		C O P Y R I G H T &ensp; T H I N G S &ensp; H E R E
-	</div>
-</div>
-	</footer>
-
-</html>
 
 
+{% endblock %}
