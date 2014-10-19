@@ -23,65 +23,9 @@
 </head>
 
 <body class='container-fluid'>
-	<header>
-		<div class="row">
- <div class="container top-line">
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 f-t-links">
 
-				Join us: F T
-			</div>
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-				<div class="row">
-					<form class="navbar-form navbar-right" role="search">
-						<div class="form-group">
-							<input type="text" class="search-form" placeholder="Search">
-						</div>
-							<div class="search-form-links">
-					Subscribe &emsp; Donate &emsp; Shop
-				</div>
-					</form>
-				</div>
+{% include 'header.html' %}
 
-			</div>
-		</div>
-	</div>
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				{% load staticfiles %}
-				<figure><img src="{% static "magazine/images/Harvard_advocate_seal.png" %}" class="main_image"></figure>
-				<h1 class="main_title">T H E &ensp; H A R V A R D &ensp; A D V O C A T E </h1>
-			</div>
-		</div>
-	</header>
-<!-- <hr class = "navbar-divider"> -->
-<div class="container">
-	<nav class="navbar navbar-default  advo-navbar" role="navigation">
-	<!-- Brand and toggle get grouped for better mobile display -->
-	<div class="navbar-header">
-		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button>
-
-	</div>
-
-	<!-- Collect the nav links, forms, and other content for toggling -->
-	<div class="collapse navbar-collapse navbar-ex1-collapse">
-		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">A B O U T</a></li>
-			<li><a href="#">I S S U E S</a></li>
-			<li><a href="#">A R T</a></li>
-			<li><a href="#">F I C T I O N</a></li>
-			<li><a href="#">F E A T U R E S</a></li>
-			<li><a href="#">P O E T R Y</a></li>
-			<li><a href="#">B L O G</a></li>
-		</ul>
-
-	</div><!-- /.navbar-collapse -->
-	</nav>
-</div>
 <!-- <hr class = "navbar-divider"> -->
 	<main>
 	{% block content %}
