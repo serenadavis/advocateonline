@@ -1,0 +1,65 @@
+<header class="container">
+    <div class="top-line">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 f-t-links">
+            Join us: <a  class = "social-media-link" href = "https://www.facebook.com/harvardadvocate">F</a> <a class = "social-media-link"  href="https://twitter.com/harvardadvocate">T</a>
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <div class="form-group search-group">
+                <form class=" search-form" role="search">
+                    <svg width="20px" height="24px">
+                        <g id="search-icon" transform = "scale(0.15, 0.15), translate(0,30)" x= "4">
+                            <path fill="#010101" d="M89.556,10.443C82.819,3.71,73.868,0,64.343,0C54.82,0,45.867,3.707,39.133,10.44
+                            C32.4,17.172,28.689,26.127,28.694,35.652c0,5.633,1.324,11.053,3.779,15.948L3.295,80.778c-4.394,4.401-4.394,11.526,0,15.928
+                            c2.199,2.193,5.079,3.291,7.966,3.291c2.88,0,5.759-1.1,7.96-3.291l29.174-29.18c4.898,2.455,10.315,3.78,15.95,3.782
+                            c9.527,0,18.478-3.709,25.215-10.442C96.293,54.132,100,45.178,100,35.652C99.998,26.131,96.289,17.177,89.556,10.443z
+                            M64.346,56.297c-5.509,0-10.695-2.151-14.597-6.051c-3.896-3.898-6.043-9.08-6.043-14.594
+                            c-0.004-5.513,2.146-10.695,6.043-14.594c3.899-3.898,9.081-6.043,14.594-6.043c5.515,0,10.699,2.145,14.598,6.043
+                            c3.899,3.899,6.043,9.083,6.043,14.598c0.004,5.515-2.144,10.696-6.039,14.595C75.042,54.148,69.86,56.297,64.346,56.297z"/>
+                        </g>
+                    </svg>
+                    <input type="text" class="search-input" placeholder="Search">
+                    <hr class="search-bottom-border">
+                </form>
+                <div class="search-form-links">
+                    Subscribe Donate Shop
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="logo-container">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            {% load staticfiles %}
+            <figure><img src="{% static "magazine/images/Harvard_advocate_seal.png" %}" class="logo"></figure>
+            <h1 class="main-title">THE HARVARD ADVOCATE</h1>
+        </div>
+    </div>
+</header>
+<!-- <hr class = "navbar-divider"> -->
+<div class="container">
+    <nav class="navbar navbar-default  advo-navbar" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">ABOUT</a></li>
+            <li><a href="/issues">ISSUES</a></li>
+            <li><a href="#">ART</a></li>
+            <li><a href="#">FICTION</a></li>
+            <li><a href="#">FEATURES</a></li>
+            <li><a href="#">POETRY</a></li>
+            <li><a href="#">BLOG</a></li>
+        </ul>
+
+    </div><!-- /.navbar-collapse -->
+    </nav>
+</div>
