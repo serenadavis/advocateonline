@@ -14,12 +14,8 @@ def now():
 
 def issue_upload_to(instance, filename):
     fname = ''.join([c for c in filename if c.isalnum() or c == '.'])
-<<<<<<< HEAD
-    return os.path.join('issue_covers', str(instance.pub_date.year),
-            slugify(instance.name), now() + '_' + fname)
-=======
     return os.path.join('issue_covers', str(instance.year), now() + '_' + fname)
->>>>>>> 29f3c83e61fd871b1b08536c4a5ad4c66f71f3b7
+
 
 class Issue(models.Model):
     name = models.CharField(max_length=255, unique=True)
