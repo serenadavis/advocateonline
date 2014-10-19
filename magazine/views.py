@@ -37,3 +37,7 @@ def issues(request):
 	}
 	template_name = 'issues.html'
 	return render_to_response(template_name, data, context_instance=RequestContext(request))
+
+def masthead(request):
+	template_name = 'about_us.html'
+	return render_to_response(template_name, context_instance=RequestContext(request))

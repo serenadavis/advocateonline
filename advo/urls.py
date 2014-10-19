@@ -10,6 +10,8 @@ urlpatterns = patterns('',
     url(r'^$', 'magazine.views.index'),
     url(r'^article', 'magazine.views.index'),
     url(r'^issues$', 'magazine.views.issues'),
+    url(r'^about$', 'magazine.views.masthead'),
+    
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^grappelli/', include('grappelli.urls')),
