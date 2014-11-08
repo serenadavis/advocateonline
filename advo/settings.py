@@ -101,6 +101,8 @@ STATICFILES_FINDERS = (
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.request',
+    #http://stackoverflow.com/questions/3756841/django-media-url-blank    
+    'django.core.context_processors.media',
 )
 
 AJAX_LOOKUP_CHANNELS = {

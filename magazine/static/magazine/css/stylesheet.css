@@ -230,6 +230,11 @@ margin-top: 20px;
 	margin-bottom:15px;
 	border-top: 1px solid #000;
 }
+.columnWrapper {
+    float: left;
+    width: 100%;
+    min-height: 600px;
+}
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen
