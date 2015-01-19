@@ -35,6 +35,8 @@ class Issue(models.Model):
     def __unicode__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return '/issue/{0}-{1}/'.format(self.issue.lower(), self.year)
 
 class Section(models.Model):
     name = models.CharField(max_length=255, unique=True)
