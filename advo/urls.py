@@ -16,6 +16,8 @@ urlpatterns = patterns('',
     url(r'^donate$', 'magazine.views.donate'),
     url(r'^subscribe$', 'magazine.views.subscribe'),
     url(r'^submit$', 'magazine.views.submit'),
+    url(r'^contact$', 'magazine.views.contact'),
+    
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^grappelli/', include('grappelli.urls')),
