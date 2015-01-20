@@ -24,9 +24,9 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^admin/lookups/', include(ajax_select_urls)),
     url(r'^tinymce/', include('tinymce.urls')),
+
     #url(r'^payments/', include('djstripe.urls', namespace="djstripe")),
-
-
+    url(r'^stripeSubmit$','magazine.views.stripeSubmit'),
     #http://stackoverflow.com/questions/901551/how-do-i-include-image-files-in-django-templates
     #http://stackoverflow.com/questions/19132123/name-settings-is-not-defined
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
