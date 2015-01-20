@@ -1,0 +1,11 @@
+{% extends "base_original.html" %}
+
+{% block content %}
+{% for section, contentlist in content_list.items%}
+	<h1> {{section}} </h1>
+	{%for content in contentlist %}
+	<p>{{content.title}}</p>
+	{% endfor %}
+
+{% endfor %}
+{%endblock%}

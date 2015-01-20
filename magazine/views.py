@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, render_to_response
 from django.template.context import RequestContext
-from .models import Article, Issue # '.' signifies the current directory
+from .models import Article, Content, Issue # '.' signifies the current directory
+from collections import OrderedDict
 
 # Create your views here.
 def index(request):
@@ -31,13 +32,43 @@ def article(request, slug):
 
 def issues(request):
 	all_issues = Issue.objects.all()
-
+	season = {'Winter': 0, 'Spring': 1, 'Commencement': 2, 'Fall': 3}
+	all_issues_sorted = reversed(sorted(all_issues, key=lambda i: i.year * 10 + season[i.issue]))
 	data = {
-		'issues': all_issues
+		'issues': all_issues_sorted
 	}
 	template_name = 'issues.html'
 	return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 def masthead(request):
 	template_name = 'about_us.html'
+	return render_to_response(template_name, context_instance=RequestContext(request))
+
+def singleissue(request, season, year):
+	template_name = 'singleissue.html'
+	issue = get_object_or_404(Issue, issue__iexact=season, year=year)
+
+	issue_content = Content.objects.filter(issue=issue)
+	section = ('Art','Features','Fiction','Poetry')
+	content = OrderedDict()
+	for s in section:
+		content[s] = issue_content.filter(section__name=s)
+	print content
+	data = {
+		'issue' : issue,
+		'content_list' : content
+		}
+
+	return render_to_response(template_name, data, context_instance=RequestContext(request))
+
+def subscribe(request):
+	template_name = 'subscribe.html'
+	return render_to_response(template_name, context_instance=RequestContext(request))
+
+def submit(request):
+	template_name = 'submit.html'
+	return render_to_response(template_name, context_instance=RequestContext(request))
+
+def donate(request):
+	template_name = 'donate.html'
 	return render_to_response(template_name, context_instance=RequestContext(request))
