@@ -2,8 +2,8 @@
 
 Instructions for correctly setting up a virtual environment and getting started with the project are on the wiki. 
 
-(How to Get Set Up for Linux Users)[https://github.com/harvardadvocate/advocateonline/wiki/How-to-Get-Set-Up-(Linux)]
-(How to Get Set Up for Mac Users)[https://github.com/harvardadvocate/advocateonline/wiki/How-to-Get-Set-Up-(Mac)]
+[How to Get Set Up for Linux Users](https://github.com/harvardadvocate/advocateonline/wiki/How-to-Get-Set-Up-(Linux))
+[How to Get Set Up for Mac Users](https://github.com/harvardadvocate/advocateonline/wiki/How-to-Get-Set-Up-(Mac))
 
 ### Run it locally
 Navigate to the root directory of the repo you just cloned ```/advocateonline``` and run
