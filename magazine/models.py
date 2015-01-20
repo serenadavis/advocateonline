@@ -12,6 +12,7 @@ def now():
                 datetime.datetime(2014, 1, 1)).total_seconds() * 10 ** 6)
     return unicode(now)
 
+# issue_covers/issue.year/filename.jpg
 def issue_upload_to(instance, filename):
     fname = ''.join([c for c in filename if c.isalnum() or c == '.'])
     return os.path.join('issue_covers', str(instance.year), now() + '_' + fname)
