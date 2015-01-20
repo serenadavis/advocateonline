@@ -12,7 +12,10 @@ urlpatterns = patterns('',
     url(r'^article', 'magazine.views.index'),
     url(r'^issues$', 'magazine.views.issues'),
     url(r'^about$', 'magazine.views.masthead'),
-    
+    url(r'^issue/(?P<season>[a-zA-Z]+)-(?P<year>[\d]{4})/$', 'magazine.views.singleissue'),
+    url(r'^donate$', 'magazine.views.donate'),
+    url(r'^subscribe$', 'magazine.views.subscribe'),
+    url(r'^submit$', 'magazine.views.submit'),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^grappelli/', include('grappelli.urls')),
