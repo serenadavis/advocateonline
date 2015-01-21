@@ -49,10 +49,22 @@ body{
 	letter-spacing: 3px;
 }
 .main-title{
+  color: black;
 	font-size:45px;
 	margin:25px;
 	letter-spacing: 3px;
 
+}
+.no-decoration {
+    color: #000;
+    text-decoration: none;
+}
+
+.no-decoration:hover
+{
+    color: #000;
+     text-decoration:none;
+     cursor:pointer;
 }
 .ad{
 	float: left;
@@ -147,6 +159,7 @@ margin-top: 20px;
   text-align: center;
 }
 .header{
+  text-transform: uppercase;
 	letter-spacing: 2px;
 	font-family: futura;
 	padding: 10px;
@@ -160,6 +173,7 @@ margin-top: 20px;
 	font-size: 18px;
 
 }
+
 .subheader-article-name{
 	font-family: Times;
 	text-align: center;
@@ -174,6 +188,15 @@ margin-top: 20px;
 	margin-top: 0px;
 	font-size: 14px;
 
+}
+.section-article{
+  text-align: center;
+
+}
+.section-article .name{
+  font-family: Times;
+  font-style: italic;
+    padding: 0;
 }
 .article-summary{
 	font-family: Times;

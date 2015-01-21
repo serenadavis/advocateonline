@@ -22,7 +22,7 @@ def index(request):
 	# 	data[article.section].append(article)
 
 	#template_name = 'index_v1.html',
-	template_name = 'current_issues.html'
+	template_name = 'index.html'
 	return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 def article(request, slug):
@@ -84,7 +84,7 @@ def stripeSubmit(request):
 
 
 		subscriber = Subscriber.objects.create(
-			name=request.POST['name'], 
+			name=request.POST['name'],
 			email=request.POST['email'],
 			streetAddress1=request.POST['streetAddress1'],
 			streetAddress2=request.POST['streetAddress2'],
@@ -99,6 +99,33 @@ def stripeSubmit(request):
 	except stripe.CardError, e:
 	  # The card has been declined
 	  pass
+
+def sections(request):
+  section = request.path
+  section = section.replace("/","")
+  print section
+  # For all issues
+  all_issues = Issue.objects.all()
+  season = {'Winter': 0, 'Spring': 1, 'Commencement': 2, 'Fall': 3}
+  all_issues = reversed(sorted(all_issues, key=lambda i: i.year))
+  #all_issues_sorted = reversed(sorted(all_issues, key=lambda i: i.year * 10 + season[i.issue]))
+  data = {
+    "name":section,
+    "issues": []
+  }
+  for issue in all_issues:
+    articles_in_issue = Article.objects.filter(issue=issue, section__name =section)
+    datum = {
+      'obj':issue,
+      'articles': articles_in_issue
+      }
+    data["issues"].append(datum)
+  # for issue in data["issues"]:
+  #   for article in issue["articles"]:
+  #     print article.contributors.all()
+
+  template_name = 'section.html'
+  return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 def submit(request):
 	template_name = 'submit.html'

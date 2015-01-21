@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     url(r'^submit$', 'magazine.views.submit'),
     url(r'^contact$', 'magazine.views.contact'),
     url(r'^alumni$', 'magazine.views.alumni'),
+    url(r'^fiction|poetry|art|features$', 'magazine.views.sections'),
     url(r'^advertise$', 'magazine.views.advertise'),
     url(r'^150th$', 'magazine.views.onefifty'),
     url(r'^shop$', 'magazine.views.shop'),
@@ -36,4 +37,3 @@ urlpatterns = patterns('',
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 )
 
-               
