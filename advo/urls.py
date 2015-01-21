@@ -9,7 +9,6 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'magazine.views.index'),
-    url(r'^article', 'magazine.views.index'),
     url(r'^issues$', 'magazine.views.issues'),
     url(r'^about$', 'magazine.views.masthead'),
     url(r'^issue/(?P<season>[a-zA-Z]+)-(?P<year>[\d]{4})/$', 'magazine.views.singleissue'),
@@ -22,6 +21,7 @@ urlpatterns = patterns('',
     url(r'^150th$', 'magazine.views.onefifty'),
     url(r'^shop$', 'magazine.views.shop'),
     url(r'^comp$', 'magazine.views.comp'),
+    url(r'^article/(?P<slug>[a-zA-Z\d_\-]+)/$', 'magazine.views.article'),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^grappelli/', include('grappelli.urls')),
