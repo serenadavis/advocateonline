@@ -15,57 +15,62 @@
 		<input name="hosted_button_id" type="hidden" value="MDW8DPE33DMP6" /> 
 		<table border="0">
 			<tbody>
-				<tr><td style="text-align: center;"><input name="on0" type="hidden" value="Subscription Type" />Subscription Type</td></tr>
+				<tr><td style="text-align: center;"><input name="subscriptionType" type="hidden" value="Subscription Type" />Subscription Type</td></tr>
 					<tr><td style="text-align: right;">
 						<select name="os0"> <option value="Three years (12 issues) - U.S.">Three years (12 issues) - U.S. $90.00 USD</option> <option value="Two years (8 issues) - U.S.">Two years (8 issues) - U.S. $69.00 USD</option> <option value="One year (4 issues) - U.S.">One year (4 issues) - U.S. $35.00 USD</option> <option value="Three years (12 issues) - International &amp; Institutions">Three years (12 issues) - International &amp; Institutions $110.00 USD</option> <option value="Two years (8 issues) - International &amp; Institutions">Two years (8 issues) - International &amp; Institutions $75.00 USD</option> <option value="One year (4 issues) - International &amp; Institutions">One year (4 issues) - International &amp; Institutions $45.00 USD</option> </select></td></tr> <tr><td style="text-align: left;">  <span class="payment-errors"></span>
 <div class="form-row">
     <label>
       <span>Name</span>
-      <input type="text" size="20" data-stripe="exp-month"/>
+      <input type="text" size="20" data-stripe="exp-month" name="name"/>
     </label>
   </div>
-  
+  <div class="form-row">
+    <label>
+      <span>Email</span>
+      <input type="text" size="20" data-stripe="exp-month" name="email"/>
+    </label>
+  </div>
   <div class="form-row">
     <label>
       <span>Street Address </span>
-      <input type="text" size="20" />
+      <input type="text" size="20" name="streetAddress1"/>
     </label>
   </div>
   <div class="form-row">
     <label>
       <span>Street Address  </span>
-      <input type="text" size="20" />
+      <input type="text" size="20" name="streetAddress2"/>
     </label>
   </div>
   <div class="form-row">
     <label>
       <span>City </span>
-      <input type="text" size="20" />
+      <input type="text" size="20" name="city"/>
     </label>
   </div>
 
   <div class="form-row">
     <label>
       <span>State </span>
-      <input type="text" size="5" />
+      <input type="text" size="5" name="state"/>
     </label>
   </div>
   <div class="form-row">
     <label>
       <span>Country </span>
-      <input type="text" size="20" />
+      <input type="text" size="20" name="country"/>
     </label>
   </div>
     <div class="form-row">
     <label>
       <span>Zip </span>
-      <input type="text" size="7" />
+      <input type="text" size="7" name="zipCode"/>
     </label>
   </div>
   <div class="form-row">
     <label>
       <span>Card Number</span>
-      <input type="text" size="20" data-stripe="number"/>
+      <input type="text" size="20" data-stripe="number" />
     </label>
   </div>
 
