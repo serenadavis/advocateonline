@@ -8,6 +8,7 @@ import stripe
 from django.conf import settings
 # Create your views here.
 def index(request):
+	print 'GETTING INDEX'
 	issue = Issue.objects.first()
 
 # for each article with this issue id
@@ -26,7 +27,8 @@ def index(request):
 	return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 def article(request, slug):
-	article = get_object_or_404(Article, slug=slug)
+	print 'GETTING ARTICLE'
+	article = get_object_or_404(Article, slug__iexact=slug)
 	data = {
 		'article': article
 	}
@@ -52,12 +54,13 @@ def singleissue(request, season, year):
 	template_name = 'singleissue.html'
 	issue = get_object_or_404(Issue, issue__iexact=season, year=year)
 
-	issue_content = Content.objects.filter(issue=issue)
+	# TODO: Once we figure out contenttypes, bring back this line!
+	# issue_content = Content.objects.filter(issue=issue)
+	issue_content = Article.objects.filter(issue=issue)
 	section = ('Art','Features','Fiction','Poetry')
 	content = OrderedDict()
 	for s in section:
 		content[s] = issue_content.filter(section__name=s)
-	print content
 	data = {
 		'issue' : issue,
 		'content_list' : content
@@ -118,6 +121,14 @@ def alumni(request):
 
 def advertise(request):
 	template_name = 'advertise.html'
+	return render_to_response(template_name, context_instance=RequestContext(request))
+
+def shop(request):
+	template_name = 'shop.html'
+	return render_to_response(template_name, context_instance=RequestContext(request))
+
+def onefifty(request):
+	template_name = '150th.html'
 	return render_to_response(template_name, context_instance=RequestContext(request))
 
 def comp(request):
