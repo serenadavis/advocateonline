@@ -27,6 +27,15 @@ h2 {
 	text-align: center;
 }
 
+p {
+	font-family: Minion Pro Regular;
+	font-size: 14px;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	width: 90%;
+	margin: 0 auto;
+}
+
 figure {
 	text-align: center;
 }
@@ -202,8 +211,8 @@ margin-top: 20px;
 	text-align: center;
 }
 .footer-navbar li{
-	padding-right: 20px;
-	padding-left: 20px;
+	padding-right: 10px;
+	padding-left: 10px;
 }
 .copyright{
 	letter-spacing: 2px;

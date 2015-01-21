@@ -21,6 +21,7 @@ urlpatterns = patterns('',
     url(r'^advertise$', 'magazine.views.advertise'),
     url(r'^150th$', 'magazine.views.onefifty'),
     url(r'^shop$', 'magazine.views.shop'),
+    url(r'^comp$', 'magazine.views.comp'),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^grappelli/', include('grappelli.urls')),
