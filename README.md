@@ -14,7 +14,9 @@ Navigate to the root directory of the repo you just cloned ```/advocateonline```
 ## Contributing
 
 When installing new packages, always make sure to update the requirements file.
-```pip freeze > requirements.txt```
+```
+pip freeze > requirements.txt
+```
 
 ## Updating the database
 To update the db, run
@@ -32,4 +34,6 @@ To run migrations on all apps, the command is:
 python manage.py migrate
 ```
 In general, whenever you pull code, you should probably run ```python manage.py migrate``` in case someone has committed new database migrations to the repository.
+
+You should also periodically run ```pip install -r requirements.txt``` in case someone has installed new packages. 
 
