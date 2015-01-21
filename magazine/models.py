@@ -97,6 +97,22 @@ class Image(Content):
     photo = models.ImageField(upload_to=upload_image_to)
 
 
+
+class Donation(models.Model):
+
+    amount = models.IntegerField()
+    name = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+    streetAddress1 = models.CharField(max_length=255)
+    streetAddress2 = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)    
+    state = models.CharField(max_length=255)    
+    country = models.CharField(max_length=255)
+    zipCode = models.CharField(max_length=255)
+    customerID = models.CharField(max_length=255) 
+    time = models.CharField(max_length=255)
+
+
 class Subscriber(models.Model):
 
     SUBSCRIPTION_CHOICES = (
@@ -116,7 +132,8 @@ class Subscriber(models.Model):
     state = models.CharField(max_length=255)    
     country = models.CharField(max_length=255)
     zipCode = models.CharField(max_length=255)
-    customer = models.CharField(max_length=255) 
+    customerID = models.CharField(max_length=255) 
     renew = models.BooleanField()
     subscriptionType = models.CharField(max_length=255, choices=SUBSCRIPTION_CHOICES)
+    time = models.CharField(max_length=255)
 

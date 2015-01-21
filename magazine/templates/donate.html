@@ -17,6 +17,7 @@
 
 		We also offer subscriptions, which we encourage as an alternative to small donations.  To arrange a subscription, visit the Subscribe page or email us at <a href = "subscribe@theharvardadvocate.com">subscribe@theharvardadvocate.com</a>.<br>
  		
- 		<form style="text-align: center;" action="https://www.paypal.com/cgi-bin/webscr" method="post"> <input name="cmd" type="hidden" value="_s-xclick" /> <input name="hosted_button_id" type="hidden" value="FDCG8ERDSKQY6" /> <input alt="PayPal - The safer, easier way to pay online!" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" type="image" /> <img src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" border="0" alt="" width="1" height="1" /> </form>
+ 		<form style="text-align: left;" action="/sendDonation" method="post" id="payment-form"> {% csrf_token %} {% include 'paymentData.html'  with page="Donate" only  %}</form>
+  {% include 'stripeJS.html' %}
 
 	{% endblock %}
