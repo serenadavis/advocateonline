@@ -35,7 +35,8 @@ def article(request, slug):
 def issues(request):
 	all_issues = Issue.objects.all()
 	season = {'Winter': 0, 'Spring': 1, 'Commencement': 2, 'Fall': 3}
-	all_issues_sorted = reversed(sorted(all_issues, key=lambda i: i.year * 10 + season[i.issue]))
+	all_issues_sorted = reversed(sorted(all_issues, key=lambda i: i.year))
+	#all_issues_sorted = reversed(sorted(all_issues, key=lambda i: i.year * 10 + season[i.issue]))
 	data = {
 		'issues': all_issues_sorted
 	}
@@ -104,4 +105,16 @@ def submit(request):
 
 def donate(request):
 	template_name = 'donate.html'
+	return render_to_response(template_name, context_instance=RequestContext(request))
+
+def contact(request):
+	template_name = 'contact_us.html'
+	return render_to_response(template_name, context_instance=RequestContext(request))
+
+def alumni(request):
+	template_name = 'alumni.html'
+	return render_to_response(template_name, context_instance=RequestContext(request))
+
+def advertise(request):
+	template_name = 'advertise.html'
 	return render_to_response(template_name, context_instance=RequestContext(request))
