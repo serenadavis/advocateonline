@@ -18,7 +18,7 @@ urlpatterns = patterns('',
     url(r'^submit$', 'magazine.views.submit'),
     url(r'^contact$', 'magazine.views.contact'),
     url(r'^alumni$', 'magazine.views.alumni'),
-    
+    url(r'^advertise$', 'magazine.views.advertise'),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^grappelli/', include('grappelli.urls')),
