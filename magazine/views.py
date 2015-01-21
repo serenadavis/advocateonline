@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404, render_to_response
 from django.template.context import RequestContext
+from .models import Article, Content, Issue , Subscriber# '.' signifies the current directory
 from .models import Article, Content, Issue # '.' signifies the current directory
 from collections import OrderedDict
 import json
@@ -74,13 +75,27 @@ def stripeSubmit(request):
 	stripe.api_key = settings.STRIPE_SECRET_KEY
 	# Create the charge on Stripe's servers - this will charge the user's card
 	try:
-	  charge = stripe.Charge.create(
-	      amount=123, # amount in cents, again
-	      currency="usd",
-	      card=token,
-	      description="payinguser@example.com",
-	  )
-	  return subscribe(request);
+	  	charge = stripe.Charge.create(
+		    amount=123, # amount in cents, again
+		    currency="usd",
+		    card=token,
+		    description="payinguser@example.com",
+	  	)
+
+
+		subscriber = Subscriber.objects.create(
+			name=request.POST['name'], 
+			email=request.POST['email'],
+			streetAddress1=request.POST['streetAddress1'],
+			streetAddress2=request.POST['streetAddress2'],
+			city=request.POST['city'],
+			state=request.POST['state'],
+			country=request.POST['country'],
+			zipCode=request.POST['zipCode'],
+			renew=request.POST['renew'],
+			subscriptionType=request.POST['subscriptionType'],
+		)
+		return subscribe(request)
 	except stripe.CardError, e:
 	  # The card has been declined
 	  pass
@@ -105,10 +120,6 @@ def advertise(request):
 	template_name = 'advertise.html'
 	return render_to_response(template_name, context_instance=RequestContext(request))
 
-def onefifty(request):
-	template_name = '150th.html'
-	return render_to_response(template_name, context_instance=RequestContext(request))
-
-def shop(request):
-	template_name = 'shop.html'
+def comp(request):
+	template_name = 'comp.html'
 	return render_to_response(template_name, context_instance=RequestContext(request))
