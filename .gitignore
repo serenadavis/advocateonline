@@ -2,4 +2,6 @@
 *.py[oc]
 ._*
 advo/local_settings.py
-advo/media/*
+media/*
+sql/*
+.DS_Store
