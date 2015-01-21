@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'ajax_select',
     'south',
     'magazine',
+    'payments'
 )
 
 MIDDLEWARE_CLASSES = (
