@@ -1,13 +1,11 @@
 from django.shortcuts import get_object_or_404, render_to_response
 from django.template.context import RequestContext
-from .models import Article, Content, Issue , Subscriber, Donation# '.' signifies the current directory
+from .models import Article, Content, Issue , Subscriber# '.' signifies the current directory
+from .models import Article, Content, Issue # '.' signifies the current directory
 from collections import OrderedDict
 import json
 import stripe
 from django.conf import settings
-from datetime import datetime
-from pytz import timezone    
-
 # Create your views here.
 def index(request):
 	issue = Issue.objects.first()
@@ -71,6 +69,36 @@ def subscribe(request):
 	template_name = 'subscribe.html'
 	return render_to_response(template_name, context_instance=RequestContext(request))
 
+def stripeSubmit(request):
+	# Get the credit card details submitted by the form
+	token = request.POST['stripeToken']
+	stripe.api_key = settings.STRIPE_SECRET_KEY
+	# Create the charge on Stripe's servers - this will charge the user's card
+	try:
+	  	charge = stripe.Charge.create(
+		    amount=123, # amount in cents, again
+		    currency="usd",
+		    card=token,
+		    description="payinguser@example.com",
+	  	)
+
+
+		subscriber = Subscriber.objects.create(
+			name=request.POST['name'], 
+			email=request.POST['email'],
+			streetAddress1=request.POST['streetAddress1'],
+			streetAddress2=request.POST['streetAddress2'],
+			city=request.POST['city'],
+			state=request.POST['state'],
+			country=request.POST['country'],
+			zipCode=request.POST['zipCode'],
+			renew=request.POST['renew'],
+			subscriptionType=request.POST['subscriptionType'],
+		)
+		return subscribe(request)
+	except stripe.CardError, e:
+	  # The card has been declined
+	  pass
 
 def submit(request):
 	template_name = 'submit.html'
