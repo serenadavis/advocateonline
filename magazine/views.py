@@ -104,3 +104,7 @@ def alumni(request):
 def advertise(request):
 	template_name = 'advertise.html'
 	return render_to_response(template_name, context_instance=RequestContext(request))
+
+def comp(request):
+	template_name = 'comp.html'
+	return render_to_response(template_name, context_instance=RequestContext(request))
