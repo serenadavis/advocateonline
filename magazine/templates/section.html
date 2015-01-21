@@ -18,7 +18,7 @@
      <h2 class="subheader">{{issue.obj}}</h2>
      {% for article in issue.articles %}
       <div class="section-article">
-        <p class="name">{{article.title}}</p>
+        <a href="{{ article.get_absolute_url }}"><p class="name">{{article.title}}</p></a>
         {% for author in article.contributors.all %}
          <p class="author">{{ author.name }}</p>
         {% endfor %}
