@@ -104,3 +104,11 @@ def alumni(request):
 def advertise(request):
 	template_name = 'advertise.html'
 	return render_to_response(template_name, context_instance=RequestContext(request))
+
+def onefifty(request):
+	template_name = '150th.html'
+	return render_to_response(template_name, context_instance=RequestContext(request))
+
+def shop(request):
+	template_name = 'shop.html'
+	return render_to_response(template_name, context_instance=RequestContext(request))
