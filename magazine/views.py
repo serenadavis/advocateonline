@@ -100,3 +100,7 @@ def contact(request):
 def alumni(request):
 	template_name = 'alumni.html'
 	return render_to_response(template_name, context_instance=RequestContext(request))
+
+def advertise(request):
+	template_name = 'advertise.html'
+	return render_to_response(template_name, context_instance=RequestContext(request))
