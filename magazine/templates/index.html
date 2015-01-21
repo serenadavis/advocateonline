@@ -1,5 +1,7 @@
+{% extends "base_original.html" %}
 {% load staticfiles %}
 
+{% block content %}
 <img src="{% static "magazine/images/comm_crop.jpeg" %}" class = "header-image img-responsive" alt="Main Image" >
 <div class="container">
 <h1 class="header">CURRENT ISSUE: SPRING 2014 </h1>
@@ -39,3 +41,5 @@ a shapka-ushanka with flopping ashen flaps above, bobbing ... [Continue reading]
 	  </div>
 	</div>
 </div>
+
+  {% endblock %}
