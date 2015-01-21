@@ -1,8 +1,9 @@
 {% extends "base_original.html" %}
 
 {% block content %}
+<h1> {{issue}} </h1>
 {% for section, contentlist in content_list.items%}
-	<h1> {{section}} </h1>
+	<h2> {{section}} </h2>
 	{%for content in contentlist %}
 	<p>{{content.title}}</p>
 	{% endfor %}
