@@ -5,152 +5,43 @@
 
 
 <div class="container">
-	<h1 class="header">S U B S C R I B E</h1>
-	<p class="text">
-		Founded in 1866, The Harvard Advocate is the oldest continuously published collegiate literary magazine in the United States. For over 140 years it has provided its readers with the highest caliber of prose, fiction, poetry, and art that the Harvard community can offer. With a global subscriber's network--it is distributed in 5 continents--no place is too remote for the Advocate to reach. You too, wherever you are, can enjoy the magazine.
+  <h1 class="header">S U B S C R I B E</h1>
+  <p class="text">
+    Founded in 1866, The Harvard Advocate is the oldest continuously published collegiate literary magazine in the United States. For over 140 years it has provided its readers with the highest caliber of prose, fiction, poetry, and art that the Harvard community can offer. With a global subscriber's network--it is distributed in 5 continents--no place is too remote for the Advocate to reach. You too, wherever you are, can enjoy the magazine.4242
 
-		To subscribe using our online checkout system, choose the Subscription Type and click Subscribe below. If you prefer to subscribe by mail, <a title="Subscribe by Mail" href="http://www.theharvardadvocate.com/node/121/" target="_blank">click here</a>. <br><br>
+    To subscribe using our online checkout system, choose the Subscription Type and click Subscribe below. If you prefer to subscribe by mail, <a title="Subscribe by Mail" href="http://www.theharvardadvocate.com/node/121/" target="_blank">click here</a>. <br><br>
 
-	<form style="text-align: center;" action="/stripeSubmit" method="post" id="payment-form">{% csrf_token %} <input name="cmd" type="hidden" value="_s-xclick" /> 
-		<input name="hosted_button_id" type="hidden" value="MDW8DPE33DMP6" /> 
-		<table border="0">
-			<tbody>
-				<tr><td style="text-align: center;"><input name="subscriptionType" type="hidden" value="Subscription Type" />Subscription Type</td></tr>
-					<tr><td style="text-align: right;">
-						<select name="os0"> <option value="Three years (12 issues) - U.S.">Three years (12 issues) - U.S. $90.00 USD</option> <option value="Two years (8 issues) - U.S.">Two years (8 issues) - U.S. $69.00 USD</option> <option value="One year (4 issues) - U.S.">One year (4 issues) - U.S. $35.00 USD</option> <option value="Three years (12 issues) - International &amp; Institutions">Three years (12 issues) - International &amp; Institutions $110.00 USD</option> <option value="Two years (8 issues) - International &amp; Institutions">Two years (8 issues) - International &amp; Institutions $75.00 USD</option> <option value="One year (4 issues) - International &amp; Institutions">One year (4 issues) - International &amp; Institutions $45.00 USD</option> </select></td></tr> <tr><td style="text-align: left;">  <span class="payment-errors"></span>
-<div class="form-row">
-    <label>
-      <span>Name</span>
-      <input type="text" size="20" data-stripe="exp-month" name="name"/>
-    </label>
-  </div>
-  <div class="form-row">
-    <label>
-      <span>Email</span>
-      <input type="text" size="20" data-stripe="exp-month" name="email"/>
-    </label>
-  </div>
-  <div class="form-row">
-    <label>
-      <span>Street Address </span>
-      <input type="text" size="20" name="streetAddress1"/>
-    </label>
-  </div>
-  <div class="form-row">
-    <label>
-      <span>Street Address  </span>
-      <input type="text" size="20" name="streetAddress2"/>
-    </label>
-  </div>
-  <div class="form-row">
-    <label>
-      <span>City </span>
-      <input type="text" size="20" name="city"/>
-    </label>
+<form action="/stripeSubmit" method="POST" role="form" id="payment-form">{% csrf_token %}
+  <legend>Pick a subscription</legend>
+
+  <div class="form-group">
+    <label for="">label</label>
+    <input type="text" class="form-control" id="" placeholder="Input field">
   </div>
 
-  <div class="form-row">
-    <label>
-      <span>State </span>
-      <input type="text" size="5" name="state"/>
-    </label>
-  </div>
-  <div class="form-row">
-    <label>
-      <span>Country </span>
-      <input type="text" size="20" name="country"/>
-    </label>
-  </div>
-    <div class="form-row">
-    <label>
-      <span>Zip </span>
-      <input type="text" size="7" name="zipCode"/>
-    </label>
-  </div>
-  <div class="form-row">
-    <label>
-      <span>Card Number</span>
-      <input type="text" size="20" data-stripe="number" />
-    </label>
-  </div>
+  <select class="form-control">
+    <option>Three years (12 issues) - U.S. $90.00 USD</option>
+    <option>Two years (8 issues) - U.S. $69.00 USD</option>
+    <option>One year (4 issues) - U.S. $35.00 USD</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
 
-  <div class="form-row">
-    <label>
-      <span>CVC</span>
-      <input type="text" size="4" data-stripe="cvc"/>
-    </label>
-  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
-  <div class="form-row">
-    <label>
-      <span>Expiration (MM/YYYY)</span>
-      <input type="text" size="2" data-stripe="exp-month"/>
-    </label>
-    <span> / </span>
-    <input type="text" size="4" data-stripe="exp-year"/>
-  </div>
-  <div class='form-row'>
-  <label>
-  	<input type="checkbox" name="renew" value="renew" checked="true">Renew automatically<br>
-  </label>
-  </div>
+  <form style="text-align: center;" action="/stripeSubmit" method="post" id="payment-form">{% csrf_token %} <input name="cmd" type="hidden" value="_s-xclick" /> 
+    <input name="hosted_button_id" type="hidden" value="MDW8DPE33DMP6" /> 
+    <table border="0">
+      <tbody>
+        <tr><td style="text-align: left;"><input name="subscriptionType" type="hidden" value="Subscription Type" />Subscription Type</td></tr>
+          <tr><td style="text-align: left;">
+            <select name="os0"> <option value="Three years (12 issues) - U.S.">Three years (12 issues) - U.S. $90.00 USD</option> <option value="Two years (8 issues) - U.S.">Two years (8 issues) - U.S. $69.00 USD</option> <option value="One year (4 issues) - U.S.">One year (4 issues) - U.S. $35.00 USD</option> <option value="Three years (12 issues) - International &amp; Institutions">Three years (12 issues) - International &amp; Institutions $110.00 USD</option> <option value="Two years (8 issues) - International &amp; Institutions">Two years (8 issues) - International &amp; Institutions $75.00 USD</option> <option value="One year (4 issues) - International &amp; Institutions">One year (4 issues) - International &amp; Institutions $45.00 USD</option> </select></td></tr> <tr><td style="text-align: left;">  
+            {% include 'paymentData.html' with page="Subscribe" only  %}
+          <input name="currency_code" type="hidden" value="USD" /> 
+ </form>
+  {% include 'stripeJS.html' %}
+
+
     
-  <button type="submit">Submit Payment</button> </td> </tr> </tbody></table> <input name="currency_code" type="hidden" value="USD" /> 
- </form>
-
-
- <form action="" method="POST" role="form">
-   <legend>Form title</legend>
- 
-   <div class="form-group">
-     <label for="">label</label>
-     <input type="text" class="form-control" id="" placeholder="Input field">
-   </div>
- 
-   
- 
-   <button type="submit" class="btn btn-primary">Submit</button>
- </form>
-
-
-<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<script type="text/javascript">
-  // This identifies your website in the createToken call below
-  Stripe.setPublishableKey('pk_test_7mkjcG8fQj3qmdhCgP92Pq4g');
-  // ...
-  
-  var stripeResponseHandler= function(status, response) {
-  var $form = $('#payment-form');
-
-  if (response.error) {
-    // Show the errors on the form
-    $form.find('.payment-errors').text(response.error.message);
-    $form.find('button').prop('disabled', false);
-  } else {
-    // response contains id and card, which contains additional card details
-    var token = response.id;
-    // Insert the token into the form so it gets submitted to the server
-    $form.append($('<input type="hidden" name="stripeToken" />').val(token));
-    // and submit
-    $form.append($('<input type="hidden" name="test" />').val("test"));
-    $form.get(0).submit();
-  }
-};
-
-jQuery(function($) {
-  $('#payment-form').submit(function(event) {
-    var $form = $(this);
-
-    // Disable the submit button to prevent repeated clicks
-    $form.find('button').prop('disabled', true);
-
-    Stripe.card.createToken($form, stripeResponseHandler);
-
-    // Prevent the form from submitting with the default action
-    return false;
-  });
-});
-</script>
-
-		
-	{% endblock %}
+  {% endblock %}
