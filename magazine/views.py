@@ -6,8 +6,11 @@ from collections import OrderedDict
 import json
 import stripe
 from django.conf import settings
+
+
 # Create your views here.
 def index(request):
+	print 'GETTING INDEX'
 	issue = Issue.objects.first()
 
 # for each article with this issue id
@@ -22,11 +25,12 @@ def index(request):
 	# 	data[article.section].append(article)
 
 	#template_name = 'index_v1.html',
-	template_name = 'current_issues.html'
+	template_name = 'index.html'
 	return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 def article(request, slug):
-	article = get_object_or_404(Article, slug=slug)
+	print 'GETTING ARTICLE'
+	article = get_object_or_404(Article, slug__iexact=slug)
 	data = {
 		'article': article
 	}
@@ -52,12 +56,13 @@ def singleissue(request, season, year):
 	template_name = 'singleissue.html'
 	issue = get_object_or_404(Issue, issue__iexact=season, year=year)
 
-	issue_content = Content.objects.filter(issue=issue)
+	# TODO: Once we figure out contenttypes, bring back this line!
+	# issue_content = Content.objects.filter(issue=issue)
+	issue_content = Article.objects.filter(issue=issue)
 	section = ('Art','Features','Fiction','Poetry')
 	content = OrderedDict()
 	for s in section:
 		content[s] = issue_content.filter(section__name=s)
-	print content
 	data = {
 		'issue' : issue,
 		'content_list' : content
@@ -84,7 +89,7 @@ def stripeSubmit(request):
 
 
 		subscriber = Subscriber.objects.create(
-			name=request.POST['name'], 
+			name=request.POST['name'],
 			email=request.POST['email'],
 			streetAddress1=request.POST['streetAddress1'],
 			streetAddress2=request.POST['streetAddress2'],
@@ -99,6 +104,33 @@ def stripeSubmit(request):
 	except stripe.CardError, e:
 	  # The card has been declined
 	  pass
+
+def sections(request):
+  section = request.path
+  section = section.replace("/","")
+  print section
+  # For all issues
+  all_issues = Issue.objects.all()
+  season = {'Winter': 0, 'Spring': 1, 'Commencement': 2, 'Fall': 3}
+  all_issues = reversed(sorted(all_issues, key=lambda i: i.year))
+  #all_issues_sorted = reversed(sorted(all_issues, key=lambda i: i.year * 10 + season[i.issue]))
+  data = {
+    "name":section,
+    "issues": []
+  }
+  for issue in all_issues:
+    articles_in_issue = Article.objects.filter(issue=issue, section__name =section)
+    datum = {
+      'obj':issue,
+      'articles': articles_in_issue
+      }
+    data["issues"].append(datum)
+  # for issue in data["issues"]:
+  #   for article in issue["articles"]:
+  #     print article.contributors.all()
+
+  template_name = 'section.html'
+  return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 def submit(request):
 	template_name = 'submit.html'
@@ -118,6 +150,21 @@ def alumni(request):
 
 def advertise(request):
 	template_name = 'advertise.html'
+	return render_to_response(template_name, context_instance=RequestContext(request))
+
+def shop(request):
+	all_issues = Issue.objects.all()
+	season = {'Winter': 0, 'Spring': 1, 'Commencement': 2, 'Fall': 3}
+	all_issues_sorted = reversed(sorted(all_issues, key=lambda i: i.year))
+	#all_issues_sorted = reversed(sorted(all_issues, key=lambda i: i.year * 10 + season[i.issue]))
+	data = {
+		'issues': all_issues_sorted
+	}
+	template_name = 'shop.html'
+	return render_to_response(template_name, data, context_instance=RequestContext(request))
+
+def onefifty(request):
+	template_name = '150th.html'
 	return render_to_response(template_name, context_instance=RequestContext(request))
 
 def comp(request):

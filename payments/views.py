@@ -7,7 +7,7 @@ import stripe
 from django.conf import settings
 from datetime import datetime
 from pytz import timezone    
-
+from magazine import views
 
 
 def stripeSubmit(request):
@@ -15,11 +15,24 @@ def stripeSubmit(request):
 	token = request.POST['stripeToken']
 	# Create the charge on Stripe's servers - this will charge the user's card
 	try:
+		amount = 0
+		subscriptionType = request.POST['subscriptionType']
+		if subscriptionType == "Three years (12 issues) - U.S." :
+			amount = 90
+	 	elif subscriptionType == "Two years (8 issues) - U.S.":
+	 		amount = 69
+	 	elif subscriptionType == "One year (4 issues) - U.S.":
+	 		amount = 35
+		elif subscriptionType == "Three years (12 issues) - International & Institutions":
+			amount = 110
+		elif subscriptionType == "Two years (8 issues) - International & Institutions":
+			amount = 75
+		elif subscriptionType == "One year (4 issues) - International & Institutions":
+			amount = 35
 
 		customer = createCustomer(token,request.POST['name'])
-		amount = 123
+		chargeCustomer(amount*100,customer.id)
 
-		chargeCustomer(amount,customer.id)
 
 		subscriber = Subscriber.objects.create(
 			name=request.POST['name'], 
@@ -32,11 +45,11 @@ def stripeSubmit(request):
 			zipCode=request.POST['zipCode'],
 			renew=request.POST['renew'],
 			customerID = customer.id,
-			subscriptionType=request.POST['subscriptionType'],
+			subscriptionType=subscriptionType,
 			time = getEasternTimeZoneString()
 		)
 
-		return subscribe(request)
+		return views.subscribe(request)
 	except stripe.CardError, e:
 	  # The card has been declined
 	  pass
@@ -61,11 +74,11 @@ def sendDonation(request):
 			country=request.POST['country'],
 			zipCode=request.POST['zipCode'],
 			customerID = customer.id,
-			amount=request.POST['amount']*100,
+			amount=int(request.POST['amount'])*100,
 			time = getEasternTimeZoneString()
 		)
 
-		return subscribe(request)
+		return views.subscribe(request)
 	except stripe.CardError, e:
 	  	# The card has been declined
 	  	pass

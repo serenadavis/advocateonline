@@ -81,9 +81,13 @@ class Content(models.Model):
     def __unicode__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return 'dumb shit'
 
 class Article(Content):
-    pass
+    def get_absolute_url(self):
+        return '/article/{0}/'.format(self.slug.lower())
+
 
 
 def upload_image_to(instance, filename):

@@ -9,7 +9,6 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'magazine.views.index'),
-    url(r'^article', 'magazine.views.index'),
     url(r'^issues$', 'magazine.views.issues'),
     url(r'^about$', 'magazine.views.masthead'),
     url(r'^issue/(?P<season>[a-zA-Z]+)-(?P<year>[\d]{4})/$', 'magazine.views.singleissue'),
@@ -18,10 +17,12 @@ urlpatterns = patterns('',
     url(r'^submit$', 'magazine.views.submit'),
     url(r'^contact$', 'magazine.views.contact'),
     url(r'^alumni$', 'magazine.views.alumni'),
+    url(r'^fiction/$|^poetry/$|^art/$|^features/$', 'magazine.views.sections'),
     url(r'^advertise$', 'magazine.views.advertise'),
     url(r'^150$', 'magazine.views.onefifty'),
     url(r'^shop$', 'magazine.views.shop'),
     url(r'^comp$', 'magazine.views.comp'),
+    url(r'^article/(?P<slug>[a-zA-Z\d_\-]+)/$', 'magazine.views.article'),
     # url(r'^blog/', include('blog.urls')),
     url(r'^sendDonation$','payments.views.sendDonation'),
     url(r'^grappelli/', include('grappelli.urls')),
@@ -36,4 +37,3 @@ urlpatterns = patterns('',
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 )
 
-               
