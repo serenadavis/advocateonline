@@ -160,10 +160,8 @@ def shop(request):
 	data = {
 		'issues': all_issues_sorted
 	}
-	template_name = 'issues.html'
-	return render_to_response(template_name, data, context_instance=RequestContext(request))
 	template_name = 'shop.html'
-	return render_to_response(template_name, context_instance=RequestContext(request))
+	return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 def onefifty(request):
 	template_name = '150th.html'
