@@ -153,6 +153,15 @@ def advertise(request):
 	return render_to_response(template_name, context_instance=RequestContext(request))
 
 def shop(request):
+	all_issues = Issue.objects.all()
+	season = {'Winter': 0, 'Spring': 1, 'Commencement': 2, 'Fall': 3}
+	all_issues_sorted = reversed(sorted(all_issues, key=lambda i: i.year))
+	#all_issues_sorted = reversed(sorted(all_issues, key=lambda i: i.year * 10 + season[i.issue]))
+	data = {
+		'issues': all_issues_sorted
+	}
+	template_name = 'issues.html'
+	return render_to_response(template_name, data, context_instance=RequestContext(request))
 	template_name = 'shop.html'
 	return render_to_response(template_name, context_instance=RequestContext(request))
 
