@@ -63,20 +63,20 @@ class Tag(models.Model):
 
 class Content(models.Model):
     title = models.CharField(max_length=255)
-    subtitle = models.CharField(max_length=255)
+    subtitle = models.CharField(max_length=255, blank=True)
     slug = models.SlugField(max_length=100)
     teaser = models.TextField()
     body = tinymce.models.HTMLField()
 
     # Legacy fields; we should probably get rid of this eventually
-    medium = tinymce.models.HTMLField()
-    size = tinymce.models.HTMLField()
-    statement = tinymce.models.HTMLField()
+    medium = tinymce.models.HTMLField(blank=True)
+    size = tinymce.models.HTMLField(blank=True)
+    statement = tinymce.models.HTMLField(blank=True)
 
     issue = models.ForeignKey('Issue')
     section = models.ForeignKey('Section')
     contributors = models.ManyToManyField(Contributor)
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, blank=True)
 
     def __unicode__(self):
         return self.title
