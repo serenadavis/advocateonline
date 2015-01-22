@@ -6,6 +6,8 @@ from collections import OrderedDict
 import json
 import stripe
 from django.conf import settings
+
+
 # Create your views here.
 def index(request):
 	print 'GETTING INDEX'
