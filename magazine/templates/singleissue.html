@@ -9,11 +9,16 @@
 <div class = "row">
 	<div class="col-md-6">
 	{% for section, contentlist in content_list.items%}
-		<h2> {{section}} </h2>
+		<h2 class="subheader"> {{section}} </h2>
 		{%for content in contentlist %}
-		<p><a href="{{ content.get_absolute_url }}">{{content.title}}</a></p>
+		<div class="section-article">
+		<p class="name"><a href="{{ content.get_absolute_url }}">{{content.title}}</a></p>
 		{% endfor %}
+		 	{% for author in article.contributors.all %}
+         	<p class="author">{{ author.name }}</p>
+        	{% endfor %}
 		{% endfor %}
+	</div>
 	</div>
 
 
