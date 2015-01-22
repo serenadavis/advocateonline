@@ -6,10 +6,11 @@
 
 <div class = "container">
 	<H1> {{ article.title }} </h1>
-	<h2 class="subheader"> {{ article.contributors.all }} </h2>
-	{% post_to_facebook object_or_url "Post to Facebook!" %}
-	{% post_to_twitter "New Song: {{object.title}}. Check it out!" object_or_url "Post to Twitter" %}	
+	<h2 class="subheader"> {{ article.contributors.all }} 
+	{% post_to_facebook object_or_url "Post to Facebook" %} {% post_to_twitter "Check this Harvard Advocate piece out:" object_or_url "Post to Twitter" %}	</h2>
 	<p> {{article.body|safe}} </p>
+	<p class = "subheader">
+	{% post_to_facebook object_or_url "Post to Facebook" %} {% post_to_twitter "Check this Harvard Advocate piece out:" object_or_url "Post to Twitter" %}	</p>
 
 </div>
 {%endblock%}
