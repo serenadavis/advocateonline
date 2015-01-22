@@ -1,9 +1,37 @@
 {% extends "base_original.html" %}{% block content %}
-
+{% load staticfiles %}
 
 <div class="container">
 	<h1 class="header">S H O P</h1>
 
 	<h2 class="subheader">C O M I N G &ensp; S O O N !</h2>
 	<p class = "text"> Check back within the next few weeks for our updated shop to order apparel, back issues, and other merchandise. Hurry back! </p>
+	
+
+
+	{% for issue in issues %}
+		{% if forloop.counter0|divisibleby:4 %}
+			<div class="row">
+		{% endif %}
+ 		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+ 			<h2>{{ issue.name }}</h2>
+			<!-- How to check if image exists: 
+			http://stackoverflow.com/questions/6637168/python-django-templates-and-testing-if-a-variable-is-null-or-empty-string?rq=1
+			http://stackoverflow.com/questions/12507281/determine-empty-template-variable-in-django -->
+			{% if issue.cover_image and issue.cover_image|length > 0 %}
+			<figure><a href="{{issue.get_absolute_url}}"><img class='img-responsive' style="margin: 0 auto;" src="{{MEDIA_URL}}{{ issue.cover_image }}"></a></figure>
+			{% else %}
+			<figure><a href="{{issue.get_absolute_url}}"><img class='img-responsive' style="margin: 0 auto;" src="{{MEDIA_URL}}image-not-available.jpg"></a></figure>
+			{% endif %}
+ 		</div>
+ 		{% if forloop.counter|divisibleby:4 %}
+			</div>
+		{% endif %}
+
+ 	{% endfor %}	
+
+
+
+
+
 {% endblock %}
