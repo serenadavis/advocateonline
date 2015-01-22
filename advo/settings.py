@@ -41,6 +41,8 @@ INSTALLED_APPS = (
     'ajax_select',
     'south',
     'magazine',
+    'payments',
+    'django_social_share'
 )
 
 MIDDLEWARE_CLASSES = (

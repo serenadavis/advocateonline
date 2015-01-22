@@ -1,0 +1,15 @@
+{% extends "base_original.html" %}
+
+{% block content %}
+{% load staticfiles %}
+{% load social_share %}
+
+<div class = "container">
+	<H1> {{ article.title }} </h1>
+	<h2 class="subheader"> {{ article.contributors.all }} </h2>
+	{% post_to_facebook object_or_url "Post to Facebook!" %}
+	{% post_to_twitter "New Song: {{object.title}}. Check it out!" object_or_url "Post to Twitter" %}	
+	<p> {{article.body|safe}} </p>
+
+</div>
+{%endblock%}

@@ -1,6 +1,7 @@
 *.sw[op]
 *.py[oc]
 ._*
+media/issue_covers/*
 advo/local_settings.py
 sql/*
 .DS_Store
