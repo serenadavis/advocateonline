@@ -1,6 +1,6 @@
 {% extends "base_original.html" %}
 
-
+{% load staticfiles %}
 {% block content %}
 
 
@@ -17,11 +17,14 @@
 	
 
 	<h2 class="subheader">L O C A T I O N </h2>
+	<p class="text">  We are located at 21 South Street, Cambridge, Massachusetts 02138. We are in the building most weekdays in the afternoon. Alumni members are always welcome to stop by.</p>
+
 	<!-- <img src="http://imgur.com/5WrFDDY" alt="" width="512" height="512" /><br /> --> 
 
-	<img class="header-image" src="http://www.theharvardadvocate.com/sites/default/files/advocate_21_s_st1.jpg" alt="Map" width="512" height="512" align="middle"/><br />
+	<!--<img class="header-image" src="http://www.theharvardadvocate.com/sites/default/files/advocate_21_s_st1.jpg" alt="Map" width="512" height="512" align="middle"/><br />-->
+
+	<img class="header-image" src="{% static "magazine/images/map.jpg" %}" alt="Map" width="512" height="512" align="middle"/><br />
 
 	
-	<p class="text">  We are located at 21 South Street, Cambridge, Massachusetts 02138. We are in the building most weekdays in the afternoon. Alumni members are always welcome to stop by.</p>
 
 	{% endblock %}
