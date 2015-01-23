@@ -58,6 +58,7 @@ body{
   max-width: none !important;
   width:100%;
   background-color: white;
+  z-index: 999; 
 }
 .affix .nav-header::before {
    content: "THE HARVARD ADVOCATE";
