@@ -58,14 +58,13 @@ body{
   max-width: none !important;
   width:100%;
   background-color: white;
-  z-index: 999; 
+  z-index: 999;
 }
 .affix .nav-header::before {
    content: "THE HARVARD ADVOCATE";
    float: left;
-    display: inline-block;
-    padding: 15px;
-
+   display: inline-block;
+   padding: 15px;
 
 }
 .main-title{
@@ -163,6 +162,18 @@ margin-top: 20px;
 .f-t-links{
 
 }
+.article-title{
+  color: black;
+  font-size:50px;
+  margin:40px 25px 25px 25px;
+  letter-spacing: 4px;
+
+}
+.article-author{
+  font-family: Times;
+  text-transform: uppercase;
+  font-size: 20px;
+}
 .left{
 	float: left;
 }
@@ -218,7 +229,7 @@ margin-top: 20px;
 .section-article .name{
   font-family: Times;
   font-style: italic;
-    padding: 0;
+  padding: 0;
 }
 .article-summary{
 	font-family: Times;
@@ -302,6 +313,9 @@ and (max-device-width : 480px) {
 }
 .logo{
 	display: none;
+}
+.nav-header{
+  display: none !important;
 }
 
 
