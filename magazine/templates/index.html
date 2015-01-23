@@ -2,10 +2,37 @@
 {% load staticfiles %}
 
 {% block content %}
+
 <img src="{% static "magazine/images/comm_crop.jpeg" %}" class = "header-image img-responsive" alt="Main Image" >
 <div class="container">
-<h1 class="header">CURRENT ISSUE: SPRING 2014 </h1>
-	<div class="row">
+<h1 class="header">CURRENT ISSUE: <a href="{{issue.get_absolute_url}}"> {{issue}} </a></h1>
+
+{% for section, article  in sections.items %}
+{% if forloop.counter0|divisibleby:2 %}
+<div class="row">
+{% endif %}
+   <div class="col-md-6 {% if forloop.counter|divisibleby:2 %} left {% endif%}">
+      <h2 class="subheader">{{section|upper}}</h2>
+      <h4 class="subheader-article-name"> {{article.title}}</h4>
+       {% for author in article.contributors.all %}
+          <h3 class="subheader-article-author"> {{ author.name }} </h3>
+        {% empty %}
+          <h3 class="subheader-article-author"> No Author </h3>
+       {% endfor %}
+      {% if section == "art" %}
+        <p class="article-summary"> This is art and will therefore not work</p>
+      {% else %}
+      <p class="article-summary"> {{article.teaser}}.... <a href="{{ article.get_absolute_url }}" class="">[Continue reading]</a></p>
+      {% endif %}
+  </div>
+{% if forloop.counter|divisibleby:2 %}
+<hr class = "divide-bar">
+</div>
+{% endif %}
+
+{% endfor %}
+
+<!-- 	<div class="row">
 	  <div class="col-md-6 left">
 	  	<h2 class="subheader">ART</h2>
 
@@ -40,6 +67,7 @@ Now I’m really a rabbit, mostly dishabille,
 a shapka-ushanka with flopping ashen flaps above, bobbing ... [Continue reading]</p>
 	  </div>
 	</div>
-</div>
+</div> -->
+
 
   {% endblock %}

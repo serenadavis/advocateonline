@@ -1,8 +1,9 @@
-// // Wait for page to load
-// $( document ).ready(Main)
+// Wait for page to load
+$( document ).ready(Main)
 
-// function Main(){
+function Main(){
 
-// 	// Subheader bottom borders
-// 	$(".subheader").append("<hr class='subheader-border'>")
-// }
+	// Subheader bottom borders
+	$(".subheader").append("<hr class='subheader-border'>")
+
+}
