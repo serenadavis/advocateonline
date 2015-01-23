@@ -168,11 +168,13 @@ margin-top: 20px;
 	border-bottom: 1px solid #000;
 }
 .subheader{
+  color: #000;
+  text-decoration: none;
 	font-family: futura;
 	padding: 10px;
 	font-size: 18px;
-
 }
+
 
 .subheader-article-name{
 	font-family: Times;
@@ -244,6 +246,7 @@ margin-top: 20px;
 	padding: 25px;
 	font-size: 12px;
 }
+
 .subheader-border{
 	letter-spacing: 2px;
 	width:30px;
