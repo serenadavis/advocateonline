@@ -1,38 +1,37 @@
 {% extends "base_original.html" %}{% block content %}
 {% load staticfiles %}
 
+
+
 <div class="container">
 	<h1 class="header">S H O P</h1>
 
 	<h2 class="subheader">C O M I N G &ensp; S O O N !</h2>
-	<p class = "text"> Check back within the next few weeks for our updated shop to order apparel, back issues, and other merchandise. Hurry back! </p>
+	<p class = "text">Welcome to The Harvard Advocate's Store! Below you can find back issues that you may purchase. All issues are $10 (domestic shipping $2; international shipping $5) unless otherwise indicated. Check back with us for Advogear as well. You can use the online checkout system by clicking "Add to Cart" below the thumbnails.</p>
 	
 
 
 	{% for issue in issues %}
 		{% if forloop.counter0|divisibleby:4 %}
-			<div class="row">
+			<div class="row" data-right-height>
 		{% endif %}
  		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
- 			<h2>{{ issue.name }}</h2>
-
  			
+
+ 			<h3>{{ issue.name }}<br>Print $10</h2>
+
 			<!-- How to check if image exists: 
 			http://stackoverflow.com/questions/6637168/python-django-templates-and-testing-if-a-variable-is-null-or-empty-string?rq=1
 			http://stackoverflow.com/questions/12507281/determine-empty-template-variable-in-django -->
 			{% if issue.cover_image and issue.cover_image|length > 0 %}
-			<figure><a href="{{issue.get_absolute_url}}"><img class='img-responsive' style="margin: 0 auto;" src="{{MEDIA_URL}}{{ issue.cover_image }}"></a></figure>
+			<figure data-right-height-content><a href="{{issue.get_absolute_url}}"><img class='img-responsive' style="margin: 0 auto;" src="{{MEDIA_URL}}{{ issue.cover_image }}"></a></figure>
 			{% else %}
-			<figure><a href="{{issue.get_absolute_url}}"><img class='img-responsive' style="margin: 0 auto;" src="{{MEDIA_URL}}image-not-available.jpg"></a></figure>
+			<figure data-right-height-content><a href="{{issue.get_absolute_url}}"><img class='img-responsive' style="margin: 0 auto;" src="{{MEDIA_URL}}image-not-available.jpg"></a></figure>
 
 			{% endif %}
-			<br>
+
 			<form>
-			  	<select class="form-control">
-				  <option>Paper</option>
-				  <option>Digital</option>
-				</select>
-			  <button type="submit" class="btn btn-default">Add to Cart</button>
+			  <button type="submit" class="btn btn-default btn-block">Add to Cart</button>
 			</form>
 
  		</div>
@@ -44,7 +43,10 @@
 
  	{% endfor %}	
 
-
+<script src="{% static 'magazine/js/right-height.js' %}"></script>
+<script>
+    rightHeight.init();
+</script>
 
 
 
