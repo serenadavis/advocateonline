@@ -5,12 +5,22 @@
 {% load social_share %}
 
 <div class = "container">
-	<H1> {{ article.title }} </h1>
-	<h2 class="subheader"> {{ article.contributors.all }} 
-	{% post_to_facebook object_or_url "Post to Facebook" %} {% post_to_twitter "Check this Harvard Advocate piece out:" object_or_url "Post to Twitter" %}	</h2>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+
+	<h1 class="article-title"> {{ article.title }} </h1>
+	{% for author in article.contributors.all %}
+         <h2 class="article-author"> {{ author.name }}</h2>
+  {% endfor %}
+  <h2 class="article-author"> Luciano Arango</h2>
+<!-- 	<h3> -->
+  <!-- Go to www.addthis.com/dashboard to customize your tools -->
+ <h3> <div class="addthis_sharing_toolbox"></div></h3>
+<!--   {% post_to_facebook object_or_url "Post to Facebook" %} {% post_to_twitter "Check this Harvard Advocate piece out:" object_or_url "Post to Twitter" %}	</h3> -->
 	<p> {{article.body|safe}} </p>
-	<p class = "subheader">
-	{% post_to_facebook object_or_url "Post to Facebook" %} {% post_to_twitter "Check this Harvard Advocate piece out:" object_or_url "Post to Twitter" %}	</p>
+<!-- 	<p class = "subheader">
+	{% post_to_facebook object_or_url "Post to Facebook" %} {% post_to_twitter "Check this Harvard Advocate piece out:" object_or_url "Post to Twitter" %}	</p> -->
+<h3><div class="addthis_sharing_toolbox"></div></h3>
 
 </div>
+
 {%endblock%}

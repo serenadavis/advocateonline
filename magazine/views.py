@@ -6,26 +6,36 @@ from collections import OrderedDict
 import json
 import stripe
 from django.conf import settings
+import random
 
+foo = ['a', 'b', 'c', 'd', 'e']
+print(random.choice(foo))
 
 # Create your views here.
 def index(request):
 	print 'GETTING INDEX'
-	issue = Issue.objects.first()
+	issue = Issue.objects.last()
 
-# for each article with this issue id
+	# for each article with this issue id
 	articles_in_issue = Article.objects.filter(issue=issue)
 	data = {
-		'fiction': [],
-		'features': [],
-		'poetry': [],
-		'art': []
+		'sections':	{
+				'fiction': [],
+				'features': [],
+				'poetry': [],
+				'art': []
+			},
+		'issue': issue
 	}
-	# for article in articles_in_issue:
-	# 	data[article.section].append(article)
-
-	#template_name = 'index_v1.html',
+	# Put articles into their respective sections
+	for article in articles_in_issue:
+		data['sections'][str(article.section).lower()].append(article)
+  # Randomly choice an article for every section
+	for key in data['sections']:
+		if data['sections'][key]:
+			data['sections'][key]= random.choice(data['sections'][key])
 	template_name = 'index.html'
+	print data
 	return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 def article(request, slug):
@@ -169,12 +179,4 @@ def onefifty(request):
 
 def comp(request):
 	template_name = 'comp.html'
-	return render_to_response(template_name, context_instance=RequestContext(request))
-
-def shop(request):
-	template_name = 'shop.html'
-	return render_to_response(template_name, context_instance=RequestContext(request))
-
-def onefifty(request):
-	template_name = 'onefifty.html'
 	return render_to_response(template_name, context_instance=RequestContext(request))
