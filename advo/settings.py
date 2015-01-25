@@ -42,7 +42,8 @@ INSTALLED_APPS = (
     'south',
     'magazine',
     'advoblog',
-    'djstripe'
+    'payments',
+    'django_social_share'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -103,7 +104,8 @@ STATICFILES_FINDERS = (
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.request',
-    'djstripe.context_processors.djstripe_settings',
+    #http://stackoverflow.com/questions/3756841/django-media-url-blank    
+    'django.core.context_processors.media',
 )
 
 AJAX_LOOKUP_CHANNELS = {
@@ -113,24 +115,6 @@ AJAX_LOOKUP_CHANNELS = {
 
 STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY", "pk_test_7mkjcG8fQj3qmdhCgP92Pq4g")
 
-DJSTRIPE_PLANS = {
-    "monthly": {
-        "stripe_plan_id": "pro-monthly",
-        "name": "Web App Pro ($24.99/month)",
-        "description": "The monthly subscription plan to WebApp",
-        "price": 2499,  # $24.99
-        "currency": "usd",
-        "interval": "month"
-    },
-    "yearly": {
-        "stripe_plan_id": "pro-yearly",
-        "name": "Web App Pro ($199/year)",
-        "description": "The annual subscription plan to WebApp",
-        "price": 19900,  # $199.00
-        "currency": "usd",
-        "interval": "year"
-    }
-}
 
 try:
     from local_settings import *

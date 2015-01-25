@@ -1,0 +1,28 @@
+{% extends "base_original.html" %}
+
+
+{% block content %}
+
+
+<div class="container">
+	<h1 class="header">S U B S C R I B E</h1>
+	<p class="text">
+		Founded in 1866, The Harvard Advocate is the oldest continuously published collegiate literary magazine in the United States. For over 140 years it has provided its readers with the highest caliber of prose, fiction, poetry, and art that the Harvard community can offer. With a global subscriber's network--it is distributed in 5 continents--no place is too remote for the Advocate to reach. You too, wherever you are, can enjoy the magazine.
+
+		To subscribe using our online checkout system, choose the Subscription Type and click Subscribe below. If you prefer to subscribe by mail, <a title="Subscribe by Mail" href="http://www.theharvardadvocate.com/node/121/" target="_blank">click here</a>. <br><br>
+
+	<form style="text-align: center;" action="/stripeSubmit" method="post" id="payment-form">{% csrf_token %} <input name="cmd" type="hidden" value="_s-xclick" /> 
+		<input name="hosted_button_id" type="hidden" value="MDW8DPE33DMP6" /> 
+		<table border="0">
+			<tbody>
+				<tr><td style="text-align: left;"><input name="subscriptionType" type="hidden" value="Subscription Type" />Subscription Type</td></tr>
+					<tr><td style="text-align: left;">
+						<select name="subscriptionType"> <option value="Three years (12 issues) - U.S.">Three years (12 issues) - U.S. $90.00 USD</option> <option value="Two years (8 issues) - U.S.">Two years (8 issues) - U.S. $69.00 USD</option> <option value="One year (4 issues) - U.S.">One year (4 issues) - U.S. $35.00 USD</option> <option value="Three years (12 issues) - International &amp; Institutions">Three years (12 issues) - International &amp; Institutions $110.00 USD</option> <option value="Two years (8 issues) - International &amp; Institutions">Two years (8 issues) - International &amp; Institutions $75.00 USD</option> <option value="One year (4 issues) - International &amp; Institutions">One year (4 issues) - International &amp; Institutions $45.00 USD</option> </select></td></tr> <tr><td style="text-align: left;">  
+            {% include 'paymentData.html' with page="Subscribe" only  %}
+          <input name="currency_code" type="hidden" value="USD" /> 
+ </form>
+  {% include 'stripeJS.html' %}
+
+
+		
+	{% endblock %}

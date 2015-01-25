@@ -12,20 +12,32 @@ def now():
                 datetime.datetime(2014, 1, 1)).total_seconds() * 10 ** 6)
     return unicode(now)
 
+# issue_covers/issue.year/filename.jpg
 def issue_upload_to(instance, filename):
     fname = ''.join([c for c in filename if c.isalnum() or c == '.'])
-    return os.path.join('issue_covers', str(instance.pub_date.year), 
-            slugify(instance.name), now() + '_' + fname)
+    return os.path.join('issue_covers', str(instance.year), now() + '_' + fname)
+
 
 class Issue(models.Model):
     name = models.CharField(max_length=255, unique=True)
+    theme = models.CharField(max_length=255, blank=True, null=True)
+    cover_image = models.ImageField(upload_to=issue_upload_to, blank=True, null=True)
+    
+    ISSUE_CHOICES = (
+        ('Fall', 'Fall'),
+        ('Winter', 'Winter'),
+        ('Spring', 'Spring'),
+        ('Commencement', 'Commencement'),
+    )
+    issue = models.CharField(max_length=255, choices=ISSUE_CHOICES, default='Fall')
+    year = models.IntegerField(blank=True, null=True)
     pub_date = models.DateField()
-    cover_image = models.ImageField(upload_to=issue_upload_to, blank=True,
-            null=True)
 
     def __unicode__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return '/issue/{0}-{1}/'.format(self.issue.lower(), self.year)
 
 class Section(models.Model):
     name = models.CharField(max_length=255, unique=True)
@@ -44,7 +56,7 @@ class Contributor(models.Model):
 class Tag(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=100)
-    
+
     def __unicode__(self):
         return self.name
 
@@ -69,19 +81,63 @@ class Content(models.Model):
     def __unicode__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return 'dumb shit'
 
 class Article(Content):
-    pass
+    def get_absolute_url(self):
+        return '/article/{0}/'.format(self.slug.lower())
+
 
 
 def upload_image_to(instance, filename):
     fname = ''.join([c for c in filename if c.isalnum() or c == '.'])
 
-    return os.path.join('images', slugify(instance.issue.name), 
+    return os.path.join('images', slugify(instance.issue.name),
             now() + '_' + fname)
 
 
 class Image(Content):
     photo = models.ImageField(upload_to=upload_image_to)
 
+
+
+class Donation(models.Model):
+
+    amount = models.IntegerField()
+    name = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+    streetAddress1 = models.CharField(max_length=255)
+    streetAddress2 = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)    
+    state = models.CharField(max_length=255)    
+    country = models.CharField(max_length=255)
+    zipCode = models.CharField(max_length=255)
+    customerID = models.CharField(max_length=255) 
+    time = models.CharField(max_length=255)
+
+
+class Subscriber(models.Model):
+
+    SUBSCRIPTION_CHOICES = (
+        ('Three year; US', 'Three year; US'),
+        ('Two year; US', 'Two year; US'),
+        ('One year; US', 'One year; US'),
+        ('Three year; non-US', 'Three year; non-US'),
+        ('Two year; non-US', 'Two year; non-US'),
+        ('One year; non-US', 'One year; non-US')
+    )
+
+    name = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+    streetAddress1 = models.CharField(max_length=255)
+    streetAddress2 = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)    
+    state = models.CharField(max_length=255)    
+    country = models.CharField(max_length=255)
+    zipCode = models.CharField(max_length=255)
+    customerID = models.CharField(max_length=255) 
+    renew = models.BooleanField()
+    subscriptionType = models.CharField(max_length=255, choices=SUBSCRIPTION_CHOICES)
+    time = models.CharField(max_length=255)
 

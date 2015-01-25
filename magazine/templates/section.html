@@ -1,0 +1,41 @@
+{% extends "base_original.html" %}
+
+
+{% block content %}
+{% load staticfiles %}
+
+<img src="{% static "magazine/images/comm_crop.jpeg" %}" class = "header-image img-responsive" alt="Main Image" >
+<div class="container">
+
+<h1 class="header">{{ name }} </h1>
+
+{% for issue in issues %}
+{% if forloop.counter0|divisibleby:2 %}
+<div class="row">
+{% endif %}
+
+  <div class="col-md-6">
+     <h2 class="subheader">{{issue.obj}}</h2>
+     {% for article in issue.articles %}
+      <div class="section-article">
+        <a href="{{ article.get_absolute_url }}"><p class="name">{{article.title}}</p></a>
+        {% for author in article.contributors.all %}
+         <p class="author">{{ author.name }}</p>
+        {% endfor %}
+      </div>
+     {% endfor %}
+  </div>
+{% if forloop.counter|divisibleby:2 %}
+</div>
+{% endif %}
+
+
+{% endfor %}
+
+</div>
+{% endblock %}
+
+<div class="col-xs-1 col-sm-2 col-md-3 col-lg-3">
+  <h2>{{ issue.name }}</h1>
+  <figure><a href="{{issue.get_absolute_url}}"><img class='img-responsive' style="margin: 0 auto;" src="{{MEDIA_URL}}{{issue.cover_image }}"></a></figure>
+</div>

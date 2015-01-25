@@ -1,20 +1,10 @@
 ## How to install 
 
-### Clone the repo
-```git clone git@github.com:harvardadvocate/advocateonline.git```
+Instructions for correctly setting up a virtual environment and getting started with the project are on the wiki. 
 
-### Set up a virtual environment
-If you need help setting up a virtual environment, please read through [this guide](http://www.jeffknupp.com/blog/2013/12/18/starting-a-django-16-project-the-right-way) to setting up a Django 1.6 project the right way. If you're using virtualenvwrapper (highly recommended), you can simply enter
-```mkvirtualenv advocateonline``` to get going.
+[How to Get Set Up for Linux Users](https://github.com/harvardadvocate/advocateonline/wiki/How-to-Get-Set-Up-(Linux))
 
-### Install the requirements
-```pip install -r requirements.txt```
-
-If you get an error like ```EnvironmentError: mysql_config not found``` then it means that you need to install libmysqlclient-dev like so:
-
-```sudo apt-get install libmysqlclient-dev```
-
-If you get an error while installing it, make sure you update your sources and then run ```apt-cache policy libmysqlclient-dev```.
+[How to Get Set Up for Mac Users](https://github.com/harvardadvocate/advocateonline/wiki/How-to-Get-Set-Up-(Mac))
 
 ### Run it locally
 Navigate to the root directory of the repo you just cloned ```/advocateonline``` and run
@@ -24,6 +14,26 @@ Navigate to the root directory of the repo you just cloned ```/advocateonline```
 ## Contributing
 
 When installing new packages, always make sure to update the requirements file.
-```pip freeze > requirements.txt```
+```
+pip freeze > requirements.txt
+```
 
+## Updating the database
+To update the db, run
+```
+python manage.py schemamigration <app_name>
+```
+This creates a migration in ```<appname>/migrations/```. A migration is essentially a Python script that tells South (our database migration library) how to update the database. Be sure to add this migration to the git repository so others have the migration and can update their own databases.
+
+To actually run the migration and update your database for a specific app, run
+```
+python manage.py migrate <app_name>
+```
+To run migrations on all apps, the command is:
+```
+python manage.py migrate
+```
+In general, whenever you pull code, you should probably run ```python manage.py migrate``` in case someone has committed new database migrations to the repository.
+
+You should also periodically run ```pip install -r requirements.txt``` in case someone has installed new packages. 
 
