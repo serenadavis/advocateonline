@@ -25,11 +25,16 @@
   <link rel="stylesheet" href="{% static 'magazine/css/stylesheet.css' %}">
 
 <header class="container">
-    <div class="top-line">
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 f-t-links">
+    <div class="row">
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 f-t-links">
             Join us: <a  class = "social-media-link" href = "https://www.facebook.com/harvardadvocate">F</a> <a class = "social-media-link"  href="https://twitter.com/harvardadvocate">T</a>
         </div>
-        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <!--   {% load staticfiles %}
+            <figure><img src="{% static "magazine/images/seal_banner.jpeg" %}" class = "header-image img-responsive" alt="Main Image" ></figure> -->
+        <a class="no-decoration" href="/"><h1 class="main-title">THE HARVARD ADVOCATE</h1></a>
+        </div>
+            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
             <div class="form-group search-group">
                 <form class=" search-form" role="search">
                     <svg width="20px" height="24px">
@@ -47,24 +52,20 @@
                     <hr class="search-bottom-border">
                 </form>
                 <div class="search-form-links ">
-                    <a class="no-decoration" href="/subscribe">Subscribe</a>
-                    <a class="no-decoration"href="/donate">Donate</a>
-                    <a class="no-decoration"href="/shop">Shop</a>
-                    <a class="no-decoration"href="/150th">150th</a>
+                  <a class="no-decoration" href="/subscribe">Subscribe</a>
+                  <a class="no-decoration"href="/donate">Donate</a> 
+                  <a class="no-decoration"href="/shop">Shop</a> 
+                  <a class="no-decoration"href="/150th">150th</a> 
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="logo-container">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <!--   {% load staticfiles %}
-            <figure><img src="{% static "magazine/images/seal_banner.jpeg" %}" class = "header-image img-responsive" alt="Main Image" ></figure> -->
-           <a class="no-decoration"href="/"><h1 class="main-title">THE HARVARD ADVOCATE</h1></a>
-        </div>
-    </div>
+             </div>
+          </div>
+<!--     <div class="logo-container"> -->
+
+
+      </div>
 </header>
 <!-- <hr class = "navbar-divider"> -->
-<div class="container" data-spy="affix" data-offset-top="300" data-offset-bottom="0" >
+<div class="container" data-spy="affix" data-offset-top="170" data-offset-bottom="0" >
     <nav class="navbar navbar-default  advo-navbar" role="navigation" >
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
