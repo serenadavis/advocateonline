@@ -1,9 +1,10 @@
+{% load staticfiles %}
 
 <!DOCTYPE html>
 <html dir="ltr">
 	<head>
         <title>Hail Advocate Alumni well met! </title>
-        <link rel="image_src" href="{{MEDIA_URL}}alum_bg.jpg" / >
+        <link rel="image_src" href="{% static 'magazine/images/alum_bg.jpg' %}" / >
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Hail Advocate Alumni well met! ">
@@ -105,7 +106,7 @@ input {
 </script>
 	   <style type="text/css">
 		body{
-            background-image:url({{MEDIA_URL}}/alum_bg.jpg);
+            background-image:url({% static 'magazine/images/alum_bg.jpg' %});
 		    background-size: cover;
 font-family:"Didot", "Didot LT STD", "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
         font-style:italic;
