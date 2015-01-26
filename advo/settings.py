@@ -115,6 +115,12 @@ AJAX_LOOKUP_CHANNELS = {
 
 STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY", "pk_test_7mkjcG8fQj3qmdhCgP92Pq4g")
 
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,spellchecker,paste,searchreplace",
+    'theme': "advanced",
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 10,
+}
 
 try:
     from local_settings import *
