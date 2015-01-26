@@ -1,12 +1,4 @@
 Django==1.6.5
-<<<<<<< HEAD
-MySQL-python==1.2.5
-Pillow==2.6.0
-South==0.8.4
-argparse==1.2.1
-dj-stripe==0.3.5
-=======
->>>>>>> dbbeb64cf641bf194ccb8bb62475eb1f1c6c9ee0
 django-ajax-selects==1.3.4
 django-braces==1.4.0
 django-grappelli==2.5.3
