@@ -92,7 +92,7 @@ class Content(models.Model):
         return 'dumb shit'
 
 class Article(Content):
-    photo = models.ImageField(upload_to=upload_image_to, blank=True, null=True)
+    #photo = models.ImageField(upload_to=upload_image_to, blank=True, null=True)
     def get_absolute_url(self):
         return '/article/{0}/'.format(self.slug.lower())
 

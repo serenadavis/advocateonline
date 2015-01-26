@@ -125,8 +125,9 @@ margin-top: 20px;
   float: none;
   vertical-align: top;
 }
+
 .search-form-links{
-	text-align: center;
+	text-align: right;
 	margin-top:8px;
 	word-spacing: 10px;
 }
@@ -188,9 +189,7 @@ margin-top: 20px;
 }
 .top-line{
 	font-family: futura;
-	margin-top: 10px;
-	margin-bottom: 15px;
-	height:60px;
+	margin-top: 20px;
 }
 .navbar .navbar-collapse {
   text-align: center;
