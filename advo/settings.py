@@ -116,6 +116,8 @@ STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY", "pk_test_7mkjcG8fQj3qmdh
 
 TINYMCE_DEFAULT_CONFIG = {
     'plugins': "table,spellchecker,paste,searchreplace",
+    'paste_retain_style_properties': "color font-size",
+    'content_css': "/static/magazine/css/tinymce_custom.css", 
     'theme': "advanced",
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 10,

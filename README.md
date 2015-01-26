@@ -19,9 +19,11 @@ pip freeze > requirements.txt
 ```
 
 ## Updating the database
+[Dealing With Migrations](https://github.com/harvardadvocate/advocateonline/wiki/Dealing-with-Migrations)
+
 To update the db, run
 ```
-python manage.py schemamigration <app_name>
+python manage.py schemamigration <app_name> --auto --update
 ```
 This creates a migration in ```<appname>/migrations/```. A migration is essentially a Python script that tells South (our database migration library) how to update the database. Be sure to add this migration to the git repository so others have the migration and can update their own databases.
 

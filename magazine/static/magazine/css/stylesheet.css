@@ -41,6 +41,12 @@ p {
 	margin: 0 auto;
 }
 
+article p {
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+}
+
 figure {
 	text-align: center;
 }
