@@ -11,8 +11,13 @@ p {
 	/*margin-bottom: 20px;
 	padding-bottom: 20px;*/
 	/*width: 90%;*/
-	text-indent: 20px;
-	/*margin: 0;
+	/*text-indent: 20px;*/
+
+	margin: 0;
 	padding: 0;
-	border: 0;*/
+	border: 0;
 }
+
+p + p {
+  text-indent: 2em;
+} 
