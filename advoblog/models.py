@@ -30,16 +30,23 @@ class Images(models.Model):
     def __unicode__(self):
         return self.id
 
+
+class Theme(models.Model):
+    name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length = 100)
+
 # Create your models here.
 class Post(models.Model):
-    title = models.CharField(max_length=60)
+    title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100)
     body = tinymce.models.HTMLField()
     created = models.DateTimeField(auto_now_add=True)
     tags = models.ManyToManyField(Tag)
     posted = models.ManyToManyField(Category)
     authors = models.ManyToManyField(Author)
+    theme = models.ForeignKey(Theme)
 
     def __unicode__(self):
         return self.title
+    
 
