@@ -8,15 +8,22 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        pass
+        # Adding field 'Article.photo'
+        db.add_column(u'magazine_article', 'photo',
+                      self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True, blank=True),
+                      keep_default=False)
+
 
     def backwards(self, orm):
-        pass
+        # Deleting field 'Article.photo'
+        db.delete_column(u'magazine_article', 'photo')
+
 
     models = {
         u'magazine.article': {
             'Meta': {'object_name': 'Article', '_ormbases': [u'magazine.Content']},
-            u'content_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['magazine.Content']", 'unique': 'True', 'primary_key': 'True'})
+            u'content_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['magazine.Content']", 'unique': 'True', 'primary_key': 'True'}),
+            'photo': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'})
         },
         u'magazine.content': {
             'Meta': {'object_name': 'Content'},

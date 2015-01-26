@@ -12,11 +12,18 @@ def now():
                 datetime.datetime(2014, 1, 1)).total_seconds() * 10 ** 6)
     return unicode(now)
 
+# upload issue cover images
 # issue_covers/issue.year/filename.jpg
 def issue_upload_to(instance, filename):
     fname = ''.join([c for c in filename if c.isalnum() or c == '.'])
     return os.path.join('issue_covers', str(instance.year), now() + '_' + fname)
 
+# upload artwork and illustrations accompanying articles
+def upload_image_to(instance, filename):
+    fname = ''.join([c for c in filename if c.isalnum() or c == '.'])
+    print instance.issue.name
+    #return os.path.join('images', slugify(instance.issue.name),
+    return os.path.join('images', str(instance.issue.year), str(instance.issue.issue), now() + '_' + fname)
 
 class Issue(models.Model):
     name = models.CharField(max_length=255, unique=True)
@@ -85,22 +92,12 @@ class Content(models.Model):
         return 'dumb shit'
 
 class Article(Content):
+    photo = models.ImageField(upload_to=upload_image_to, blank=True, null=True)
     def get_absolute_url(self):
         return '/article/{0}/'.format(self.slug.lower())
 
-
-
-def upload_image_to(instance, filename):
-    fname = ''.join([c for c in filename if c.isalnum() or c == '.'])
-
-    return os.path.join('images', slugify(instance.issue.name),
-            now() + '_' + fname)
-
-
 class Image(Content):
     photo = models.ImageField(upload_to=upload_image_to)
-
-
 
 class Donation(models.Model):
 

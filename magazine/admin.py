@@ -18,3 +18,4 @@ class ContentAdmin(admin.ModelAdmin):
 
     
 admin.site.register(Article, ContentAdmin)
+admin.site.register(Image, ContentAdmin)

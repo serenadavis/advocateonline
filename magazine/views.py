@@ -25,7 +25,8 @@ def index(request):
 				'poetry': [],
 				'art': []
 			},
-		'issue': issue
+		'issue': issue,
+		'page' : 'home',
 	}
 	# Put articles into their respective sections
 	for article in articles_in_issue:
