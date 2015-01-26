@@ -65,8 +65,24 @@
 
         
       </div>
-      <img src="{% static "magazine/images/seal_banner.jpeg" %}" class = "header-image img-responsive" alt="Main Image" >
+
+      {% if name == "fiction" %}
+      <img src="{% static "magazine/images/banner1.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
 </header>
+      {% elif name == "poetry" %}
+      <img src="{% static "magazine/images/banner2.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
+</header>
+      {% elif name == "features" %}
+      <img src="{% static "magazine/images/banner3.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
+</header>
+      {% elif name == "art" %}
+      <img src="{% static "magazine/images/banner4.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
+</header>
+      {% else %}
+      <img src="{% static "magazine/images/banner0.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
+</header>
+      {% endif %}
+
 <!-- <hr class = "navbar-divider"> -->
 <div class="container" data-spy="affix" data-offset-top="170" data-offset-bottom="0" >
     <nav class="navbar navbar-default  advo-navbar" role="navigation" >
