@@ -4,8 +4,6 @@
 {% block content %}
 
 <!-- <img src="{% static "magazine/images/comm_crop.jpeg" %}" class = "header-image img-responsive" alt="Main Image" > -->
-  {% load staticfiles %}
-  <img src="{% static "magazine/images/fall_2014_banner.jpeg" %}" class = "header-image img-responsive" alt="Main Image" >
 <div class="container">
 <h1 class="header">CURRENT ISSUE: <a href="{{issue.get_absolute_url}}"> {{issue}} </a></h1>
 
