@@ -9,6 +9,10 @@ from datetime import datetime
 from pytz import timezone    
 from magazine import views
 
+def shopSubmit(request):
+	#dataDictionary = request.POST
+	return json.dumps(request)
+
 
 def stripeSubmit(request):
 	# Get the credit card details submitted by the form
