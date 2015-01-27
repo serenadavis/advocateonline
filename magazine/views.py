@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render_to_response
 from django.template.context import RequestContext
-from .models import Article, Content, Issue , Subscriber# '.' signifies the current directory
-from .models import Article, Content, Image, Issue # '.' signifies the current directory
+# from .models import Article, Content, Issue , Subscriber# '.' signifies the current directory
+from .models import Article, Content, Image, Issue, Contributor # '.' signifies the current directory
 from collections import OrderedDict
 import json
 import stripe
@@ -45,6 +45,17 @@ def article(request, slug):
 	}
 	template_name = 'article.html'
 	return render_to_response(template_name, data, context_instance=RequestContext(request))
+def contributor(request, author_id, name):
+	author = Contributor()
+	author.name = name.replace("_", " ")
+	author.id = author_id
+	data = {}
+	data["author"] = author.name
+	data["articles"] = Article.objects.filter(contributors=author)
+	print data
+	template_name = 'contributor.html'
+	return render_to_response(template_name, data, context_instance=RequestContext(request))
+
 
 def issues(request):
 	all_issues = Issue.objects.all()
