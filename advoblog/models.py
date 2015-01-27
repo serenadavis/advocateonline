@@ -37,7 +37,7 @@ class Theme(models.Model):
 
 # Create your models here.
 class Post(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=100)
     body = tinymce.models.HTMLField()
     created = models.DateTimeField(auto_now_add=True)
