@@ -11,12 +11,17 @@
 
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet"  href="{% static 'magazine/css/bootstrap.css' %}">
+ <!-- Making Credit Cards look nice -->
+   <link rel="stylesheet"  href="{% static 'magazine/css/card.css' %}">
   <!--  Theme -->
   <link rel="stylesheet"  href="{% static 'magazine/css/bootstrap-theme.css' %}">
   <!-- Latest JQuery -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
   <!-- Latest compiled and minified JavaScript -->
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <!-- Making Credit Cards look nice -->
+  <script src="{% static 'magazine/js/card.js' %}"></script>
+
   <!-- Advocate Javascript -->
   <script src="{% static 'magazine/js/main.js' %}"></script>
   <!--[if lt IE 9]>
@@ -63,7 +68,7 @@
           </div>
 <!--     <div class="logo-container"> -->
 
-        
+
       </div>
 
       {% if name == "fiction" %}
@@ -79,7 +84,7 @@
       <img src="{% static "magazine/images/banner4.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
 </header>
       {% else %}
-      <img src="{% static "magazine/images/banner0.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
+      <img src="{% static "magazine/images/banner3.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
 </header>
       {% endif %}
 
