@@ -1,15 +1,13 @@
 from django.shortcuts import get_object_or_404, render_to_response
 from django.template.context import RequestContext
 from .models import Article, Content, Issue , Subscriber# '.' signifies the current directory
-from .models import Article, Content, Issue # '.' signifies the current directory
+from .models import Article, Content, Image, Issue # '.' signifies the current directory
 from collections import OrderedDict
 import json
 import stripe
 from django.conf import settings
 import random
 
-foo = ['a', 'b', 'c', 'd', 'e']
-print(random.choice(foo))
 
 # Create your views here.
 def index(request):
@@ -119,7 +117,7 @@ def stripeSubmit(request):
 def sections(request):
   section = request.path
   section = section.replace("/","")
-  print section
+
   # For all issues
   all_issues = Issue.objects.all()
   season = {'Winter': 0, 'Spring': 1, 'Commencement': 2, 'Fall': 3}
@@ -131,6 +129,8 @@ def sections(request):
   }
   for issue in all_issues:
     articles_in_issue = Article.objects.filter(issue=issue, section__name =section)
+    if section == "art":
+      articles_in_issue = Image.objects.filter(issue=issue, section__name =section)
     datum = {
       'obj':issue,
       'articles': articles_in_issue
