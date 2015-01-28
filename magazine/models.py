@@ -3,7 +3,7 @@ import datetime
 
 from django.db import models
 from django.utils.text import slugify
-
+from django.utils.encoding import smart_unicode, smart_str
 import tinymce
 
 
@@ -52,16 +52,18 @@ class Section(models.Model):
     def __unicode__(self):
         return self.name
 
-
 class Contributor(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
 
     def __unicode__(self):
       return self.name
     def slug(self):
-      return self.name.lower().replace(" ", "_")
+      return self.name.replace(" ", "_")
     def get_absolute_url(self):
-      return '/contributor/{0}/{1}'.format(self.id, self.slug())
+     # Can't use .format because name is not always
+     return '/contributor/'+  str(self.id) + '/' +  self.slug()
+     # return '/contributor/{0}/{1}'.format(self.id, self.slug())
+
 
 
 class Tag(models.Model):
