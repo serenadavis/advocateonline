@@ -1,7 +1,7 @@
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.urlresolvers import reverse
 
-from myblog.models import *
+from .models import *
 
 def main(request):
     """Main listing."""
@@ -17,3 +17,15 @@ def main(request):
         posts = paginator.page(paginator.num_pages)
 
     return render_to_response("list.html", dict(posts=posts, user=request.user))
+
+def view_post(request, slug):   
+    return render_to_response('view_post.html', {
+        'post': get_object_or_404(Blog, slug=slug)
+    })
+
+def view_category(request, slug):
+    category = get_object_or_404(Category, slug=slug)
+    return render_to_response('view_category.html', {
+        'category': category,
+        'posts': Blog.objects.filter(category=category)[:5]
+    })
