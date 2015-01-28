@@ -99,6 +99,7 @@ class Article(Content):
 class Image(Content):
     photo = models.ImageField(upload_to=upload_image_to)
 
+
 class Donation(models.Model):
 
     amount = models.IntegerField()
@@ -136,5 +137,20 @@ class Subscriber(models.Model):
     customerID = models.CharField(max_length=255) 
     renew = models.BooleanField()
     subscriptionType = models.CharField(max_length=255, choices=SUBSCRIPTION_CHOICES)
+    time = models.CharField(max_length=255)
+
+class Purchase(models.Model):
+
+    name = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+    streetAddress1 = models.CharField(max_length=255)
+    streetAddress2 = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)    
+    state = models.CharField(max_length=255)    
+    country = models.CharField(max_length=255)
+    zipCode = models.CharField(max_length=255)
+    customerID = models.CharField(max_length=255) 
+    amount = models.IntegerField()
+    purchases_json = models.CharField(max_length=255)
     time = models.CharField(max_length=255)
 

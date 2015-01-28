@@ -11,7 +11,7 @@
 	
 
 	<form  style="text-align: center;" action="/shopSubmit" method="post" id="payment-form">
-
+	<div>
 		{% for issue in issues %}
 			{% if forloop.counter0|divisibleby:4 %}
 				<div class="row" data-right-height>
@@ -33,7 +33,7 @@
 
 				<div align = "center">
 				<input type='button' issueID={{issue.id}} onclick='javascript: subtractQty("{{issue.id}}" );' value='-'/>
-				<input type='text'  id='{{issue.id}}' name='{{issue.id}}'  size = 2 />
+				<input type='text'  id='{{issue.id}}' name='issues_{{issue.id}}' value=0  size = 2 />
 				<input type='button'  issueID={{issue.id}} onclick='javascript: addQty("{{issue.id}}" );' value='+'/>
 				</div>
 
@@ -45,7 +45,8 @@
 				</div>
 			{% endif %}
 
-	 	{% endfor %}	
+	 	{% endfor %}
+	 </div>		
 	{% include 'paymentData.html' with page="Shop" only  %}
 	{% csrf_token %} 
  	</form>
@@ -58,7 +59,6 @@
 
 <script type="text/javascript">
 	function subtractQty(elID){
-		
 		if(document.getElementById(elID).value - 1 < 0) {
 			return;
 		} else {

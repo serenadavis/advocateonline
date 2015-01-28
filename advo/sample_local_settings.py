@@ -1,7 +1,7 @@
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'advocate_local',
+        'NAME': 'advocate',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost'
