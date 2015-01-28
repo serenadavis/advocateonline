@@ -1,152 +1,91 @@
- <table> <tbody> 
+ <table align="center">
+    <tbody>
+      <tr>
+        <td align="right"><span>Amount ($)</span></td>
 
-{% if page == "Donate" %}
- <tr>
- <div class="form-row">
+        <td align="left"><input type="text" size="7" name="amount" /></td>
+      </tr>
 
- <td>
-    <label>
-      <span>Amount ($)</span>
-      </td><td>
-      <input type="text" size="7" name="amount"/>
-    </label>
-  </td>
-  </div>
-  </tr>
+      <tr>
+        <td></td>
+      </tr>
 
-{% endif %}
- <tr><td>
-            <span class="payment-errors"></span>
-            </td>
-            </tr>
-            <tr><td>
-<div class="form-row">
-    <label>
-      <span>Name</span>
-      </td><td>
-      <input type="text" size="20"  name="name"/>
-    </label>
-  </div>
-  </td>
-  </tr>
-  <tr><td>
-  <div class="form-row">
-    <label>
-      <span>Email</span>
-      </td><td>
-      <input type="text" size="20" name="email"/>
-    </label>
-  </div>
-  </td></tr>
-  <tr><td>
-  <div class="form-row">
-    <label>
-      <span>Street Address </span>
-      </td><td>
-      <input type="text" size="20" name="streetAddress1"/>
-    </label>
-  </div>
-  </td></tr>
-  <tr><td>
-  <div class="form-row">
-    <label>
-      <span>Street Address  </span>
-      </td><td>
-      <input type="text" size="20" name="streetAddress2"/>
-    </label>
-  </div>
-  </td></tr>
-  <tr><td>
-  <div class="form-row">
-    <label>
-      <span>City </span>
-      </td><td>
-      <input type="text" size="20" name="city"/>
-    </label>
-  </div>
-</td></tr>
-  <tr><td>
-  <div class="form-row">
-    <label>
-      <span>State </span>
-      </td><td>
-      <input type="text" size="5" name="state"/>
-    </label>
-  </div>
-  </td></tr>
- 
-  <tr>
-  <div class="form-row">
-  <td>
-    <label>
-      <span>Country </span>
-      </td><td>
-      <input type="text" size="20" name="country"/>
-    </label>
-  </td>
-  </div>
-  </tr>
- 
-  <tr>
-    <div class="form-row">
-  <td>
-    <label>
-      <span>Zip </span>
-      </td><td>
-      <input type="text" size="7" name="zipCode"/>
-    </label>
-  </td>
-  </div>
-  </tr>
-  
-  <tr>
-  <div class="form-row">
-  <td>
-    <label>
-      <span>Card Number</span>
-      </td><td>
-      <input type="text" size="20" data-stripe="number" />
-    </label>
-</td>
-  </div>
-</tr>
-  
-  <tr>
-  <div class="form-row">
-  <td>
-    <label>
-      <span>CVC</span>
-      </td><td>
-      <input type="text" size="4" data-stripe="cvc"/>
-    </label>
-</td>
-  </div>
-</tr>
-  
-  <tr>
-  <div class="form-row">
-  <td>
-    <label>
-      <span>Expiration (MM/YYYY)</span>
-      </td><td>
-      <input type="text" size="2" data-stripe="exp-month"/>
-    </label>
-    <span> / </span>
-    <input type="text" size="4" data-stripe="exp-year"/>
-  </td>
-  </div>
-  </tr>
-{% if page == "Subscribe" %}
-  <tr>
-  <div class='form-row'>
-  <td>
-  <label>
-  	<input type="checkbox" name="renew" value="renew" checked="true">
-     </td><td> Renew my subscription<br>
-  </label>
-   </td>  
-   </div>
-   </tr>
-{%endif%}
-  <tr><td> 
-  <button type="submit">Submit Payment</button> </td> </tr> </tbody></table> 
+      <tr>
+        <td align="right"><span>Name</span></td>
+
+        <td align="left"><input type="text" size="20" name="name" /></td>
+      </tr>
+
+      <tr>
+        <td align="right"><span>Email</span></td>
+
+        <td align="left"><input type="text" size="20" name="email" /></td>
+      </tr>
+
+      <tr>
+        <td align="right"><span>Street Address</span></td>
+
+        <td align="left"><input type="text" size="20" name="streetAddress1" /></td>
+      </tr>
+
+      <tr>
+        <td align="right"><span>Street Address</span></td>
+
+        <td align="left"><input type="text" size="20" name="streetAddress2" /></td>
+      </tr>
+
+      <tr>
+        <td align="right"><span>City</span></td>
+
+        <td align="left"><input type="text" size="20" name="city" /></td>
+      </tr>
+
+      <tr>
+        <td align="right"><span>State</span></td>
+
+        <td align="left"><input type="text" size="5" name="state" /></td>
+      </tr>
+
+      <tr>
+        <td align="right"><span>Country</span></td>
+
+        <td align="left"><input type="text" size="20" name="country" /></td>
+      </tr>
+
+      <tr>
+        <td align="right"><span>Zip</span></td>
+
+        <td align="left"><input type="text" size="7" name="zipCode" /></td>
+      </tr>
+
+      <tr>
+        <td align="right"><span>Card Number</span></td>
+
+        <td align="left"><input type="text" size="20" data-stripe="number" /></td>
+      </tr>
+
+      <tr>
+        <td align="right"><span>CVC</span></td>
+
+        <td align="left"><input type="text" size="4" data-stripe="cvc" /></td>
+      </tr>
+
+      <tr>
+        <td align="right"><span>Expiration (MM/YYYY)</span></td>
+
+        <td align="left"><input type="text" size="2" data-stripe="exp-month" /> <span>/</span>
+        <input type="text" size="4" data-stripe="exp-year" /></td>
+      </tr>
+
+      <tr>
+        <td align="right"><input type="checkbox" name="renew" value="renew" checked=
+        "true" /></td>
+
+        <td align="left"><span>Renew my subscription</span><br /></td>
+      </tr>
+
+      <tr>
+        <td align="center" colspan="2"><button type="submit">Submit Payment</button></td>
+      </tr>
+    </tbody>
+  </table>
