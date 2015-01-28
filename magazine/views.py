@@ -46,10 +46,10 @@ def article(request, slug):
 	}
 	template_name = 'article.html'
 	return render_to_response(template_name, data, context_instance=RequestContext(request))
-def contributor(request, author_id, name):
-	author = Contributor()
-	author.name = name.replace("_", " ")
-	author.id = author_id
+def contributor_page(request, author_id, name):
+	author =  get_object_or_404( Contributor, id=author_id, name = name.replace("_", " "))
+	# author.name = name.replace("_", " ")
+	# author.id = author_id
 	data = {}
 	data["author"] = author.name
 	data["articles"] =  chain( Article.objects.filter(contributors=author) , Image.objects.filter(contributors=author))
