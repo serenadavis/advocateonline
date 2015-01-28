@@ -3,7 +3,7 @@ import datetime
 
 from django.db import models
 from django.utils.text import slugify
-
+from django.utils.encoding import smart_unicode, smart_str
 import tinymce
 
 
@@ -29,7 +29,7 @@ class Issue(models.Model):
     name = models.CharField(max_length=255, unique=True)
     theme = models.CharField(max_length=255, blank=True, null=True)
     cover_image = models.ImageField(upload_to=issue_upload_to, blank=True, null=True)
-    
+
     ISSUE_CHOICES = (
         ('Fall', 'Fall'),
         ('Winter', 'Winter'),
@@ -52,12 +52,18 @@ class Section(models.Model):
     def __unicode__(self):
         return self.name
 
-
 class Contributor(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
 
     def __unicode__(self):
-        return self.name
+      return self.name
+    def slug(self):
+      return self.name.replace(" ", "_")
+    def get_absolute_url(self):
+     # Can't use .format because name is not always
+     return '/contributor/'+  str(self.id) + '/' +  self.slug()
+     # return '/contributor/{0}/{1}'.format(self.id, self.slug())
+
 
 
 class Tag(models.Model):
@@ -106,11 +112,11 @@ class Donation(models.Model):
     email = models.CharField(max_length=255)
     streetAddress1 = models.CharField(max_length=255)
     streetAddress2 = models.CharField(max_length=255)
-    city = models.CharField(max_length=255)    
-    state = models.CharField(max_length=255)    
+    city = models.CharField(max_length=255)
+    state = models.CharField(max_length=255)
     country = models.CharField(max_length=255)
     zipCode = models.CharField(max_length=255)
-    customerID = models.CharField(max_length=255) 
+    customerID = models.CharField(max_length=255)
     time = models.CharField(max_length=255)
 
 
@@ -129,11 +135,11 @@ class Subscriber(models.Model):
     email = models.CharField(max_length=255)
     streetAddress1 = models.CharField(max_length=255)
     streetAddress2 = models.CharField(max_length=255)
-    city = models.CharField(max_length=255)    
-    state = models.CharField(max_length=255)    
+    city = models.CharField(max_length=255)
+    state = models.CharField(max_length=255)
     country = models.CharField(max_length=255)
     zipCode = models.CharField(max_length=255)
-    customerID = models.CharField(max_length=255) 
+    customerID = models.CharField(max_length=255)
     renew = models.BooleanField()
     subscriptionType = models.CharField(max_length=255, choices=SUBSCRIPTION_CHOICES)
     time = models.CharField(max_length=255)
