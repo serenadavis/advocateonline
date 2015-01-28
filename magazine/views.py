@@ -3,6 +3,7 @@ from django.template.context import RequestContext
 # from .models import Article, Content, Issue , Subscriber# '.' signifies the current directory
 from .models import Article, Content, Image, Issue, Contributor # '.' signifies the current directory
 from collections import OrderedDict
+from itertools import chain
 import json
 import stripe
 from django.conf import settings
@@ -29,12 +30,12 @@ def index(request):
 	# Put articles into their respective sections
 	for article in articles_in_issue:
 		data['sections'][str(article.section).lower()].append(article)
+	data['sections']['art'] =  Image.objects.filter(issue=issue)
   # Randomly choice an article for every section
 	for key in data['sections']:
 		if data['sections'][key]:
 			data['sections'][key]= random.choice(data['sections'][key])
 	template_name = 'index.html'
-	print data
 	return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 def article(request, slug):
@@ -51,8 +52,7 @@ def contributor(request, author_id, name):
 	author.id = author_id
 	data = {}
 	data["author"] = author.name
-	data["articles"] = Article.objects.filter(contributors=author)
-	print data
+	data["articles"] =  chain( Article.objects.filter(contributors=author) , Image.objects.filter(contributors=author))
 	template_name = 'contributor.html'
 	return render_to_response(template_name, data, context_instance=RequestContext(request))
 
@@ -60,7 +60,7 @@ def contributor(request, author_id, name):
 def issues(request):
 	all_issues = Issue.objects.all()
 	season = {'Winter': 0, 'Spring': 1, 'Commencement': 2, 'Fall': 3}
-	
+
 	#all_issues_sorted = reversed(sorted(all_issues, key=lambda i: i.year))
 	all_issues_sorted = reversed(sorted(all_issues, key=lambda i: i.year * 10 + season[i.issue]))
 	data = {

@@ -9,9 +9,11 @@
   {% for article in article.contributors.all %}
          <h2 class="article-author"> {{ article.name }}</h2>
   {% endfor %}
+  <div class="section-article">
   {% for article  in articles%}
 
-    <p class="name"><a href="{{ article.get_absolute_url }}">{{article.title}}</a></p>
-    {% endfor %}
+    <p class="name"><a href="{{ article.get_absolute_url }}">{{article.title}}</a> <p class="issue">{{article.issue}} </p> </p>
 
+    {% endfor %}
+  </div>
 {%endblock%}
