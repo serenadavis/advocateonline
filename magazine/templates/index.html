@@ -13,9 +13,9 @@
 {% endif %}
    <div class="col-md-6 {% if forloop.counter|divisibleby:2 %} left {% endif%}">
       <h2 class="subheader">{{section|upper}}</h2>
-      <h4 class="subheader-article-name"> {{article.title}}</h4>
+     <a href="{{ article.get_absolute_url }}" class="no-decoration"> <h4 class="subheader-article-name"> {{article.title}}</h4> </a>
        {% for author in article.contributors.all %}
-          <h3 class="subheader-article-author"> {{ author.name }} </h3>
+         <a href="{{ author.get_absolute_url }}" class="no-decoration"> <h3 class="subheader-article-author"> {{ author.name }} </h3> </a>
         {% empty %}
           <h3 class="subheader-article-author"> No Author </h3>
        {% endfor %}

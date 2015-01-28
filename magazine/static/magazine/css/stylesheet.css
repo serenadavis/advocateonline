@@ -35,10 +35,10 @@ h3 {
 p {
 	font-family: Minion Pro Regular;
 	font-size: 14px;
-	margin-bottom: 20px;
+	/*margin-bottom: 20px;
 	padding-bottom: 20px;
 	width: 90%;
-	margin: 0 auto;
+	margin: 0 auto;*/
 }
 
 article p {
@@ -73,11 +73,20 @@ body{
    padding: 15px;
 
 }
+.no-underline{
+  text-decoration: none;
+}
+.no-underline:hover{
+  text-decoration: none;
+}
 .main-title{
   color: black;
 	font-size:45px;
 	margin:25px;
 	letter-spacing: 3px;
+}
+.main-title:hover{
+ text-decoration: none;
 
 }
 .no-decoration {
@@ -88,8 +97,7 @@ body{
 .no-decoration:hover
 {
     color: #000;
-     text-decoration:none;
-     cursor:pointer;
+    cursor:pointer;
 }
 .ad{
 	float: left;
@@ -188,6 +196,7 @@ display: block;
 .top-line{
 	font-family: futura;
 	margin-top: 20px;
+  padding-right: 0px;
 }
 .navbar .navbar-collapse {
   text-align: center;
@@ -232,8 +241,14 @@ display: block;
 .section-article .name{
   font-family: Times;
   font-style: italic;
-  padding: 0;
+  margin-bottom: 0px;
+  padding: 0px;
 }
+.section-article .author{
+  margin-bottom: 5px;
+  padding: 0px;
+}
+
 .article-summary{
 	font-family: Times;
 	font-size: 14px;
@@ -304,13 +319,18 @@ display: block;
     width: 100%;
     min-height: 600px;
 }
+.hide-mobile{
+  display: inline;
+}
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen
 and (min-device-width : 320px)
 and (max-device-width : 480px) {
 
-
+.hide-mobile{
+  display: none;
+}
 .main-title{
 	display: none;
 }

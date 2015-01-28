@@ -19,7 +19,7 @@
       <div class="section-article">
         <a href="{{ article.get_absolute_url }}"><p class="name">{{article.title}}</p></a>
         {% for author in article.contributors.all %}
-         <p class="author">{{ author.name }}</p>
+          <a href="{{ author.get_absolute_url }}"><p class="no-decoration author">{{ author.name }}</p></a>
         {% endfor %}
       </div>
      {% endfor %}

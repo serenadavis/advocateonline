@@ -15,7 +15,7 @@
 		<p class="name"><a href="{{ content.get_absolute_url }}">{{content.title}}</a></p>
 		{% endfor %}
 		 	{% for author in article.contributors.all %}
-         	<p class="author">{{ author.name }}</p>
+         	 <a href="{{ author.get_absolute_url }}" class="no-decoration"><p class="author">{{ author.name }}</p> </a>
         	{% endfor %}
 		{% endfor %}
 	</div>
@@ -31,5 +31,5 @@
 </div>
 
 
-	
+
 {%endblock%}
