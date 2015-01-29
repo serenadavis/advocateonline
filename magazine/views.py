@@ -46,6 +46,17 @@ def article(request, slug):
 	}
 	template_name = 'article.html'
 	return render_to_response(template_name, data, context_instance=RequestContext(request))
+
+def content_piece(request, id):
+	print 'GETTING CONTENT'
+	image = get_object_or_404(Content, id=id)
+	# print image.contributors
+	data = {
+		'art_content': image
+	}
+	template_name = 'content.html'
+	return render_to_response(template_name, data, context_instance=RequestContext(request))
+
 def contributor_page(request, author_id, name):
 	author =  get_object_or_404( Contributor, id=author_id, name = name.replace("_", " "))
 	# author.name = name.replace("_", " ")
