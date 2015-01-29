@@ -1,10 +1,13 @@
  <table align="center">
     <tbody>
+
+      {% if page=="Donate" %}
       <tr>
         <td align="right"><span>Amount ($)</span></td>
 
         <td align="left"><input type="text" size="7" name="amount" /></td>
       </tr>
+      {% endif %}
 
       <tr>
         <td></td>
@@ -76,6 +79,8 @@
         <td align="left"><input type="text" size="2" data-stripe="exp-month" /> <span>/</span>
         <input type="text" size="4" data-stripe="exp-year" /></td>
       </tr>
+     
+      {% if page=="Donate" %}
 
       <tr>
         <td align="right"><input type="checkbox" name="renew" value="renew" checked=
@@ -83,6 +88,8 @@
 
         <td align="left"><span>Renew my subscription</span><br /></td>
       </tr>
+
+      {% endif %}
 
       <tr>
         <td align="center" colspan="2"><button type="submit">Submit Payment</button></td>
