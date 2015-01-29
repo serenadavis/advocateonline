@@ -61,7 +61,7 @@ class Contributor(models.Model):
       return self.name.replace(" ", "_")
     def get_absolute_url(self):
      # Can't use .format because name is not always
-     return '/contributor/'+  str(self.id) + '/' +  self.slug()
+     return '/contributor/' +  str(self.id) + '/' +  self.slug()
      # return '/contributor/{0}/{1}'.format(self.id, self.slug())
 
 
@@ -95,7 +95,7 @@ class Content(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return 'dumb shit'
+        return '/content/{0}/'.format(self.id)
 
 class Article(Content):
     photo = models.ImageField(upload_to=upload_image_to, blank=True, null=True)
