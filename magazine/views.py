@@ -1,4 +1,4 @@
-`from django.shortcuts import get_object_or_404, render_to_response
+from django.shortcuts import get_object_or_404, render_to_response
 from django.template.context import RequestContext
 # from .models import Article, Content, Issue , Subscriber# '.' signifies the current directory
 from .models import Article, Content, Image, Issue, Contributor # '.' signifies the current directory
