@@ -41,7 +41,7 @@ INSTALLED_APPS = (
     'ajax_select',
     'south',
     'magazine',
-    'advoblog',
+    'blog',
     'payments',
     'django_social_share'
 )
