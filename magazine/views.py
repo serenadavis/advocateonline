@@ -44,16 +44,17 @@ def article(request, slug):
 	data = {
 		'article': article
 	}
+	print article 
 	template_name = 'article.html'
 	return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 def content_piece(request, id):
-	print 'GETTING CONTENT'
 	image = get_object_or_404(Content, id=id)
 	# print image.contributors
 	data = {
 		'art_content': image
 	}
+	print data
 	template_name = 'content.html'
 	return render_to_response(template_name, data, context_instance=RequestContext(request))
 
