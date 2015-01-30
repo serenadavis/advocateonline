@@ -42,7 +42,7 @@ def article(request, slug):
 	data = {
 		'article': article
 	}
-	print article 
+	print article
 	template_name = 'article.html'
 	return render_to_response(template_name, data, context_instance=RequestContext(request))
 
@@ -89,10 +89,11 @@ def singleissue(request, season, year):
 	# TODO: Once we figure out contenttypes, bring back this line!
 	# issue_content = Content.objects.filter(issue=issue)
 	issue_content = Article.objects.filter(issue=issue)
-	section = ('Art','Features','Fiction','Poetry')
+	section = ('Features','Fiction','Poetry')
 	content = OrderedDict()
 	for s in section:
 		content[s] = issue_content.filter(section__name=s)
+	content['Art'] =  Image.objects.filter(issue=issue)
 	data = {
 		'issue' : issue,
 		'content_list' : content
