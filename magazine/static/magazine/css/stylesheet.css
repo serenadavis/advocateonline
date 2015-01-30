@@ -246,7 +246,9 @@ display: block;
   margin-bottom: 0px;
   padding: 0px;
 }
+
 .section-article .author{
+  font-style: normal;
   margin-bottom: 5px;
   padding: 0 0 0 5px;
 }
@@ -260,6 +262,11 @@ display: block;
     position: absolute;
     top: 50%;
     bottom: 0;
+}
+.art-medium{
+  text-align: center;
+  margin: 10px;
+  font-size: 20px;
 }
 .advo-navbar{
 	font-family: futura;
