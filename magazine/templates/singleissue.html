@@ -16,7 +16,11 @@
 		<h2 class="subheader"> {{section}} </h2>
 		{%for content in contentlist %}
 		<div class="section-article">
-		<p class="name"><a href="{{ content.get_absolute_url }}">{{content.title}}</a></p>
+		<p class="name"><a href="{{ content.get_absolute_url }}">{{content.title}} - </a>
+      {% for author in content.contributors.all %}
+         <a href="{{ author.get_absolute_url }}" class="author no-decoration">  {{ author.name }}</a>
+      {% endfor %}
+    </p>
 		{% endfor %}
 		 	{% for author in article.contributors.all %}
          	 <a href="{{ author.get_absolute_url }}" class="no-decoration"><p class="author">{{ author.name }}</p> </a>
