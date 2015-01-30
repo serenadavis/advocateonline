@@ -1,0 +1,31 @@
+{% extends "base_original.html" %}
+
+{% block content %}
+{% load staticfiles %}
+{% load social_share %}
+
+<div class = "container">
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+
+  <h1 class="article-title"> {{ art_content.title }} </h1>
+  {% for author in art_content.contributors.all %}
+         <a href="{{ author.get_absolute_url }}" class="no-decoration"> <h2 class="article-author"> {{ author.name }}</h2></a>
+  {% endfor %}
+<!--  <h3> -->
+  <!-- Go to www.addthis.com/dashboard to customize your tools -->
+ <h3> <div class="addthis_sharing_toolbox"></div></h3>
+<!--   {% post_to_facebook object_or_url "Post to Facebook" %} {% post_to_twitter "Check this Harvard Advocate piece out:" object_or_url "Post to Twitter" %} </h3> -->
+
+  <!-- stylesheet.css has formatting for article p so please don't delete article tags! -->
+  <article>
+    <p> {{art_content.image|safe}} </p>
+    <figure><img src="{{ MEDIA_URL }}{{art_content.image|safe}}" class = "header-image img-responsive" alt="Main Image" ></figure>
+  </article>
+
+<!--  <p class = "subheader">
+  {% post_to_facebook object_or_url "Post to Facebook" %} {% post_to_twitter "Check this Harvard Advocate piece out:" object_or_url "Post to Twitter" %}  </p> -->
+<h3><div class="addthis_sharing_toolbox"></div></h3>
+
+</div>
+
+{%endblock%}
