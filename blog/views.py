@@ -1,5 +1,6 @@
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.urlresolvers import reverse
+from django.shortcuts import get_object_or_404, render_to_response
 
 from .models import *
 
@@ -16,7 +17,7 @@ def main(request):
     except (InvalidPage, EmptyPage):
         posts = paginator.page(paginator.num_pages)
 
-    return render_to_response("list.html", dict(posts=posts, user=request.user))
+    return render_to_response("base_original.html", dict(posts=posts, user=request.user))
 
 def view_post(request, slug):   
     return render_to_response('view_post.html', {
