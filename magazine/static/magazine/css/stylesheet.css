@@ -1,4 +1,6 @@
-
+body {
+	font-family: Minion Pro Regular;
+}
 
 @font-face {
     font-family: 'league_gothicregular';
@@ -246,7 +248,7 @@ display: block;
 }
 .section-article .author{
   margin-bottom: 5px;
-  padding: 0px;
+  padding: 0 0 0 5px;
 }
 
 .article-summary{

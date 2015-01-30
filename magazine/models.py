@@ -22,8 +22,8 @@ def issue_upload_to(instance, filename):
 def upload_image_to(instance, filename):
     fname = ''.join([c for c in filename if c.isalnum() or c == '.'])
     print instance.issue.name
-    #return os.path.join('images', slugify(instance.issue.name),
-    return os.path.join('images', str(instance.issue.year), str(instance.issue.issue), now() + '_' + fname)
+    return os.path.join('sites', 'default', 'files', fname)
+    #return os.path.join('images', str(instance.issue.year), str(instance.issue.issue), now() + '_' + fname)
 
 class Issue(models.Model):
     name = models.CharField(max_length=255, unique=True)
@@ -78,7 +78,7 @@ class Content(models.Model):
     title = models.CharField(max_length=255)
     subtitle = models.CharField(max_length=255, blank=True)
     slug = models.SlugField(max_length=100)
-    teaser = models.TextField()
+    teaser = models.TextField(blank=True)
     body = tinymce.models.HTMLField()
 
     # Legacy fields; we should probably get rid of this eventually
