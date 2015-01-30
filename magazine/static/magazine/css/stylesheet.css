@@ -244,7 +244,9 @@ display: block;
   margin-bottom: 0px;
   padding: 0px;
 }
+
 .section-article .author{
+  font-style: normal;
   margin-bottom: 5px;
   padding: 0px;
 }
