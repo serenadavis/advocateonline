@@ -104,6 +104,8 @@ class Article(Content):
 
 class Image(Content):
     photo = models.ImageField(upload_to=upload_image_to)
+    def __unicode__(self):
+        return self.photo
 
 class Donation(models.Model):
 
