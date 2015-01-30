@@ -7,5 +7,5 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-     url(r'^blog/', "blog.views.main"),
+     url('', "blog.views.main"),
 )
