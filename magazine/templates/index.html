@@ -20,13 +20,15 @@
           <h3 class="subheader-article-author"> No Author </h3>
        {% endfor %}
       {% if section == "art" %}
-        <p class="article-summary"> This is art and will therefore not work</p>
+        <figure>
+        	<!--pass in art image link HERE-->
+        	<img src="{{ MEDIA_URL }}{{ HERE }}" class = "img-responsive" alt="Main Image" >
+        </figure>
       {% else %}
       <p class="article-summary"> {{article.teaser}}.... <a href="{{ article.get_absolute_url }}" class="">[Continue reading]</a></p>
       {% endif %}
   </div>
 {% if forloop.counter|divisibleby:2 %}
-<hr class = "divide-bar">
 </div>
 {% endif %}
 
