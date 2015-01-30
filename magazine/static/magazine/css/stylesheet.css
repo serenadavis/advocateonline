@@ -261,6 +261,11 @@ display: block;
     top: 50%;
     bottom: 0;
 }
+.art-medium{
+  text-align: center;
+  margin: 10px;
+  font-size: 20px;
+}
 .advo-navbar{
 	font-family: futura;
 	color: black;
