@@ -12,7 +12,6 @@ import random
 
 # Create your views here.
 def index(request):
-	print 'GETTING INDEX'
 	issue = Issue.objects.last()
 
 	# for each article with this issue id
@@ -25,13 +24,12 @@ def index(request):
 				'art': []
 			},
 		'issue': issue,
-		'page' : 'home',
 	}
 	# Put articles into their respective sections
 	for article in articles_in_issue:
 		data['sections'][str(article.section).lower()].append(article)
 	data['sections']['art'] =  Image.objects.filter(issue=issue)
-  # Randomly choice an article for every section
+  	# Randomly choice an article for every section
 	for key in data['sections']:
 		if data['sections'][key]:
 			data['sections'][key]= random.choice(data['sections'][key])
@@ -54,7 +52,6 @@ def content_piece(request, id):
 	data = {
 		'art_content': image
 	}
-	print data
 	template_name = 'content.html'
 	return render_to_response(template_name, data, context_instance=RequestContext(request))
 
