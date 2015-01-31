@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render_to_response
 from django.template.context import RequestContext
-from .models import Subscriber, Donation # '.' signifies the current directory
+from magazine.models import Subscriber, Donation, Purchase # '.' signifies the current directory
 from collections import OrderedDict
 import json
 import stripe
@@ -9,6 +9,43 @@ from datetime import datetime
 from pytz import timezone    
 from magazine import views
 
+def shopSubmit(request):
+	cost_of_issue = 10
+	purchases_dict = {}
+	amount = 0
+	for item in request.POST:
+		writeToLog(item)
+		if (item.find("issues_")==0):
+			if str(request.POST[item]) != "0":
+				purchases_dict[item[7:]]=request.POST[item]
+				amount = amount + (cost_of_issue * int(request.POST[item]))
+	purchases_json=(json.dumps(purchases_dict))
+	
+	token = request.POST['stripeToken']
+	customer = createCustomer(token,request.POST['name'])
+	chargeCustomer(amount*100,customer.id)
+
+	purchase = Purchase.objects.create(
+		name=request.POST['name'], 
+		email=request.POST['email'],
+		streetAddress1=request.POST['streetAddress1'],
+		streetAddress2=request.POST['streetAddress2'],
+		city=request.POST['city'],
+		state=request.POST['state'],
+		country=request.POST['country'],
+		zipCode=request.POST['zipCode'],
+		customerID = customer.id,
+		amount= amount,
+		purchases_json = purchases_json,
+		time = getEasternTimeZoneString()
+	)
+	return views.shop(request)
+
+def writeToLog(text):
+	file = open("logFile.txt", "a")
+	file.write(text+"\n")
+	file.close()
+	return
 
 def stripeSubmit(request):
 	# Get the credit card details submitted by the form
