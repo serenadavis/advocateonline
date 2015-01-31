@@ -51,7 +51,7 @@ class Migration(SchemaMigration):
             'statement': ('tinymce.models.HTMLField', [], {'blank': 'True'}),
             'subtitle': ('django.db.models.fields.CharField', [], {'max_length': '255', 'blank': 'True'}),
             'tags': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['magazine.Tag']", 'symmetrical': 'False', 'blank': 'True'}),
-            'teaser': ('django.db.models.fields.TextField', [], {}),
+            'teaser': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '255'})
         },
         u'magazine.contributor': {

@@ -191,7 +191,8 @@ def shop(request):
 	#all_issues_sorted = reversed(sorted(all_issues, key=lambda i: i.year))
 	all_issues_sorted = reversed(sorted(all_issues, key=lambda i: i.year * 10 + season[i.issue]))
 	data = {
-		'issues': all_issues_sorted
+		'issues': all_issues_sorted,
+		'page': 'shop',
 	}
 	template_name = 'shop.html'
 	return render_to_response(template_name, data, context_instance=RequestContext(request))
