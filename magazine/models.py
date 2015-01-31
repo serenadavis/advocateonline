@@ -4,7 +4,7 @@ import datetime
 from django.db import models
 from django.utils.text import slugify
 from django.utils.encoding import smart_unicode, smart_str
-import tinymce
+from tinymce import models as tinymce_models
 
 
 def now():
@@ -79,12 +79,12 @@ class Content(models.Model):
     subtitle = models.CharField(max_length=255, blank=True)
     slug = models.SlugField(max_length=100)
     teaser = models.TextField(blank=True)
-    body = tinymce.models.HTMLField()
+    body = tinymce_models.HTMLField()
 
     # Legacy fields; we should probably get rid of this eventually
-    medium = tinymce.models.HTMLField(blank=True)
-    size = tinymce.models.HTMLField(blank=True)
-    statement = tinymce.models.HTMLField(blank=True)
+    medium = tinymce_models.HTMLField(blank=True)
+    size = tinymce_models.HTMLField(blank=True)
+    statement = tinymce_models.HTMLField(blank=True)
 
     issue = models.ForeignKey('Issue')
     section = models.ForeignKey('Section')
