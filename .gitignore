@@ -3,4 +3,4 @@
 ._*
 advo/local_settings.py
 sql/*
-.DS_Store
+*.DS_Store

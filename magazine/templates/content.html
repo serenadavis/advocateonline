@@ -16,12 +16,12 @@
  <h3> <div class="addthis_sharing_toolbox"></div></h3>
 <!--   {% post_to_facebook object_or_url "Post to Facebook" %} {% post_to_twitter "Check this Harvard Advocate piece out:" object_or_url "Post to Twitter" %} </h3> -->
 
-  <!-- stylesheet.css has formatting for article p so please don't delete article tags! -->
 
   <figure>
     <img src="{{ MEDIA_URL }}{{art_content.image.photo|safe}}" class = "header-image img-responsive" alt="Main Image" >
   </figure>
 
+<p class = "art-medium"> {{art_content.medium}}</p>
 
 <!--  <p class = "subheader">
   {% post_to_facebook object_or_url "Post to Facebook" %} {% post_to_twitter "Check this Harvard Advocate piece out:" object_or_url "Post to Twitter" %}  </p> -->

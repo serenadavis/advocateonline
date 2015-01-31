@@ -22,7 +22,7 @@
       {% if section == "art" %}
         <figure>
         	<!--pass in art image link HERE-->
-        	<img src="{{ MEDIA_URL }}{{ HERE }}" class = "img-responsive" alt="Main Image" >
+    			<img src="{{ MEDIA_URL }}{{article.image.photo|safe}}" class = "img-responsive" alt="Main Image" >
         </figure>
       {% else %}
       <p class="article-summary"> {{article.teaser}}.... <a href="{{ article.get_absolute_url }}" class="">[Continue reading]</a></p>
