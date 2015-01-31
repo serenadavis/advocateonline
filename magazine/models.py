@@ -4,7 +4,7 @@ import datetime
 from django.db import models
 from django.utils.text import slugify
 from django.utils.encoding import smart_unicode, smart_str
-import tinymce
+from tinymce import models as tinymce_models
 
 
 def now():
@@ -22,8 +22,8 @@ def issue_upload_to(instance, filename):
 def upload_image_to(instance, filename):
     fname = ''.join([c for c in filename if c.isalnum() or c == '.'])
     print instance.issue.name
-    #return os.path.join('images', slugify(instance.issue.name),
-    return os.path.join('images', str(instance.issue.year), str(instance.issue.issue), now() + '_' + fname)
+    return os.path.join('sites', 'default', 'files', fname)
+    #return os.path.join('images', str(instance.issue.year), str(instance.issue.issue), now() + '_' + fname)
 
 class Issue(models.Model):
     name = models.CharField(max_length=255, unique=True)
@@ -78,13 +78,13 @@ class Content(models.Model):
     title = models.CharField(max_length=255)
     subtitle = models.CharField(max_length=255, blank=True)
     slug = models.SlugField(max_length=100)
-    teaser = models.TextField()
-    body = tinymce.models.HTMLField()
+    teaser = models.TextField(blank=True)
+    body = tinymce_models.HTMLField()
 
     # Legacy fields; we should probably get rid of this eventually
-    medium = tinymce.models.HTMLField(blank=True)
-    size = tinymce.models.HTMLField(blank=True)
-    statement = tinymce.models.HTMLField(blank=True)
+    medium = tinymce_models.HTMLField(blank=True)
+    size = tinymce_models.HTMLField(blank=True)
+    statement = tinymce_models.HTMLField(blank=True)
 
     issue = models.ForeignKey('Issue')
     section = models.ForeignKey('Section')
