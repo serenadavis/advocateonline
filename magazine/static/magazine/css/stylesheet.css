@@ -272,12 +272,20 @@ display: block;
 	border-radius: 0px;
 	text-align:center;
 }
+.centertext{
+	font-family: Minion Pro Regular;
+	font-size: 14px;
+	width: 90%;
+	text-align:center;
+	margin: 0 auto;
+}
 .text{
 	font-family: Minion Pro Regular;
 	font-size: 14px;
 	width: 90%;
 	margin: 0 auto;
 }
+
 .container{
 	max-width: 900px;
 }
