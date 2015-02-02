@@ -25,15 +25,16 @@
 	<!-- <form style="text-align: center;" action="/stripeSubmit" method="post" id="payment-form">{% csrf_token %} <input name="cmd" type="hidden" value="_s-xclick" />
 		<input name="hosted_button_id" type="hidden" value="MDW8DPE33DMP6" />-->
 
-	<form style="text-align: center;" action="/stripeSubmit" method="post" id="payment-form">{% csrf_token %} 
+<!--	<form style="text-align: center;" action="/stripeSubmit" method="post" id="payment-form">{% csrf_token %} 
 		<table border="0">
 			<tbody>
 				<tr><td style="text-align: left;">Subscription Type</td></tr>
 					<tr><td style="text-align: left;">
 						<select name="subscriptionType"> <option value="Three years (12 issues) - U.S.">Three years (12 issues) - U.S. $90.00 USD</option> <option value="Two years (8 issues) - U.S.">Two years (8 issues) - U.S. $69.00 USD</option> <option value="One year (4 issues) - U.S.">One year (4 issues) - U.S. $35.00 USD</option> <option value="Three years (12 issues) - International &amp; Institutions">Three years (12 issues) - International &amp; Institutions $110.00 USD</option> <option value="Two years (8 issues) - International &amp; Institutions">Two years (8 issues) - International &amp; Institutions $75.00 USD</option> <option value="One year (4 issues) - International &amp; Institutions">One year (4 issues) - International &amp; Institutions $45.00 USD</option> </select></td></tr> <tr><td style="text-align: left;">
             {% include 'paymentData.html' with page="Subscribe" only  %}
-			<!--<input name="currency_code" type="hidden" value="USD"/>-->
+			
+			<input name="currency_code" type="hidden" value="USD"/>
  	</form>
- {% include 'stripeJS.html' %} 
+ {% include 'stripeJS.html' %} -->
 
 {% endblock %}
