@@ -124,15 +124,28 @@ body{
 	display: block;
 }
 
-.resize-image { width: 418px; height: 240px; overflow: hidden; }
+.resize-image { max-width: 418px; height: 240px; overflow: hidden; }
 .resize-image img { width: 100%; }
 
 .header-image{
-width:1000px;
-max-width: 100%;
-height: auto;
-margin: 0 auto;
-display: block;
+  width: 1000px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+.anniversary-text{
+  text-align: center;
+}
+.middle-right-ad{
+  position: fixed;
+  right: 0px;
+ /* width: 120px;*/
+
+}
+.banner-ad{
+ margin: 10px;
+ width: 180px;
 }
 .navbar .navbar-nav {
   display: inline-block;
@@ -168,7 +181,8 @@ display: block;
 	list-style-type: none;
 	font-family: Minion Pro Regular;
 	font-size: 14px;
-	width:50%;
+	width: 46%;
+  padding-left: 10px;
 }
 .list-left{
 	float: left;
@@ -210,7 +224,7 @@ display: block;
 }
 .header{
   text-transform: uppercase;
-	letter-spacing: 2px;
+	letter-spacing: 4px;
 	font-family: futura;
 	padding: 10px;
 	font-size: 22px;

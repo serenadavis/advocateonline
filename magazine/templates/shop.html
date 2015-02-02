@@ -4,11 +4,11 @@
 
 
 <div class="container">
-	<h1 class="header">S H O P</h1>
+	<h1 class="header">SHOP</h1>
 
-	<h2 class="subheader">M O R E &ensp; S O O N !</h2>
+	<h2 class="subheader">MORE SOON!</h2>
 	<p class = "text">Welcome to The Harvard Advocate's Store! Below you can find back issues that you may purchase. All issues are $10 (domestic shipping $2; international shipping $5) unless otherwise indicated. Check back with us for Advogear as well. You can use the online checkout system by clicking "Add to Cart" below the thumbnails.</p>
-	
+
 
 
 	{% for issue in issues %}
@@ -16,11 +16,11 @@
 			<div class="row" data-right-height>
 		{% endif %}
  		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
- 			
+
 
  			<h3>{{ issue.name }}<br>Print $10</h2>
 
-			<!-- How to check if image exists: 
+			<!-- How to check if image exists:
 			http://stackoverflow.com/questions/6637168/python-django-templates-and-testing-if-a-variable-is-null-or-empty-string?rq=1
 			http://stackoverflow.com/questions/12507281/determine-empty-template-variable-in-django -->
 			{% if issue.cover_image and issue.cover_image|length > 0 %}
@@ -41,7 +41,7 @@
 			</div>
 		{% endif %}
 
- 	{% endfor %}	
+ 	{% endfor %}
 
 <script src="{% static 'magazine/js/right-height.js' %}"></script>
 <script>

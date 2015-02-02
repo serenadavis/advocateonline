@@ -100,6 +100,10 @@ def singleissue(request, season, year):
 		}
 
 	return render_to_response(template_name, data, context_instance=RequestContext(request))
+def search(request, searchterm):
+	template_name = 'search.html'
+	return render_to_response(template_name, context_instance=RequestContext(request))
+
 
 def subscribe(request):
 	template_name = 'subscribe.html'
