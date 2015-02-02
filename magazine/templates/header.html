@@ -31,8 +31,9 @@
 
 <header class="container">
     <div class="row">
-        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 f-t-links top-line">
-            <div class="hide-mobile">Join us: </div><a  class = "social-media-link" href = "https://www.facebook.com/harvardadvocate">F</a> <a class = "social-media-link"  href="https://twitter.com/harvardadvocate">T</a>
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 f-t-links top-line hide-mobile">
+
+            <!-- <div class=""> -->Join us: <!-- </div> --><a  class = "social-media-link" href = "https://www.facebook.com/harvardadvocate">F</a> <a class = "social-media-link"  href="https://twitter.com/harvardadvocate">T</a>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <!--   {% load staticfiles %}
@@ -56,6 +57,7 @@
                     <input type="text" class="search-input" placeholder="Search">
                     <hr class="search-bottom-border">
                 </form>
+
                 <ul class="search-form-links list-unstyled">
                   <li>
                     <a class="no-decoration top-line" href="/subscribe">Subscribe</a>
@@ -66,28 +68,26 @@
                 </ul>
              </div>
           </div>
+
 <!--     <div class="logo-container"> -->
 
 
       </div>
-
+<a href="/">
       {% if name == "fiction" %}
       <img src="{% static "magazine/images/banner1.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
-</header>
       {% elif name == "poetry" %}
       <img src="{% static "magazine/images/banner2.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
-</header>
       {% elif name == "features" %}
       <img src="{% static "magazine/images/banner3.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
-</header>
       {% elif name == "art" %}
       <img src="{% static "magazine/images/banner4.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
-</header>
+
       {% else %}
       <img src="{% static "magazine/images/banner3.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
-</header>
       {% endif %}
-
+</a>
+</header>
 <!-- <hr class = "navbar-divider"> -->
 <div class="container" data-spy="affix" data-offset-top="300" data-offset-bottom="0" >
     <nav class="navbar navbar-default  advo-navbar" role="navigation" >
@@ -135,3 +135,6 @@
 </head>
 
 <body class='container-fluid'>
+  <figure class="middle-right-ad hide-mobile">
+    <a href="/150th"><img src="{{ MEDIA_URL }}ads/advo-bannerad.png"  alt="150th anniversary ad" class="banner-ad"> </a>
+  </figure>
