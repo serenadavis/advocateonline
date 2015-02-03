@@ -193,9 +193,36 @@ body{
 	text-align: left;
 }
 
-.f-t-links{
-
+@media screen and (max-width: 1000px) {
+    .f-t-links{
+    	text-align: center;
+	}
+	.search-form-links{
+		text-align: center;
+		margin-top:8px;
+		word-spacing: 5px;
+	}
+	.search-form {
+		max-width: 40%;
+		text-align: right;
+	}
+	.search-group{
+		float: none;
+	}
 }
+
+@media screen and (max-width: 507px) {
+	.search-form {
+		max-width: 90%;
+	}
+}
+
+@media screen and (min-width: 767px) {
+	.mobile-only {
+		display: none;
+	}	
+}
+
 .article-title{
   color: black;
   font-size:50px;
