@@ -69,12 +69,14 @@ body{
   background-color: white;
   z-index: 999;
 }
-.affix .nav-header::before {
-   content: "THE HARVARD ADVOCATE";
-   float: left;
-   display: inline-block;
-   padding: 15px;
+@media screen and (max-width: 946px) {
+	.affix .nav-header::before {
+	   content: "THE HARVARD ADVOCATE";
+	   float: left;
+	   display: none;
+	   padding: 15px;
 
+	}
 }
 .no-underline{
   text-decoration: none;
@@ -222,6 +224,16 @@ body{
 		display: none;
 	}	
 }
+@media screen and (min-width: 947px) {
+	.affix .nav-header::before {
+	   content: "THE HARVARD ADVOCATE";
+	   float: left;
+	   display: inline-block;
+	   padding: 15px;
+	}
+}
+
+
 
 .article-title{
   color: black;

@@ -11,7 +11,7 @@
 {% if forloop.counter0|divisibleby:2 %}
 <div class="row">
 {% endif %}
-   <div class="col-md-6 {% if forloop.counter|divisibleby:2 %} left {% endif%}">
+   <div class="col-md-6">
       <h2 class="subheader">{{section|upper}}</h2>
      <a href="{{ article.get_absolute_url }}" class="no-decoration"> <h4 class="subheader-article-name"> {{article.title}}</h4> </a>
        {% for author in article.contributors.all %}
@@ -20,7 +20,7 @@
           <h3 class="subheader-article-author"> No Author </h3>
        {% endfor %}
       {% if section == "art" %}
-        <figure class="resize-image">
+        <figure class="resize-image" style="margin:auto;">
         	<!--pass in art image link HERE-->
     			<img src="{{ MEDIA_URL }}{{article.image.photo|safe}}" class = "img-responsive" alt="Main Image" >
         </figure>
