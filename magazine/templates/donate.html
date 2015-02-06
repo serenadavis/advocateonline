@@ -32,17 +32,53 @@ We also offer subscriptions, which we encourage as an alternative to small donat
 <br><br>
 Thank you for your support!
 <Br>
-		<!-- For a limited time, donors who give $1000 or more will receive a signed issue of the Advocate's Winter TRIAL issue with a cover signed by Dorothea Rockburne, whose design Focus adorns our cover. <br><br>
+	<!-- For a limited time, donors who give $1000 or more will receive a signed issue of the Advocate's Winter TRIAL issue with a cover signed by Dorothea Rockburne, whose design Focus adorns our cover. <br><br>
 
-		All gifts to The Harvard Advocate can be made through The Trustees of The Harvard Advocate, and are fully tax deductible according to 501(c)(3) non-profit donation guidelines.  Gifts will be acknowledged in the four issues following the receipt according to the giving categories Patron ($1000 or over), Benefactor ($500 or over), Donor ($200 or over), and Friend ($25-$199).<br><br>
+	All gifts to The Harvard Advocate can be made through The Trustees of The Harvard Advocate, and are fully tax deductible according to 501(c)(3) non-profit donation guidelines.  Gifts will be acknowledged in the four issues following the receipt according to the giving categories Patron ($1000 or over), Benefactor ($500 or over), Donor ($200 or over), and Friend ($25-$199).<br><br>
 
-		Checks should be made out to "The Trustees of The Harvard Advocate" and sent to 21 South St., Cambridge, MA 02138. <br><br>
- -->
-		<!-- We also offer subscriptions, which we encourage as an alternative to small donations.  To arrange a subscription, visit the Subscribe page or email us at <a href = "subscribe@theharvardadvocate.com">subscribe@theharvardadvocate.com</a>.<br> -->
-
-
- 		<form style="text-align: left;" action="/sendDonation" method="post" id="payment-form"> {% csrf_token %} {% include 'paymentData.html'  with page="Donate" only  %}</form>
-  		{% include 'stripeJS.html' %}
+	Checks should be made out to "The Trustees of The Harvard Advocate" and sent to 21 South St., Cambridge, MA 02138. <br><br>
+-->
+	<!-- We also offer subscriptions, which we encourage as an alternative to small donations.  To arrange a subscription, visit the Subscribe page or email us at <a href = "subscribe@theharvardadvocate.com">subscribe@theharvardadvocate.com</a>.<br> -->
 
 
-	{% endblock %}
+		<form style="text-align: left;" action="/sendDonation" method="post" id="payment-form"> {% csrf_token %} {% include 'paymentData.html'  with page="Donate" only  %}</form>
+	<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+	<script type="text/javascript">
+	  // This identifies your website in the createToken call below
+	  Stripe.setPublishableKey('pk_test_66u2FQCcD717Ot7UGj1IvEsN');
+	  // ...
+	  
+	  var stripeResponseHandler= function(status, response) {
+	  var $form = $('#payment-form');
+
+	  if (response.error) {
+	    // Show the errors on the form
+	    $form.find('.payment-errors').text(response.error.message);
+	    $form.find('button').prop('disabled', false);
+	  } else {
+	    // response contains id and card, which contains additional card details
+	    var token = response.id;
+	    // Insert the token into the form so it gets submitted to the server
+	    $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+	    // and submit
+	    $form.append($('<input type="hidden" name="test" />').val("test"));
+	    $form.get(0).submit();
+	  }
+	};
+
+	jQuery(function($) {
+	  $('#payment-form').submit(function(event) {
+	    var $form = $(this);
+
+	    // Disable the submit button to prevent repeated clicks
+	    $form.find('button').prop('disabled', true);
+
+	    Stripe.card.createToken($form, stripeResponseHandler);
+
+	    // Prevent the form from submitting with the default action
+	    return false;
+	  });
+	});
+	</script>
+
+{% endblock %}
