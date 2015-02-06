@@ -122,7 +122,7 @@ def sendDonation(request):
 
 
 def createCustomer(token,name) :
-	stripe.api_key = settings.STRIPE_SECRET_KEY	
+	stripe.api_key = settings.STRIPE_SUBSCRIBE_SECRET_KEY	
 	customer = stripe.Customer.create(
     	card=token,
     	description=name
@@ -130,7 +130,7 @@ def createCustomer(token,name) :
 	return customer
 
 def chargeCustomer(amt, customerID):
-	stripe.api_key = settings.STRIPE_SECRET_KEY	
+	stripe.api_key = settings.STRIPE_SUBSCRIBE_SECRET_KEY	
 	stripe.Charge.create(
 		amount=amt, # in cents
 		currency="usd",
