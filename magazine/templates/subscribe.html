@@ -25,7 +25,7 @@
 	<!-- <form style="text-align: center;" action="/stripeSubmit" method="post" id="payment-form">{% csrf_token %} <input name="cmd" type="hidden" value="_s-xclick" />
 		<input name="hosted_button_id" type="hidden" value="MDW8DPE33DMP6" />-->
 
-<!--	<form style="text-align: center;" action="/stripeSubmit" method="post" id="payment-form">{% csrf_token %} 
+	<form style="text-align: center;" action="/stripeSubmit" method="post" id="payment-form">{% csrf_token %} 
 		<table border="0">
 			<tbody>
 				<tr><td style="text-align: left;">Subscription Type</td></tr>
@@ -35,6 +35,6 @@
 			
 			<input name="currency_code" type="hidden" value="USD"/>
  	</form>
- {% include 'stripeJS.html' %} -->
+ {% include 'stripeJS.html' %} 
 
 {% endblock %}

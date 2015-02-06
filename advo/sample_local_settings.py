@@ -8,4 +8,5 @@ DATABASES = {
     }
 }
 
-STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "XXXX") # get from a member of the tech team
+STRIPE_SUBSCRIBE_SECRET_KEY = "XXXX"
+STRIPE_DONATE_SECRET_KEY = "XXXX"
