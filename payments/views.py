@@ -65,7 +65,7 @@ def stripeSubmit(request):
 		elif subscriptionType == "Two years (8 issues) - International & Institutions":
 			amount = 75
 		elif subscriptionType == "One year (4 issues) - International & Institutions":
-			amount = 35
+			amount = 45
 
 		customer = createCustomer(token,request.POST['name'],'subscribe')
 		chargeCustomer(amount*100,customer.id,'subscribe')
