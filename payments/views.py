@@ -22,8 +22,8 @@ def shopSubmit(request):
 	purchases_json=(json.dumps(purchases_dict))
 	
 	token = request.POST['stripeToken']
-	customer = createCustomer(token,request.POST['name'])
-	chargeCustomer(amount*100,customer.id)
+	customer = createCustomer(token,request.POST['name'],'shop')
+	chargeCustomer(amount*100,customer.id,'shop')
 
 	purchase = Purchase.objects.create(
 		name=request.POST['name'], 
@@ -67,8 +67,8 @@ def stripeSubmit(request):
 		elif subscriptionType == "One year (4 issues) - International & Institutions":
 			amount = 35
 
-		customer = createCustomer(token,request.POST['name'])
-		chargeCustomer(amount*100,customer.id)
+		customer = createCustomer(token,request.POST['name'],'subscribe')
+		chargeCustomer(amount*100,customer.id,'subscribe')
 
 
 		subscriber = Subscriber.objects.create(
@@ -95,11 +95,11 @@ def sendDonation(request):
 	token = request.POST['stripeToken']
 	# Create the charge on Stripe's servers - this will charge the user's card
 	try:
-
-		customer = createCustomer(token,request.POST['name'])
+		page = 'donate'
+		customer = createCustomer(token,request.POST['name'],page)
 		amount = int(request.POST['amount'])*100
 
-		chargeCustomer(amount,customer.id)
+		chargeCustomer(amount,customer.id,page)
 
 		donation = Donation.objects.create(
 			name=request.POST['name'], 
@@ -121,18 +121,24 @@ def sendDonation(request):
 	  	pass
 
 
-def createCustomer(token,name) :
-	#stripe.api_key = settings.STRIPE_BUY_SECRET_KEY	
-	stripe.api_key = settings.STRIPE_DONATE_SECRET_KEY	
+def createCustomer(token,name,page) :
+	if page == 'donate':
+		stripe.api_key = settings.STRIPE_DONATE_SECRET_KEY	
+	else:
+		stripe.api_key = settings.STRIPE_BUY_SECRET_KEY
+
 	customer = stripe.Customer.create(
     	card=token,
     	description=name
 	)
 	return customer
 
-def chargeCustomer(amt, customerID):
-	#stripe.api_key = settings.STRIPE_BUY_SECRET_KEY	
-	stripe.api_key = settings.STRIPE_DONATE_SECRET_KEY	
+def chargeCustomer(amt, customerID, page):
+	if page == 'donate':
+		stripe.api_key = settings.STRIPE_DONATE_SECRET_KEY	
+	else:
+		stripe.api_key = settings.STRIPE_BUY_SECRET_KEY
+
 	stripe.Charge.create(
 		amount=amt, # in cents
 		currency="usd",
