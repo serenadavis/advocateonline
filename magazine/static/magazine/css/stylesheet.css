@@ -415,6 +415,11 @@ and (max-device-width : 480px) {
   display: none !important;
 }
 
+.navbar-brand {
+	padding-left: 0px;
+	padding-right: 0px;
+	font-size: 16px;
+}
 
 /* Styles */
 }
