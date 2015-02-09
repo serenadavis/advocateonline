@@ -12,7 +12,6 @@ urlpatterns = patterns('',
     url(r'^issues$', 'magazine.views.issues'),
     url(r'^about$', 'magazine.views.masthead'),
     url(r'^issue/(?P<season>[a-zA-Z]+)-(?P<year>[\d]{4})/$', 'magazine.views.singleissue'),
-    url(r'^donate$', 'magazine.views.donate'),
     url(r'^subscribe$', 'magazine.views.subscribe'),
     url(r'^submit$', 'magazine.views.submit'),
     url(r'^contact$', 'magazine.views.contact'),
@@ -35,8 +34,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^admin/lookups/', include(ajax_select_urls)),
     url(r'^tinymce/', include('tinymce.urls')),
-
-    #url(r'^payments/', include('djstripe.urls', namespace="djstripe")),
+    
+    url(r'^donate$', 'payments.views.donate'),
     url(r'^stripeSubmit$','payments.views.stripeSubmit'),
     #http://stackoverflow.com/questions/901551/how-do-i-include-image-files-in-django-templates
     #http://stackoverflow.com/questions/19132123/name-settings-is-not-defined

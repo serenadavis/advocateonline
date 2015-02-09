@@ -173,10 +173,6 @@ def submit(request):
 	template_name = 'submit.html'
 	return render_to_response(template_name, context_instance=RequestContext(request))
 
-def donate(request):
-	template_name = 'donate.html'
-	return render_to_response(template_name, context_instance=RequestContext(request))
-
 def contact(request):
 	template_name = 'contact_us.html'
 	return render_to_response(template_name, context_instance=RequestContext(request))
