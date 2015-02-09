@@ -8,28 +8,15 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'Purchase'
-        db.create_table(u'magazine_purchase', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('email', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('streetAddress1', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('streetAddress2', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('city', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('state', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('country', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('zipCode', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('customerID', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('amount', self.gf('django.db.models.fields.IntegerField')()),
-            ('purchases_json', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('time', self.gf('django.db.models.fields.CharField')(max_length=255)),
-        ))
-        db.send_create_signal(u'magazine', ['Purchase'])
+        # Adding field 'Donation.comment'
+        db.add_column(u'magazine_donation', 'comment',
+                      self.gf('django.db.models.fields.TextField')(default='', blank=True),
+                      keep_default=False)
 
 
     def backwards(self, orm):
-        # Deleting model 'Purchase'
-        db.delete_table(u'magazine_purchase')
+        # Deleting field 'Donation.comment'
+        db.delete_column(u'magazine_donation', 'comment')
 
 
     models = {
@@ -51,7 +38,7 @@ class Migration(SchemaMigration):
             'statement': ('tinymce.models.HTMLField', [], {'blank': 'True'}),
             'subtitle': ('django.db.models.fields.CharField', [], {'max_length': '255', 'blank': 'True'}),
             'tags': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['magazine.Tag']", 'symmetrical': 'False', 'blank': 'True'}),
-            'teaser': ('django.db.models.fields.TextField', [], {}),
+            'teaser': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '255'})
         },
         u'magazine.contributor': {
@@ -63,6 +50,7 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'Donation'},
             'amount': ('django.db.models.fields.IntegerField', [], {}),
             'city': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'comment': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             'country': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             'customerID': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             'email': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
