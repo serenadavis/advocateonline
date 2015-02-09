@@ -90,12 +90,12 @@ def stripeSubmit(request):
             subscriptionType=subscriptionType,
             time = getEasternTimeZoneString()
         )
-
         template_name = 'success.html'
         return render_to_response(template_name, context_instance=RequestContext(request))
     except stripe.CardError, e:
       # The card has been declined
       pass
+
 def sendDonation(request):
     # Get the credit card details submitted by the form
     token = request.POST['stripeToken']
@@ -127,7 +127,6 @@ def sendDonation(request):
     except stripe.CardError, e:
         # The card has been declined
         pass
-
 
 def createCustomer(token,name,page) :
     if page == 'donate':
