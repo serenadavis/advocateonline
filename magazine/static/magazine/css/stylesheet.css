@@ -168,7 +168,7 @@ body{
 }
 .search-input{
 	border: 1px solid #fff;
-	/*width: 120px;*/
+	width: 80%;
 	float:right;
 	/*border-bottom: 1px solid #000;*/
 }
