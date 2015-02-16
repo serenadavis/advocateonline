@@ -1,0 +1,152 @@
+
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>The Harvard Advocate</title>
+  <meta name="description" content="Harvard's undergraduate journal of fiction, poetry, art and criticism.">
+  <meta name="author" content="The Harvard Advocate">
+  {% load staticfiles %}
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet"  href="{% static 'magazine/css/bootstrap.css' %}">
+ <!-- Making Credit Cards look nice -->
+   <link rel="stylesheet"  href="{% static 'magazine/css/card.css' %}">
+  <!--  Theme -->
+  <link rel="stylesheet"  href="{% static 'magazine/css/bootstrap-theme.css' %}">
+  <!-- Latest JQuery -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <!-- Making Credit Cards look nice -->
+  <script src="{% static 'magazine/js/card.js' %}"></script>
+
+  <!-- Advocate Javascript -->
+  <script src="{% static 'magazine/js/main.js' %}"></script>
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="{% static 'magazine/css/stylesheet.css' %}">
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59103813-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class='container-fluid'>
+<div style="background: antiquewhite;">
+    <a href="/150th">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span style="font-size: 50px; margin-right: 10px;" aria-hidden="true">&times;</span>
+        </button>
+        <figure class="container" style="padding-right:30px; padding-top:10px; max-width:90%;"><img src="{% static "magazine/images/banner.png" %}" style="margin:auto;" class = "img-responsive" alt="Learn more about the 150th celebration"></figure>
+    </a>
+</div>
+
+<header class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 f-t-links top-line">
+
+            <!-- <div class=""> -->Join us: <!-- </div> --><a  class = "social-media-link" href = "https://www.facebook.com/harvardadvocate">F</a> <a class = "social-media-link"  href="https://twitter.com/harvardadvocate">T</a>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" >
+          <!--   {% load staticfiles %}
+            <figure><img src="{% static "magazine/images/seal_banner.jpeg" %}" class = "header-image img-responsive" alt="Main Image" ></figure> -->
+            <a class="no-decoration no-underline" href="/"> <h1 class="main-title">THE HARVARD ADVOCATE</h1></a>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 top-line">
+            <div class="form-group search-group">
+                <form class=" search-form" role="search">
+                    <svg width="20px" height="24px">
+                        <g id="search-icon" transform = "scale(0.15, 0.15), translate(0,30)" x= "4">
+                            <path fill="#010101" d="M89.556,10.443C82.819,3.71,73.868,0,64.343,0C54.82,0,45.867,3.707,39.133,10.44
+                            C32.4,17.172,28.689,26.127,28.694,35.652c0,5.633,1.324,11.053,3.779,15.948L3.295,80.778c-4.394,4.401-4.394,11.526,0,15.928
+                            c2.199,2.193,5.079,3.291,7.966,3.291c2.88,0,5.759-1.1,7.96-3.291l29.174-29.18c4.898,2.455,10.315,3.78,15.95,3.782
+                            c9.527,0,18.478-3.709,25.215-10.442C96.293,54.132,100,45.178,100,35.652C99.998,26.131,96.289,17.177,89.556,10.443z
+                            M64.346,56.297c-5.509,0-10.695-2.151-14.597-6.051c-3.896-3.898-6.043-9.08-6.043-14.594
+                            c-0.004-5.513,2.146-10.695,6.043-14.594c3.899-3.898,9.081-6.043,14.594-6.043c5.515,0,10.699,2.145,14.598,6.043
+                            c3.899,3.899,6.043,9.083,6.043,14.598c0.004,5.515-2.144,10.696-6.039,14.595C75.042,54.148,69.86,56.297,64.346,56.297z"/>
+                        </g>
+                    </svg>
+                    <input type="text" class="search-input" placeholder="Search">
+                    <hr class="search-bottom-border">
+                </form>
+
+                <ul class="search-form-links list-unstyled">
+                  <li>
+                    <a class="no-decoration top-line" href="/subscribe">Subscribe</a>
+                    <a class="no-decoration top-line" href="/shop">Shop</a>
+                    <a class="no-decoration top-line" href="/150th">150th</a>
+                    <a class="no-decoration top-line" href="/donate">Donate</a>
+                  </li>
+                </ul>
+             </div>
+          </div>
+
+<!--     <div class="logo-container"> -->
+
+
+      </div>
+
+</header>
+<!-- <hr class = "navbar-divider"> -->
+<div class="container" data-spy="affix" data-offset-top="300" data-offset-bottom="0" >
+    <nav class="navbar navbar-default  advo-navbar" role="navigation" >
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand mobile-only" href="/">THE HARVARD ADVOCATE</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse ">
+      <div class="nav-header"> </div>
+        <ul class="nav navbar-nav">
+          <!--   <li > <div class="foo"> </div><li> -->
+            <li ><a href="">OUR WEBSITE</a></li>
+            <li ><a href="/blog/archives">ARCHIVES</a></li>
+            <li ><a href="/blog/writing">WRITING</a></li>
+            <li ><a href="/blog/art">ART</a></li>
+            <li ><a href="/blog/multimedia">MULTIMEDIA</a></li>
+            <li ><a href="/blog/events">EVENTS</a></li>
+            <li ><a href="/blog/themes">THEMES</a></li>
+        </ul>
+
+    </div><!-- /.navbar-collapse -->
+    </nav>
+
+</div>
+<div class="container">
+    <a href="/">
+      {% if name == "fiction" %}
+      <img src="{% static "magazine/images/banner1.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
+      {% elif name == "poetry" %}
+      <img src="{% static "magazine/images/banner3.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
+      {% elif name == "features" %}
+      <img src="{% static "magazine/images/banner3.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
+      {% elif name == "art" %}
+      <img src="{% static "magazine/images/banner4.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
+
+      {% else %}
+      <img src="{% static "magazine/images/banner2.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
+
+      {% endif %}
+    </a>
+</div>
+<!--   <figure class="middle-right-ad hide-mobile">
+    <a href="/150th"><img src="{{ MEDIA_URL }}ads/advo-bannerad.png"  alt="150th anniversary ad" class="banner-ad"> </a>
+  </figure> -->

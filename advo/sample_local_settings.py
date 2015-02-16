@@ -1,4 +1,4 @@
-DATABASES = {
+`sDATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'advocate',

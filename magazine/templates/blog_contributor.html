@@ -1,0 +1,18 @@
+{% extends "blog_base.html" %}
+
+{% block content %}
+{% load staticfiles %}
+<div class = "container">
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+
+  <h1 class="article-title"> {{ author | upper }} </h1>
+  {% for post in post.authors.all %}
+         <h2 class="article-author"> {{ post.name }}</h2>
+  {% endfor %}
+  <div class="section-article">
+  {% for post  in posts%}
+
+    <p class="name"><a href="{{ article.get_absolute_url }}">{{post.title}}</a> <\p>
+    {% endfor %}
+  </div>
+{%endblock%}

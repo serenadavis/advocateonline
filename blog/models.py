@@ -1,5 +1,7 @@
 from django.db import models
 import tinymce
+from bs4 import BeautifulSoup
+import re
 
 class Tag(models.Model):
     name = models.CharField(max_length=255)
@@ -7,7 +9,6 @@ class Tag(models.Model):
     
     def __unicode__(self):
         return self.name
-
 class Category(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=100)
@@ -15,20 +16,26 @@ class Category(models.Model):
     def __unicode__(self):
         return self.name
 
+
 class Author(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=100)
     
     def __unicode__(self):
         return self.name
+    def get_absolute_url(self):
+        # Can't use .format because name is not always
+        return '/blog/contributor/' +  str(self.id)
+        # return '/contributor/{0}/{1}'.format(self.id, self.slug())
         
 class Images(models.Model):
     path = models.CharField(max_length=1000, blank=True)
-    caption = models.CharField(max_length=10000, blank=True)
+    caption = models.TextField(max_length=10000, blank=True)
     slug = models.SlugField(max_length=100)
-    
     def __unicode__(self):
         return self.id
+    def get_absolute_url(self):
+        return "/media/" + path
 
 
 class Theme(models.Model):
@@ -45,6 +52,14 @@ class Post(models.Model):
     posted = models.ManyToManyField(Category)
     authors = models.ManyToManyField(Author)
     theme = models.ForeignKey(Theme)
-
+    first_image = models.ForeignKey(Images,null=True, blank=True, default = None)
     def __unicode__(self):
         return self.title
+    def get_absolute_url(self):
+        return '/blog/post/'+ self.slug
+    def teaser(self):
+        txt = re.sub("\{\{.*\}\}","",BeautifulSoup(self.body).text)
+        i = 350
+        while len(txt) > i and txt[i-1] != ".":
+            i += 1
+        return txt[:i]
