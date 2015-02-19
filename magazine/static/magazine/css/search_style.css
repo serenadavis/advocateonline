@@ -1,21 +1,11 @@
-.bs-example{
-    font-family: sans-serif;
-    position: relative;
-    margin: 100px;
-}
 .typeahead, .tt-query, .tt-hint {
     border: 1px solid #fff;
     float: right;
     border-radius: 8px;
     outline: medium none;
 }
-
-.typeahead {
-    background-color: #FFFFFF;
-}
-
 .tt-hint {
-    color: #99999;9
+    color: #999999;
 }
 .tt-dropdown-menu {
     background-color: #FFFFFF;
@@ -34,7 +24,7 @@
     line-height: 24px;
     padding: 3px 20px;
 }
-.tt-suggestion.tt-is-under-cursor {
+.tt-suggestion.tt-cursor {
     background-color: #0097CF;
     color: #FFFFFF;
 }
