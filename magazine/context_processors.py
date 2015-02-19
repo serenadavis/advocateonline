@@ -6,6 +6,11 @@ def search_typeahead(request):
     author_list = []
     for dict in Contributor.objects.values():
         author_list.append(dict['name'])
-    return {'typeahead_authors' : json.dumps(list(author_list))}
+    
+    title_list = []
+    for dict in Article.objects.values():
+        title_list.append(dict['title'])
+
+    return {'typeahead_authors' : json.dumps(list(author_list)), 'typeahead_titles' : json.dumps(list(title_list))}
     
     
