@@ -58,7 +58,7 @@ footer{
 }
 body{
 	color: #000;
-
+}
 .nav{
 	letter-spacing: 3px;
 }
@@ -368,13 +368,6 @@ body{
 	text-align: center;
 	padding: 25px;
 	font-size: 12px;
-}
-.smtext{
-	letter-spacing: 1px;
-	font-family: futura;
-	text-align: center;
-	padding: 5px;
-	font-size: 10px;
 }
 
 .subheader-border{
