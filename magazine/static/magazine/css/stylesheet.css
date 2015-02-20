@@ -369,6 +369,13 @@ body{
 	padding: 25px;
 	font-size: 12px;
 }
+.copyrightsm{
+	letter-spacing: 1px;
+	font-family: futura;
+	text-align: center;
+	padding: 5px;
+	font-size: 5px;
+}
 
 .subheader-border{
 	letter-spacing: 2px;
