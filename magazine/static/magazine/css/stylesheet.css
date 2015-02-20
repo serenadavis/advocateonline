@@ -222,7 +222,7 @@ body{
 @media screen and (min-width: 767px) {
 	.mobile-only {
 		display: none;
-	}	
+	}
 }
 @media screen and (min-width: 947px) {
 	.affix .nav-header::before {
@@ -396,6 +396,9 @@ body{
 .hide-mobile{
   display: inline;
 }
+.smtext{
+  margin: 5px 45px 5px 45px;
+}
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen
@@ -405,6 +408,7 @@ and (max-device-width : 480px) {
 .hide-mobile{
   display: none;
 }
+
 .main-title{
 	display: none;
 }
