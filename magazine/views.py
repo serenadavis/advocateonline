@@ -8,6 +8,7 @@ import json
 import stripe
 from django.conf import settings
 import random
+from haystack.query import SearchQuerySet
 
 
 # Create your views here.

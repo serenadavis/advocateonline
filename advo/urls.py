@@ -28,6 +28,8 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     url(r'^sendDonation$','payments.views.sendDonation'),
 
+    url(r'^search/', include('haystack.urls')),
+
     url(r'^blog/', include('blog.urls')),
     url(r'^shopSubmit$','payments.views.shopSubmit'),
     url(r'^grappelli/', include('grappelli.urls')),
