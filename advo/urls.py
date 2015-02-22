@@ -40,5 +40,6 @@ urlpatterns = patterns('',
     #http://stackoverflow.com/questions/901551/how-do-i-include-image-files-in-django-templates
     #http://stackoverflow.com/questions/19132123/name-settings-is-not-defined
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+    url(r'contacts', 'contacts.views.index'),
 )
 
