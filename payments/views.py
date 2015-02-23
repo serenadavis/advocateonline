@@ -14,7 +14,7 @@ def donate(request):
     return render_to_response(template_name, context_instance=RequestContext(request))
 
 def subscribe(request):
-    template_name = 'subscribe-dev.html'
+    template_name = 'subscribe.html'
     return render_to_response(template_name, context_instance=RequestContext(request))
 
 def shopSubmit(request):

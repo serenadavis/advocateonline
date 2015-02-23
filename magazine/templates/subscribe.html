@@ -7,27 +7,89 @@
     <p class="text">
         Founded in 1866, The Harvard Advocate is the oldest continuously published collegiate literary magazine in the United States. For over 140 years it has provided its readers with the highest caliber of prose, fiction, poetry, and art that the Harvard community can offer. With a global subscriber's network--it is distributed in 5 continents--no place is too remote for the Advocate to reach. You too, wherever you are, can enjoy the magazine.
 
-        <!-- To subscribe using our online checkout system, choose the Subscription Type and click Subscribe below. -->
-
-        A new online subscription service is coming soon, but in the meantime please subscribe by mail by sending an email to <a href = "mailto:president@theharvardadvocate.com">president@theharvardadvocate.com</a> with the subscription type. <br><br></p>
-        <p class="text">
+        To subscribe by mail, send an email to <a href = "mailto:president@theharvardadvocate.com">president@theharvardadvocate.com</a> with the subscription type.<br><br>
+    </p>
+    <p class="text">
         <li class="text"> Three years (12 issues) - U.S. $90.00 USD <br></li>
         <li class="text"> Two years (8 issues) - U.S. $69.00 USD <br></li>
         <li class="text"> One year (4 issues) - U.S. $35.00 USD <br></li>
         <li class="text"> Three years (12 issues) - International &amp; Institutions $110.00 USD <br></li>
         <li class="text"> Two years (8 issues) - International &amp; Institutions $75.00 USD <br></li>
-        <li class="text"> One year (4 issues) - International &amp; Institutions $45.00 USD <br></li></p>
+        <li class="text"> One year (4 issues) - International &amp; Institutions $45.00 USD <br></li>
+    </p>
+    <p class="text">
+        To subscribe using our online checkout system, choose a Subscription Type and click Subscribe below.
+    </p>
 
-        <form style="text-align: center;" action="/stripeSubmit" method="post" id="payment-form">{% csrf_token %} 
-            <table border="0">
-                <tbody>
-                    <tr><td style="text-align: left;">Subscription Type</td></tr>
-                        <tr><td style="text-align: left;">
-                            <select name="subscriptionType"> <option value="Three years (12 issues) - U.S.">Three years (12 issues) - U.S. $90.00 USD</option> <option value="Two years (8 issues) - U.S.">Two years (8 issues) - U.S. $69.00 USD</option> <option value="One year (4 issues) - U.S.">One year (4 issues) - U.S. $35.00 USD</option> <option value="Three years (12 issues) - International &amp; Institutions">Three years (12 issues) - International &amp; Institutions $110.00 USD</option> <option value="Two years (8 issues) - International &amp; Institutions">Two years (8 issues) - International &amp; Institutions $75.00 USD</option> <option value="One year (4 issues) - International &amp; Institutions">One year (4 issues) - International &amp; Institutions $45.00 USD</option> </select></td></tr> <tr><td style="text-align: left;">
-                {% include 'paymentData.html' with page="Subscribe" only  %}
+    <div style="margin: 40px auto 0px auto; background: #eee; max-width: 400px; padding: 20px;">
+        <div class="form-container active">
+            <form action="/stripeSubmit" method="post" id="payment-form">{% csrf_token %} 
+                <h3 class="signup-subheading">Subscription Type</h3>
+                <select class="form-control" name="subscriptionType"> 
+                    <option value="Three years (12 issues) - U.S.">Three years (12 issues) - U.S. $90.00 USD</option> 
+                    <option value="Two years (8 issues) - U.S.">Two years (8 issues) - U.S. $69.00 USD</option> 
+                    <option value="One year (4 issues) - U.S.">One year (4 issues) - U.S. $35.00 USD</option> 
+                    <option value="Three years (12 issues) - International &amp; Institutions">Three years (12 issues) - International &amp; Institutions $110.00 USD</option> 
+                    <option value="Two years (8 issues) - International &amp; Institutions">Two years (8 issues) - International &amp; Institutions $75.00 USD</option> 
+                    <option value="One year (4 issues) - International &amp; Institutions">One year (4 issues) - International &amp; Institutions $45.00 USD</option> 
+                </select>
+                <div class="checkbox">
+                  <label>
+                    <input type="hidden" name="renew" value="0">
+                    <input type="checkbox" name="renew" value="1" checked="true">Renew my subscription automatically
+                  </label>
+                </div>
+                <h3 class="signup-subheading">Subscriber Mailing Address</h3>
+                {% include 'payment_form.html' %}
+                <!--{% include 'paymentData.html' with page="Subscribe" only  %}-->
                 
                 <input name="currency_code" type="hidden" value="USD"/>
-        </form>
-        {% include 'stripeJS.html' %}
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+  $('.active form').card({
+        container: '.card-wrapper',
+        expiryInput: 'input[name="exp-month"], input[name="exp-year"]'
+  })
+
+  // This identifies your website in the createToken call below
+  //Stripe.setPublishableKey('pk_test_7mkjcG8fQj3qmdhCgP92Pq4g');
+  Stripe.setPublishableKey('pk_live_D7yZGFFO2av0FKrXYKwGU6Ye');
+  
+  var stripeResponseHandler= function(status, response) {
+  var $form = $('#payment-form');
+
+  if (response.error) {
+    // Show the errors on the form
+    $form.find('.payment-errors').text(response.error.message);
+    $form.find('button').prop('disabled', false);
+  } else {
+    // response contains id and card, which contains additional card details
+    var token = response.id;
+    // Insert the token into the form so it gets submitted to the server
+    $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+    // and submit
+    $form.append($('<input type="hidden" name="test" />').val("test"));
+    $form.get(0).submit();
+  }
+};
+
+jQuery(function($) {
+  $('#payment-form').submit(function(event) {
+    var $form = $(this);
+
+    // Disable the submit button to prevent repeated clicks
+    $form.find('button').prop('disabled', true);
+
+    Stripe.card.createToken($form, stripeResponseHandler);
+
+    // Prevent the form from submitting with the default action
+    return false;
+  });
+});
+</script>
 
 {% endblock %}
