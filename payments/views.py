@@ -108,8 +108,6 @@ def sendDonation(request):
     try:
         page = 'donate'
         customer = createCustomer(token,request.POST['name'],request.POST['email'],page)
-        chargeCustomer(amount,customer.id,page)
-
         amount = int(request.POST['amount'])*100
 
         donation = Donation.objects.create(
@@ -126,7 +124,7 @@ def sendDonation(request):
             comment=request.POST['comment'],
             time = getEasternTimeZoneString()
         )
-        
+        chargeCustomer(amount,customer.id,page)
         template_name = 'success.html'
         return render_to_response(template_name, context_instance=RequestContext(request))
     except stripe.CardError, e:
