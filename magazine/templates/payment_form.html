@@ -1,0 +1,90 @@
+<div class="form-group row">
+    <label class="col-md-4 control-label" for="name">Name</label>
+    <div class="col-md-8">
+        <input class="form-control input-md" id="name" required="1" name="name" type="text" placeholder="Name">                    
+    </div>
+</div>
+<!-- Text input-->
+<div class="form-group row">
+    <label class="col-md-4 control-label" for="email">Email Address</label>
+
+    <div class="col-md-8">
+        <input class="form-control input-md" id="email" required="1" name="email" type="text" placeholder="Email">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label class="col-md-4 control-label" for="streetAddress1">Street Address</label>
+
+    <div class="col-md-8">
+        <input id="streetAddress1" name="streetAddress1" type="text" placeholder="Street Address" class="form-control input-md" required="1">
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-md-4 control-label" for="streetAddress2">Street Address</label>
+
+    <div class="col-md-8">
+        <input id="streetAddress2" name="streetAddress2" type="text" placeholder="Street Address" class="form-control input-md">
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-md-4 control-label" for="city">City</label>
+
+    <div class="col-md-8">
+        <input id="city" name="city" type="text" placeholder="City" class="form-control input-md" required="1">
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-md-4 control-label" for="state">State</label>
+
+    <div class="col-md-8">
+        <input id="state" name="state" type="text" placeholder="State" class="form-control input-md" required="1">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label class="col-md-4 control-label" for="zipCode">Zip Code</label>
+
+    <div class="col-md-8">
+        <input id="state" name="zipCode" type="text" placeholder="Zip Code" class="form-control input-md" required="1">
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-md-4 control-label" for="country">Country</label>
+
+    <div class="col-md-8">
+        <input id="state" name="country" type="text" placeholder="Country" class="form-control input-md" required="1">
+    </div>
+</div>
+<h3 class="signup-subheading">Payment Information</h3>
+<div class="card-wrapper" style="margin-bottom:40px;"></div>            
+
+<div class="form-group row">
+    <label class="col-md-4 control-label">Credit Card Number</label>
+
+    <div class="col-md-8">
+        <input type="text" placeholder="Credit Card Number" class="form-control input-md cc-number" name="number" data-stripe="number" required="">
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-md-4 control-label">Expiration (MM/YYYY)</label>
+
+    <div class="col-md-4">
+        <label class="col-md-4 control-label">MM</label>
+        <input type="text" class="form-control" placeholder="MM" data-stripe="exp-month" required="" name="exp-month">
+    </div>
+    <label class="col-md-4 control-label">YYYY</label>
+    <div class="col-md-4">
+        <input type="text" class="form-control" placeholder="YYYY" data-stripe="exp-year" required="" name="exp-year">
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-md-4 control-label" for="cvc">CVC Number</label>
+
+    <div class="col-md-4">
+        <input id="cvc" type="text" placeholder="CVC" class="form-control input-md cvc" data-stripe="cvc" required="" name="cvc">
+    </div>
+</div>
+<p class="small">Your private credit card data will never touch our servers.</p>
+<span class="payment-errors" style="color:red;"></span>
+<button type="submit" class="btn btn-success btn-block">Submit Payment</button>

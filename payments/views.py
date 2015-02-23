@@ -13,6 +13,10 @@ def donate(request):
     template_name = 'donate.html'
     return render_to_response(template_name, context_instance=RequestContext(request))
 
+def subscribe(request):
+    template_name = 'subscribe.html'
+    return render_to_response(template_name, context_instance=RequestContext(request))
+
 def shopSubmit(request):
     cost_of_issue = 10
     purchases_dict = {}
@@ -26,7 +30,7 @@ def shopSubmit(request):
     purchases_json=(json.dumps(purchases_dict))
     
     token = request.POST['stripeToken']
-    customer = createCustomer(token,request.POST['name'],'shop')
+    customer = createCustomer(token,request.POST['name'], request.POST['email'], 'shop')
     chargeCustomer(amount*100,customer.id,'shop')
 
     purchase = Purchase.objects.create(
@@ -71,10 +75,8 @@ def stripeSubmit(request):
             amount = 75
         elif subscriptionType == "One year (4 issues) - International & Institutions":
             amount = 45
-
-        customer = createCustomer(token,request.POST['name'],'subscribe')
-        chargeCustomer(amount*100,customer.id,'subscribe')
-
+        
+        customer = createCustomer(token,request.POST['name'],request.POST['email'],'subscribe')
 
         subscriber = Subscriber.objects.create(
             name=request.POST['name'], 
@@ -85,11 +87,14 @@ def stripeSubmit(request):
             state=request.POST['state'],
             country=request.POST['country'],
             zipCode=request.POST['zipCode'],
-            renew=request.POST['renew'],
+            renew=int(request.POST['renew']),
             customerID = customer.id,
             subscriptionType=subscriptionType,
             time = getEasternTimeZoneString()
-        )
+        )        
+        
+        chargeCustomer(amount*100,customer.id,'subscribe')
+        
         template_name = 'success.html'
         return render_to_response(template_name, context_instance=RequestContext(request))
     except stripe.CardError, e:
@@ -102,10 +107,8 @@ def sendDonation(request):
     # Create the charge on Stripe's servers - this will charge the user's card
     try:
         page = 'donate'
-        customer = createCustomer(token,request.POST['name'],page)
+        customer = createCustomer(token,request.POST['name'],request.POST['email'],page)
         amount = int(request.POST['amount'])*100
-
-        chargeCustomer(amount,customer.id,page)
 
         donation = Donation.objects.create(
             name=request.POST['name'], 
@@ -121,23 +124,24 @@ def sendDonation(request):
             comment=request.POST['comment'],
             time = getEasternTimeZoneString()
         )
-
+        chargeCustomer(amount,customer.id,page)
         template_name = 'success.html'
         return render_to_response(template_name, context_instance=RequestContext(request))
     except stripe.CardError, e:
         # The card has been declined
         pass
 
-def createCustomer(token,name,page) :
+def createCustomer(token,name,email,page) :
     if page == 'donate':
         stripe.api_key = settings.STRIPE_DONATE_SECRET_KEY  
     else:
         stripe.api_key = settings.STRIPE_BUY_SECRET_KEY
 
     customer = stripe.Customer.create(
-        card=token,
-        description=name
-    )
+        card = token,
+        description = name,
+        email = email
+    ) 
     return customer
 
 def chargeCustomer(amt, customerID, page):
