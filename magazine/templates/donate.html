@@ -1,209 +1,101 @@
 {% extends "base_original.html" %}
 
-
 {% block content %}
 
-
 <div class="container">
-	<h1 class="header">DONATE</h1>
-	<p class="text">
+    <h1 class="header">DONATE</h1>
+    <p class="text">
+        Thank you for considering your donation to The Harvard Advocate’s <a href="/150th">150th Capital Campaign</a>. Donors will be acknowledged at the following levels in our 150th Anthology. All donors at Muse and above will, pending permission, have their names featured in an original artwork done by an Advocate alum to be displayed in 21 South Street. All Midas donors will additionally receive a lifetime subscription to The Advocate.
+    </p>
+    <br><br>
+    <p class="centertext">
+        Herodotus $50+
+        <br><br>
+        Odysseus $100+
+        <br><br>
+        Phaedrus $500+
+        <br><br>
+        Penelope $1000+
+        <br><br>
+        Muse $5,000+
+        <br><br>
+        Midas $10,000+
+        <br><br>
+    </p>
+    <p class="text">
+    <!-- For a limited time, donors who give $1000 or more will receive a signed issue of the Advocate's Winter TRIAL issue with a cover signed by Dorothea Rockburne, whose design Focus adorns our cover. <br><br>-->
 
+    All gifts to The Harvard Advocate can be made through The Trustees of The Harvard Advocate, and are fully tax deductible according to 501(c)(3) non-profit donation guidelines. Checks should be made out to "The Trustees of The Harvard Advocate" and sent to 21 South St., Cambridge, MA 02138.
+    <br><br>
+    We also offer subscriptions, which we encourage as an alternative to small donations. To arrange a subscription, visit the <a href="/subscribe">Subscribe</a> page or email us at <a href = "mailto:subscribe@theharvardadvocate.com">subscribe@theharvardadvocate.com</a>.
+    <br><br>
+    Thank you for your support!
+    <br>
+        
+    <div style="margin: 40px auto 0px auto; background: #eee; max-width: 400px; padding: 20px;">
+        
+        <div class="form-container active">
+            <form action="/sendDonation" method="post" id="payment-form"> {% csrf_token %} 
+                <h3 class="signup-subheading">Donation Amount</h3>
+                <div class="form-group">
+                    <label class="sr-only" for="amount">Amount (in dollars)</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">$</div>
+                        <input type="text" class="form-control" id="amount" name="amount" placeholder="Amount">
+                        <div class="input-group-addon">.00</div>
+                    </div>
+                </div>
+                <label class="control-label" for "comment">Do you have any comments about this donation?</label>
+                <textarea class="form-control" name="comment" rows="3" placeholder="(Optional)"></textarea>
+                <h3 class="signup-subheading">Who should we thank?</h3>
+                
+                {% include 'payment_form.html' %}
 
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript">
 
-Thank you for considering your donation to The Harvard Advocate’s <a href="/150th">150th Capital Campaign</a>. Donors will be acknowledged at the following levels in our 150th Anthology. All donors at Muse and above will, pending permission, have their names featured in an original artwork done by an Advocate alum to be displayed in 21 South Street. All Midas donors will additionally receive a lifetime subscription to The Advocate.</p>
-<br><br>
-<p class="centertext">
-Herodotus $50+
-<br><br>
-Odysseus $100+
-<br><br>
-Phaedrus $500+
-<br><br>
-Penelope $1000+
-<br><br>
-Muse $5,000+
-<br><br>
-Midas $10,000+
-<br><br></p>
-<p class="text">
-All gifts to The Harvard Advocate can be made through The Trustees of The Harvard Advocate, and are fully tax deductible according to 501(c)(3) non-profit donation guidelines. Checks should be made out to "The Trustees of The Harvard Advocate" and sent to 21 South St., Cambridge, MA 02138.
-<br><br>
-We also offer subscriptions, which we encourage as an alternative to small donations. To arrange a subscription, visit the <a href="/subscribe">Subscribe</a> page or email us at <a href = "mailto:subscribe@theharvardadvocate.com">subscribe@theharvardadvocate.com</a>.
-<br><br>
-Thank you for your support!
-<Br>
-	<!-- For a limited time, donors who give $1000 or more will receive a signed issue of the Advocate's Winter TRIAL issue with a cover signed by Dorothea Rockburne, whose design Focus adorns our cover. <br><br>
-
-	All gifts to The Harvard Advocate can be made through The Trustees of The Harvard Advocate, and are fully tax deductible according to 501(c)(3) non-profit donation guidelines.  Gifts will be acknowledged in the four issues following the receipt according to the giving categories Patron ($1000 or over), Benefactor ($500 or over), Donor ($200 or over), and Friend ($25-$199).<br><br>
-
-	Checks should be made out to "The Trustees of The Harvard Advocate" and sent to 21 South St., Cambridge, MA 02138. <br><br>
--->
-	<!-- We also offer subscriptions, which we encourage as an alternative to small donations.  To arrange a subscription, visit the Subscribe page or email us at <a href = "subscribe@theharvardadvocate.com">subscribe@theharvardadvocate.com</a>.<br> -->
-<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-
-
-    
-
-
-<div style="margin: 40px auto 0px auto; background: #eee; max-width: 400px; padding: 20px;">
-
-	
-	<div class="form-container active">
-		<form action="/sendDonation" method="post" id="payment-form"> {% csrf_token %} 
-			<h3 class="signup-subheading">Donation Amount</h3>
-			<div class="form-group">
-				<label class="sr-only" for="amount">Amount (in dollars)</label>
-				<div class="input-group">
-					<div class="input-group-addon">$</div>
-					<input type="text" class="form-control" id="amount" name="amount" placeholder="Amount">
-					<div class="input-group-addon">.00</div>
-				</div>
-			</div>
-			<label class="control-label" for "comment">Do you have any comments about this donation?</label>
-			<textarea class="form-control" name="comment" rows="3" placeholder="(Optional)"></textarea>
-			<h3 class="signup-subheading">Who should we thank?</h3>
-		    <!-- Text input-->
-		    
-			<div class="form-group row">
-		        <label class="col-md-4 control-label" for="name">Name</label>
-		        <div class="col-md-8">
-		            <input class="form-control input-md" id="name" required="1" name="name" type="text" placeholder="Name">                    
-		        </div>
-		    </div>
-		    <!-- Text input-->
-		    <div class="form-group row">
-		        <label class="col-md-4 control-label" for="email">Email Address</label>
-
-		        <div class="col-md-8">
-		            <input class="form-control input-md" id="email" required="1" name="email" type="text" placeholder="Email">
-		        </div>
-		    </div>
-
-		    <div class="form-group row">
-		        <label class="col-md-4 control-label" for="streetAddress1">Street Address</label>
-
-		        <div class="col-md-8">
-		            <input id="streetAddress1" name="streetAddress1" type="text" placeholder="Street Address" class="form-control input-md" required="1">
-		        </div>
-		    </div>
-			<div class="form-group row">
-		        <label class="col-md-4 control-label" for="streetAddress2">Street Address</label>
-
-		        <div class="col-md-8">
-		            <input id="streetAddress2" name="streetAddress2" type="text" placeholder="Street Address" class="form-control input-md">
-		        </div>
-		    </div>
-		   <div class="form-group row">
-		        <label class="col-md-4 control-label" for="city">City</label>
-
-		        <div class="col-md-8">
-		            <input id="city" name="city" type="text" placeholder="City" class="form-control input-md" required="1">
-		        </div>
-		    </div>
-		    <div class="form-group row">
-		        <label class="col-md-4 control-label" for="state">State</label>
-
-		        <div class="col-md-8">
-		            <input id="state" name="state" type="text" placeholder="State" class="form-control input-md" required="1">
-		        </div>
-		    </div>
-		    
-		    <div class="form-group row">
-		        <label class="col-md-4 control-label" for="zipCode">Zip Code</label>
-
-		        <div class="col-md-8">
-		            <input id="state" name="zipCode" type="text" placeholder="Zip Code" class="form-control input-md" required="1">
-		        </div>
-		    </div>
-			<div class="form-group row">
-		        <label class="col-md-4 control-label" for="country">Country</label>
-
-		        <div class="col-md-8">
-		            <input id="state" name="country" type="text" placeholder="Country" class="form-control input-md" required="1">
-		        </div>
-		    </div>
-			<h3 class="signup-subheading">Payment Information</h3>
-		    <div class="card-wrapper" style="margin-bottom:40px;"></div>
-			
-			
-			
-	        <div class="form-group row">
-		        <label class="col-md-4 control-label">Credit Card Number</label>
-
-		        <div class="col-md-8">
-		            <input type="text" placeholder="Credit Card Number" class="form-control input-md cc-number" name="number" data-stripe="number" required="">
-		        </div>
-		    </div>
-		   <div class="form-group row">
-		        <label class="col-md-4 control-label">Expiration (MM/YYYY)</label>
-
-		        <div class="col-md-4">
-		        	<label class="col-md-4 control-label">MM</label>
-		            <input type="text" class="form-control" placeholder="MM" data-stripe="exp-month" required="" name="exp-month">
-		        </div>
-		        <label class="col-md-4 control-label">YYYY</label>
-		        <div class="col-md-4">
-		            <input type="text" class="form-control" placeholder="YYYY" data-stripe="exp-year" required="" name="exp-year">
-		        </div>
-		    </div>
-			<div class="form-group row">
-		        <label class="col-md-4 control-label" for="cvc">CVC Number</label>
-
-		        <div class="col-md-4">
-		            <input id="cvc" type="text" placeholder="CVC" class="form-control input-md cvc" data-stripe="cvc" required="" name="cvc">
-		        </div>
-		    </div>
-		    <p class="small">Your private credit card data will never touch our servers.</p>
-		    <span class="payment-errors" style="color:red;"></span>
-		    <button type="submit" class="btn btn-success btn-block">Submit Payment</button>
-		</form>
-	</div>
-</div>
-	<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-	<script type="text/javascript">
-
-	$('.active form').card({
+    $('.active form').card({
         container: '.card-wrapper',
         expiryInput: 'input[name="exp-month"], input[name="exp-year"]'
     })
 
-	  // This identifies your website in the createToken call below
-	  //Stripe.setPublishableKey('pk_test_66u2FQCcD717Ot7UGj1IvEsN');
-	  Stripe.setPublishableKey('pk_live_6jQkLASJNXLh52WS0qYFIQCu');
+      // This identifies your website in the createToken call below
+      Stripe.setPublishableKey('pk_test_66u2FQCcD717Ot7UGj1IvEsN');
+      //Stripe.setPublishableKey('pk_live_6jQkLASJNXLh52WS0qYFIQCu');
 
-	var stripeResponseHandler= function(status, response) {
-	var $form = $('#payment-form');
+    var stripeResponseHandler= function(status, response) {
+    var $form = $('#payment-form');
 
-	if (response.error) {
-	    // Show the errors on the form
-	    $form.find('.payment-errors').text(response.error.message);
-	    $form.find('button').prop('disabled', false);
-	  } else {
-	    // response contains id and card, which contains additional card details
-	    var token = response.id;
-	    // Insert the token into the form so it gets submitted to the server
-	    $form.append($('<input type="hidden" name="stripeToken" />').val(token));
-	    // and submit
-	    $form.append($('<input type="hidden" name="test" />').val("test"));
-	    $form.get(0).submit();
-	  }
-	};
+    if (response.error) {
+        // Show the errors on the form
+        $form.find('.payment-errors').text(response.error.message);
+        $form.find('button').prop('disabled', false);
+      } else {
+        // response contains id and card, which contains additional card details
+        var token = response.id;
+        // Insert the token into the form so it gets submitted to the server
+        $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+        // and submit
+        $form.get(0).submit();
+      }
+    };
 
-	jQuery(function($) {
-	  $('#payment-form').submit(function(event) {
-	    var $form = $(this);
+    jQuery(function($) {
+      $('#payment-form').submit(function(event) {
+        var $form = $(this);
 
-	    // Disable the submit button to prevent repeated clicks
-	    $form.find('button').prop('disabled', true);
+        // Disable the submit button to prevent repeated clicks
+        $form.find('button').prop('disabled', true);
 
-	    Stripe.card.createToken($form, stripeResponseHandler);
+        Stripe.card.createToken($form, stripeResponseHandler);
 
-	    // Prevent the form from submitting with the default action
-	    return false;
-	  });
-	});
-	</script>
-
-
+        // Prevent the form from submitting with the default action
+        return false;
+      });
+    });
+    </script>
 
 {% endblock %}
