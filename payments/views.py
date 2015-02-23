@@ -77,7 +77,11 @@ def stripeSubmit(request):
             amount = 45
         
         customer = createCustomer(token,request.POST['name'],request.POST['email'],'subscribe')
-        print request.POST['renew']
+        
+        if (request.POST['renew']=='yes'):
+            renew=1
+        else:
+            renew=0
 
         subscriber = Subscriber.objects.create(
             name=request.POST['name'], 
@@ -88,7 +92,7 @@ def stripeSubmit(request):
             state=request.POST['state'],
             country=request.POST['country'],
             zipCode=request.POST['zipCode'],
-            renew=request.POST['renew'],
+            renew=renew,
             customerID = customer.id,
             subscriptionType=subscriptionType,
             time = getEasternTimeZoneString()
