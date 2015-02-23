@@ -77,11 +77,6 @@ def stripeSubmit(request):
             amount = 45
         
         customer = createCustomer(token,request.POST['name'],request.POST['email'],'subscribe')
-        
-        if (request.POST['renew']=='yes'):
-            renew=1
-        else:
-            renew=0
 
         subscriber = Subscriber.objects.create(
             name=request.POST['name'], 
@@ -92,14 +87,14 @@ def stripeSubmit(request):
             state=request.POST['state'],
             country=request.POST['country'],
             zipCode=request.POST['zipCode'],
-            renew=renew,
+            renew=int(request.POST['renew']),
             customerID = customer.id,
             subscriptionType=subscriptionType,
             time = getEasternTimeZoneString()
         )        
-
+        
         chargeCustomer(amount*100,customer.id,'subscribe')
-
+        
         template_name = 'success.html'
         return render_to_response(template_name, context_instance=RequestContext(request))
     except stripe.CardError, e:
@@ -113,6 +108,8 @@ def sendDonation(request):
     try:
         page = 'donate'
         customer = createCustomer(token,request.POST['name'],request.POST['email'],page)
+        chargeCustomer(amount,customer.id,page)
+
         amount = int(request.POST['amount'])*100
 
         donation = Donation.objects.create(
@@ -129,7 +126,6 @@ def sendDonation(request):
             comment=request.POST['comment'],
             time = getEasternTimeZoneString()
         )
-        chargeCustomer(amount,customer.id,page)
         
         template_name = 'success.html'
         return render_to_response(template_name, context_instance=RequestContext(request))
