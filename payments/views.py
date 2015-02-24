@@ -76,7 +76,23 @@ def stripeSubmit(request):
         elif subscriptionType == "One year (4 issues) - International & Institutions":
             amount = 45
         
-        customer = createCustomer(token,request.POST['name'],request.POST['email'],'subscribe')
+        stripe.api_key = settings.STRIPE_BUY_SECRET_KEY
+        
+        # create a stripe customer
+        customer = stripe.Customer.create(
+            card = token,
+            description = subscriptionType,
+            email = request.POST['email'],
+            metadata = { 
+                'Name': request.POST['name'],
+                'Address': request.POST['streetAddress1'],
+                'Address Line 2': request.POST['streetAddress2'],
+                'City': request.POST['city'],
+                'State': request.POST['state'],
+                'Zip Code': request.POST['zipCode'],
+                'Country': request.POST['country'],
+            }
+        ) 
 
         subscriber = Subscriber.objects.create(
             name=request.POST['name'], 
@@ -94,7 +110,6 @@ def stripeSubmit(request):
         )        
         
         chargeCustomer(amount*100,customer.id,'subscribe')
-        
         template_name = 'success.html'
         return render_to_response(template_name, context_instance=RequestContext(request))
     except stripe.CardError, e:
@@ -102,14 +117,35 @@ def stripeSubmit(request):
       pass
 
 def sendDonation(request):
-    # Get the credit card details submitted by the form
+    # get form details
     token = request.POST['stripeToken']
+
     # Create the charge on Stripe's servers - this will charge the user's card
     try:
         page = 'donate'
-        customer = createCustomer(token,request.POST['name'],request.POST['email'],page)
-        amount = int(request.POST['amount'])*100
+        name = request.POST['name']
+        email = request.POST['email']
+        comment=request.POST['comment']
 
+        # Create customer on Stripe
+        stripe.api_key = settings.STRIPE_DONATE_SECRET_KEY  
+        customer = stripe.Customer.create(
+            card = token,
+            description = comment,
+            email = email,
+            metadata = { 
+                'Name': name,
+                'Address': request.POST['streetAddress1'],
+                'Address Line 2': request.POST['streetAddress2'],
+                'City': request.POST['city'],
+                'State': request.POST['state'],
+                'Zip Code': request.POST['zipCode'],
+                'Country': request.POST['country'],
+            }
+        ) 
+
+        amount = int(request.POST['amount'])*100
+        
         donation = Donation.objects.create(
             name=request.POST['name'], 
             email=request.POST['email'],
