@@ -141,7 +141,7 @@ class Subscriber(models.Model):
     country = models.CharField(max_length=255)
     zipCode = models.CharField(max_length=255)
     customerID = models.CharField(max_length=255)
-    renew = models.BooleanField()
+    renew = models.BooleanField(default=False)
     subscriptionType = models.CharField(max_length=255, choices=SUBSCRIPTION_CHOICES)
     time = models.CharField(max_length=255)
 
