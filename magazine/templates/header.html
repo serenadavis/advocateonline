@@ -34,7 +34,8 @@
   <script src="{% static 'magazine/js/typeahead.jquery.min.js' %}"></script>
   <script src="{% static 'magazine/js/bloodhound.min.js' %}"></script>
   <link rel="stylesheet" href="{% static 'magazine/css/search_style.css' %}"
-  <!-- Possible typeahead cdn <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.4/typeahead.bundle.min.js"></script>  -->
+  <!-- Possible typeahead cdn -->
+  <!--<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.4/typeahead.bundle.min.js"></script> -->
 
   <script type="text/javascript">
     $(document).ready(function() {
@@ -112,7 +113,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 top-line">
             <div class="form-group search-group">
-                <form class=" search-form" role="search">
+                <form type="get" action="/search/" class="search-form" role="search">
                     <svg width="20px" height="24px">
                         <g id="search-icon" transform = "scale(0.15, 0.15), translate(0,30)" x= "4">
                             <path fill="#010101" d="M89.556,10.443C82.819,3.71,73.868,0,64.343,0C54.82,0,45.867,3.707,39.133,10.44
@@ -124,7 +125,8 @@
                             c3.899,3.899,6.043,9.083,6.043,14.598c0.004,5.515-2.144,10.696-6.039,14.595C75.042,54.148,69.86,56.297,64.346,56.297z"/>
                         </g>
                     </svg>
-                    <input type="text" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Search">
+                    <input type="text" name="q" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Search">
+		    <button type="submit" style="display: none;"></button>
                     <hr class="search-bottom-border">
                 </form>
 

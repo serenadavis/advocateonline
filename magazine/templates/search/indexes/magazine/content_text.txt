@@ -2,5 +2,4 @@
 {{ object.subtitle }}
 {{ object.teaser }}
 {{ object.body }}
-{{ object.contributors }}
-{{ object.tags }}
+{{ object.contributors.all }}
