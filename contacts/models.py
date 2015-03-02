@@ -1,51 +1,63 @@
 from django.db import models
 
+class Board(models.Model):
+	name = models.CharField(max_length=255)
+
 # Create your models here.
 class Contact(models.Model):
+	def full_name(self):
+		return self.article + " " + self.firstName + " " + self.lastName + " " + self.title
+
 	def __unicode__(self):
-		return self.article + " " + self.firstName + " " + self.lastName + " " + self.title
+		return self.full_name()
 
-	def fullName(self):
-		return self.article + " " + self.firstName + " " + self.lastName + " " + self.title
+	def full_address(self):
+		return self.streetAddress1 + '\n' + self.streetAddress2 + '\n' + self.streetAddress3
 
-	firstName = models.CharField(max_length=255) 
-	lastName = models.CharField(max_length=255, blank=True)
-	middleName = models.CharField(max_length=255, blank=True)
-	article = models.CharField(max_length=255, blank=True)
-	title = models.CharField(max_length=255, blank=True)
-	nickName = models.CharField(max_length=255, blank=True)
-	streetAddress1 = models.CharField(max_length=255)
-	streetAddress2 = models.CharField(max_length=255, blank=True)
-	streetAddress3 = models.CharField(max_length=255, blank=True)
-	city = models.CharField(max_length=255)
-	state = models.CharField(max_length=255)
-	zipCode = models.CharField(max_length=255)
-	country = models.CharField(max_length=255, blank=True)
-	email1 = models.CharField(max_length=255, blank=True)
-	email2 = models.CharField(max_length=255, blank=True)
-	phone = models.CharField(max_length=255, blank=True)
-	linkedIn = models.CharField(max_length=255, blank=True)
-	twitter = models.CharField(max_length=255, blank=True)
-	facebook = models.CharField(max_length=255, blank=True)
-	followed = models.BooleanField(default=False)
-	website = models.CharField(max_length=255, blank=True)
-	profession = models.CharField(max_length=255, blank=True)
-	graduationYear = models.CharField(max_length=255, blank=True)
-	otherDegrees = models.CharField(max_length=255, blank=True)
-	board = models.CharField(max_length=255, blank=True)
-	positionHeld = models.CharField(max_length=255, blank=True)
-	publishedWork = models.TextField(blank=True)
-	notes = models.TextField(blank=True)
-	donationBracket = models.CharField(max_length=255, blank=True)
+	class Meta:
+		ordering = ('firstName', 'lastName') # default sort order 
+
+	firstName = models.CharField(max_length=255, verbose_name='First name') 
+	middleName = models.CharField(max_length=255, blank=True, verbose_name='Middle name')
+	lastName = models.CharField(max_length=255, blank=True, verbose_name='Last name')
+	article = models.CharField(max_length=255, blank=True, verbose_name='Article')
+	title = models.CharField(max_length=255, blank=True, verbose_name='Title')
+	nickName = models.CharField(max_length=255, blank=True, verbose_name='Nickname')
+	streetAddress1 = models.CharField(max_length=255, blank=True, verbose_name='Address 1')
+	streetAddress2 = models.CharField(max_length=255, blank=True, verbose_name='Address 2')
+	streetAddress3 = models.CharField(max_length=255, blank=True, verbose_name='Address 3')
+	city = models.CharField(max_length=255, blank=True, verbose_name='City')
+	state = models.CharField(max_length=255, blank=True, verbose_name='State')
+	zipCode = models.CharField(max_length=255, blank=True, verbose_name='Zip code')
+	country = models.CharField(max_length=255, blank=True, verbose_name='Country')
+	email1 = models.CharField(max_length=255, blank=True, verbose_name='Email')
+	email2 = models.CharField(max_length=255, blank=True, verbose_name='Email 2')
+	phone = models.CharField(max_length=255, blank=True, verbose_name='Phone')
+	linkedIn = models.CharField(max_length=255, blank=True, verbose_name='LinkedIn')
+	twitter = models.CharField(max_length=255, blank=True, verbose_name='Twitter')
+	facebook = models.CharField(max_length=255, blank=True, verbose_name='Facebook')
+	followed = models.BooleanField(default=False, verbose_name='Followed?')
+	website = models.CharField(max_length=255, blank=True, verbose_name='Website')
+	profession = models.CharField(max_length=255, blank=True, verbose_name='Profession')
+	graduationYear = models.CharField(max_length=255, blank=True, verbose_name='Graduation year')
+	otherDegrees = models.CharField(max_length=255, blank=True, verbose_name='Other degrees')
+	board = models.CharField(max_length=255, blank=True, verbose_name='Board')
+	positionHeld = models.CharField(max_length=255, blank=True, verbose_name='Position held')
+	publishedWork = models.TextField(blank=True, verbose_name='Published work')
+	notes = models.TextField(blank=True, verbose_name='Notes')
+	donationBracket = models.CharField(max_length=255, blank=True, verbose_name='Donation bracket')
 	#donationYears = 
 	#donatedAmount = 
 	#lastContact = 
-	tier = models.CharField(max_length=255, blank=True)
-	formCategory = models.CharField(max_length=255, blank=True)
-	dateAdded = models.DateField(auto_now_add=True, blank=True)
+	tier = models.CharField(max_length=255, blank=True, verbose_name='Tier')
+	formCategory = models.CharField(max_length=255, blank=True, verbose_name='Form category')
+	dateAdded = models.DateField(auto_now_add=True, blank=True, verbose_name='Date added')
 
 
 class Interaction(models.Model):
+	def __unicode__(self):
+		return str(self.date) + ': ' + self.note
+
 	INTERACTION_CATEGORIES = ((0, 'Other'),
 							  (1, 'Phone call'),
 							  (2, 'Email'),
@@ -57,4 +69,5 @@ class Interaction(models.Model):
 	contact = models.ForeignKey(Contact)
 	date = models.DateField()
 	category = models.IntegerField(choices=INTERACTION_CATEGORIES, default=0)
+	donationAmount = models.IntegerField(null=True, verbose_name='Donation amount (if applicable)')
 	note = models.TextField()
