@@ -69,5 +69,5 @@ class Interaction(models.Model):
 	contact = models.ForeignKey(Contact)
 	date = models.DateField()
 	category = models.IntegerField(choices=INTERACTION_CATEGORIES, default=0)
-	donationAmount = models.IntegerField(null=True, verbose_name='Donation amount (if applicable)')
+	donationAmount = models.IntegerField(null=True, blank=True, verbose_name='Donation amount (if applicable)')
 	note = models.TextField()

@@ -14,6 +14,9 @@ class ContactAdmin(admin.ModelAdmin):
 	search_fields = ['firstName', 'middleName', 'lastName', 'nickName']
 	inlines = [InteractionInline]
 
+class InteractionAdmin(admin.ModelAdmin):
+	list_filter = ['category']
+
 # Register your models here.
 admin.site.register(Contact, ContactAdmin)
-admin.site.register(Interaction)
+admin.site.register(Interaction, InteractionAdmin)
