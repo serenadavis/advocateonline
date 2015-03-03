@@ -7,6 +7,4 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-     url(r'^$', "contacts.views.index"),
-     url(r'^/details', "contacts.views.details"),
 )
