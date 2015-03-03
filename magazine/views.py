@@ -37,7 +37,6 @@ def index(request):
 	return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 def article(request, slug):
-	print 'GETTING ARTICLE'
 	article = get_object_or_404(Article, slug__iexact=slug)
 	data = {
 		'article': article
