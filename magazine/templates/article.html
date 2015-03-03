@@ -1,7 +1,13 @@
 {% extends "base_original.html" %}
 
+{% block meta %}
+<title>{{article.title}} | {{article.section}}</title>
+<meta name="author" content="{% for author in article.contributors.all %}{{ author.name }}{% endfor %}">
+<meta name="description" content="{{article.teaser | truncatewords:25 }}">
+{% endblock %}
+
 {% block content %}
-{% load staticfiles %}
+
 {% load social_share %}
 
 <div class = "container">

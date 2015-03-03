@@ -1,5 +1,10 @@
 {% extends "base_original.html" %}
 
+{% block meta %}
+<title>{{art_content.title }} | {{art_content.section}}</title>
+<meta name="author" content="{% for author in art_content.contributors.all %}{{ author.name }}{% endfor %}">
+{% endblock %}
+
 {% block content %}
 {% load staticfiles %}
 {% load social_share %}
