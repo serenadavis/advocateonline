@@ -12,7 +12,7 @@
     	{% for author in article.contributors.all %}
              <a href="{{ author.get_absolute_url }}" class="no-decoration"> <h2 class="article-author"> {{ author.name }}</h2></a>
         {% endfor %}
-		<p> {{article.body|safe}} </p>
+		<div>{{article.body|safe}}</div>
 	</article>
 
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
