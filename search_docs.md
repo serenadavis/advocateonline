@@ -34,7 +34,7 @@ Now take the ```schema.xml``` file just generated and move it back to the newly 
 
 Now that the schema has been established, restart the Solr engine as before by navigating to 
 
-```solr-4.10-2/example```
+```this solr-4.10-2/example```
 
 and executing 
 
