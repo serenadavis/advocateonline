@@ -21,7 +21,10 @@ class ContentSearchForm(SearchForm):
         return self.searchqueryset.all()
 
     def search(self):
+        print 'hello'
         sqs = super(ContentSearchForm, self).search()
+
+        print 'hello'
 
         if not self.is_valid():
             return self.no_query_found()
