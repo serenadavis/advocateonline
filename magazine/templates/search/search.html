@@ -3,15 +3,69 @@
 {% block content %}
 {% load staticfiles %}
 
+<style>
+  .filter{
+    width: 120px;
+    text-align: center;
+  }
+
+</style>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    var active = "All";
+
+    $("#filts > li").mouseover(function() {
+      $(this).css('font-weight', 'bold');
+    });
+    $("#filts > li").mouseout(function() {
+      //if(!($(this).id == active))
+        $(this).css('font-weight', 'normal');
+    });
+
+    $("#filts > li").click(function() { 
+      var section = $(this).attr('id');
+      active = section;
+
+      $(this).css('font-weight', 'bold');
+
+      if (section == "All")
+      {
+        $("dt").show();
+        $("dd").show();
+      }
+      else
+      {
+        $("dt").hide();
+        $("dd").hide();
+  
+        $("dt#" + section).show();
+        $("dd#" + section).show();
+      }
+    });
+  
+
+  });
+</script>
+
+
 <div class="container">
   <h2>{{ page.paginator.count }} Results Found</h2>
 
+  <ul id="filts" class="nav nav-pills">
+    <li id="All" class="filter" role="presentation">All Results</li>
+    <li id="Art" class="filter" role="presentation">Art</li>
+    <li id="Fiction" class="filter" role="presentation">Fiction</li>
+    <li id="Features" class="filter" role="presentation">Features</li>
+    <li id="Poetry" class="filter" role="presentation">Poetry</li>
+  </ul>
+
   <dl>
     {% for result in page.object_list %}
-      <dt>
+      <dt id="{{ result.object.section }}">
 	<a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a> - <a href="{{ result.object.contributors.all.first.get_absolute_url }}" class="author no-decoration">{{ result.object.contributors.all.first }}</a>
       </dt>
-      <dd>
+      <dd id="{{ result.object.section }}">
 	<p style="margin: 0.2cm 1cm 1cm 1cm; color:#808080"> {{ result.object.teaser | truncatechars:200 }} </p>
       </dd>
     {% empty %}

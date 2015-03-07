@@ -3,3 +3,4 @@
 {{ object.teaser }}
 {{ object.body }}
 {{ object.contributors.all }}
+{{ object.section }} 
