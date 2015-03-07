@@ -34,7 +34,7 @@ Now take the ```schema.xml``` file just generated and move it back to the newly 
 
 Now that the schema has been established, restart the Solr engine as before by navigating to 
 
-```this solr-4.10-2/example```
+``` solr-4.10-2/example ```
 
 and executing 
 
@@ -46,7 +46,7 @@ If Solr starts with no errors, navigate back to the django app directory and bui
 
 Say yes at any prompts, and upon completing successfully, the number of context items indexed will be displayed.  If everything has proceeded without errors, Solr should be ready to execute queries, and the django app configured to query the Solr backend.  To access the Solr admin portal, in any web browser, simply navigate to
 
-```localhost:8983/solr```
+``` localhost:8983/solr ```
 
 To update the index, either 
 
