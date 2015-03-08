@@ -13,3 +13,4 @@ requests==2.3.0
 six==1.7.3
 South==0.8.4
 stripe==1.18.0
+xlwt==0.7.2
