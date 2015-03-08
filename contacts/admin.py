@@ -2,6 +2,7 @@ import xlwt
 from django.contrib import admin
 from django.http import HttpResponse
 from django.utils.encoding import smart_str
+from django.db.models import Sum
 from .models import *
 
 class InteractionInline(admin.TabularInline):
@@ -98,7 +99,14 @@ def export_xls(modeladmin, request, queryset):
 export_xls.short_description = u"Export as Excel spreadsheet"
 
 class ContactAdmin(admin.ModelAdmin):
-	list_display = ('firstName', 'lastName', 'graduationYear',
+	def queryset(self, request):
+		return Contact.objects.annotate(donated=Sum('interaction__donationAmount'))
+
+	def total_donated(self, inst):
+		return inst.donated
+	total_donated.admin_order_field = 'donated' # allows you to sort by this field
+
+	list_display = ('firstName', 'lastName', 'total_donated', 'graduationYear',
 					'otherDegrees', 'profession', 'board',
 					'positionHeld', 'full_address', 'city',
 					'state', 'zipCode', 'email1', 'dateAdded')
