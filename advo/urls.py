@@ -4,6 +4,8 @@ from django.contrib import admin
 
 from ajax_select import urls as ajax_select_urls
 
+from magazine.views import FilterSearchView
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -28,7 +30,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     url(r'^sendDonation$','payments.views.sendDonation'),
 
-    url(r'^search/?$', include('haystack.urls')),
+    url(r'^search/?$', FilterSearchView(), name='filter_search'),
 
     url(r'^blog/', include('blog.urls')),
     url(r'^shopSubmit$','payments.views.shopSubmit'),

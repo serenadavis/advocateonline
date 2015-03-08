@@ -14,7 +14,6 @@ class ContentForm(ModelForm):
     tags = make_ajax_field(Content, 'tags', 'tag')
 
 
-
 class ContentSearchForm(SearchForm):
 
     def no_query_found(self):

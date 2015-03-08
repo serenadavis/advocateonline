@@ -8,7 +8,11 @@ import json
 import stripe
 from django.conf import settings
 import random
+
 from haystack.query import SearchQuerySet
+from haystack.views import SearchView
+from haystack.forms import SearchForm
+from django.shortcuts import redirect
 
 
 # Create your views here.
@@ -101,9 +105,39 @@ def singleissue(request, season, year):
 		}
 
 	return render_to_response(template_name, data, context_instance=RequestContext(request))
-def search(request, searchterm):
-	template_name = 'search.html'
-	return render_to_response(template_name, context_instance=RequestContext(request))
+
+class FilterSearchView(SearchView):
+        template_name = 'search/search.html'
+        queryset = SearchQuerySet().all()
+        form_class = SearchForm
+
+        def create_response(self):
+                (pageinator, page) = self.build_page()
+                
+                context = {
+                        'query' : self.query,
+                        'form' : self.form,
+                        'page' : page,
+                        'pageinator' : pageinator,
+                        'suggestion' : None,
+                }
+                
+                #for dict in Contributor.objects.all():
+                #        if (dict['name'] == self.query):
+                #                print dict
+                
+                try:
+                        return redirect(Article.objects.get(title = self.query))
+                except Article.DoesNotExist:
+                        pass
+
+                try:
+                        return redirect(Contributor.objects.get(name = self.query))
+                except Contributor.DoesNotExist:
+                        pass
+
+                context.update(self.extra_context())
+                return render_to_response(self.template, context, context_instance=self.context_class(self.request))
 
 
 def subscribe(request):
