@@ -95,7 +95,7 @@ def export_xls(modeladmin, request, queryset):
             
     wb.save(response)
     return response
-export_xls.short_description = u"Export Excel spreadsheet"
+export_xls.short_description = u"Export as Excel spreadsheet"
 
 class ContactAdmin(admin.ModelAdmin):
 	list_display = ('firstName', 'lastName', 'graduationYear',
