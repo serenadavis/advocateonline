@@ -13,7 +13,7 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    var active = "All";
+    var active = '{{ type_filter }}';
     $("#filts > li#" + active).css('font-weight', 'bold');
 
     $("#filts > li").mouseover(function() {
@@ -24,7 +24,17 @@
         $(this).css('font-weight', 'normal');
     });
 
-    $("#filts > li").click(function() { 
+    $("#filts > li").click(function() {
+      if ($(this).attr('id') != active)
+      {
+        if ($(this).attr('id') == 'all')
+          var url = '/search/?q=' + {{ form.q.value }};
+        else
+          var url = '/search/' + $(this).attr('id') + '/?q=' + {{ form.q.value }};
+  
+        window.location.replace(url);
+        console.log(url);
+      }
     });
   
 
@@ -33,14 +43,14 @@
 
 
 <div class="container">
-  <h2>{{ page.paginator.count }} Results Found</h2>
+  <h2>{{ page.paginator.count }} Results Found For '{{ query }}' path is {{ form.q.value }}</h2>
 
   <ul id="filts" class="nav nav-pills">
-    <li id="All" class="filter" role="presentation">All Results</li>
-    <li id="Art" class="filter" role="presentation">Art</li>
-    <li id="Fiction" class="filter" role="presentation">Fiction</li>
-    <li id="Features" class="filter" role="presentation">Features</li>
-    <li id="Poetry" class="filter" role="presentation">Poetry</li>
+    <li id="all" class="filter" role="presentation">All Results</li>
+    <a href="/search/art/?q={{ form.q.value }}"><li id="art" class="filter" role="presentation">Art</li></a>
+    <li id="fiction" class="filter" role="presentation">Fiction</li>
+    <li id="features" class="filter" role="presentation">Features</li>
+    <li id="poetry" class="filter" role="presentation">Poetry</li>
   </ul>
 
   <dl>

@@ -110,6 +110,26 @@ class FilterSearchView(SearchView):
         template_name = 'search/search.html'
         queryset = SearchQuerySet().all()
         form_class = SearchForm
+        type_filter = 'all'
+
+        def __call__(self, request, type_filter = None):
+
+                self.request = request
+
+                self.form = self.build_form()
+                self.query = self.get_query()
+                self.results = self.get_results()
+
+                if type_filter is not None:
+                        self.results = self.results.filter(section=type_filter)
+                        self.type_filter = type_filter
+                else:
+                        self.type_filter = 'all'
+
+                return self.create_response()
+
+        def extra_context(self):
+                return {'type_filter' : self.type_filter}
 
         def create_response(self):
                 (pageinator, page) = self.build_page()
