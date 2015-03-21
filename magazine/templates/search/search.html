@@ -5,7 +5,7 @@
 
 <style>
   .filter{
-    width: 120px;
+    width: 18%;
     text-align: center;
   }
 
@@ -14,43 +14,21 @@
 <script type="text/javascript">
   $(document).ready(function() {
     var active = '{{ type_filter }}';
-    $("#filts > li#" + active).css('font-weight', 'bold');
-
-    $("#filts > li").mouseover(function() {
-      $(this).css('font-weight', 'bold');
-    });
-    $("#filts > li").mouseout(function() {
-      if(!($(this).attr('id') == active))
-        $(this).css('font-weight', 'normal');
-    });
-
-    $("#filts > li").click(function() {
-      if ($(this).attr('id') != active)
-      {
-        if ($(this).attr('id') == 'all')
-          var url = '/search/?q=' + {{ form.q.value }};
-        else
-          var url = '/search/' + $(this).attr('id') + '/?q=' + {{ form.q.value }};
-  
-        window.location.replace(url);
-        console.log(url);
-      }
-    });
-  
+    $("#filts > li#" + active).addClass('active');
 
   });
 </script>
 
 
 <div class="container">
-  <h2>{{ page.paginator.count }} Results Found For '{{ query }}' path is {{ form.q.value }}</h2>
+  <h2>{{ page.paginator.count }} Results Found For '{{ query }}'</h2>
 
   <ul id="filts" class="nav nav-pills">
-    <li id="all" class="filter" role="presentation">All Results</li>
-    <a href="/search/art/?q={{ form.q.value }}"><li id="art" class="filter" role="presentation">Art</li></a>
-    <li id="fiction" class="filter" role="presentation">Fiction</li>
-    <li id="features" class="filter" role="presentation">Features</li>
-    <li id="poetry" class="filter" role="presentation">Poetry</li>
+    <li id="all" class="filter" role="presentation"><a class="no-decoration" href="/search/?q={{ form.q.value }}">All Results</a></li>
+    <li id="art" class="filter" role="presentation"><a class="no-decoration" href="/search/art/?q={{ form.q.value }}">Art</a></li>
+    <li id="fiction" class="filter" role="presentation"><a class="no-decoration" href="/search/fiction/?q={{ form.q.value }}">Fiction</a></li>
+    <li id="features" class="filter" role="presentation"><a class="no-decoration" href="/search/features/?q={{ form.q.value }}">Features</a></li>
+    <li id="poetry" class="filter" role="presentation"><a class="no-decoration" href="/search/poetry/?q={{ form.q.value }}">Poetry</a></li>
   </ul>
 
   <dl>
