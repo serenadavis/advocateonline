@@ -5,7 +5,7 @@
 
 <style>
   .filter{
-    width: 18%;
+    width: 16%;
     text-align: center;
   }
 
@@ -14,7 +14,7 @@
 <script type="text/javascript">
   $(document).ready(function() {
     var active = '{{ type_filter }}';
-    $("#filts > li#" + active).addClass('active');
+    $("#filts > li#" + active).css('font-weight', 'bold');
 
   });
 </script>
@@ -23,7 +23,7 @@
 <div class="container">
   <h2>{{ page.paginator.count }} Results Found For '{{ query }}'</h2>
 
-  <ul id="filts" class="nav nav-pills">
+  <ul id="filts" class="nav nav-pills" style="border-bottom : thin dotted #a4a4a4; border-top : thin dotted #a4a4a4">
     <li id="all" class="filter" role="presentation"><a class="no-decoration" href="/search/?q={{ form.q.value }}">All Results</a></li>
     <li id="art" class="filter" role="presentation"><a class="no-decoration" href="/search/art/?q={{ form.q.value }}">Art</a></li>
     <li id="fiction" class="filter" role="presentation"><a class="no-decoration" href="/search/fiction/?q={{ form.q.value }}">Fiction</a></li>
