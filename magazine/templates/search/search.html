@@ -3,19 +3,10 @@
 {% block content %}
 {% load staticfiles %}
 
-<style>
-  .filter{
-    width: 16%;
-    text-align: center;
-  }
-
-</style>
-
 <script type="text/javascript">
   $(document).ready(function() {
     var active = '{{ type_filter }}';
     $("#filts > li#" + active).css('font-weight', 'bold');
-
   });
 </script>
 
@@ -23,12 +14,12 @@
 <div class="container">
   <h2>{{ page.paginator.count }} Results Found For '{{ query }}'</h2>
 
-  <ul id="filts" class="nav nav-pills" style="border-bottom : thin dotted #a4a4a4; border-top : thin dotted #a4a4a4">
-    <li id="all" class="filter" role="presentation"><a class="no-decoration" href="/search/?q={{ form.q.value }}">All Results</a></li>
-    <li id="art" class="filter" role="presentation"><a class="no-decoration" href="/search/art/?q={{ form.q.value }}">Art</a></li>
-    <li id="fiction" class="filter" role="presentation"><a class="no-decoration" href="/search/fiction/?q={{ form.q.value }}">Fiction</a></li>
-    <li id="features" class="filter" role="presentation"><a class="no-decoration" href="/search/features/?q={{ form.q.value }}">Features</a></li>
-    <li id="poetry" class="filter" role="presentation"><a class="no-decoration" href="/search/poetry/?q={{ form.q.value }}">Poetry</a></li>
+  <ul id="filts" class="nav nav-pills search-filter-bar">
+    <li id="all" class="search-filter-tab" role="presentation"><a class="no-decoration" href="/search/?q={{ form.q.value }}">All Results</a></li>
+    <li id="art" class="search-filter-tab" role="presentation"><a class="no-decoration" href="/search/art/?q={{ form.q.value }}">Art</a></li>
+    <li id="fiction" class="search-filter-tab" role="presentation"><a class="no-decoration" href="/search/fiction/?q={{ form.q.value }}">Fiction</a></li>
+    <li id="features" class="search-filter-tab" role="presentation"><a class="no-decoration" href="/search/features/?q={{ form.q.value }}">Features</a></li>
+    <li id="poetry" class="search-filter-tab" role="presentation"><a class="no-decoration" href="/search/poetry/?q={{ form.q.value }}">Poetry</a></li>
   </ul>
 
   <dl>
