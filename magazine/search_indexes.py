@@ -6,10 +6,16 @@ class ContentIndex(indexes.SearchIndex, indexes.Indexable):
     title = indexes.CharField(model_attr='title')
     section = indexes.CharField()
     text = indexes.CharField(document=True, use_template=True)
+    suggestions = indexes.CharField()
+
+    def prepare(self, obj):
+        prepared_data = super(ContentIndex, self).prepare(obj)
+        prepared_data['suggestions'] = prepared_data['text'][0:300]
+        return prepared_data
 
     def prepare_section(self, obj):
         return obj.section.name
-
+        
     def get_model(self):
         return Content
 

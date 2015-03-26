@@ -7,12 +7,14 @@
   $(document).ready(function() {
     var active = '{{ type_filter }}';
     $("#filts > li#" + active).css('font-weight', 'bold');
+    if ('{{ suggestion }}' == 'None')
+      $("h3#suggestions").hide();
   });
 </script>
 
 
 <div class="container">
-  <h2>{{ page.paginator.count }} Results Found For '{{ query }}'</h2>
+  <h2>{{ page.paginator.count }} Results Found For '{{ query }}'  {{ suggestion }}</h2>
 
   <ul id="filts" class="nav nav-pills search-filter-bar">
     <li id="all" class="search-filter-tab" role="presentation"><a class="no-decoration" href="/search/?q={{ form.q.value }}">All Results</a></li>
@@ -22,6 +24,7 @@
     <li id="poetry" class="search-filter-tab" role="presentation"><a class="no-decoration" href="/search/poetry/?q={{ form.q.value }}">Poetry</a></li>
   </ul>
 
+  <h3 id="suggestions">Did you mean {{ suggestion }}?</h3>
   <dl>
     {% for result in page.object_list %}
       <dt>
