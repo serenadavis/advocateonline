@@ -1,5 +1,6 @@
 import xlwt
 from django.contrib import admin
+from django.contrib.admin import SimpleListFilter
 from django.http import HttpResponse
 from django.utils.encoding import smart_str
 from django.db.models import Sum
@@ -98,6 +99,24 @@ def export_xls(modeladmin, request, queryset):
     return response
 export_xls.short_description = u"Export as Excel spreadsheet"
 
+class DonationFilter(SimpleListFilter):
+    title = 'Donations' # or use _('country') for translated title
+    parameter_name = 'donated'
+
+    def lookups(self, request, model_admin):
+        return (
+            ('DONATED', 'Has donated'),
+            ('NOT_DONATED', 'Hasn\'t donated')
+        )
+
+    def queryset(self, request, queryset):
+        if self.value() == 'DONATED':
+            return queryset.filter(donated__gt=0)
+        elif self.value() == 'NOT_DONATED':
+            return queryset.filter(donated__isnull=True)
+        else:
+            return queryset
+
 class ContactAdmin(admin.ModelAdmin):
 	def queryset(self, request):
 		return Contact.objects.annotate(donated=Sum('interaction__donationAmount'))
@@ -110,7 +129,7 @@ class ContactAdmin(admin.ModelAdmin):
 					'otherDegrees', 'profession', 'board',
 					'positionHeld', 'full_address', 'city',
 					'state', 'zipCode', 'email1', 'dateAdded')
-	list_filter = ['state', 'graduationYear', 'board', 'positionHeld', 'tier', 'article', 'followed', 'formCategory']
+	list_filter = [DonationFilter, 'state', 'graduationYear', 'board', 'positionHeld', 'tier', 'article', 'followed', 'formCategory']
 	search_fields = ['firstName', 'middleName', 'lastName', 'nickName']
 	inlines = [InteractionInline]
 	actions = [export_xls]
