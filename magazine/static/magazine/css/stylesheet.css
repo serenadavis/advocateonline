@@ -124,7 +124,7 @@ body{
 .resize-image img { width: 100%; }
 
 .header-image{
-  width: 1000px;
+  width: 1150px;
   max-width: 100%;
   height: auto;
   margin: 0 auto;
@@ -385,7 +385,7 @@ article.poetry p {
 }
 
 .container{
-	max-width: 900px;
+	max-width: 1150px;
 }
 .center{
 	text-align: center;
