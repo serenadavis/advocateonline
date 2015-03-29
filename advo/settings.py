@@ -43,7 +43,8 @@ INSTALLED_APPS = (
     'magazine',
     'blog',
     'payments',
-    'django_social_share'
+    'django_social_share',
+    'contacts'
 )
 
 MIDDLEWARE_CLASSES = (
