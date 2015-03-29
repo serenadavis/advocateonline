@@ -9,6 +9,10 @@ class Tag(models.Model):
     
     def __unicode__(self):
         return self.name
+    def get_absolute_url(self):
+        # Can't use .format because name is not always
+        return '/blog/tag/' +  str(self.slug)
+        # return '/contributor/{0}/{1}'.format(self.id, self.slug())
 class Category(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=100)
