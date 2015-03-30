@@ -1,6 +1,20 @@
 ## Setting Up the Search Engine (Linux or Mac)
 
-First, install the Solr Engine backend.  Navigate to the install directory, and download the tarball
+First, ensure that Java is installed on the machine.  To check, execute
+
+```
+java -version
+```
+
+If this successfully returns your Java RE version, proceed to Solr Engine installation.  If not, JRE must be installed before proceeding.  On ```yum``` machine this can be accomplished with 
+
+```yum install java-1.8.0-openjdk.i686    or    yum install java-1.8.0-openjdk.x86_64```
+
+and with apt-get
+
+```apt-get install default-jre```
+
+Next, install the Solr Engine backend.  Navigate to the install directory, and download the tarball
 
 ```curl -LO https://archive.apache.org/dist/lucene/solr/4.10.2/solr-4.10.2.tgz ```
 

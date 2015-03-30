@@ -143,7 +143,7 @@ class FilterSearchView(SearchView):
                 }
 
                 context['suggestion'] = self.form.get_suggestion()
-                
+
                 #for dict in Contributor.objects.all():
                 #        if (dict['name'] == self.query):
                 #                print dict
