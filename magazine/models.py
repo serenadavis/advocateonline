@@ -91,7 +91,7 @@ class Content(models.Model):
     publishDate = models.DateTimeField(default=datetime.datetime.now)
     subtitle = models.CharField(max_length=255, blank=True)
     slug = models.SlugField(max_length=100)
-    teaser = models.TextField(blank=True)
+    teaser = tinymce_models.HTMLField(blank=True)
     body = tinymce_models.HTMLField()
 
     # Legacy fields; we should probably get rid of this eventually
