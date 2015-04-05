@@ -24,7 +24,7 @@ def index(request):
   issue = Issue.objects.last()
 
   # for each article with this issue id
-  articles_in_issue = Article.objects.filter(issue=issue)
+  articles_in_issue = Article.objects.published().filter(issue=issue)
   data = {
     'sections': {
         'fiction': [],
@@ -37,7 +37,7 @@ def index(request):
   # Put articles into their respective sections
   for article in articles_in_issue:
     data['sections'][str(article.section).lower()].append(article)
-  data['sections']['art'] =  Image.objects.filter(issue=issue)
+  data['sections']['art'] =  Image.objects.published().filter(issue=issue)
     # Randomly choice an article for every section
   for key in data['sections']:
     if data['sections'][key]:
@@ -102,8 +102,8 @@ def singleissue(request, season, year):
   section = ('Features','Fiction','Poetry')
   content = OrderedDict()
   for s in section:
-    content[s] = issue_content.filter(section__name=s)
-  content['Art'] =  Image.objects.filter(issue=issue)
+    content[s] = issue_content.published().filter(section__name=s)
+  content['Art'] =  Image.objects.published().filter(issue=issue)
   data = {
     'issue' : issue,
     'content_list' : content
@@ -217,12 +217,12 @@ def sections(request):
   }
 
   for issue in all_issues:
-    articles_in_issue = Article.objects.filter(issue=issue, section__name =section)
+    articles_in_issue = Article.objects.published().filter(issue=issue, section__name =section)
     if section == "art":
       if articles_in_issue:
-        articles_in_issue = list(chain(articles_in_issue,Image.objects.filter(issue=issue, section__name =section) ))
+        articles_in_issue = list(chain(articles_in_issue,Image.objects.published().filter(issue=issue, section__name =section) ))
       else:
-        articles_in_issue = Image.objects.filter(issue=issue, section__name =section)
+        articles_in_issue = Image.objects.published().filter(issue=issue, section__name =section)
 
     datum = {
       'obj':issue,
