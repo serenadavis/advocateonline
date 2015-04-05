@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'haystack',
     'tinymce',
     'ajax_select',
     'south',
@@ -107,6 +108,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     #http://stackoverflow.com/questions/3756841/django-media-url-blank    
     'django.core.context_processors.media',
+    'magazine.context_processors.search_typeahead',
 )
 
 AJAX_LOOKUP_CHANNELS = {
@@ -128,5 +130,10 @@ TINYMCE_DEFAULT_CONFIG = {
 
 try:
     from local_settings import *
+except ImportError:
+    pass
+
+try:
+    from search_settings import *
 except ImportError:
     pass

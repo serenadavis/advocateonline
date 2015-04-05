@@ -4,6 +4,8 @@ from django.contrib import admin
 
 from ajax_select import urls as ajax_select_urls
 
+from magazine.views import FilterSearchView
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -22,12 +24,11 @@ urlpatterns = patterns('',
     url(r'^shop$', 'magazine.views.shop'),
     url(r'^comp$', 'magazine.views.comp'),
     url(r'^article/(?P<slug>[a-zA-Z\d_\-]+)/$', 'magazine.views.article'),
-    # url(r'^search/q=?(?P<searchterm>[a-zA-Z\d_\-]+)/$', 'magazine.views.search'),
     url(r'^content/(?P<id>[\d]+)/$', 'magazine.views.content_piece'),
     url(r'^contributor/(?P<author_id>[\d]+)/(?P<name>.*)/$', 'magazine.views.contributor_page'),
     # url(r'^blog/', include('blog.urls')),
     url(r'^sendDonation$','payments.views.sendDonation'),
-
+    url(r'^search(?:/(?P<type_filter>[art|features|poetry|fiction]+))?/?$', FilterSearchView(), name='filter_search'),
     url(r'^blog/', include('blog.urls')),
     url(r'^shopSubmit$','payments.views.shopSubmit'),
     url(r'^grappelli/', include('grappelli.urls')),

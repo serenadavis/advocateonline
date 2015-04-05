@@ -9,6 +9,11 @@ import stripe
 from django.conf import settings
 import random
 
+from haystack.query import SearchQuerySet
+from haystack.views import SearchView
+from haystack.forms import SearchForm
+from django.shortcuts import redirect
+
 
 # Create your views here.
 def index(request):
@@ -99,9 +104,61 @@ def singleissue(request, season, year):
 		}
 
 	return render_to_response(template_name, data, context_instance=RequestContext(request))
-def search(request, searchterm):
-	template_name = 'search.html'
-	return render_to_response(template_name, context_instance=RequestContext(request))
+
+class FilterSearchView(SearchView):
+        template_name = 'search/search.html'
+        queryset = SearchQuerySet().all()
+        form_class = SearchForm
+        type_filter = 'all'
+
+        def __call__(self, request, type_filter = None):
+
+                self.request = request
+
+                self.form = self.build_form()
+                self.query = self.get_query()
+                self.results = self.get_results()
+
+                if type_filter is not None:
+                        self.results = self.results.filter(section=type_filter)
+                        self.type_filter = type_filter
+                else:
+                        self.type_filter = 'all'
+
+                return self.create_response()
+
+        def extra_context(self):
+                return {'type_filter' : self.type_filter}
+
+        def create_response(self):
+                (pageinator, page) = self.build_page()
+                
+                context = {
+                        'query' : self.query,
+                        'form' : self.form,
+                        'page' : page,
+                        'pageinator' : pageinator,
+                        'suggestion' : None,
+                }
+
+                context['suggestion'] = self.form.get_suggestion()
+
+                #for dict in Contributor.objects.all():
+                #        if (dict['name'] == self.query):
+                #                print dict
+                
+                try:
+                        return redirect(Article.objects.get(title = self.query))
+                except Article.DoesNotExist:
+                        pass
+
+                try:
+                        return redirect(Contributor.objects.get(name = self.query))
+                except Contributor.DoesNotExist:
+                        pass
+
+                context.update(self.extra_context())
+                return render_to_response(self.template, context, context_instance=self.context_class(self.request))
 
 
 def subscribe(request):

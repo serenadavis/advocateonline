@@ -87,7 +87,7 @@ class Content(models.Model):
     statement = tinymce_models.HTMLField(blank=True)
 
     issue = models.ForeignKey('Issue')
-    section = models.ForeignKey('Section')
+    section = models.ForeignKey('Section', related_name="section")
     contributors = models.ManyToManyField(Contributor)
     tags = models.ManyToManyField(Tag, blank=True)
 
