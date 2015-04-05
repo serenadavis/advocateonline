@@ -428,10 +428,16 @@ article.poetry p {
 .hide-mobile{
   display: inline;
 }
-.smtext{
+.bottom-ad{
+  border: 2px solid #a1a1a1;
+  padding: 20px;
+  background-color: rgb(239, 239, 239);
   margin: 5px 45px 5px 45px;
 }
-
+.sponsored-link{
+  color: gray;
+  text-decoration: none;
+}
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen
 and (min-device-width : 320px)
