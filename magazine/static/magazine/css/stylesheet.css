@@ -1,7 +1,10 @@
+html {
+  font-size: 100%
+}
 body {
 	font-family: Minion Pro Regular;
+  color: #000;
 }
-
 @font-face {
     font-family: 'league_gothicregular';
     src: url('../fonts/league_gothic.eot');
@@ -36,7 +39,8 @@ h3 {
 
 p {
 	font-family: Minion Pro Regular;
-	font-size: 14px;
+	font-size: 16px;
+  font-size: 1rem;
 	/*margin-bottom: 20px;
 	padding-bottom: 20px;
 	width: 90%;
@@ -50,9 +54,7 @@ figure {
 footer{
 	margin-top:50px;
 }
-body{
-	color: #000;
-}
+
 .nav{
 	letter-spacing: 3px;
 }
@@ -124,7 +126,7 @@ body{
 .resize-image img { width: 100%; }
 
 .header-image{
-  width: 1150px;
+  width: 1000px;
   max-width: 100%;
   height: auto;
   margin: 0 auto;
@@ -175,7 +177,8 @@ body{
 .board-list{
 	list-style-type: none;
 	font-family: Minion Pro Regular;
-	font-size: 14px;
+	font-size: 16px;
+  font-size: 1rem;
 	width: 46%;
   padding-left: 10px;
 }
@@ -309,7 +312,11 @@ article.poetry p {
 	font-size: 18px;
 }
 
-
+.central-message{
+  font-size: 19px;
+  font-size: 1.2rem;
+  margin: 60px;"
+}
 .subheader-article-name{
 	font-family: Times;
 	text-align: center;
@@ -345,6 +352,7 @@ article.poetry p {
 .article-summary{
 	font-family: Times;
 	font-size: 14px;
+  font-size: .9rem;
 }
 .left-border{
 	border-left: 1px solid #000;
@@ -385,7 +393,7 @@ article.poetry p {
 }
 
 .container{
-	max-width: 1150px;
+	max-width: 900px;
 }
 .center{
 	text-align: center;
@@ -428,10 +436,16 @@ article.poetry p {
 .hide-mobile{
   display: inline;
 }
-.smtext{
+.bottom-ad{
+  border: 2px solid #a1a1a1;
+  padding: 20px;
+  background-color: rgb(239, 239, 239);
   margin: 5px 45px 5px 45px;
 }
-
+.sponsored-link{
+  color: gray;
+  text-decoration: none;
+}
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen
 and (min-device-width : 320px)
@@ -458,5 +472,21 @@ and (max-device-width : 480px) {
 }
 
 /* Styles */
+}
+
+/* Miscellaneous */
+.btn-150th {
+	color: #000000;
+	background: none;
+	border: 2px solid #000000;
+	border-radius: 0;
+	font-family: 'Futura', sans-serif;
+	text-shadow: none;
+}
+
+.btn-150th:hover, .btn-150th:active, .btn-150th:focus {
+	color: #ffffff;
+	background-color: #000000;
+	border-color: #000000;
 }
 
