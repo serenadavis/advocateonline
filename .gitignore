@@ -6,3 +6,4 @@ advo/local_settings.py
 sql/*
 *.DS_Store
 media/*
+advocatemain.log
