@@ -27,7 +27,7 @@ urlpatterns = patterns('',
     url(r'^content/(?P<id>[\d]+)/$', 'magazine.views.content_piece'),
     url(r'^contributor/(?P<author_id>[\d]+)/(?P<name>.*)/$', 'magazine.views.contributor_page'),
     # url(r'^blog/', include('blog.urls')),
-    url(r'^sendDonation$','payments.views.sendDonation'),
+
     url(r'^search(?:/(?P<type_filter>[art|features|poetry|fiction]+))?/?$', FilterSearchView(), name='filter_search'),
     url(r'^blog/', include('blog.urls')),
     url(r'^shopSubmit$','payments.views.shopSubmit'),
@@ -35,8 +35,9 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^admin/lookups/', include(ajax_select_urls)),
     url(r'^tinymce/', include('tinymce.urls')),
-    
+
     url(r'^donate$', 'payments.views.donate'),
+    url(r'^sendDonation$','payments.views.sendDonation'),
     url(r'^stripeSubmit$','payments.views.stripeSubmit'),
     #http://stackoverflow.com/questions/901551/how-do-i-include-image-files-in-django-templates
     #http://stackoverflow.com/questions/19132123/name-settings-is-not-defined

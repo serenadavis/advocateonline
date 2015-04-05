@@ -13,8 +13,11 @@ from haystack.query import SearchQuerySet
 from haystack.views import SearchView
 from haystack.forms import SearchForm
 from django.shortcuts import redirect
-import time
 from itertools import chain
+import logging
+
+
+logger = logging.getLogger("magazine")
 
 # Create your views here.
 def index(request):
