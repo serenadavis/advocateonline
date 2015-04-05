@@ -62,9 +62,10 @@ def writeToLog(text):
 
 def stripeSubmit(request):
     # Get the credit card details submitted by the form
-    token = request.POST['stripeToken']
+
     if "stripeToken" not in request.POST:
       return render_to_response("subscribe.html", context_instance=RequestContext(request))
+    token = request.POST['stripeToken']
     # Create the charge on Stripe's servers - this will charge the user's card
     try:
         amount = 0
