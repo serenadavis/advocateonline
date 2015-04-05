@@ -124,7 +124,7 @@ body{
 .resize-image img { width: 100%; }
 
 .header-image{
-  width: 1150px;
+  width: 1000px;
   max-width: 100%;
   height: auto;
   margin: 0 auto;
@@ -385,7 +385,7 @@ article.poetry p {
 }
 
 .container{
-	max-width: 1150px;
+	max-width: 900px;
 }
 .center{
 	text-align: center;
@@ -458,5 +458,20 @@ and (max-device-width : 480px) {
 }
 
 /* Styles */
+}
+
+/* Miscellaneous */
+.btn-150th {
+	color: #000000;
+	background: none;
+	border: 2px solid #000000;
+	border-radius: 0;
+	font-family: 'Futura', sans-serif;
+}
+
+.btn-150th:hover {
+	color: #ffffff;
+	background-color: #000000;
+	border-color: #000000;
 }
 
