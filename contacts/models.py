@@ -15,7 +15,8 @@ class Contact(models.Model):
 		return self.streetAddress1 + '\n' + self.streetAddress2 + '\n' + self.streetAddress3
 
 	class Meta:
-		ordering = ('firstName', 'lastName') # default sort order 
+		ordering = ('firstName', 'lastName') # default sort order
+		unique_together = ['firstName', 'lastName'] # no two contacts can have the same first/last name
 
 	firstName = models.CharField(max_length=255, verbose_name='First name') 
 	middleName = models.CharField(max_length=255, blank=True, verbose_name='Middle name')
