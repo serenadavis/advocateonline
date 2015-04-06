@@ -26,6 +26,10 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+ADMINS = ('Jenny Gao', 'technology@theharvardadvocate.com')
+MANAGERS = ADMINS
+
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 
 # Application definition
 
@@ -49,6 +53,7 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.common.BrokenLinkEmailsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
