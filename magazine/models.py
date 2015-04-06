@@ -54,7 +54,7 @@ class Section(models.Model):
         return self.name
 
 class Contributor(models.Model):
-    name = models.CharField(max_length=255, blank=True, null=True)
+    name = models.CharField(max_length=255, blank=True, null=True, unique=True)
 
     def __unicode__(self):
       return self.name
