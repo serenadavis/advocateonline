@@ -64,16 +64,24 @@
         highlight: true,
         displayKey: 'name',
         source: authors.ttAdapter(),
-        templates: { header: '<h3 class="typeahead-datasets">Authors</h3>' }
+        templates: { header: '<h3 class="typeahead-datasets">Authors</h3>', 
+                     suggestion: function (data) {
+                          return '<p align="right">' +  data.name +  '</p>'; }
+                   }
       },
       {
         name: 'Titles',
         displayKey: 'title',
         source: titles.ttAdapter(),
-        templates: { header: '<h3 class="typeahead-datasets">Titles</h3>' }
+        templates: { header: '<h3 class="typeahead-datasets">Titles</h3>',
+                     suggestion: function (data) {
+                          return '<p align="right">' + data.title + '</p>'; }
+                   }
       });
     });
+</script>
 
+<script type="text/javascript">
     $(function() {
       $('form').each(function() {
         $(this).find('input').keypress(function(e) {
