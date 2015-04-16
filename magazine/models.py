@@ -90,7 +90,7 @@ class Content(models.Model):
     title = models.CharField(max_length=255)
     publishDate = models.DateTimeField(default=datetime.datetime.now)
     subtitle = models.CharField(max_length=255, blank=True)
-    slug = models.SlugField(max_length=100)
+    slug = models.SlugField(max_length=100, unique=True)
     teaser = tinymce_models.HTMLField(blank=True)
     body = tinymce_models.HTMLField()
 
