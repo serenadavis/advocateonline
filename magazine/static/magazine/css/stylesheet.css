@@ -53,6 +53,13 @@ footer{
 body{
 	color: #000;
 }
+/*for blog*/
+.item {
+	float:left;
+	width:220px;
+	margin:10px;
+}
+
 .nav{
 	letter-spacing: 3px;
 }
@@ -382,6 +389,12 @@ article.poetry p {
 	font-size: 14px;
 	width: 90%;
 	margin: 0 auto;
+}
+
+.blogimg{
+	max-width: 400px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .container{

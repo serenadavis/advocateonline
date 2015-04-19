@@ -21,6 +21,10 @@
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
   <!-- Making Credit Cards look nice -->
   <script src="{% static 'magazine/js/card.js' %}"></script>
+  <script src="{% static 'magazine/js/jquery.masonry.min.js' %}"></script>
+  <script src="{% static 'magazine/js/imagesloaded.pkgd.min.js' %}"></script>
+  <script src="{% static 'magazine/js/imagesloaded.pkgd.js' %}"></script>
+	
 
   <!-- Advocate Javascript -->
   <script src="{% static 'magazine/js/main.js' %}"></script>
@@ -37,6 +41,23 @@
 
   ga('create', 'UA-59103813-1', 'auto');
   ga('send', 'pageview');
+	
+	$(function(){
+	  $('#container').masonry({
+	    // options
+	    itemSelector : '.item',
+	    columnWidth : 220
+	  });
+	});
+	
+	var $container = $('#container');
+	$container.imagesLoaded(function(){
+	  $container.masonry({
+	    itemSelector : '.item',
+	    columnWidth : 220
+	  });
+	});
+	
 
 </script>
 
@@ -117,7 +138,7 @@
       <div class="nav-header"> </div>
         <ul class="nav navbar-nav">
           <!--   <li > <div class="foo"> </div><li> -->
-            <li ><a href="">OUR WEBSITE</a></li>
+            <li ><a href="/">OUR WEBSITE</a></li>
             <li ><a href="/blog/archives">ARCHIVES</a></li>
             <li ><a href="/blog/writing">WRITING</a></li>
             <li ><a href="/blog/art">ART</a></li>
@@ -132,19 +153,7 @@
 </div>
 <div class="container">
     <a href="/">
-      {% if name == "fiction" %}
-      <img src="{% static "magazine/images/banner1.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
-      {% elif name == "poetry" %}
-      <img src="{% static "magazine/images/banner3.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
-      {% elif name == "features" %}
-      <img src="{% static "magazine/images/banner3.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
-      {% elif name == "art" %}
-      <img src="{% static "magazine/images/banner4.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
-
-      {% else %}
-      <img src="{% static "magazine/images/banner2.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
-
-      {% endif %}
+      <img src="/media/blog/advo-blog-header.jpg" class = "header-image img-responsive" alt="Main Image" >
     </a>
 </div>
 <!--   <figure class="middle-right-ad hide-mobile">

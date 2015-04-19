@@ -46,14 +46,14 @@ def post(request, slug):
 	return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 def contributor_page(request, author_id):
-	this_author =  get_object_or_404(Author,id=author_id)
+    this_author =  get_object_or_404(Author,id=author_id)
 	# author.name = name.replace("_", " ")
 	# author.id = author_id
-	data = {}
-	data["author"] = this_author.name
-	data["articles"] =  chain(Post.objects.filter(authors=this_author))
-	template_name = 'blog_contributor.html'
-	return render_to_response(template_name, data, context_instance=RequestContext(request))
+    data = {}
+    data["author"] = this_author.name
+    data["articles"] =  Post.objects.filter(authors__name=this_author.name)
+    template_name = 'blog_contributor.html'
+    return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 
 def view_category(request, slug):
@@ -63,10 +63,20 @@ def view_category(request, slug):
         'posts': Post.objects.filter(category=category)
     })
 
-def art(request):
-    """Main listing."""
-    posts = Post.objects.filter(category= art)
-    all_posts_sorted = list(reversed(sorted(posts, key=lambda i: i.created)))
+
+def sections(request):
+    section = request.path
+    section = section.replace("/","").replace("blog","")
+
+    data = {
+        "name":section,
+        "issues": []
+    }
+    if section == "writing":
+        posts_in_cat = Post.objects.filter(posted__name__in= ["Writing","fiction","Lyric essay","Review essay","Interview"]).distinct()
+    else:
+        posts_in_cat = Post.objects.filter(posted__name = section)
+    all_posts_sorted = list(reversed(sorted(posts_in_cat, key=lambda i: i.created)))
 
     paginator = Paginator(all_posts_sorted, 12) # Show 25 contacts per page
     page = request.GET.get('page')
@@ -82,7 +92,11 @@ def art(request):
 
     data = {
         'posts': blog_page,
-        'posts_data': list(blog_page)
+        'posts_data': list(blog_page),
+        'name': section
     }    
-    template_name = 'blog.html'
-    return render_to_response(template_name, data)
+    template_name = 'blog_section.html'
+    return render_to_response(template_name, data, context_instance=RequestContext(request))
+    
+    
+  

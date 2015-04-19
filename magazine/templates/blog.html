@@ -4,16 +4,17 @@
 
 {% block content %}
 <div class="container">
-
+	<div id="container">
 		{% for post in posts_data %}
-		{% if forloop.counter0|divisibleby:3 %}
+		<!-- {% if forloop.counter0|divisibleby:3 %}
 			<div class="row">
-		{% endif %}
- 		<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+		{% endif %} -->
+ 		<div class="item col-xs-6 col-sm-4 col-md-4 col-lg-4">
+			
  			<a href="{{post.get_absolute_url}}"><h3 class="subheader" style="font-size:16px;">{{post.title}}</h3></a>
 			{% for author in post.authors.all %}
 				<a href="{{author.get_absolute_url}}"><h3 class="subheader" style="font-size:12px;">By {{author}}</h3></a>
- 	{% endfor %}
+ 				{% endfor %}
 
 			<!-- How to check if image exists:
 			http://stackoverflow.com/questions/6637168/python-django-templates-and-testing-if-a-variable-is-null-or-empty-string?rq=1
@@ -23,11 +24,13 @@
 			{% endif %}
 			 			<a href="{{post.get_absolute_url}}" class = "no-decoration"><p>{{post.teaser}}</p></a>
  		</div>
- 		{% if forloop.counter|divisibleby:3 %}
-			</div>
-		{% endif %}
+ 		<!-- {% if forloop.counter|divisibleby:3 %}
+</div>
+		{% endif %} -->
 
  	{% endfor %}
+</div>
+</div>
 	<div class="text-center">
 		<div class="pagination text-center">
 		    <span class="step-links">

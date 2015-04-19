@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     url(r'^post/(?P<slug>[a-zA-Z\d_\-]+)/$', 'blog.views.post'),
     url(r'^contributor/(?P<author_id>[\d]+)$', 'blog.views.contributor_page'), 
     url(r'^category/(?P<category_id>[\d]+)$', 'blog.views.contributor_page'),   
-    url(r'^art$', 'blog.views.art'),
+    url(r'^archives/$|^writing/$|^art/$|^multimedia/$', 'blog.views.sections'),
     # url(r'^writing', 'blog.views.writing'),
     # url(r'^multimedia', 'blog.views.multimedia'),
     # url(r'^themes', 'blog.views.themes')

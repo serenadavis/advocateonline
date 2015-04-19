@@ -79,6 +79,7 @@ class Content(models.Model):
     subtitle = models.CharField(max_length=255, blank=True)
     slug = models.SlugField(max_length=100)
     teaser = models.TextField(blank=True)
+    new_teaser = models.TextField(blank=True)
     body = tinymce_models.HTMLField()
 
     # Legacy fields; we should probably get rid of this eventually
