@@ -11,7 +11,7 @@ from magazine import views
 import logging
 
 
-logger = logging.getLogger("payments")
+# logger = logging.getLogger("payments")
 
 def donate(request):
     template_name = 'donate.html'
@@ -129,7 +129,7 @@ def stripeSubmit(request):
       return render_to_response("paymenterror.html", data, context_instance=RequestContext(request))
     except Exception as problem:
       # There is a different problem
-      logger.error(problem)
+      # logger.error(problem)
       message = "There are has been an error with our servers. You card should not have been charged. If it was please get in contact with tech@theharvardadvocate.com and we will be glad to resolve this."
       data = {
         "message": message
@@ -138,7 +138,7 @@ def stripeSubmit(request):
 
 def sendDonation(request):
     # get form details
-    logger.error("")
+    # logger.error("")
     if "stripeToken" not in request.POST:
       return render_to_response("donate.html", context_instance=RequestContext(request))
     token = request.POST['stripeToken']
@@ -197,7 +197,7 @@ def sendDonation(request):
       return render_to_response("paymenterror.html", data, context_instance=RequestContext(request))
     except Exception as problem:
       # There is a different problem
-      logger.error(problem)
+      # logger.error(problem)
       message = "There are has been an error with our servers. Your card should not have been charged. If it was please get in contact with tech@theharvardadvocate.com and we will be glad to resolve this."
       data = {
         "message": message
