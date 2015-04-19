@@ -2,6 +2,7 @@ import os
 import datetime
 
 from django.db import models
+from django.db.models import Q
 from django.utils.text import slugify
 from django.utils.encoding import smart_unicode, smart_str
 from tinymce import models as tinymce_models
@@ -53,7 +54,7 @@ class Section(models.Model):
         return self.name
 
 class Contributor(models.Model):
-    name = models.CharField(max_length=255, blank=True, null=True)
+    name = models.CharField(max_length=255, blank=True, null=True, unique=True)
 
     def __unicode__(self):
       return self.name
@@ -73,13 +74,24 @@ class Tag(models.Model):
     def __unicode__(self):
         return self.name
 
+class ContentQuerySet(models.query.QuerySet):
+    def published(self):
+        return self.filter(Q(publishDate__lte=datetime.datetime.now()) | Q(publishDate__isnull=True))
+
+class ContentManager(models.Manager):
+    def get_queryset(self):
+        return ContentQuerySet(self.model, using=self._db)
+
+    def published(self):
+        return self.get_queryset().published()
 
 class Content(models.Model):
+    objects = ContentManager()
     title = models.CharField(max_length=255)
+    publishDate = models.DateTimeField(default=datetime.datetime.now)
     subtitle = models.CharField(max_length=255, blank=True)
-    slug = models.SlugField(max_length=100)
-    teaser = models.TextField(blank=True)
-    new_teaser = models.TextField(blank=True)
+    slug = models.SlugField(max_length=100, unique=True)
+    teaser = tinymce_models.HTMLField(blank=True)
     body = tinymce_models.HTMLField()
 
     # Legacy fields; we should probably get rid of this eventually
@@ -88,7 +100,7 @@ class Content(models.Model):
     statement = tinymce_models.HTMLField(blank=True)
 
     issue = models.ForeignKey('Issue')
-    section = models.ForeignKey('Section')
+    section = models.ForeignKey('Section', related_name="section")
     contributors = models.ManyToManyField(Contributor)
     tags = models.ManyToManyField(Tag, blank=True)
 
@@ -99,11 +111,13 @@ class Content(models.Model):
         return '/content/{0}/'.format(self.id)
 
 class Article(Content):
+    objects = ContentManager()
     photo = models.ImageField(upload_to=upload_image_to, blank=True, null=True)
     def get_absolute_url(self):
         return '/article/{0}/'.format(self.slug.lower())
 
 class Image(Content):
+    objects = ContentManager()
     photo = models.ImageField(upload_to=upload_image_to)
 
 class Donation(models.Model):

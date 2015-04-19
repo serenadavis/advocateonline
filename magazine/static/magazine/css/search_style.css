@@ -1,0 +1,53 @@
+.typeahead, .tt-query, .tt-hint {
+    border: 1px solid #fff;
+    float: right;
+    border-radius: 8px;
+    outline: medium none;
+}
+.tt-hint {
+    color: #999999;
+}
+.tt-dropdown-menu {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 12px;
+    padding: 8px 0;
+    width: 400px;
+    text-align: left;
+    right : 0px !important;
+    left : auto !important;
+}
+.tt-suggestion {
+    font-size: 24px;
+    line-height: 24px;
+    padding: 3px 20px;
+}
+.tt-suggestion.tt-cursor {
+    background-color: #0097CF;
+    color: #FFFFFF;
+}
+.tt-suggestion p {
+	margin: 0;
+}
+
+.behind-search {
+    opacity : 0.999;
+}
+
+.typeahead-datasets{
+    margin: 0 20px 5px 20px;
+    padding: 3px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.search-filter-tab{
+    width: 16%;
+    text-align: center;
+}
+
+.search-filter-bar{
+    border-bottom: thin solid #a4a4a4;
+    border-top: thin solid #a4a4a4;
+}

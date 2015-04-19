@@ -26,6 +26,10 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+ADMINS = ('Jenny Gao', 'technology@theharvardadvocate.com')
+MANAGERS = ADMINS
+
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 
 # Application definition
 
@@ -37,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'haystack',
     'tinymce',
     'ajax_select',
     'south',
@@ -45,9 +50,11 @@ INSTALLED_APPS = (
     'payments',
     'django_social_share',
     'shortcodes'
+    'contacts'
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.common.BrokenLinkEmailsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -105,8 +112,9 @@ STATICFILES_FINDERS = (
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.request',
-    #http://stackoverflow.com/questions/3756841/django-media-url-blank    
+    #http://stackoverflow.com/questions/3756841/django-media-url-blank
     'django.core.context_processors.media',
+    'magazine.context_processors.search_typeahead',
 )
 
 AJAX_LOOKUP_CHANNELS = {
@@ -120,13 +128,55 @@ STRIPE_DONATE_PUBLIC_KEY = os.environ.get("STRIPE_DONATE_PUBLIC_KEY", "pk_test_6
 TINYMCE_DEFAULT_CONFIG = {
     'plugins': "table,spellchecker,paste,searchreplace",
     'paste_retain_style_properties': "color font-size",
-    'content_css': "/static/magazine/css/tinymce_custom.css", 
+    'content_css': "/static/magazine/css/tinymce_custom.css",
     'theme': "advanced",
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 10,
 }
-
+# Setting up logs
+# http://ianalexandr.com/blog/getting-started-with-django-logging-in-5-minutes.html
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': 'advocatemain.log',
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers':['file'],
+            'propagate': True,
+            'level':'WARNING',
+        },
+        'magazine': {
+            'handlers': ['file'],
+            'level': 'WARNING',
+        },
+        'payments': {
+            'handlers': ['file'],
+            'level': 'WARNING',
+        },
+    }
+}
 try:
     from local_settings import *
+except ImportError:
+    pass
+
+try:
+    from search_settings import *
 except ImportError:
     pass

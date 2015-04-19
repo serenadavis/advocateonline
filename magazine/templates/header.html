@@ -2,9 +2,6 @@
 
 <div style="background: antiquewhite;">
     <a href="/150th">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span style="font-size: 50px; margin-right: 10px;" aria-hidden="true">&times;</span>
-        </button>
         <figure class="container" style="padding-right:30px; padding-top:10px; max-width:90%;"><img src="{% static "magazine/images/banner.png" %}" style="margin:auto;" class = "img-responsive" alt="Learn more about the 150th celebration"></figure>
     </a>
 </div>
@@ -19,7 +16,7 @@
       </div>
       <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 top-line">
           <div class="form-group search-group">
-              <form class=" search-form" role="search">
+            <form type="get" action="/search/" class="search-form" role="search">
                   <svg width="20px" height="24px">
                       <g id="search-icon" transform = "scale(0.15, 0.15), translate(0,30)" x= "4">
                           <path fill="#010101" d="M89.556,10.443C82.819,3.71,73.868,0,64.343,0C54.82,0,45.867,3.707,39.133,10.44
@@ -31,7 +28,8 @@
                           c3.899,3.899,6.043,9.083,6.043,14.598c0.004,5.515-2.144,10.696-6.039,14.595C75.042,54.148,69.86,56.297,64.346,56.297z"/>
                       </g>
                   </svg>
-                  <input type="text" class="search-input" placeholder="Search">
+                  <input type="text" name="q" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Search">
+		  <input type="submit" style="display: none;" />
                   <hr class="search-bottom-border">
               </form>
 
@@ -49,7 +47,7 @@
 
 </header>
 <!-- <hr class = "navbar-divider"> -->
-<div class="container" data-spy="affix" data-offset-top="300" data-offset-bottom="0" >
+<div class="container behind-search" data-spy="affix" data-offset-top="300" data-offset-bottom="0" >
     <nav class="navbar navbar-default  advo-navbar" role="navigation" >
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -59,7 +57,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand mobile-only" href="/">THE HARVARD ADVOCATE</a>
+        <a class="navbar-brand mobile-only" href="/">THE HARVARD ADVOCATE </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -79,7 +77,7 @@
     </nav>
 
 </div>
-<div class="container">
+<div class="container behind-search">
     <a href="/">
       {% if name == "fiction" %}
       <img src="{% static "magazine/images/banner1.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
@@ -95,4 +93,5 @@
 
       {% endif %}
     </a>
+
 </div>
