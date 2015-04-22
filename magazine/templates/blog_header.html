@@ -19,8 +19,6 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
   <!-- Latest compiled and minified JavaScript -->
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-  <!-- Making Credit Cards look nice -->
-  <script src="{% static 'magazine/js/card.js' %}"></script>
   <script src="{% static 'magazine/js/jquery.masonry.min.js' %}"></script>
   <script src="{% static 'magazine/js/imagesloaded.pkgd.min.js' %}"></script>
   <script src="{% static 'magazine/js/imagesloaded.pkgd.js' %}"></script>
@@ -42,21 +40,21 @@
   ga('create', 'UA-59103813-1', 'auto');
   ga('send', 'pageview');
 	
-	$(function(){
-	  $('#container').masonry({
-	    // options
-	    itemSelector : '.item',
-	    columnWidth : 220
-	  });
-	});
+	// $(function(){
+	//   $('#container').masonry({
+	//     // options
+	//     itemSelector : '.item',
+	//     columnWidth : 220
+	//   });
+	// });
 	
-	var $container = $('#container');
-	$container.imagesLoaded(function(){
-	  $container.masonry({
-	    itemSelector : '.item',
-	    columnWidth : 220
-	  });
-	});
+	// var $container = $('#container');
+	// $container.imagesLoaded(function(){
+	//   $container.masonry({
+	//     itemSelector : '.item',
+	//     columnWidth : 220
+	//   });
+	// });
 	
 
 </script>
