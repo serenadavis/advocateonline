@@ -4,28 +4,28 @@
 
 {% block content %}
 <div class="container">
-    <div id="container">
+    <div class="wrapper">
         {% for post in posts_data %}
         <!-- {% if forloop.counter0|divisibleby:3 %}
             <div class="row">
         {% endif %} -->
-        <div class="item col-xs-6 col-sm-4 col-md-4 col-lg-4">
+        <div class="item">
             
-            <a href="{{post.get_absolute_url}}"><h3 style="font-size:16px;">{{post.title}}</h3></a>
-            <h3>By 
+            <a href="{{post.get_absolute_url}}"><h3>{{post.title}}</h3></a>
+            <h4>By 
             {% for author in post.authors.all %}
                 {% if forloop.counter > 1 and forloop.last %}
                 and
-                {% endif %}
+                {% endif %} 
                 <a href="{{author.get_absolute_url}}">{{author}}</a>
                 <!-- http://stackoverflow.com/questions/2501698/using-forloop-counter-value-as-list-index-in-a-django-template -->
                 {% if not forloop.last %}
-                    {% if post.authors.all == 2 %} and 
+                    {% if post.authors.all.length == 2 %} and 
                     {% elif post.authors.all > 2 %},
                     {% endif %}
                 {% endif%}
 
-            {% endfor %}</h3>
+            {% endfor %}</h4>
 
             <!-- How to check if image exists:
             http://stackoverflow.com/questions/6637168/python-django-templates-and-testing-if-a-variable-is-null-or-empty-string?rq=1
@@ -33,11 +33,8 @@
             {% if post.first_image_id %}
             <figure><a href="{{post.get_absolute_url}}" class="no-decoration"><img class='img-responsive' style="margin: 0 auto;" src="{{MEDIA_URL}}{{post.first_image.path}}"></a></figure>
             {% endif %}
-                        <a href="{{post.get_absolute_url}}" class = "no-decoration"><p>{{post.teaser}}</p></a>
+            <a href="{{post.get_absolute_url}}" class = "no-decoration"><p>{{post.teaser}}</p></a>
         </div>
-        <!-- {% if forloop.counter|divisibleby:3 %}
-</div>
-        {% endif %} -->
 
     {% endfor %}
 </div>
