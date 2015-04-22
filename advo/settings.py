@@ -135,42 +135,42 @@ TINYMCE_DEFAULT_CONFIG = {
 }
 # Setting up logs
 # http://ianalexandr.com/blog/getting-started-with-django-logging-in-5-minutes.html
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
-            'datefmt' : "%d/%b/%Y %H:%M:%S"
-        },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
-        },
-    },
-    'handlers': {
-        'file': {
-            'level': 'WARNING',
-            'class': 'logging.FileHandler',
-            'filename': 'advocatemain.log',
-            'formatter': 'verbose'
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers':['file'],
-            'propagate': True,
-            'level':'WARNING',
-        },
-        'magazine': {
-            'handlers': ['file'],
-            'level': 'WARNING',
-        },
-        'payments': {
-            'handlers': ['file'],
-            'level': 'WARNING',
-        },
-    }
-}
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'formatters': {
+#         'verbose': {
+#             'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+#             'datefmt' : "%d/%b/%Y %H:%M:%S"
+#         },
+#         'simple': {
+#             'format': '%(levelname)s %(message)s'
+#         },
+#     },
+#     'handlers': {
+#         'file': {
+#             'level': 'WARNING',
+#             'class': 'logging.FileHandler',
+#             'filename': 'advocatemain.log',
+#             'formatter': 'verbose'
+#         },
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers':['file'],
+#             'propagate': True,
+#             'level':'WARNING',
+#         },
+#         'magazine': {
+#             'handlers': ['file'],
+#             'level': 'WARNING',
+#         },
+#         'payments': {
+#             'handlers': ['file'],
+#             'level': 'WARNING',
+#         },
+#     }
+# }
 try:
     from local_settings import *
 except ImportError:
