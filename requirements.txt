@@ -16,8 +16,6 @@ django-model-utils==2.0.3
 django-shortcodes==0.3.0
 django-social-share==0.2.1
 django-tinymce==1.5.2
-MySQL-python==1.2.5
-Pillow==2.4.0
 pysolr==3.3.0
 pytz==2014.10
 requests==2.3.0
