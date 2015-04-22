@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     'payments',
     'django_social_share',
     'mce_filebrowser',
+    'filebrowser',
     'contacts'
 )
 
