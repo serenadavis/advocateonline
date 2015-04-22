@@ -1,7 +1,12 @@
 from django.contrib import admin
 from .models import *
+from mce_filebrowser.admin import MCEFilebrowserAdmin
 
-admin.site.register(Post)
+class MyModelAdmin(MCEFilebrowserAdmin):
+    pass
+
+admin.site.register(Post,MyModelAdmin)
+admin.site.register(Images)
 admin.site.register(Tag)
 admin.site.register(Category)
 admin.site.register(Author)

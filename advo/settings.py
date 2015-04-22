@@ -49,7 +49,7 @@ INSTALLED_APPS = (
     'blog',
     'payments',
     'django_social_share',
-    # 'shortcodes'
+    'mce_filebrowser',
     'contacts'
 )
 

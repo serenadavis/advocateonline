@@ -6,7 +6,7 @@ import re
 class Tag(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=100)
-    
+
     def __unicode__(self):
         return self.name
     def get_absolute_url(self):
@@ -16,7 +16,6 @@ class Tag(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=100)
-    
     def __unicode__(self):
         return self.name
 
@@ -24,14 +23,14 @@ class Category(models.Model):
 class Author(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=100)
-    
+
     def __unicode__(self):
         return self.name
     def get_absolute_url(self):
         # Can't use .format because name is not always
         return '/blog/contributor/' +  str(self.id)
         # return '/contributor/{0}/{1}'.format(self.id, self.slug())
-        
+
 class Images(models.Model):
     path = models.CharField(max_length=1000, blank=True)
     caption = models.TextField(max_length=10000, blank=True)
@@ -48,7 +47,7 @@ class Theme(models.Model):
 
 # Create your models here.
 class Post(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=300)
     slug = models.SlugField(max_length=100)
     body = tinymce.models.HTMLField()
     created = models.DateTimeField(auto_now_add=True)
@@ -67,3 +66,4 @@ class Post(models.Model):
         while len(txt) > i and txt[i-1] != ".":
             i += 1
         return txt[:i]
+

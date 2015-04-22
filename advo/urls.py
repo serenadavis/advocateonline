@@ -27,7 +27,7 @@ urlpatterns = patterns('',
     url(r'^content/(?P<id>[\d]+)/$', 'magazine.views.content_piece'),
     url(r'^contributor/(?P<author_id>[\d]+)/(?P<name>.*)/$', 'magazine.views.contributor_page'),
     # url(r'^blog/', include('blog.urls')),
-
+    url(r'^mce_filebrowser/', include('mce_filebrowser.urls')),
     url(r'^search(?:/(?P<type_filter>[art|features|poetry|fiction]+))?/?$', FilterSearchView(), name='filter_search'),
     url(r'^blog/', include('blog.urls')),
     url(r'^shopSubmit$','payments.views.shopSubmit'),

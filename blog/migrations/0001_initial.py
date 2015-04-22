@@ -36,7 +36,7 @@ class Migration(SchemaMigration):
         db.create_table(u'blog_images', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('path', self.gf('django.db.models.fields.CharField')(max_length=1000, blank=True)),
-            ('caption', self.gf('django.db.models.fields.CharField')(max_length=10000, blank=True)),
+            ('caption', self.gf('django.db.models.fields.TextField')(max_length=10000, blank=True)),
             ('slug', self.gf('django.db.models.fields.SlugField')(max_length=100)),
         ))
         db.send_create_signal(u'blog', ['Images'])
@@ -133,7 +133,7 @@ class Migration(SchemaMigration):
         },
         u'blog.images': {
             'Meta': {'object_name': 'Images'},
-            'caption': ('django.db.models.fields.CharField', [], {'max_length': '10000', 'blank': 'True'}),
+            'caption': ('django.db.models.fields.TextField', [], {'max_length': '10000', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'path': ('django.db.models.fields.CharField', [], {'max_length': '1000', 'blank': 'True'}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '100'})
