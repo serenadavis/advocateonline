@@ -59,10 +59,14 @@ body{
 	color: #000;
 }
 /*for blog*/
+
+
 .item {
-	float:left;
-	width:220px;
-	margin:10px;
+  position: relative;
+  float: left;
+  width: 30%;
+  margin: 5px;
+  padding: 10px;
 }
 
 .nav{
