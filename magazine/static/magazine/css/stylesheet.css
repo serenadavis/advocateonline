@@ -22,7 +22,16 @@ body {
 	font-family: 'futura_std';
 	src: url('../fonts/FuturaStd-Book.otf');
 }
-
+a {
+    color: black;
+}
+a:hover {
+    color: black;
+}
+a.underline {
+    text-decoration: underline;
+    color: black;
+}
 h1 {
 	font-family: 'league_gothicregular';
 	text-align: center;
@@ -59,14 +68,22 @@ body{
 	color: #000;
 }
 /*for blog*/
+.blog h4 {
+    font-family: 'futura_std';
+    text-align: left;
+}
 
+.blog h3 {
+    font-family: 'futura_std';
+    text-align: left;
+}
 
 .item {
   position: relative;
   float: left;
-  width: 30%;
-  margin: 5px;
-  padding: 10px;
+  width: 33%;
+  margin: 0px;
+  padding: 15px;
 }
 
 .nav{
