@@ -32,51 +32,15 @@
   <link rel="stylesheet" href="{% static 'magazine/css/stylesheet.css' %}">
   <script src="{% static 'magazine/js/jquery.masonry.min.js' %}"></script>
   <script>
-    // $(function(){
-    //   $('#wrapper').masonry({
-    //     // options
-    //     itemSelector : '.item',
-    //     columnWidth : 220
-    //   });
-    // });
-    
-    // var $container = $('#wrapper');
-    // $container.imagesLoaded(function(){
-    //   $container.masonry({
-    //     itemSelector : '.item',
-    //     columnWidth : 220
-    //   });
-    // });
-
-    // $( '#wrapper' ).masonry({
-    //   itemSelector: '.item',
-    //   columnWidth: 220
-    // }).imagesLoaded(function() {
-    //   $( this ).masonry( 'reloadItems' );
-    // });
-
-
-// var container = document.querySelector('#masonry-grid');
-
-// var msnry = new Masonry( container, {
-
-
-//   columnWidth: 200,
-
-//   itemSelector: '.grid-item'
-
-// });
-  $(function(){
-     var $container = $('.wrapper');            
-     $container.imagesLoaded(function(){                    
-        $container.masonry({
-           itemSelector: '.item',
-           isAnimated: true,
-        });
-     });
-  });
-
-
+    $(function(){
+       var $container = $('.wrapper');            
+       $container.imagesLoaded(function(){                    
+          $container.masonry({
+             itemSelector: '.item',
+             isAnimated: true,
+          });
+       });
+    });
   </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -93,9 +57,6 @@
 <body class='container-fluid'>
 <div style="background: antiquewhite;">
     <a href="/150th">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span style="font-size: 50px; margin-right: 10px;" aria-hidden="true">&times;</span>
-        </button>
         <figure class="container" style="padding-right:30px; padding-top:10px; max-width:90%;"><img src="{% static "magazine/images/banner.png" %}" style="margin:auto;" class = "img-responsive" alt="Learn more about the 150th celebration"></figure>
     </a>
 </div>
@@ -148,7 +109,7 @@
 </header>
 <!-- <hr class = "navbar-divider"> -->
 <div class="container" data-spy="affix" data-offset-top="300" data-offset-bottom="0" >
-    <nav class="navbar navbar-default  advo-navbar" role="navigation" >
+  <nav class="navbar navbar-default advo-navbar" role="navigation" >
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -172,11 +133,10 @@
             <li ><a href="/blog/about">ABOUT</a></li>
             <li ><a href="/blog/themes">THEMES</a></li>
             <li ><a href="/">MAIN SITE</a></li>
+
         </ul>
-
     </div><!-- /.navbar-collapse -->
-    </nav>
-
+  </nav>
 </div>
 <div class="container">
     <a href="/blog">

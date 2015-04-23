@@ -4,21 +4,20 @@
 
 {% block content %}
 <div class="container">
-
-    <div class="wrapper">
+    <div class="wrapper blog">
         {% for post in posts_data %}
         <!-- {% if forloop.counter0|divisibleby:3 %}
             <div class="row">
         {% endif %} -->
         <div class="item">
             
-            <a href="{{post.get_absolute_url}}"><h3>{{post.title}}</h3></a>
+            <a class="underline" href="{{post.get_absolute_url}}"><h3>{{post.title}}</h3></a>
             <h4>By 
             {% for author in post.authors.all %}
                 {% if forloop.counter > 1 and forloop.last %}
                 and
                 {% endif %} 
-                <a href="{{author.get_absolute_url}}">{{author}}</a>
+                <a class="no-decoration" href="{{author.get_absolute_url}}">{{authsor}}</a>
                 <!-- http://stackoverflow.com/questions/2501698/using-forloop-counter-value-as-list-index-in-a-django-template -->
                 {% if not forloop.last %}
                     {% if post.authors.all.length == 2 %} and 
@@ -32,9 +31,10 @@
             http://stackoverflow.com/questions/6637168/python-django-templates-and-testing-if-a-variable-is-null-or-empty-string?rq=1
             http://stackoverflow.com/questions/12507281/determine-empty-template-variable-in-django -->
             {% if post.first_image_id %}
-            <figure><a href="{{post.get_absolute_url}}" class="no-decoration"><img class='img-responsive' style="margin: 0 auto;" src="{{MEDIA_URL}}{{post.first_image.path}}"></a></figure>
+            <figure style="margin-bottom: 10px;"><a href="{{post.get_absolute_url}}" class="underline"><img class='img-responsive' style="margin: 0 auto;" src="{{MEDIA_URL}}{{post.first_image.path}}"></a></figure>
             {% endif %}
-            <a href="{{post.get_absolute_url}}" class = "no-decoration"><p>{{post.teaser}}</p></a>
+            <p>{{post.teaser}}</p>
+            <a style="text-transform: uppercase;" href="{{post.get_absolute_url}}"><h4>Read More</h4></a>
         </div>
 
     {% endfor %}
