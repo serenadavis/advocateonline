@@ -4,6 +4,9 @@
 
 {% block content %}
 <div class="container">
+    {% if name %}
+    <h1 class="header">{{ name }}</h1>
+    {% endif %}
     <div class="wrapper blog">
         {% for post in posts_data %}
 
