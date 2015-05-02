@@ -71,11 +71,39 @@ body{
 .blog h4 {
     font-family: 'futura_std';
     text-align: left;
+    font-size: 12px;
+    color: #a7a9ac;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+}
+
+.blog h4 a {
+	color: #a7a9ac;
+}
+
+.blog h4 a:hover {
+	color: #000;
 }
 
 .blog h3 {
     font-family: 'futura_std';
     text-align: left;
+    font-size: 18px;
+    line-height: 1.5; 
+}
+
+.blog h3 a {
+	text-decoration: none;
+}
+
+.blog h3 a:hover {
+	text-decoration: underline;
+}
+
+.blog p {
+	font-size: 14px;
+	line-height: 1.8;
 }
 
 .item {
@@ -83,7 +111,8 @@ body{
   float: left;
   width: 33%;
   margin: 0px;
-  padding: 15px;
+  padding: 20px;
+  padding-top: 0;
 }
 
 .nav{
@@ -509,9 +538,6 @@ and (max-device-width : 480px) {
 	padding-left: 0px;
 	padding-right: 0px;
 	font-size: 16px;
-}
-
-/* Styles */
 }
 
 /* Miscellaneous */

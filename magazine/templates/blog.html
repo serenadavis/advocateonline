@@ -12,7 +12,7 @@
 
         <div class="item">
             
-            <a class="underline" href="{{post.get_absolute_url}}"><h3>{{post.title}}</h3></a>
+            <h3 class="blog-title"><a class="underline" href="{{post.get_absolute_url}}">{{post.title}}</a></h3>
 
             <h4>By {% for author in post.authors.all %}
                 {% if forloop.first %}{% else %}
@@ -27,7 +27,7 @@
             <figure style="margin-bottom: 10px;"><a href="{{post.get_absolute_url}}" class="underline"><img class='img-responsive' style="margin: 0 auto;" src="{{post.first_image.path}}"></a></figure>
             {% endif %}
             <p>{{post.teaser}}</p>
-            <a style="text-transform: uppercase;" href="{{post.get_absolute_url}}"><h4>Read More</h4></a>
+            <h4><a class="read-more" href="{{post.get_absolute_url}}">Read More</a></h4>
         </div>
 
     {% endfor %}
