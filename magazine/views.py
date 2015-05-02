@@ -45,12 +45,11 @@ def index(request):
   template_name = 'index.html'
   return render_to_response(template_name, data, context_instance=RequestContext(request))
 
-def article(request, slug):
-  article = get_object_or_404(Article, slug__iexact=slug)
+def article(request, id, slug):
+  article = get_object_or_404(Article, id=id)
   data = {
     'article': article
   }
-  print article
   template_name = 'article.html'
   return render_to_response(template_name, data, context_instance=RequestContext(request))
 

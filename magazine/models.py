@@ -114,7 +114,7 @@ class Article(Content):
     objects = ContentManager()
     photo = models.ImageField(upload_to=upload_image_to, blank=True, null=True)
     def get_absolute_url(self):
-        return '/article/{0}/'.format(self.slug.lower())
+        return '/article/{0}/{1}'.format(self.id, self.slug.lower())
 
 class Image(Content):
     objects = ContentManager()
