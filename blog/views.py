@@ -69,6 +69,13 @@ def view_category(request, slug):
         'posts': Post.objects.filter(category=category)
     })
 
+def indvidual_theme(request, slug):
+    theme = get_object_or_404(Theme, slug=slug)
+    return render_to_response('blog_post.html', {
+        'category': category,
+        'posts': Post.objects.filter(theme=theme)
+    })
+
 
 def sections(request):
     section = request.path
@@ -103,6 +110,38 @@ def sections(request):
     }    
     template_name = 'blog_section.html'
     return render_to_response(template_name, data, context_instance=RequestContext(request))
-    
+
+def individual_themes(request):
+    section = request.path
+    section = section.replace("/","").replace("blog","")
+
+    data = {
+        "name":section,
+        "issues": []
+    }
+
+    posts_in_cat = Post.objects.filter(theme__name = theme)
+    all_posts_sorted = list(reversed(sorted(posts_in_cat, key=lambda i: i.created)))
+
+    paginator = Paginator(all_posts_sorted, 12) # Show 25 contacts per page
+    page = request.GET.get('page')
+    try:
+        blog_page = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        blog_page = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        blog_page = paginator.page(paginator.num_pages)
+    image_list = []
+
+    data = {
+        'posts': blog_page,
+        'posts_data': list(blog_page),
+        'name': section
+    }    
+    template_name = 'blog_section.html'
+    return render_to_response(template_name, data, context_instance=RequestContext(request))
+       
     
   

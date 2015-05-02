@@ -44,6 +44,8 @@ class Images(models.Model):
 class Theme(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length = 100)
+    def __unicode__(self):
+        return self.name
 
 # Create your models here.
 class Post(models.Model):
