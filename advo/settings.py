@@ -26,7 +26,12 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-ADMINS = ('Jenny Gao', 'technology@theharvardadvocate.com')
+ADMINS = (
+    ('Jenny Gao', 'technology@theharvardadvocate.com'),
+    ('Yuqi Hou', 'hou@college.harvard.edu'),
+    ('Luciano Arango', 'lucianoarango@college.harvard.edu')
+)
+
 MANAGERS = ADMINS
 
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
