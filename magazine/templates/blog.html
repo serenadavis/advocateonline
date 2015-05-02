@@ -4,29 +4,22 @@
 
 {% block content %}
 <div class="container">
+    {% if name %}
+    <h1 class="header">{{ name }}</h1>
+    {% endif %}
     <div class="wrapper blog">
         {% for post in posts_data %}
-        <!-- {% if forloop.counter0|divisibleby:3 %}
-            <div class="row">
-        {% endif %} -->
+
         <div class="item">
             
             <a class="underline" href="{{post.get_absolute_url}}"><h3>{{post.title}}</h3></a>
-            <h4>By 
-            {% for author in post.authors.all %}
-                {% if forloop.counter > 1 and forloop.last %}
-                and
-                {% endif %} 
-                <a class="no-decoration" href="{{author.get_absolute_url}}">{{author}}</a>
-                <!-- http://stackoverflow.com/questions/2501698/using-forloop-counter-value-as-list-index-in-a-django-template -->
-                {% if not forloop.last %}
-                    {% if post.authors.all.length == 2 %} and 
-                    {% elif post.authors.all > 2 %},
-                    {% endif %}
-                {% endif%}
 
-            {% endfor %}</h4>
-
+            <h4>By {% for author in post.authors.all %}
+                {% if forloop.first %}{% else %}
+                    {% if forloop.last %} and {% else %}<span style="margin-left:-5px;">,</span>{% endif %}
+                {% endif %}<a class="no-decoration" href="{{author.get_absolute_url}}">{{author}}</a>
+            {% endfor %}
+            </h4>
             <!-- How to check if image exists:
             http://stackoverflow.com/questions/6637168/python-django-templates-and-testing-if-a-variable-is-null-or-empty-string?rq=1
             http://stackoverflow.com/questions/12507281/determine-empty-template-variable-in-django -->

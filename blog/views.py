@@ -69,13 +69,6 @@ def view_category(request, slug):
         'posts': Post.objects.filter(category=category)
     })
 
-def indvidual_theme(request, slug):
-    theme = get_object_or_404(Theme, slug=slug)
-    return render_to_response('blog_post.html', {
-        'category': category,
-        'posts': Post.objects.filter(theme=theme)
-    })
-
 
 def sections(request):
     section = request.path
@@ -108,7 +101,7 @@ def sections(request):
         'posts_data': list(blog_page),
         'name': section
     }    
-    template_name = 'blog_section.html'
+    template_name = 'blog.html'
     return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 def individual_themes(request):

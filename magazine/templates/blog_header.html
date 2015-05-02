@@ -30,16 +30,29 @@
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <link rel="stylesheet" href="{% static 'magazine/css/stylesheet.css' %}">
-  <script src="{% static 'magazine/js/jquery.masonry.min.js' %}"></script>
+  <!--<script src="{% static 'magazine/js/jquery.masonry.min.js' %}"></script>
+  <script>
+    // $(function(){
+    //    var $container = $('.wrapper');            
+    //    $container.imagesLoaded(function(){                    
+    //       $container.masonry({
+    //          itemSelector: '.item',
+    //          isAnimated: true,
+    //       });
+    //    });
+    // });
+  </script>-->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.0/isotope.pkgd.min.js"></script>
   <script>
     $(function(){
-       var $container = $('.wrapper');            
-       $container.imagesLoaded(function(){                    
-          $container.masonry({
-             itemSelector: '.item',
-             isAnimated: true,
-          });
-       });
+      var $container = $('.wrapper');
+      // init
+      $container.imagesLoaded(function(){ 
+        $container.isotope({
+          // options
+          itemSelector: '.item',
+        });
+      });
     });
   </script>
   <script>
@@ -133,6 +146,7 @@
             <li ><a href="/blog/about">ABOUT</a></li>
             <li ><a href="/blog/themes">THEMES</a></li>
             <li ><a href="/">MAIN SITE</a></li>
+
 
         </ul>
     </div><!-- /.navbar-collapse -->
