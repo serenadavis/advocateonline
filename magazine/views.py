@@ -30,7 +30,8 @@ def index(request):
         'fiction': [],
         'features': [],
         'poetry': [],
-        'art': []
+        'art': [],
+        'columns': []
       },
     'issue': issue,
   }

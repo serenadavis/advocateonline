@@ -7,7 +7,7 @@
 <div class="container">
 <h1 class="header">CURRENT ISSUE: <a href="{{issue.get_absolute_url}}"> {{issue}} </a></h1>
 
-{% for section, article  in sections.items %}
+{% for section, article in sections.items %}
 {% if forloop.counter0|divisibleby:2 %}
 <div class="row">
 {% endif %}

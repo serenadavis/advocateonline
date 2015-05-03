@@ -4,15 +4,18 @@
 {% load staticfiles %}
 
 <div class="container">
-
-<h1 class="header">{{ name }} </h1>
+<h1 class="header">{{ name }}</h1>
 
 {% for issue in issues %}
 {% if forloop.counter0|divisibleby:2 %}
 <div class="row">
 {% endif %}
-
-  <div class="col-md-6">
+  {% if issue.articles|length > 0 %}
+    {% if name == 'columns' %}
+    <div class="col-md-12">
+    {% else %}
+    <div class="col-md-6">
+    {% endif %}
      <a href="{{issue.obj.get_absolute_url}}"class="no-decoration"><h2 class="subheader">{{issue.obj}}</h2></a>
      {% for article in issue.articles %}
       <div class="section-article">
@@ -23,7 +26,8 @@
         {% endfor %}
       </div>
      {% endfor %}
-  </div>
+    </div>
+  {% endif %}
 {% if forloop.counter|divisibleby:2 %}
 </div>
 {% endif %}
