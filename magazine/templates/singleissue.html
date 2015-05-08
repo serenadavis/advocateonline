@@ -13,7 +13,7 @@
 	</div>
 	<div class="col-sm-6">
 	{% for section, contentlist in content_list.items %}
-		<h2 class="subheader"> {{section}} </h2>
+		<h2 class="subheader"> {{section|title }} </h2>
 		{%for content in contentlist %}
 		<div class="section-article">
 		<p class="name"><a href="{{ content.get_absolute_url }}">{{content.title}} - </a>
