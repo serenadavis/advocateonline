@@ -78,7 +78,31 @@
       <img src="{% static "magazine/images/banner4.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
 
       {% else %}
-      <img src="{% static "magazine/images/banner2.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
+  <!--     <img src="{% static "magazine/images/banner2.jpg" %}" class = "header-image img-responsive" alt="Main Image" > --><iframe style="margin:0 auto;" id="springpromovid"src="https://player.vimeo.com/video/126882043" width="900" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+  <script src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    var HeightBefore =  $(window).height() / 4
+    var HeightAfter = HeightBefore * 2
+
+    var player = $("#springpromovid");
+    player.height(HeightBefore)
+    var advoNavWidth =  $(".advo-navbar").width()
+    player.width(advoNavWidth)
+    player.height(HeightBefore)
+    froogaloop = $f(player[0].id);
+
+    player.mouseover(function(){
+        froogaloop.api('play');
+        player.height(HeightAfter)
+
+    }).mouseout(function(){
+        froogaloop.api('pause');
+        player.height(HeightBefore )
+    });
+  });
+ </script>
 
       {% endif %}
     </a>
