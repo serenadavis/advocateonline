@@ -6,6 +6,8 @@ from django.db.models import Q
 from django.utils.text import slugify
 from django.utils.encoding import smart_unicode, smart_str
 from tinymce import models as tinymce_models
+from bs4 import BeautifulSoup
+import re
 
 
 def now():
@@ -109,6 +111,10 @@ class Content(models.Model):
 
     def get_absolute_url(self):
         return '/content/{0}/'.format(self.id)
+
+    def description(self):
+        txt = ' '.join(BeautifulSoup(self.teaser).findAll(text=True))
+        return txt
 
 class Article(Content):
     objects = ContentManager()

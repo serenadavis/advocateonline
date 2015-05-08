@@ -1,9 +1,9 @@
 {% extends "base_original.html" %}
 
 {% block meta %}
-<title>{{article.title}} | {{article.section}}</title>
+<title>{{article.title}} | {% for author in article.contributors.all %}{{ author.name }}{% endfor %} | {{article.section}}</title>
 <meta name="author" content="{% for author in article.contributors.all %}{{ author.name }}{% endfor %}">
-<meta name="description" content="{{article.teaser | truncatewords:25 }}">
+<meta name="description" content="{{article.description}}">
 {% endblock %}
 
 {% block content %}

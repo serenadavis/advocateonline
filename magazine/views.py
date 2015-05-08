@@ -26,20 +26,19 @@ def index(request):
   # for each article with this issue id
   articles_in_issue = Article.objects.published().filter(issue=issue)
   data = {
-    'sections': {
-        'fiction': [],
-        'features': [],
-        'poetry': [],
-        'art': [],
-        'columns': []
-      },
+    'sections': { },
     'issue': issue,
   }
   # Put articles into their respective sections
   for article in articles_in_issue:
-    data['sections'][str(article.section).lower()].append(article)
+    SectionName = str(article.section).lower()
+    if SectionName not in data['sections']:
+      data['sections'][SectionName] = [article]
+    else:
+        data['sections'][SectionName].append(article)
   data['sections']['art'] =  Image.objects.published().filter(issue=issue)
-    # Randomly choice an article for every section
+
+  # Randomly choice an article for every section
   for key in data['sections']:
     if data['sections'][key]:
       data['sections'][key]= random.choice(data['sections'][key])
@@ -98,12 +97,26 @@ def singleissue(request, season, year):
 
   # TODO: Once we figure out contenttypes, bring back this line!
   # issue_content = Content.objects.filter(issue=issue)
-  issue_content = Article.objects.filter(issue=issue)
-  section = ('Features','Fiction','Poetry')
+
   content = OrderedDict()
-  for s in section:
-    content[s] = issue_content.published().filter(section__name=s)
-  content['Art'] =  Image.objects.published().filter(issue=issue)
+
+  articles_in_issue = Article.objects.published().filter(issue=issue)
+
+  for article in articles_in_issue:
+    SectionName = str(article.section).lower()
+    if SectionName not in content:
+     content[SectionName] = [article]
+    else:
+       content[SectionName].append(article)
+  content['art'] =  Image.objects.published().filter(issue=issue)
+
+  # issue_content = Article.objects.filter(issue=issue)
+  # section = ('Features','Fiction','Poetry')
+
+  # content = OrderedDict()
+  # for s in section:
+  #   content[s] = issue_content.published().filter(section__name=s)
+  # content['Art'] =  Image.objects.published().filter(issue=issue)
   data = {
     'issue' : issue,
     'content_list' : content

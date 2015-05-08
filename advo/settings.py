@@ -29,7 +29,9 @@ ALLOWED_HOSTS = []
 ADMINS = (
     ('Jenny Gao', 'technology@theharvardadvocate.com'),
     ('Yuqi Hou', 'hou@college.harvard.edu'),
-    ('Luciano Arango', 'lucianoarango@college.harvard.edu')
+    ('Luciano Arango', 'lucianoarango@college.harvard.edu'),
+    ('Alex Sedlack', 'asedlack@college.harvard.edu'),
+    ('Diane Yang', 'dianeyang@college.harvard.edu')
 )
 
 MANAGERS = ADMINS
@@ -75,15 +77,15 @@ WSGI_APPLICATION = 'advo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'advocate',
-        'USER': 'advocate',
-        'PASSWORD': '',
-        'HOST': 'localhost'
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'advocate',
+#         'USER': 'advocate',
+#         'PASSWORD': '',
+#         'HOST': 'localhost'
+#     }
+# }
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
