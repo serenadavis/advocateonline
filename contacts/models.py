@@ -1,7 +1,7 @@
 from django.db import models
 
-class Board(models.Model):
-	name = models.CharField(max_length=255)
+# class Board(models.Model):
+# 	name = models.CharField(max_length=255)
 
 # Create your models here.
 class Contact(models.Model):
