@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     url(r'^category/(?P<category_id>[\d]+)$', 'blog.views.view_category'),
     url(r'^about', 'blog.views.about'),      
     url(r'^archives/$|^writing/$|^art/$|^multimedia/$', 'blog.views.sections'),
+    url(r'^select2/', include('select2.urls')),
     # url(r'^writing', 'blog.views.writing'),
     # url(r'^multimedia', 'blog.views.multimedia'),
     # url(r'^themes', 'blog.views.themes')

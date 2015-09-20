@@ -3,6 +3,7 @@ import tinymce
 from bs4 import BeautifulSoup
 import re
 from redactor.fields import RedactorField
+import select2.fields
 
 class Tag(models.Model):
     name = models.CharField(max_length=255)
@@ -60,10 +61,10 @@ class Post(models.Model):
         allow_image_upload=True
     )
     created = models.DateTimeField(auto_now_add=True)
-    tags = models.ManyToManyField(Tag)
-    posted = models.ManyToManyField(Category)
-    authors = models.ManyToManyField(Author)
-    theme = models.ForeignKey(Theme)
+    tags = select2.fields.ManyToManyField(Tag)
+    posted = select2.fields.ManyToManyField(Category)
+    authors = select2.fields.ManyToManyField(Author)
+    theme = select2.fields.ForeignKey(Theme)
     first_image = models.ForeignKey(Images,null=True, blank=True, default = None)
     def __unicode__(self):
         return self.title

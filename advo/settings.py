@@ -57,7 +57,8 @@ INSTALLED_APPS = (
     'payments',
     'django_social_share',
     'contacts',
-    'redactor'
+    'redactor',
+    'select2',
 )
 
 MIDDLEWARE_CLASSES = (
