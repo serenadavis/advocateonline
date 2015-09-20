@@ -26,7 +26,14 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-ADMINS = ('Jenny Gao', 'technology@theharvardadvocate.com')
+ADMINS = (
+    ('Jenny Gao', 'technology@theharvardadvocate.com'),
+    ('Yuqi Hou', 'hou@college.harvard.edu'),
+    ('Luciano Arango', 'lucianoarango@college.harvard.edu'),
+    ('Alex Sedlack', 'asedlack@college.harvard.edu'),
+    ('Diane Yang', 'dianeyang@college.harvard.edu')
+)
+
 MANAGERS = ADMINS
 
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
@@ -49,9 +56,8 @@ INSTALLED_APPS = (
     'blog',
     'payments',
     'django_social_share',
-    'mce_filebrowser',
-    'filebrowser',
-    'contacts'
+    'contacts',
+    'redactor'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -172,6 +178,10 @@ TINYMCE_DEFAULT_CONFIG = {
 #         },
 #     }
 # }
+
+REDACTOR_OPTIONS = {'lang': 'en'}
+REDACTOR_UPLOAD = 'uploads/'
+
 try:
     from local_settings import *
 except ImportError:

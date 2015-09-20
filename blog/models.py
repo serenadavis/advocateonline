@@ -2,6 +2,7 @@ from django.db import models
 import tinymce
 from bs4 import BeautifulSoup
 import re
+from redactor.fields import RedactorField
 
 class Tag(models.Model):
     name = models.CharField(max_length=255)
@@ -51,7 +52,13 @@ class Theme(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=300)
     slug = models.SlugField(max_length=100)
-    body = tinymce.models.HTMLField()
+    body = RedactorField(
+        verbose_name=u'Text',
+        redactor_options={'lang': 'en', 'focus': 'true'},
+        upload_to='tmp/',
+        allow_file_upload=True,
+        allow_image_upload=True
+    )
     created = models.DateTimeField(auto_now_add=True)
     tags = models.ManyToManyField(Tag)
     posted = models.ManyToManyField(Category)

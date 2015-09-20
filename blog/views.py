@@ -36,25 +36,25 @@ def main(request):
     return render_to_response(template_name, data, context_instance=RequestContext(request))
     
 def post(request, slug):
-	print 'GETTING ARTICLE'
-	post = get_object_or_404(Post, slug__iexact=slug)
-	data = {
-		'post': post
-	}
-	print post
-	template_name = 'blog_post.html'
-	return render_to_response(template_name, data, context_instance=RequestContext(request))
+    print 'GETTING ARTICLE'
+    post = get_object_or_404(Post, slug__iexact=slug)
+    data = {
+        'post': post
+    }
+    print post
+    template_name = 'blog_post.html'
+    return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 def about(request):
-	print 'GETTING ARTICLE'
-	template_name = 'blog_about.html'
-	return render_to_response(template_name, {}, context_instance=RequestContext(request))
+    print 'GETTING ARTICLE'
+    template_name = 'blog_about.html'
+    return render_to_response(template_name, {}, context_instance=RequestContext(request))
 
 
 def contributor_page(request, author_id):
     this_author =  get_object_or_404(Author,id=author_id)
-	# author.name = name.replace("_", " ")
-	# author.id = author_id
+    # author.name = name.replace("_", " ")
+    # author.id = author_id
     data = {}
     data["author"] = this_author.name
     data["articles"] =  Post.objects.filter(authors__name=this_author.name)
@@ -104,7 +104,7 @@ def sections(request):
     template_name = 'blog.html'
     return render_to_response(template_name, data, context_instance=RequestContext(request))
 
-def individual_themes(request):
+def individual_theme(request):
     section = request.path
     section = section.replace("/","").replace("blog","")
 
@@ -135,6 +135,3 @@ def individual_themes(request):
     }    
     template_name = 'blog_section.html'
     return render_to_response(template_name, data, context_instance=RequestContext(request))
-       
-    
-  
