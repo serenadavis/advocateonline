@@ -1,0 +1,54 @@
+{% extends "blog_base.html" %}
+{% load staticfiles %}
+
+
+{% block content %}
+<div class="container">
+
+<h1 class="header">{{ name }} </h1>
+
+		{% for post in posts_data %}
+		{% if forloop.counter0|divisibleby:3 %}
+			<div class="row">
+		{% endif %}
+ 		<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+ 			<a href="{{post.get_absolute_url}}"><h3 class="subheader" style="font-size:16px;">{{post.title}}</h3></a>
+			{% for author in post.authors.all %}
+				<a href="{{author.get_absolute_url}}"><h3 class="subheader" style="font-size:12px;">By {{author}}</h3></a>
+ 	{% endfor %}
+
+			<!-- How to check if image exists:
+			http://stackoverflow.com/questions/6637168/python-django-templates-and-testing-if-a-variable-is-null-or-empty-string?rq=1
+			http://stackoverflow.com/questions/12507281/determine-empty-template-variable-in-django -->
+			{% if post.first_image_id %}
+			<figure><a href="{{post.get_absolute_url}}" class="no-decoration"><img class='img-responsive' style="margin: 0 auto;" src="{{post.first_image.path}}"></a></figure>
+			{% endif %}
+			 			<a href="{{post.get_absolute_url}}" class = "no-decoration"><p>{{post.teaser}}</p></a>
+ 		</div>
+ 		{% if forloop.counter|divisibleby:3 %}
+			</div>
+		{% endif %}
+
+ 	{% endfor %}
+	<div class="text-center">
+		<div class="pagination text-center">
+		    <span class="step-links">
+		        {% if posts.has_previous %}
+		            <a href="?page={{ posts.previous_page_number }}">previous</a>
+		        {% endif %}
+
+		        <span class="current">
+		            Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+		        </span>
+
+		        {% if posts.has_next %}
+		            <a href="?page={{ posts.next_page_number }}">next</a>
+		        {% endif %}
+		    </span>
+		</div>
+	</div>
+	
+ 	</div>
+
+</div>
+{% endblock %}

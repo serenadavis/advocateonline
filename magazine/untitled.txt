@@ -1,0 +1,5 @@
+-MySQL can't install through oracle website, but brew worked fine
+-migrate didn't work until dbdump because of the way magazine was migrating
+-super user needs a create somewhere
+-Linux instructions super fucked
+
