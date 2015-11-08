@@ -126,11 +126,12 @@ footer{
 .resize-image img { width: 100%; }
 
 .header-image{
-  width: 1000px;
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto;
+  width: 100%;
+  padding-bottom: 20%;
   display: block;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .header-video{
 

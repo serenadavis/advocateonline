@@ -1,10 +1,10 @@
 {% load staticfiles %}
 
-<div style="background: antiquewhite;">
-    <a href="/150th">
-        <figure class="container" style="padding-right:30px; padding-top:10px; max-width:90%;"><img src="{% static "magazine/images/banner.png" %}" style="margin:auto;" class = "img-responsive" alt="Learn more about the 150th celebration"></figure>
-    </a>
-</div>
+ <!-- <div style="background: antiquewhite;">
+  <a href="/150th">
+      <figure class="container" style="padding-right:30px; padding-top:10px; max-width:90%;"><img src="{% static "magazine/images/banner.png" %}" style="margin:auto;" class = "img-responsive" alt="Learn more about the 150th celebration"></figure>
+    
+</div></a> --> 
 
 <header class="container">
     <div class="row">
@@ -69,15 +69,15 @@
 <div class="container behind-search">
     <a href="/">
       {% if name == "fiction" %}
-      <img src="{% static "magazine/images/banner1.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
+      <div style="background-image: url('{% static "magazine/images/banner1.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
       {% elif name == "poetry" %}
-      <img src="{% static "magazine/images/banner3.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
+      <div style="background-image: url('{% static "magazine/images/banner3.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
       {% elif name == "features" %}
-      <img src="{% static "magazine/images/banner3.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
+      <div style="background-image: url('{% static "magazine/images/banner3.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
       {% elif name == "art" %}
-      <img src="{% static "magazine/images/banner4.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
+      <div style="background-image: url('{% static "magazine/images/banner4.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
       {% else %}
-      <img src="{% static "magazine/images/banner_summer2015.jpg" %}" class = "header-image img-responsive" alt="Main Image" >
+      <div style="background-image: url('{% static "magazine/images/banner_summer2015.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
       {% endif %}
     </a>
 
