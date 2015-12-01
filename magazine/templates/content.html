@@ -26,7 +26,7 @@
     <img src="{{ MEDIA_URL }}{{art_content.image.photo|safe}}" class = "header-image img-responsive" alt="Main Image" >
   </figure>
 
-<p class = "art-medium"> {{art_content.medium}}</p>
+<p class = "art-medium"> {{art_content.medium|safe}}</p>
 <p class = "art-medium"> {{art_content.body|safe}}</p>
 
 <!--  <p class = "subheader">
