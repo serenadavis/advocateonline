@@ -27,7 +27,7 @@ urlpatterns = patterns('',
     url(r'^content/(?P<id>[\d]+)/$', 'magazine.views.content_piece'),
     url(r'^contributor/(?P<author_id>[\d]+)/(?P<name>.*)/$', 'magazine.views.contributor_page'),
     # url(r'^blog/', include('blog.urls')),
-
+    url(r'^mce_filebrowser/', include('mce_filebrowser.urls')),
     url(r'^search(?:/(?P<type_filter>[art|features|poetry|fiction]+))?/?$', FilterSearchView(), name='filter_search'),
     url(r'^blog/', include('blog.urls')),
     url(r'^shopSubmit$','payments.views.shopSubmit'),
@@ -42,5 +42,6 @@ urlpatterns = patterns('',
     #http://stackoverflow.com/questions/901551/how-do-i-include-image-files-in-django-templates
     #http://stackoverflow.com/questions/19132123/name-settings-is-not-defined
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+    url(r'^redactor/', include('redactor.urls')),
 )
 

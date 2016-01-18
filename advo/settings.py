@@ -56,7 +56,9 @@ INSTALLED_APPS = (
     'blog',
     'payments',
     'django_social_share',
-    'contacts'
+    'contacts',
+    'redactor',
+    'select2',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -177,6 +179,10 @@ TINYMCE_DEFAULT_CONFIG = {
 #         },
 #     }
 # }
+
+REDACTOR_OPTIONS = {'lang': 'en'}
+REDACTOR_UPLOAD = 'uploads/'
+
 try:
     from local_settings import *
 except ImportError:
