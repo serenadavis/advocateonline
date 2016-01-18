@@ -77,15 +77,15 @@ WSGI_APPLICATION = 'advo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'advocate',
-#         'USER': 'advocate',
-#         'PASSWORD': '',
-#         'HOST': 'localhost'
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'advocate',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost'
+    }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
