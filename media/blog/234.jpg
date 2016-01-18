@@ -1,0 +1,317 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+	<script type='text/javascript'>var _sf_startpt = (new Date()).getTime()</script>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui"/>
+	<link rel="icon" type="image/png" href="http://splitsider.com/wp-content/assets/images/icons/splitsider.png"/>
+	<link rel="feed alternate" type="application/atom+xml" href="http://splitsider.com/feed/atom/" title="Atom Feed">
+
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	
+	<title>Splitsider</title>
+
+	<meta property="og:type" name="og:type" content="website" />
+<meta property="og:locale" name="og:locale" content="en_US" />
+<meta property="og:site_name" name="og:site_name" content="Splitsider" />
+<link rel='https://github.com/WP-API/WP-API' href='http://splitsider.com/wp-json/' />
+<script src='http://awlnetwork.com/?dm=b8c7c3e1947408185d25ba4e8fc6be8e&amp;action=load&amp;blogid=2&amp;siteid=1&amp;t=1872291955&amp;back=http%3A%2F%2Fsplitsider.com%2Fwp-content%2Fuploads%2F2012%2F10%2Fdavidfosterwallace.jpg' type='text/javascript'></script>
+	<script>
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function () {
+					(i[r].q = i[r].q || []).push(arguments)
+				}, i[r].l = 1 * new Date();
+			a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-8268915-2', 'auto');
+		ga('create', 'UA-8268915-9', 'auto', {'name': 'network'});
+		ga('send', 'pageview');
+		ga('network.send', 'pageview');
+
+	</script>
+
+	<script type='text/javascript'>
+		var googletag = googletag || {};
+		googletag.cmd = googletag.cmd || [];
+		(function () {
+			var gads = document.createElement('script');
+			gads.async = true;
+			gads.type = 'text/javascript';
+			var useSSL = 'https:' == document.location.protocol;
+			gads.src = (useSSL ? 'https:' : 'http:') +
+				'//www.googletagservices.com/tag/js/gpt.js';
+			var node = document.getElementsByTagName('script')[0];
+			node.parentNode.insertBefore(gads, node);
+		})();
+	</script>
+
+	<!-- Index Request -->
+	<script src="http://js.indexww.com/ht/theawl.js"></script>
+	<!-- Index Request -->
+
+	<meta name="twitter:widgets:csp" content="on">
+
+	<link href='https://awlnetwork-static-theawl.netdna-ssl.com//wp-content/assets/v/css/ich-fonts.6b30fd9.css' rel='stylesheet' type='text/css'><link href='https://awlnetwork-static-theawl.netdna-ssl.com//wp-content/assets/v/css/splitsider.67a66d1.css' rel='stylesheet' type='text/css'><script src='https://awlnetwork-static-theawl.netdna-ssl.com//wp-content/assets/v/js/splitsider.9d6ba6a.js'></script><script src='https://awlnetwork-static-theawl.netdna-ssl.com//wp-content/assets/v/js/ad.4105be7.js?yolo&amp;ad_channel='></script>	<link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+	<!-- Quantcast Tag, part 1 -->
+	<script type="text/javascript">
+		var _qevents = _qevents || [];
+		(function () {
+			var elem = document.createElement('script');
+			elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+			elem.async = true;
+			elem.type = "text/javascript";
+			var scpt = document.getElementsByTagName('script')[0];
+			scpt.parentNode.insertBefore(elem, scpt);
+		})();
+	</script>
+</head>
+<body class="error404" >
+
+<script>
+	window.fbAsyncInit = function () {
+		FB.init({
+			appId: '150264211661679',
+			xfbml: true,
+			version: 'v2.4'
+		});
+	};
+
+	(function (d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {
+			return;
+		}
+		js = d.createElement(s);
+		js.id = id;
+		js.src = "//connect.facebook.net/en_US/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+			<div class="remodal fb-callout" data-remodal-id="modal" data-remodal-options="hashTracking: false">
+			<button data-remodal-action="close" class="remodal-close"></button>
+							<h2 style="margin-bottom: 10px;">Yeah, yeah, sorry about this.</h2>
+				<h3 style="margin-top: 10px;">But like us on Facebook! We're fun.</h3>
+						<div class="modal fb-like" data-href="https://www.facebook.com/splitsider"
+			     data-layout="button_count"
+			     data-action="like"
+			     data-show-faces="true"
+			     data-ref="modal_cta"></div>
+		</div>
+	
+<div class="skin__wrapper" style="position: relative; overflow: visible;">
+	<div class="skin" style="position: absolute;">
+		<div style="position: relative" id='ad-skin' class="ad ad-desktop" data-slot-alias="skin" rendered="false"></div>
+	</div>
+</div>
+
+<div class="leaderboard__wrapper">
+		<div id='1446704413' class="ad ad-desktop" data-rendered="false" data-slot-alias="leaderboard"></div>
+
+		<div id="867550689" class="ad ad-mobile mobile-leaderboard" data-rendered="false" data-slot-alias="mobile-leaderboard"></div>
+</div>
+
+
+
+<div class="main__wrapper">
+
+	<div class="nav__wrapper">
+		<div class="navicon"></div>
+
+		<div class="nav__logo">
+			<a href="http://splitsider.com/">Splitsider</a>
+		</div>
+
+		<nav class="nav__links">
+			<ul class="nav__items">
+				<li id="menu-item-75802" class="divider menu-item menu-item-type-custom menu-item-object-custom menu-item-75802"><a href="/category/feature">Features</a></li>
+<li id="menu-item-77600" class="divider menu-item menu-item-type-taxonomy menu-item-object-category menu-item-77600"><a href="http://splitsider.com/category/news/">News</a></li>
+<li id="menu-item-79862" class="divider menu-item menu-item-type-custom menu-item-object-custom menu-item-79862"><a href="http://splitsider.com/presents/">Splitsider Presents</a></li>
+<li id="menu-item-75803" class="divider menu-item menu-item-type-custom menu-item-object-custom menu-item-75803"><a href="/about">About</a></li>
+<li id="menu-item-77599" class="divider menu-item menu-item-type-custom menu-item-object-custom menu-item-77599"><a href="mailto:notes@splitsider.com">Contact</a></li>
+<li id="menu-item-75805" class="icon icon-twitter divider menu-item menu-item-type-custom menu-item-object-custom menu-item-75805"><a href="https://twitter.com/splitsider">Twitter</a></li>
+<li id="menu-item-75804" class="icon icon-facebook-official divider menu-item menu-item-type-custom menu-item-object-custom menu-item-75804"><a target="_blank" href="https://www.facebook.com/splitsider">Facebook</a></li>
+<li id="menu-item-75807" class="icon-search icon menu-item menu-item-type-custom menu-item-object-custom menu-item-75807"><a href="/search">Search</a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<div class="index__wrapper logical__wrapper">
+		<div class="column__container">
+			<div class="post__list">
+				<div class="search__header">
+					<h1>404 Not Found</h1>
+					<p>Hrm we couldn't find that page. Try searching for something related:</p>
+
+					<form class="search__form" action="/" method="get">
+						<div class="search__input">
+							<input type="text" name="s" value="">
+						</div>
+
+						<div class="search__meta">
+							<button class="search__submit">Search Splitsider</button>
+						</div>
+
+					</form>
+				</div>
+			</div>
+
+			<div class="sidebar__wrapper">
+				<div class="sidebar__group">
+					<div class="sidebar__ad-container">
+						<div id='1493622138' class="ad ad-desktop" data-rendered="false" data-slot-alias="rectangle"></div>					</div>
+
+					<div class="popular__wrapper">
+	<h3 class="popular__title mod__title">Most Popular</h3>
+
+	<div class="popular__items">
+		
+			<div class="popular-item">
+				<span class="popular-item__number">1.</span>
+				<span class="popular-item__title">
+					<a href="http://splitsider.com/2012/08/the-chase-is-the-thing-and-the-thing-is-the-chase/" title="The Chase Is the Thing and the Thing Is the Chase: Learning to Love Failure">
+						The Chase Is the Thing and the Thing Is the Chase: Learning to Love Failure					</a>
+				</span>
+			</div>
+
+			
+		
+			<div class="popular-item">
+				<span class="popular-item__number">2.</span>
+				<span class="popular-item__title">
+					<a href="http://splitsider.com/2015/03/the-20-best-comedy-movies-of-all-time/" title="The 20 Best Comedy Movies of All Time">
+						The 20 Best Comedy Movies of All Time					</a>
+				</span>
+			</div>
+
+			
+		
+			<div class="popular-item">
+				<span class="popular-item__number">3.</span>
+				<span class="popular-item__title">
+					<a href="http://splitsider.com/2011/03/eight-types-of-hecklers-and-the-comedians-who-shut-them-up/" title="Eight Types of Hecklers and the Comedians Who Shut Them Up">
+						Eight Types of Hecklers and the Comedians Who Shut Them Up					</a>
+				</span>
+			</div>
+
+			
+		
+			<div class="popular-item">
+				<span class="popular-item__number">4.</span>
+				<span class="popular-item__title">
+					<a href="http://splitsider.com/2015/09/from-sullivan-to-ck-a-history-of-modern-american-standup-comedy-in-10-steps/" title="From Sullivan to CK: a History of Modern American Standup Comedy in 10 Steps">
+						From Sullivan to CK: a History of Modern American Standup Comedy in 10 Steps					</a>
+				</span>
+			</div>
+
+			
+		
+			<div class="popular-item">
+				<span class="popular-item__number">5.</span>
+				<span class="popular-item__title">
+					<a href="http://splitsider.com/2015/09/stephen-colbert-takes-the-myers-briggs-personality-test-on-the-late-show/" title="Stephen Colbert Takes the Myers–Briggs Personality Test on &#8216;The Late Show&#8217;">
+						Stephen Colbert Takes the Myers–Briggs Personality Test on &#8216;The Late Show&#8217;					</a>
+				</span>
+			</div>
+
+			
+			</div>
+</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<div class="footer__wrapper">
+					<div id='762435553' class="ad ad-desktop" data-rendered="false" data-slot-alias="adhesion"></div>
+	</div>
+
+
+
+	<script type="text/javascript">
+		var _sf_async_config={uid:4191,domain:"splitsider.com"};
+		(function(){
+			function loadChartbeat() {
+				window._sf_endpt=(new Date()).getTime();
+				var e = document.createElement('script');
+				e.setAttribute('language', 'javascript');
+				e.setAttribute('type', 'text/javascript');
+				e.setAttribute('src', (("https:" == document.location.protocol) ? "https://s3.amazonaws.com/" : "http://") + "static.chartbeat.com/js/chartbeat.js");
+				document.body.appendChild(e);
+			}
+			var oldonload = window.onload;
+			window.onload = (typeof window.onload != 'function') ?
+				loadChartbeat : function() { oldonload(); loadChartbeat(); };
+		})();
+	</script>
+
+	<!-- Begin comScore Tag -->
+	<script>
+		var _comscore = _comscore || [];
+		_comscore.push({ c1: "2", c2: "8568956" });
+		(function() {
+			var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+			s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+			el.parentNode.insertBefore(s, el);
+		})();
+	</script>
+	<noscript>
+		<img src="http://b.scorecardresearch.com/p?c1=2&c2=8568956&cv=2.0&cj=1" />
+	</noscript>
+	<!-- End comScore Tag -->
+
+	<!-- Quantcast Tag, part 2 -->
+	<script type="text/javascript">
+		_qevents.push( { qacct:"p-32QdpOnYAOIhc"} );
+	</script>
+	<noscript>
+		<div style="display: none;"><img src="http://pixel.quantserve.com/pixel/p-32QdpOnYAOIhc.gif" height="1" width="1" alt="Quantcast"/></div>
+	</noscript>
+
+	<script type="text/javascript" src="http://wms.assoc-amazon.com/20070822/US/js/auto-tagger.js?tag=splitsider-20&locale=US&overwrite=Y"></script>
+
+<script type="text/javascript">
+	(function() {
+		function async_load(script_url){
+			var protocol = ('https:' == document.location.protocol ? 'https://' : 'http://');
+			var s = document.createElement('script'); s.src = protocol + script_url;
+			var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+		}
+		bm_website_code = '323456F6EF104D8A';
+		jQuery(document).ready(function(){async_load('asset.pagefair.com/measure.min.js')});
+		jQuery(document).ready(function(){async_load('asset.pagefair.net/ads.min.js')});
+	})();
+</script>
+
+<!-- Quantcast Tag (Vice) -->
+<script>
+	qcdata = {} || qcdata;
+	(function(){
+		var elem = document.createElement('script');
+		elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://pixel") + ".quantserve.com/aquant.js?a=p-6EzWtvBV9sFU3";
+		elem.async = true;
+		elem.type = "text/javascript";
+		var scpt = document.getElementsByTagName('script')[0];
+		scpt.parentNode.insertBefore(elem,scpt);
+	}());
+
+</script>
+<noscript>
+	<img src="//pixel.quantserve.com/pixel/p-6EzWtvBV9sFU3.gif?" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/>
+</noscript>
+<!-- End Quantcast Tag -->
+
+
+</body>
+</html>

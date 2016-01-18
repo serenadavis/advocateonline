@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js ie lt-ie9 lt-ie8 lt-ie7" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js ie lt-ie9 lt-ie8" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie lt-ie9" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js ie lt-ie10" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-ie" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"> <!--<![endif]-->
+
+<head><link rel="stylesheet" type="text/css" href="http://www.wildtrotters.com/wp-content/cache/minify/000000/fc7RCkIhDAbgF2pZVz3OYeiSgc6DW4Rvn82LTgRdCOP_v8kuIQ3ByjGwzBebaIiqPsG9iYHaKHS6hhkYRpthr3B78_JItLQbnYhQB2jhRMAS2m4svqBQUTBTd07K4J1XP2uoSrY-_ir-QT8Vn6St0rm6zW3bO0eWfISfdFtXvwA.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://www.wildtrotters.com/wp-content/cache/minify/000000/XcfBDYBACATAjtxY0YXohmAAyXE-7N6_85sdeo-adlgqpJurUf6oZeNqBE8TOoO5fi2Xl3MLyw8.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://www.wildtrotters.com/wp-content/cache/minify/000000/VY5RDsMgCEAvVMN6osYqcWyKRtCltx9rtqT75AUeb4VUt9YpECfwIqgCLY9ELPAQKBjJY8aCrDbKk_iPtewP7MtqUHt1k2T47PZBOWIH39rPGcRkc9_kXruGGlGWG8SDfaEAxAEYX-KaT-gk0-c4DNFaTN1xflG3jbPt1JlXrfoqujwTPTJGS1Gt_AY.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://www.wildtrotters.com/wp-content/cache/minify/000000/M9QvKErNzSzNjS9OzY8vSEzO1s_NTynNSS3WD85PzkzMiQ8uSSwp1i-GcIozEosy89IB.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://www.wildtrotters.com/wp-content/cache/minify/000000/fY9BDsIwDAQ_1BJ4UeWkVmVIYpN1Qf095dZKgfPMWuNbKATnhiwzt2BrzJICAewICTjhSyGpw9vGpNW5elgtK81nKaQVrmW4hnmrVM7XIM6jNf7OuB0c-Ja5v-npB0xmfbDoZE2S1GXCY-_uSkWjZB4bw7RCXj8aqEqhPf3fbzHupUAf3p8rt-0iUFfjDw.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://www.wildtrotters.com/wp-content/cache/minify/000000/M9BPqcxLzM1M1k8sLk4tKdZPLi7WLyhKLSmpDMjIL8kHAA.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://www.wildtrotters.com/wp-content/cache/minify/000000/M9BPqcxLzM1M1k8uLtbPLyjJzM8rBgA.css" media="all" />
+
+
+    <meta charset="utf-8">
+
+    <title>Page Not Found | Wild Trotters</title>
+
+    <link rel="icon" type="image/png" href="http://www.wildtrotters.com/wp-content/uploads/2015/06/favicon.ico" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--[if lte IE 9]>
+        <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lte IE 8]>
+        <script src="http://www.wildtrotters.com/wp-content/themes/dynamic/assets/js/excanvas.compiled.js"></script>
+    <![endif]-->
+
+	
+    
+	<link rel="alternate" type="application/rss+xml" title="Wild Trotters Feed" href="http://www.wildtrotters.com/feed/">
+<style type="text/css" media="screen">.mymail-form{margin-bottom:20px;}.mymail-form .input, .mymail-form .mymail-form-info{width:100%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}.mymail-form label{line-height:1.6em;}.mymail-form li{list-style:none !important;margin-left:0;}.mymail-form label .required{color:#f33;}.mymail-form input.required{color:inherit;}.mymail-form .mymail-email{}.mymail-form .mymail-firstname{}.mymail-form .mymail-lastname{}.mymail-form .mymail-lists-wrapper ul{list-style:none;margin-left:0;}.mymail-form .mymail-lists-wrapper ul li{margin-left:0;}.mymail-form .mymail-list-description{color:inherit;display:block;margin-left:25px;font-size:0.8em;}.mymail-form .mymail-form-info{display:none;border-radius:2px;padding:5px;margin-bottom:4px;color:#fff;}.mymail-form .error input{border:1px solid #f33;}.mymail-form .mymail-form-info.error{background:#f33;}.mymail-form .mymail-form-info ul li{color:inherit;margin-left:0;}.mymail-form .mymail-form-info.success{background-color: #24890D;}.mymail-form .mymail-form-info p{margin-bottom:0;}.mymail-form .mymail-form-info ul{list-style-type:circle;margin-left:0;margin-bottom:0;}.mymail-form .submit-button{margin:6px 0 0;}.mymail-form .mymail-loader{display: none;width:16px;height:16px;margin:4px;vertical-align: middle;background-image:url('http://www.wildtrotters.com/wp-content/plugins/myMail/assets/img/loading.gif');background-repeat:no-repeat;background-position:center center;}.mymail-form .mymail-loader.loading{display: inline-block;}@media only screen and (-webkit-min-device-pixel-ratio: 2),only screen and (min--moz-device-pixel-ratio: 2),only screen and (-o-min-device-pixel-ratio: 2/1),only screen and (min-device-pixel-ratio: 2),only screen and ( min-resolution: 192dpi),only screen and ( min-resolution: 2dppx){ .mymail-form .mymail-loader{background-image:url('http://www.wildtrotters.com/wp-content/plugins/myMail/assets/img/loading_2x.gif');background-size:100%;}}</style>
+<!-- start/ Premium SEO pack - Wordpress Plugin -->
+<meta name="robots" content="noindex,nofollow,noarchive,noodp"/>
+<meta property='og:locale' content='en_US'/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="http://www.wildtrotters.com/"/>
+<meta property="og:title" content="Page Not Found | Wild Trotters"/>
+
+<!-- end/ Premium SEO pack - Wordpress Plugin -->
+
+<link rel="alternate" type="application/rss+xml" title="Wild Trotters &raquo; Feed" href="http://www.wildtrotters.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Wild Trotters &raquo; Comments Feed" href="http://www.wildtrotters.com/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/www.wildtrotters.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.3.1"}};
+			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56812,55356,56807),0,0),c.toDataURL().length>3e3):(d.fillText(String.fromCharCode(55357,56835),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Damion%7CArial&#038;ver=4.3.1">
+
+
+
+
+
+
+
+
+
+<style id='rs-plugin-settings-inline-css' type='text/css'>
+.tp-caption a{text-shadow:none;-webkit-transition:all 0.2s ease-out;-moz-transition:all 0.2s ease-out;-o-transition:all 0.2s ease-out;-ms-transition:all 0.2s ease-out}.tp-caption a:hover{}@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,700,600);.tp-caption.medium_bg_red a{color:#fff;  text-decoration:none}.tp-caption.medium_bg_red a:hover{color:#fff;  text-decoration:underline}.tp-caption.roundedimage img{-webkit-border-radius:300px;  -moz-border-radius:300px;  border-radius:300px}.tp-bullets.simplebullets.navbar{height:35px;  padding:0px 0px}.tp-bullets.simplebullets .bullet{cursor:pointer;  position:relative !important;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:10px;  border-radius:10px;  -webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;  width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,0) !important;  display:inline-block;  margin-right:2px !important;  margin-bottom:14px !important;  -webkit-transition:background-color 0.2s,border-color 0.2s;  -moz-transition:background-color 0.2s,border-color 0.2s;  -o-transition:background-color 0.2s,border-color 0.2s;  -ms-transition:background-color 0.2s,border-color 0.2s;  transition:background-color 0.2s,border-color 0.2s;  float:none !important}.tp-bullets.simplebullets .bullet.last{margin-right:0px}.tp-bullets.simplebullets .bullet:hover,.tp-bullets.simplebullets .bullet.selected{-webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;background:rgba(255,255,255,1) !important;width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,1) !important}.tparrows:before{font-family:'revicons';color:#fff;  font-style:normal;  font-weight:normal;  speak:none;  display:inline-block;  text-decoration:inherit;  margin-right:0;  margin-top:9px;  text-align:center;  width:40px;  font-size:20px}.tparrows{cursor:pointer;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:5px;  border-radius:5px;  width:40px !important;  height:40px !important}.tparrows:hover{color:#fff}.tp-leftarrow:before{content:'\e824'}.tp-rightarrow:before{content:'\e825'}.tparrows.tp-rightarrow:before{margin-left:1px}.tparrows:hover{background:rgba(0,0,0,1) !important}@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,700,600);.tp-caption.medium_bg_red a{color:#fff;  text-decoration:none}.tp-caption.medium_bg_red a:hover{color:#fff;  text-decoration:underline}.tp-caption.roundedimage img{-webkit-border-radius:300px;  -moz-border-radius:300px;  border-radius:300px}.tp-bullets.simplebullets.navbar{height:35px;  padding:0px 0px}.tp-bullets.simplebullets .bullet{cursor:pointer;  position:relative !important;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:10px;  border-radius:10px;  -webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;  width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,0) !important;  display:inline-block;  margin-right:2px !important;  margin-bottom:14px !important;  -webkit-transition:background-color 0.2s,border-color 0.2s;  -moz-transition:background-color 0.2s,border-color 0.2s;  -o-transition:background-color 0.2s,border-color 0.2s;  -ms-transition:background-color 0.2s,border-color 0.2s;  transition:background-color 0.2s,border-color 0.2s;  float:none !important}.tp-bullets.simplebullets .bullet.last{margin-right:0px}.tp-bullets.simplebullets .bullet:hover,.tp-bullets.simplebullets .bullet.selected{-webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;background:rgba(255,255,255,1) !important;width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,1) !important}.tparrows:before{font-family:'revicons';color:#fff;  font-style:normal;  font-weight:normal;  speak:none;  display:inline-block;  text-decoration:inherit;  margin-right:0;  margin-top:9px;  text-align:center;  width:40px;  font-size:20px}.tparrows{cursor:pointer;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:5px;  border-radius:5px;  width:40px !important;  height:40px !important}.tparrows:hover{color:#fff}.tp-leftarrow:before{content:'\e824'}.tp-rightarrow:before{content:'\e825'}.tparrows.tp-rightarrow:before{margin-left:1px}.tparrows:hover{background:rgba(0,0,0,1) !important}@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,700,600);.tp-caption.medium_bg_red a{color:#fff;  text-decoration:none}.tp-caption.medium_bg_red a:hover{color:#fff;  text-decoration:underline}.tp-caption.roundedimage img{-webkit-border-radius:300px;  -moz-border-radius:300px;  border-radius:300px}.tp-bullets.simplebullets.navbar{height:35px;  padding:0px 0px}.tp-bullets.simplebullets .bullet{cursor:pointer;  position:relative !important;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:10px;  border-radius:10px;  -webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;  width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,0) !important;  display:inline-block;  margin-right:2px !important;  margin-bottom:14px !important;  -webkit-transition:background-color 0.2s,border-color 0.2s;  -moz-transition:background-color 0.2s,border-color 0.2s;  -o-transition:background-color 0.2s,border-color 0.2s;  -ms-transition:background-color 0.2s,border-color 0.2s;  transition:background-color 0.2s,border-color 0.2s;  float:none !important}.tp-bullets.simplebullets .bullet.last{margin-right:0px}.tp-bullets.simplebullets .bullet:hover,.tp-bullets.simplebullets .bullet.selected{-webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;background:rgba(255,255,255,1) !important;width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,1) !important}.tparrows:before{font-family:'revicons';color:#fff;  font-style:normal;  font-weight:normal;  speak:none;  display:inline-block;  text-decoration:inherit;  margin-right:0;  margin-top:9px;  text-align:center;  width:40px;  font-size:20px}.tparrows{cursor:pointer;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:5px;  border-radius:5px;  width:40px !important;  height:40px !important}.tparrows:hover{color:#fff}.tp-leftarrow:before{content:'\e824'}.tp-rightarrow:before{content:'\e825'}.tparrows.tp-rightarrow:before{margin-left:1px}.tparrows:hover{background:rgba(0,0,0,1) !important}@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,700,600);.tp-caption.medium_bg_red a{color:#fff;  text-decoration:none}.tp-caption.medium_bg_red a:hover{color:#fff;  text-decoration:underline}.tp-caption.roundedimage img{-webkit-border-radius:300px;  -moz-border-radius:300px;  border-radius:300px}.tp-bullets.simplebullets.navbar{height:35px;  padding:0px 0px}.tp-bullets.simplebullets .bullet{cursor:pointer;  position:relative !important;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:10px;  border-radius:10px;  -webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;  width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,0) !important;  display:inline-block;  margin-right:2px !important;  margin-bottom:14px !important;  -webkit-transition:background-color 0.2s,border-color 0.2s;  -moz-transition:background-color 0.2s,border-color 0.2s;  -o-transition:background-color 0.2s,border-color 0.2s;  -ms-transition:background-color 0.2s,border-color 0.2s;  transition:background-color 0.2s,border-color 0.2s;  float:none !important}.tp-bullets.simplebullets .bullet.last{margin-right:0px}.tp-bullets.simplebullets .bullet:hover,.tp-bullets.simplebullets .bullet.selected{-webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;background:rgba(255,255,255,1) !important;width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,1) !important}.tparrows:before{font-family:'revicons';color:#fff;  font-style:normal;  font-weight:normal;  speak:none;  display:inline-block;  text-decoration:inherit;  margin-right:0;  margin-top:9px;  text-align:center;  width:40px;  font-size:20px}.tparrows{cursor:pointer;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:5px;  border-radius:5px;  width:40px !important;  height:40px !important}.tparrows:hover{color:#fff}.tp-leftarrow:before{content:'\e824'}.tp-rightarrow:before{content:'\e825'}.tparrows.tp-rightarrow:before{margin-left:1px}.tparrows:hover{background:rgba(0,0,0,1) !important}@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,700,600);.tp-caption.medium_bg_red a{color:#fff;  text-decoration:none}.tp-caption.medium_bg_red a:hover{color:#fff;  text-decoration:underline}.tp-caption.roundedimage img{-webkit-border-radius:300px;  -moz-border-radius:300px;  border-radius:300px}.tp-bullets.simplebullets.navbar{height:35px;  padding:0px 0px}.tp-bullets.simplebullets .bullet{cursor:pointer;  position:relative !important;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:10px;  border-radius:10px;  -webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;  width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,0) !important;  display:inline-block;  margin-right:2px !important;  margin-bottom:14px !important;  -webkit-transition:background-color 0.2s,border-color 0.2s;  -moz-transition:background-color 0.2s,border-color 0.2s;  -o-transition:background-color 0.2s,border-color 0.2s;  -ms-transition:background-color 0.2s,border-color 0.2s;  transition:background-color 0.2s,border-color 0.2s;  float:none !important}.tp-bullets.simplebullets .bullet.last{margin-right:0px}.tp-bullets.simplebullets .bullet:hover,.tp-bullets.simplebullets .bullet.selected{-webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;background:rgba(255,255,255,1) !important;width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,1) !important}.tparrows:before{font-family:'revicons';color:#fff;  font-style:normal;  font-weight:normal;  speak:none;  display:inline-block;  text-decoration:inherit;  margin-right:0;  margin-top:9px;  text-align:center;  width:40px;  font-size:20px}.tparrows{cursor:pointer;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:5px;  border-radius:5px;  width:40px !important;  height:40px !important}.tparrows:hover{color:#fff}.tp-leftarrow:before{content:'\e824'}.tp-rightarrow:before{content:'\e825'}.tparrows.tp-rightarrow:before{margin-left:1px}.tparrows:hover{background:rgba(0,0,0,1) !important}@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,700,600);.tp-caption.medium_bg_red a{color:#fff;  text-decoration:none}.tp-caption.medium_bg_red a:hover{color:#fff;  text-decoration:underline}.tp-caption.roundedimage img{-webkit-border-radius:300px;  -moz-border-radius:300px;  border-radius:300px}.tp-bullets.simplebullets.navbar{height:35px;  padding:0px 0px}.tp-bullets.simplebullets .bullet{cursor:pointer;  position:relative !important;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:10px;  border-radius:10px;  -webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;  width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,0) !important;  display:inline-block;  margin-right:2px !important;  margin-bottom:14px !important;  -webkit-transition:background-color 0.2s,border-color 0.2s;  -moz-transition:background-color 0.2s,border-color 0.2s;  -o-transition:background-color 0.2s,border-color 0.2s;  -ms-transition:background-color 0.2s,border-color 0.2s;  transition:background-color 0.2s,border-color 0.2s;  float:none !important}.tp-bullets.simplebullets .bullet.last{margin-right:0px}.tp-bullets.simplebullets .bullet:hover,.tp-bullets.simplebullets .bullet.selected{-webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;background:rgba(255,255,255,1) !important;width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,1) !important}.tparrows:before{font-family:'revicons';color:#fff;  font-style:normal;  font-weight:normal;  speak:none;  display:inline-block;  text-decoration:inherit;  margin-right:0;  margin-top:9px;  text-align:center;  width:40px;  font-size:20px}.tparrows{cursor:pointer;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:5px;  border-radius:5px;  width:40px !important;  height:40px !important}.tparrows:hover{color:#fff}.tp-leftarrow:before{content:'\e824'}.tp-rightarrow:before{content:'\e825'}.tparrows.tp-rightarrow:before{margin-left:1px}.tparrows:hover{background:rgba(0,0,0,1) !important}@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,700,600);.tp-caption.medium_bg_red a{color:#fff;  text-decoration:none}.tp-caption.medium_bg_red a:hover{color:#fff;  text-decoration:underline}.tp-caption.roundedimage img{-webkit-border-radius:300px;  -moz-border-radius:300px;  border-radius:300px}.tp-bullets.simplebullets.navbar{height:35px;  padding:0px 0px}.tp-bullets.simplebullets .bullet{cursor:pointer;  position:relative !important;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:10px;  border-radius:10px;  -webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;  width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,0) !important;  display:inline-block;  margin-right:2px !important;  margin-bottom:14px !important;  -webkit-transition:background-color 0.2s,border-color 0.2s;  -moz-transition:background-color 0.2s,border-color 0.2s;  -o-transition:background-color 0.2s,border-color 0.2s;  -ms-transition:background-color 0.2s,border-color 0.2s;  transition:background-color 0.2s,border-color 0.2s;  float:none !important}.tp-bullets.simplebullets .bullet.last{margin-right:0px}.tp-bullets.simplebullets .bullet:hover,.tp-bullets.simplebullets .bullet.selected{-webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;background:rgba(255,255,255,1) !important;width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,1) !important}.tparrows:before{font-family:'revicons';color:#fff;  font-style:normal;  font-weight:normal;  speak:none;  display:inline-block;  text-decoration:inherit;  margin-right:0;  margin-top:9px;  text-align:center;  width:40px;  font-size:20px}.tparrows{cursor:pointer;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:5px;  border-radius:5px;  width:40px !important;  height:40px !important}.tparrows:hover{color:#fff}.tp-leftarrow:before{content:'\e824'}.tp-rightarrow:before{content:'\e825'}.tparrows.tp-rightarrow:before{margin-left:1px}.tparrows:hover{background:rgba(0,0,0,1) !important}@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,700,600);.tp-caption.medium_bg_red a{color:#fff;  text-decoration:none}.tp-caption.medium_bg_red a:hover{color:#fff;  text-decoration:underline}.tp-caption.roundedimage img{-webkit-border-radius:300px;  -moz-border-radius:300px;  border-radius:300px}.tp-bullets.simplebullets.navbar{height:35px;  padding:0px 0px}.tp-bullets.simplebullets .bullet{cursor:pointer;  position:relative !important;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:10px;  border-radius:10px;  -webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;  width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,0) !important;  display:inline-block;  margin-right:2px !important;  margin-bottom:14px !important;  -webkit-transition:background-color 0.2s,border-color 0.2s;  -moz-transition:background-color 0.2s,border-color 0.2s;  -o-transition:background-color 0.2s,border-color 0.2s;  -ms-transition:background-color 0.2s,border-color 0.2s;  transition:background-color 0.2s,border-color 0.2s;  float:none !important}.tp-bullets.simplebullets .bullet.last{margin-right:0px}.tp-bullets.simplebullets .bullet:hover,.tp-bullets.simplebullets .bullet.selected{-webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;background:rgba(255,255,255,1) !important;width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,1) !important}.tparrows:before{font-family:'revicons';color:#fff;  font-style:normal;  font-weight:normal;  speak:none;  display:inline-block;  text-decoration:inherit;  margin-right:0;  margin-top:9px;  text-align:center;  width:40px;  font-size:20px}.tparrows{cursor:pointer;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:5px;  border-radius:5px;  width:40px !important;  height:40px !important}.tparrows:hover{color:#fff}.tp-leftarrow:before{content:'\e824'}.tp-rightarrow:before{content:'\e825'}.tparrows.tp-rightarrow:before{margin-left:1px}.tparrows:hover{background:rgba(0,0,0,1) !important}@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,700,600);.tp-caption.medium_bg_red a{color:#fff;  text-decoration:none}.tp-caption.medium_bg_red a:hover{color:#fff;  text-decoration:underline}.tp-caption.roundedimage img{-webkit-border-radius:300px;  -moz-border-radius:300px;  border-radius:300px}.tp-bullets.simplebullets.navbar{height:35px;  padding:0px 0px}.tp-bullets.simplebullets .bullet{cursor:pointer;  position:relative !important;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:10px;  border-radius:10px;  -webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;  width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,0) !important;  display:inline-block;  margin-right:2px !important;  margin-bottom:14px !important;  -webkit-transition:background-color 0.2s,border-color 0.2s;  -moz-transition:background-color 0.2s,border-color 0.2s;  -o-transition:background-color 0.2s,border-color 0.2s;  -ms-transition:background-color 0.2s,border-color 0.2s;  transition:background-color 0.2s,border-color 0.2s;  float:none !important}.tp-bullets.simplebullets .bullet.last{margin-right:0px}.tp-bullets.simplebullets .bullet:hover,.tp-bullets.simplebullets .bullet.selected{-webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;background:rgba(255,255,255,1) !important;width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,1) !important}.tparrows:before{font-family:'revicons';color:#fff;  font-style:normal;  font-weight:normal;  speak:none;  display:inline-block;  text-decoration:inherit;  margin-right:0;  margin-top:9px;  text-align:center;  width:40px;  font-size:20px}.tparrows{cursor:pointer;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:5px;  border-radius:5px;  width:40px !important;  height:40px !important}.tparrows:hover{color:#fff}.tp-leftarrow:before{content:'\e824'}.tp-rightarrow:before{content:'\e825'}.tparrows.tp-rightarrow:before{margin-left:1px}.tparrows:hover{background:rgba(0,0,0,1) !important}@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,700,600);.tp-caption.medium_bg_red a{color:#fff;  text-decoration:none}.tp-caption.medium_bg_red a:hover{color:#fff;  text-decoration:underline}.tp-caption.roundedimage img{-webkit-border-radius:300px;  -moz-border-radius:300px;  border-radius:300px}.tp-bullets.simplebullets.navbar{height:35px;  padding:0px 0px}.tp-bullets.simplebullets .bullet{cursor:pointer;  position:relative !important;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:10px;  border-radius:10px;  -webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;  width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,0) !important;  display:inline-block;  margin-right:2px !important;  margin-bottom:14px !important;  -webkit-transition:background-color 0.2s,border-color 0.2s;  -moz-transition:background-color 0.2s,border-color 0.2s;  -o-transition:background-color 0.2s,border-color 0.2s;  -ms-transition:background-color 0.2s,border-color 0.2s;  transition:background-color 0.2s,border-color 0.2s;  float:none !important}.tp-bullets.simplebullets .bullet.last{margin-right:0px}.tp-bullets.simplebullets .bullet:hover,.tp-bullets.simplebullets .bullet.selected{-webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;background:rgba(255,255,255,1) !important;width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,1) !important}.tparrows:before{font-family:'revicons';color:#fff;  font-style:normal;  font-weight:normal;  speak:none;  display:inline-block;  text-decoration:inherit;  margin-right:0;  margin-top:9px;  text-align:center;  width:40px;  font-size:20px}.tparrows{cursor:pointer;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:5px;  border-radius:5px;  width:40px !important;  height:40px !important}.tparrows:hover{color:#fff}.tp-leftarrow:before{content:'\e824'}.tp-rightarrow:before{content:'\e825'}.tparrows.tp-rightarrow:before{margin-left:1px}.tparrows:hover{background:rgba(0,0,0,1) !important}@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,700,600);.tp-caption.medium_bg_red a{color:#fff;  text-decoration:none}.tp-caption.medium_bg_red a:hover{color:#fff;  text-decoration:underline}.tp-caption.roundedimage img{-webkit-border-radius:300px;  -moz-border-radius:300px;  border-radius:300px}.tp-bullets.simplebullets.navbar{height:35px;  padding:0px 0px}.tp-bullets.simplebullets .bullet{cursor:pointer;  position:relative !important;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:10px;  border-radius:10px;  -webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;  width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,0) !important;  display:inline-block;  margin-right:2px !important;  margin-bottom:14px !important;  -webkit-transition:background-color 0.2s,border-color 0.2s;  -moz-transition:background-color 0.2s,border-color 0.2s;  -o-transition:background-color 0.2s,border-color 0.2s;  -ms-transition:background-color 0.2s,border-color 0.2s;  transition:background-color 0.2s,border-color 0.2s;  float:none !important}.tp-bullets.simplebullets .bullet.last{margin-right:0px}.tp-bullets.simplebullets .bullet:hover,.tp-bullets.simplebullets .bullet.selected{-webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;background:rgba(255,255,255,1) !important;width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,1) !important}.tparrows:before{font-family:'revicons';color:#fff;  font-style:normal;  font-weight:normal;  speak:none;  display:inline-block;  text-decoration:inherit;  margin-right:0;  margin-top:9px;  text-align:center;  width:40px;  font-size:20px}.tparrows{cursor:pointer;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:5px;  border-radius:5px;  width:40px !important;  height:40px !important}.tparrows:hover{color:#fff}.tp-leftarrow:before{content:'\e824'}.tp-rightarrow:before{content:'\e825'}.tparrows.tp-rightarrow:before{margin-left:1px}.tparrows:hover{background:rgba(0,0,0,1) !important}@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,700,600);.tp-caption.medium_bg_red a{color:#fff;  text-decoration:none}.tp-caption.medium_bg_red a:hover{color:#fff;  text-decoration:underline}.tp-caption.roundedimage img{-webkit-border-radius:300px;  -moz-border-radius:300px;  border-radius:300px}.tp-bullets.simplebullets.navbar{height:35px;  padding:0px 0px}.tp-bullets.simplebullets .bullet{cursor:pointer;  position:relative !important;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:10px;  border-radius:10px;  -webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;  width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,0) !important;  display:inline-block;  margin-right:2px !important;  margin-bottom:14px !important;  -webkit-transition:background-color 0.2s,border-color 0.2s;  -moz-transition:background-color 0.2s,border-color 0.2s;  -o-transition:background-color 0.2s,border-color 0.2s;  -ms-transition:background-color 0.2s,border-color 0.2s;  transition:background-color 0.2s,border-color 0.2s;  float:none !important}.tp-bullets.simplebullets .bullet.last{margin-right:0px}.tp-bullets.simplebullets .bullet:hover,.tp-bullets.simplebullets .bullet.selected{-webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;background:rgba(255,255,255,1) !important;width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,1) !important}.tparrows:before{font-family:'revicons';color:#fff;  font-style:normal;  font-weight:normal;  speak:none;  display:inline-block;  text-decoration:inherit;  margin-right:0;  margin-top:9px;  text-align:center;  width:40px;  font-size:20px}.tparrows{cursor:pointer;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:5px;  border-radius:5px;  width:40px !important;  height:40px !important}.tparrows:hover{color:#fff}.tp-leftarrow:before{content:'\e824'}.tp-rightarrow:before{content:'\e825'}.tparrows.tp-rightarrow:before{margin-left:1px}.tparrows:hover{background:rgba(0,0,0,1) !important}@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,700,600);.tp-caption.medium_bg_red a{color:#fff;  text-decoration:none}.tp-caption.medium_bg_red a:hover{color:#fff;  text-decoration:underline}.tp-caption.roundedimage img{-webkit-border-radius:300px;  -moz-border-radius:300px;  border-radius:300px}.tp-bullets.simplebullets.navbar{height:35px;  padding:0px 0px}.tp-bullets.simplebullets .bullet{cursor:pointer;  position:relative !important;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:10px;  border-radius:10px;  -webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;  width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,0) !important;  display:inline-block;  margin-right:2px !important;  margin-bottom:14px !important;  -webkit-transition:background-color 0.2s,border-color 0.2s;  -moz-transition:background-color 0.2s,border-color 0.2s;  -o-transition:background-color 0.2s,border-color 0.2s;  -ms-transition:background-color 0.2s,border-color 0.2s;  transition:background-color 0.2s,border-color 0.2s;  float:none !important}.tp-bullets.simplebullets .bullet.last{margin-right:0px}.tp-bullets.simplebullets .bullet:hover,.tp-bullets.simplebullets .bullet.selected{-webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;background:rgba(255,255,255,1) !important;width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,1) !important}.tparrows:before{font-family:'revicons';color:#fff;  font-style:normal;  font-weight:normal;  speak:none;  display:inline-block;  text-decoration:inherit;  margin-right:0;  margin-top:9px;  text-align:center;  width:40px;  font-size:20px}.tparrows{cursor:pointer;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:5px;  border-radius:5px;  width:40px !important;  height:40px !important}.tparrows:hover{color:#fff}.tp-leftarrow:before{content:'\e824'}.tp-rightarrow:before{content:'\e825'}.tparrows.tp-rightarrow:before{margin-left:1px}.tparrows:hover{background:rgba(0,0,0,1) !important}@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,700,600);.tp-caption.medium_bg_red a{color:#fff;  text-decoration:none}.tp-caption.medium_bg_red a:hover{color:#fff;  text-decoration:underline}.tp-caption.roundedimage img{-webkit-border-radius:300px;  -moz-border-radius:300px;  border-radius:300px}.tp-bullets.simplebullets.navbar{height:35px;  padding:0px 0px}.tp-bullets.simplebullets .bullet{cursor:pointer;  position:relative !important;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:10px;  border-radius:10px;  -webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;  width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,0) !important;  display:inline-block;  margin-right:2px !important;  margin-bottom:14px !important;  -webkit-transition:background-color 0.2s,border-color 0.2s;  -moz-transition:background-color 0.2s,border-color 0.2s;  -o-transition:background-color 0.2s,border-color 0.2s;  -ms-transition:background-color 0.2s,border-color 0.2s;  transition:background-color 0.2s,border-color 0.2s;  float:none !important}.tp-bullets.simplebullets .bullet.last{margin-right:0px}.tp-bullets.simplebullets .bullet:hover,.tp-bullets.simplebullets .bullet.selected{-webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;background:rgba(255,255,255,1) !important;width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,1) !important}.tparrows:before{font-family:'revicons';color:#fff;  font-style:normal;  font-weight:normal;  speak:none;  display:inline-block;  text-decoration:inherit;  margin-right:0;  margin-top:9px;  text-align:center;  width:40px;  font-size:20px}.tparrows{cursor:pointer;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:5px;  border-radius:5px;  width:40px !important;  height:40px !important}.tparrows:hover{color:#fff}.tp-leftarrow:before{content:'\e824'}.tp-rightarrow:before{content:'\e825'}.tparrows.tp-rightarrow:before{margin-left:1px}.tparrows:hover{background:rgba(0,0,0,1) !important}@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,700,600);.tp-caption.medium_bg_red a{color:#fff;  text-decoration:none}.tp-caption.medium_bg_red a:hover{color:#fff;  text-decoration:underline}.tp-caption.roundedimage img{-webkit-border-radius:300px;  -moz-border-radius:300px;  border-radius:300px}.tp-bullets.simplebullets.navbar{height:35px;  padding:0px 0px}.tp-bullets.simplebullets .bullet{cursor:pointer;  position:relative !important;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:10px;  border-radius:10px;  -webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;  width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,0) !important;  display:inline-block;  margin-right:2px !important;  margin-bottom:14px !important;  -webkit-transition:background-color 0.2s,border-color 0.2s;  -moz-transition:background-color 0.2s,border-color 0.2s;  -o-transition:background-color 0.2s,border-color 0.2s;  -ms-transition:background-color 0.2s,border-color 0.2s;  transition:background-color 0.2s,border-color 0.2s;  float:none !important}.tp-bullets.simplebullets .bullet.last{margin-right:0px}.tp-bullets.simplebullets .bullet:hover,.tp-bullets.simplebullets .bullet.selected{-webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;background:rgba(255,255,255,1) !important;width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,1) !important}.tparrows:before{font-family:'revicons';color:#fff;  font-style:normal;  font-weight:normal;  speak:none;  display:inline-block;  text-decoration:inherit;  margin-right:0;  margin-top:9px;  text-align:center;  width:40px;  font-size:20px}.tparrows{cursor:pointer;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:5px;  border-radius:5px;  width:40px !important;  height:40px !important}.tparrows:hover{color:#fff}.tp-leftarrow:before{content:'\e824'}.tp-rightarrow:before{content:'\e825'}.tparrows.tp-rightarrow:before{margin-left:1px}.tparrows:hover{background:rgba(0,0,0,1) !important}@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,700,600);.tp-caption.medium_bg_red a{color:#fff;  text-decoration:none}.tp-caption.medium_bg_red a:hover{color:#fff;  text-decoration:underline}.tp-caption.roundedimage img{-webkit-border-radius:300px;  -moz-border-radius:300px;  border-radius:300px}.tp-bullets.simplebullets.navbar{height:35px;  padding:0px 0px}.tp-bullets.simplebullets .bullet{cursor:pointer;  position:relative !important;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:10px;  border-radius:10px;  -webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;  width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,0) !important;  display:inline-block;  margin-right:2px !important;  margin-bottom:14px !important;  -webkit-transition:background-color 0.2s,border-color 0.2s;  -moz-transition:background-color 0.2s,border-color 0.2s;  -o-transition:background-color 0.2s,border-color 0.2s;  -ms-transition:background-color 0.2s,border-color 0.2s;  transition:background-color 0.2s,border-color 0.2s;  float:none !important}.tp-bullets.simplebullets .bullet.last{margin-right:0px}.tp-bullets.simplebullets .bullet:hover,.tp-bullets.simplebullets .bullet.selected{-webkit-box-shadow:none;  -moz-box-shadow:none;  box-shadow:none;background:rgba(255,255,255,1) !important;width:6px !important;  height:6px !important;  border:5px solid rgba(0,0,0,1) !important}.tparrows:before{font-family:'revicons';color:#fff;  font-style:normal;  font-weight:normal;  speak:none;  display:inline-block;  text-decoration:inherit;  margin-right:0;  margin-top:9px;  text-align:center;  width:40px;  font-size:20px}.tparrows{cursor:pointer;  background:rgba(0,0,0,0.5) !important;  -webkit-border-radius:5px;  border-radius:5px;  width:40px !important;  height:40px !important}.tparrows:hover{color:#fff}.tp-leftarrow:before{content:'\e824'}.tp-rightarrow:before{content:'\e825'}.tparrows.tp-rightarrow:before{margin-left:1px}.tparrows:hover{background:rgba(0,0,0,1) !important}.btn-automotive{font-size:16px; font-weight:400;font-family:Play !important;color:#ffffff !important;text-decoration:none;background-color:#222222;text-shadow:none;padding:7px 40px 7px 40px !important;border-width:0px;border-color:#ffffff;border-style:none; -webkit-transition:all 0.25s ease; -moz-transition:all 0.25s ease; -o-transition:all 0.25s ease; transition:all .25s ease}.btn-automotive:hover{color:#EB6137 !important}.btn-automotive2{font-size:16px; font-weight:400;font-family:Play !important;color:#222222 !important;text-decoration:none;background-color:#ffffff;text-shadow:none;padding:7px 40px 7px 40px !important;border-width:0px;border-color:#ffffff;border-style:none; -webkit-transition:all 0.25s ease; -moz-transition:all 0.25s ease; -o-transition:all 0.25s ease; transition:all .25s ease}.btn-automotive2:hover{color:#EB6137 !important}.btn-realestate{font-size:16px; font-weight:400;font-family:Georgia !important;  font-style:italic;color:#222;padding:7px 40px 7px 40px !important;background-color:#fff; text-transform:none !important}
+</style>
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto%3A400%2C300italic%2C300%2C100%2C700%27+rel%3D%27stylesheet%27+type%3D%27text%2Fcss%27&#038;ver=4.3.1">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="//vjs.zencdn.net/c/video-js.css">
+<script type="text/javascript" src="http://www.wildtrotters.com/wp-content/cache/minify/000000/LcZBEoAgCADAD0lM44uYJMMRNKiDv-_SnjZju1_2lfIfUKlOD28qlnZkigXRpTCI4ZiPGJzDNUDJqLJjC5ydDr5GL-wf.js"></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _esi_data = {"reshow":{"timeout":0,"name":"esi-on_hided41d8cd98f00b204e9800998ecf8427e","path":"\/","all":false}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="http://www.wildtrotters.com/wp-content/cache/minify/000000/jY1RCoMwEEQv1CR4pKCDJqxZ3c1avH0jFUoFwd83b2a6gKi7U0oDXCohqqJqyPrPX10oeKtb4ogvlMPJq0F2n_sobAry8616ZU0TbGcuLSIb2_9vtE6YsVjpJ1-ZSc_tx6UmMllNXI7mBw.js"></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var pspSocialSharing_ajaxurl = "http:\/\/www.wildtrotters.com\/wp-admin\/admin-ajax.php";
+/* ]]> */
+</script>
+<script type="text/javascript" src="http://www.wildtrotters.com/wp-content/cache/minify/000000/dYrRDcIwDAUXQjWwAiNkgMhKDHWJ42AnoG5PBb-t9HTS090FmpHwkOiksWF6gmgehRyCJsYSQ8fu4P_jMxrXx-kMea0onADdafPLttcgW6cfi2Imu-52dx01Y2etk3DdTWYUITvUyw1Nh1MJH250mL3JOicsXw.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.wildtrotters.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.wildtrotters.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.3.1" />
+<script>var ms_grabbing_curosr='http://www.wildtrotters.com/wp-content/plugins/masterslider/public/assets/css/common/grabbing.cur',ms_grab_curosr='http://www.wildtrotters.com/wp-content/plugins/masterslider/public/assets/css/common/grab.cur';</script>
+<meta name="generator" content="MasterSlider 2.12.0 - Responsive Touch Image Slider" />
+<script type="text/javascript">var mvb_row_navigation = false;</script><script type="text/javascript">var mvb_scroll_navigation = false;</script>		<script type="text/javascript">
+			jQuery(document).ready(function() {
+				// CUSTOM AJAX CONTENT LOADING FUNCTION
+				var ajaxRevslider = function(obj) {
+				
+					// obj.type : Post Type
+					// obj.id : ID of Content to Load
+					// obj.aspectratio : The Aspect Ratio of the Container / Media
+					// obj.selector : The Container Selector where the Content of Ajax will be injected. It is done via the Essential Grid on Return of Content
+					
+					var content = "";
+
+					data = {};
+					
+					data.action = 'revslider_ajax_call_front';
+					data.client_action = 'get_slider_html';
+					data.token = '4ab3a8d8b0';
+					data.type = obj.type;
+					data.id = obj.id;
+					data.aspectratio = obj.aspectratio;
+					
+					// SYNC AJAX REQUEST
+					jQuery.ajax({
+						type:"post",
+						url:"http://www.wildtrotters.com/wp-admin/admin-ajax.php",
+						dataType: 'json',
+						data:data,
+						async:false,
+						success: function(ret, textStatus, XMLHttpRequest) {
+							if(ret.success == true)
+								content = ret.data;								
+						},
+						error: function(e) {
+							console.log(e);
+						}
+					});
+					
+					 // FIRST RETURN THE CONTENT WHEN IT IS LOADED !!
+					 return content;						 
+				};
+				
+				// CUSTOM AJAX FUNCTION TO REMOVE THE SLIDER
+				var ajaxRemoveRevslider = function(obj) {
+					return jQuery(obj.selector+" .rev_slider").revkill();
+				};
+
+				// EXTEND THE AJAX CONTENT LOADING TYPES WITH TYPE AND FUNCTION
+				var extendessential = setInterval(function() {
+					if (jQuery.fn.tpessential != undefined) {
+						clearInterval(extendessential);
+						if(typeof(jQuery.fn.tpessential.defaults) !== 'undefined') {
+							jQuery.fn.tpessential.defaults.ajaxTypes.push({type:"revslider",func:ajaxRevslider,killfunc:ajaxRemoveRevslider,openAnimationSpeed:0.3});   
+							// type:  Name of the Post to load via Ajax into the Essential Grid Ajax Container
+							// func: the Function Name which is Called once the Item with the Post Type has been clicked
+							// killfunc: function to kill in case the Ajax Window going to be removed (before Remove function !
+							// openAnimationSpeed: how quick the Ajax Content window should be animated (default is 0.3)
+						}
+					}
+				},30);
+			});
+		</script>
+			<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+
+</head>
+
+
+<body class="error404 _masterslider _msp_version_2.12.0">
+<img id="qLoverlay_logo" src="http://www.wildtrotters.com/wp-content/uploads/2015/06/web-logo.png" style="display: none" alt="" /><div id="qLoverlay"><div id="qLbar_wrap"><div id="qLbar" style="width: 0%"></div><div class="qLbar-img"><img src="http://www.wildtrotters.com/wp-content/uploads/2015/06/web-logo.png" alt="" /></div></div></div>				
+	<div id="main-wrap" class="">
+		
+		<div id="change_wrap_div" class="">
+
+			<div id="header-container" class="header-style-2 header-layout-fullwidth top-header-on logo-position-top-left menu-position-bottom  fixed-header-enabled">
+	<div class="form-search-section" style="display: none;">
+	<form role="search" method="get" id="searchform_56118526b4c76" class="form-search" action="http://www.wildtrotters.com/">
+  <input type="text" value="" name="s" id="s_56118526b4c3a" class="search-query" placeholder="Search on site...">
+  <input type="submit" value="Search" class="btn">
+</form></div>		<section id="header">
+					<div class="logo-wrap header-top-logo-panel">
+				<div class="row">
+					<div class="columns twelve">
+							<div class="logo-for-panel">
+		<div class="inline-block">
+			<a href="http://www.wildtrotters.com/">
+				<img src="http://www.wildtrotters.com/wp-content/uploads/2015/06/web-logo-120x84.png" alt="Wild Trotters" data-retina="" data-retina_w="" data-retina_h="" style="height: 84px;" />
+			</a>
+				<div class="top-info"><span class="contacts"><span class="additional-info">Info:</span> +91 8828060508  <span class="additional-info">E-mail:</span> info@wildtrotters.com</span></span></div>
+		</div>
+	</div>
+					</div>
+				</div>
+			</div>
+				<div class="header-wrap">
+			<div class="row decorated">
+				<div class="columns twelve header-main-panel">
+							<div class="header-col-left">
+								<div class="mobile-logo">
+									<img src="http://www.wildtrotters.com/wp-content/uploads/2015/06/web-logo.png" alt="logo"/>
+								</div>
+																					</div>
+					<div class="header-col-right text-center clearfix">
+																																<div class="lang-sel">
+		<a href="#"></a>
+
+			<ul>
+							</ul>
+	</div>
+								<div class="form-search-wrap">
+	<a href="#" id="header-search-switcher"></a>
+</div>
+																			</div>
+					<div class="header-col-fluid">
+						<a href="http://www.wildtrotters.com/" class="fixed-header-logo">
+							<img src="http://www.wildtrotters.com/wp-content/uploads/2015/06/web-logo.png" alt="logo"/>
+						</a>
+						<nav class="mega-menu text-left" id="main_mega_menu">
+		<i class="carousel-nav prev"></i>
+	<i class="carousel-nav next"></i>
+</nav>
+
+						<div class="dl-menuwrapper">
+	<a href="#" class="dl-trigger icon-mobile-menu">Menu</a>
+</div>					</div>
+				</div>
+			</div>
+		</div>
+			</section>
+			<div class="pop-up-soc-icons">
+			<a href="#">
+				<i class="outlinedicon-share"></i>
+			</a>
+			<div class="soc-icons" style="display: none;">
+				<a href="http://dribbble.com" class="dr soc_icon-dribbble" title="Digg"></a><a href="http://facebook.com" class="fb soc_icon-facebook" title="Facebook"></a><a href="https://accounts.google.com/" class="gp soc_icon-google__x2B_" title="Google +"></a><a href="http://twitter.com" class="tw soc_icon-twitter-3" title="Twitter"></a>			</div>
+		</div>
+	</div>
+			
+<section id="layout">
+    <div class="row">
+
+		<div class="blog-section sidebar-left"><section id="main-content" role="main" class="nine columns">
+        <article id="post-0" class="post no-results not-found">
+
+			<div class="title-icon-wrap">
+				<i class="outlinedicon-coffee"></i>
+			</div>
+            <header class="entry-header main-title">
+                <h1 style="text-transform: uppercase; font-size: 24px;"><strong>404 Error </strong>- no page here</h1>
+            </header><!-- .entry-header -->
+
+            <div class="entry-content">
+                <p>It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching, or one of the links below, can help.</p>
+            </div><!-- .entry-content -->
+			<div class="clearfix">
+				<div class="container left">
+
+					<header class="entry-header" style="padding-bottom: 15px; margin-bottom: 15px">
+						<h2 style="text-transform: uppercase;  font-size: 16px;">Check in archives</h2>
+					</header><!-- .entry-header -->
+
+					<select name="archive-menu" onChange="document.location.href = this.options[this.selectedIndex].value;">
+						<option value="">Select month</option>
+							<option value='http://www.wildtrotters.com/2015/06/'> June 2015 </option>
+	<option value='http://www.wildtrotters.com/2014/07/'> July 2014 </option>
+	<option value='http://www.wildtrotters.com/2014/04/'> April 2014 </option>
+	<option value='http://www.wildtrotters.com/2014/03/'> March 2014 </option>
+					</select>
+
+				</div>
+				<div class="container right">
+
+					<header class="entry-header" style="padding-bottom: 15px; margin-bottom: 15px">
+						<h2 style="text-transform: uppercase; font-size: 16px;">Search can be used</h2>
+					</header><!-- .entry-header -->
+
+					<form role="search" method="get" id="searchform_56118526bb7dd" class="form-search" action="http://www.wildtrotters.com/">
+  <input type="text" value="" name="s" id="s_56118526bb7a0" class="search-query" placeholder="Search on site...">
+  <input type="submit" value="Search" class="btn">
+</form>				</div>
+			</div>
+			<div class="clearfix">
+				<div class="container left">
+
+					<header class="entry-header" style="padding-bottom: 15px; margin-bottom: 15px">
+						<h2 style="text-transform: uppercase; font-size: 16px;">Most Used Categoriesd</h2>
+					</header><!-- .entry-header -->
+
+					<div class="widget_crum_cat_arch">
+						<ul class="post-categories">
+															<li>
+									<div class="icon-wrap"><i class="crdash-Arrow2CircleRight"></i></div>
+									<a href="http://www.wildtrotters.com/category/blog/">Blog</a>
+								</li>
+
+															<li>
+									<div class="icon-wrap"><i class="crdash-Arrow2CircleRight"></i></div>
+									<a href="http://www.wildtrotters.com/category/blog/trekking/">Trekking</a>
+								</li>
+
+															<li>
+									<div class="icon-wrap"><i class="crdash-Arrow2CircleRight"></i></div>
+									<a href="http://www.wildtrotters.com/category/uncategorized/">Uncategorized</a>
+								</li>
+
+													</ul>
+					</div>
+				</div>
+
+				<div class="container right">
+
+					<header class="entry-header" style="padding-bottom: 15px; margin-bottom: 15px">
+						<h2 style="text-transform: uppercase; font-size: 16px;">Tags also can be used</h2>
+					</header><!-- .entry-header -->
+
+					<div class="widget_crum_tags_widget">
+						<div class="tags-widget clearfix">
+							<a href='http://www.wildtrotters.com/tag/blue/' class='tag-link-18' title='1 topic' style='font-size: 10pt;'>blue</a>
+<a href='http://www.wildtrotters.com/tag/car/' class='tag-link-21' title='1 topic' style='font-size: 10pt;'>car</a>
+<a href='http://www.wildtrotters.com/tag/cgi/' class='tag-link-140' title='2 topics' style='font-size: 10pt;'>CGI</a>
+<a href='http://www.wildtrotters.com/tag/deep/' class='tag-link-28' title='1 topic' style='font-size: 10pt;'>deep</a>
+<a href='http://www.wildtrotters.com/tag/driver/' class='tag-link-31' title='1 topic' style='font-size: 10pt;'>driver</a>
+<a href='http://www.wildtrotters.com/tag/example/' class='tag-link-34' title='7 topics' style='font-size: 10pt;'>example</a>
+<a href='http://www.wildtrotters.com/tag/girl/' class='tag-link-41' title='2 topics' style='font-size: 10pt;'>girl</a>
+<a href='http://www.wildtrotters.com/tag/horse/' class='tag-link-44' title='1 topic' style='font-size: 10pt;'>horse</a>
+<a href='http://www.wildtrotters.com/tag/mclaren/' class='tag-link-55' title='1 topic' style='font-size: 10pt;'>mclaren</a>
+<a href='http://www.wildtrotters.com/tag/medusa/' class='tag-link-57' title='1 topic' style='font-size: 10pt;'>medusa</a>
+<a href='http://www.wildtrotters.com/tag/mockup/' class='tag-link-59' title='1 topic' style='font-size: 10pt;'>mockup</a>
+<a href='http://www.wildtrotters.com/tag/mother/' class='tag-link-61' title='1 topic' style='font-size: 10pt;'>mother</a>
+<a href='http://www.wildtrotters.com/tag/motion-2/' class='tag-link-62' title='1 topic' style='font-size: 10pt;'>motion</a>
+<a href='http://www.wildtrotters.com/tag/music/' class='tag-link-63' title='1 topic' style='font-size: 10pt;'>music</a>
+<a href='http://www.wildtrotters.com/tag/new-year/' class='tag-link-64' title='1 topic' style='font-size: 10pt;'>new year</a>
+<a href='http://www.wildtrotters.com/tag/p1/' class='tag-link-74' title='1 topic' style='font-size: 10pt;'>P1</a>
+<a href='http://www.wildtrotters.com/tag/picture/' class='tag-link-82' title='1 topic' style='font-size: 10pt;'>picture</a>
+<a href='http://www.wildtrotters.com/tag/pictures-2/' class='tag-link-83' title='1 topic' style='font-size: 10pt;'>pictures</a>
+<a href='http://www.wildtrotters.com/tag/portfolio/' class='tag-link-85' title='1 topic' style='font-size: 10pt;'>portfolio</a>
+<a href='http://www.wildtrotters.com/tag/post/' class='tag-link-86' title='1 topic' style='font-size: 10pt;'>post</a>
+<a href='http://www.wildtrotters.com/tag/qeen/' class='tag-link-87' title='1 topic' style='font-size: 10pt;'>qeen</a>
+<a href='http://www.wildtrotters.com/tag/quote/' class='tag-link-88' title='2 topics' style='font-size: 10pt;'>quote</a>
+<a href='http://www.wildtrotters.com/tag/something/' class='tag-link-98' title='1 topic' style='font-size: 10pt;'>Something</a>
+<a href='http://www.wildtrotters.com/tag/speed/' class='tag-link-100' title='1 topic' style='font-size: 10pt;'>speed</a>
+<a href='http://www.wildtrotters.com/tag/standart-post/' class='tag-link-101' title='1 topic' style='font-size: 10pt;'>Standart post</a>
+<a href='http://www.wildtrotters.com/tag/tag/' class='tag-link-103' title='7 topics' style='font-size: 10pt;'>tag</a>
+<a href='http://www.wildtrotters.com/tag/tag-cloud/' class='tag-link-104' title='2 topics' style='font-size: 10pt;'>tag cloud</a>
+<a href='http://www.wildtrotters.com/tag/text/' class='tag-link-108' title='1 topic' style='font-size: 10pt;'>text</a>
+<a href='http://www.wildtrotters.com/tag/work/' class='tag-link-120' title='4 topics' style='font-size: 10pt;'>work</a>						</div>
+					</div>
+				</div>
+			</div>
+		</article><!-- #post-0 -->
+
+		 </section><aside class="three columns" id="left-sidebar">
+
+    <section id="search-2" class="widget widget_search"><form role="search" method="get" id="searchform_56118526db9a2" class="form-search" action="http://www.wildtrotters.com/">
+  <input type="text" value="" name="s" id="s_56118526db964" class="search-query" placeholder="Search on site...">
+  <input type="submit" value="Search" class="btn">
+</form></section>		<section id="recent-posts-2" class="widget widget_recent_entries">		<h3 class="widget-title">Recent Posts</h3>		<ul>
+					<li>
+				<a href="http://www.wildtrotters.com/why-kudremukh-is-one-of-the-best-trekking-destinations-in-india/">Why Kudremukh is One of the Best Trekking Destinations in India</a>
+						</li>
+					<li>
+				<a href="http://www.wildtrotters.com/hello-world/">Hello world!</a>
+						</li>
+					<li>
+				<a href="http://www.wildtrotters.com/nam-iaculis-nisi-at-nulla/">Standart post with image inside</a>
+						</li>
+					<li>
+				<a href="http://www.wildtrotters.com/lorem-ipsum-dolor-sit-amet/">Soundcloud audio inside post</a>
+						</li>
+					<li>
+				<a href="http://www.wildtrotters.com/aenean-malesuada-dapibus-ante/">Post with gallery inside. Gallery post.</a>
+						</li>
+				</ul>
+		</section><section id="recent-comments-2" class="widget widget_recent_comments"><h3 class="widget-title">Recent Comments</h3><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link"><a href='https://wordpress.org/' rel='external nofollow' class='url'>Mr WordPress</a></span> on <a href="http://www.wildtrotters.com/hello-world/#comment-1">Hello world!</a></li><li class="recentcomments"><span class="comment-author-link">Dfd</span> on <a href="http://www.wildtrotters.com/nam-iaculis-nisi-at-nulla/#comment-3">Standart post with image inside</a></li><li class="recentcomments"><span class="comment-author-link">Dfd</span> on <a href="http://www.wildtrotters.com/nam-iaculis-nisi-at-nulla/#comment-2">Standart post with image inside</a></li></ul></section><section id="archives-2" class="widget widget_archive"><h3 class="widget-title">Archives</h3>		<ul>
+	<li><a href='http://www.wildtrotters.com/2015/06/'>June 2015</a></li>
+	<li><a href='http://www.wildtrotters.com/2014/07/'>July 2014</a></li>
+	<li><a href='http://www.wildtrotters.com/2014/04/'>April 2014</a></li>
+	<li><a href='http://www.wildtrotters.com/2014/03/'>March 2014</a></li>
+		</ul>
+</section><section id="categories-2" class="widget widget_categories"><h3 class="widget-title">Categories</h3>		<ul>
+	<li class="cat-item cat-item-136"><a href="http://www.wildtrotters.com/category/blog/trekking/" >Trekking</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://www.wildtrotters.com/category/uncategorized/" >Uncategorized</a>
+</li>
+		</ul>
+</section><section id="meta-2" class="widget widget_meta"><h3 class="widget-title">Meta</h3>			<ul>
+			<li><a href="http://www.wildtrotters.com/wp-login.php?action=register">Register</a></li>			<li><a href="http://www.wildtrotters.com/wp-login.php">Log in</a></li>
+			<li><a href="http://www.wildtrotters.com/feed/">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://www.wildtrotters.com/comments/feed/">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+<li><a href="https://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>			</ul>
+</section>
+</aside> </div></div>
+	</div>
+</section>			
+		</div>
+		
+		<div class="body-back-to-top align-right"></div>
+		
+   
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-33359457-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</div>
+
+
+
+<!-- start/ Premium SEO pack - Wordpress Plugin -->
+<!-- end/ Premium SEO pack - Wordpress Plugin -->
+
+<div id="psp-sshare-toolbars-options" style="display: none;" data-options="{&quot;floating&quot;:{&quot;currentToolbar&quot;:&quot;&quot;,&quot;type&quot;:&quot;floating&quot;,&quot;itemid&quot;:0,&quot;position&quot;:{&quot;horizontal&quot;:&quot;right&quot;,&quot;vertical&quot;:&quot;bottom&quot;},&quot;margin&quot;:{&quot;horizontal&quot;:&quot;&quot;,&quot;vertical&quot;:&quot;&quot;},&quot;viewcount&quot;:&quot;no&quot;,&quot;btnsize&quot;:&quot;normal&quot;,&quot;buttons&quot;:&quot;facebook,twitter,plusone,linkedin,pinterest,stumbleupon,reddit&quot;,&quot;is_admin_bar_showing&quot;:&quot;no&quot;}}"></div><script type="text/javascript" src="http://www.wildtrotters.com/wp-content/cache/minify/000000/M9RPzs8rSUwu0U3LL8rVNdfPzEvOKU1JLdbPAqLC0tSiSj2QjF5uZh4A.js"></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/www.wildtrotters.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ...","cached":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="http://www.wildtrotters.com/wp-content/cache/minify/000000/M9RPzs8rSUwu0U3LL8rVNdfPzEvOKU1JLdbPKtYvTi7KLCgp1jHUT8-PLyjKTM7MS9dPLC5OLQFLIwTjoSoB.js"></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var mejsL10n = {"language":"en-US","strings":{"Close":"Close","Fullscreen":"Fullscreen","Download File":"Download File","Download Video":"Download Video","Play\/Pause":"Play\/Pause","Mute Toggle":"Mute Toggle","None":"None","Turn off Fullscreen":"Turn off Fullscreen","Go Fullscreen":"Go Fullscreen","Unmute":"Unmute","Mute":"Mute","Captions\/Subtitles":"Captions\/Subtitles"}};
+var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="http://www.wildtrotters.com/wp-content/cache/minify/000000/fZBRDoIwEEQvRKkmXGikKy5027pbNNxeoj-QIJ-TeXmz2c4LBQZFEkp1FxxScCViIW2FU9Pt0Xdx29xc17pqdi-2GdHdZo6B1KMUDzOq5kfzglV08WFJEO43xYMQNGf5Lh0B43MmXdqJlrtCyA4hJBZUzqcK4UFR6QyxyP10BhCM0_D3WIFV0tUSfr_7AA.js"></script>
+<script type="text/javascript" src="http://www.wildtrotters.com/wp-content/cache/minify/000000/M9BPqcxLzM1M1k8sLk4tKdbPAqLC0tSiSr3i3PySjOLkovycHL3czDwA.js"></script>
+<script type="text/javascript" src="http://www.wildtrotters.com/wp-content/cache/minify/000000/M9BPqcxLzM1M1k8sLk4tKdbPAqLC0tSiSr3ijMSioqJUXUM9Yz0TvdzMPB0DLIoTCwqwikMNKShKLSmpDMjIL8nHpywlJzc1rxQA.js"></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var ajax_var = {"url":"http:\/\/www.wildtrotters.com\/wp-admin\/admin-ajax.php","nonce":"44f098b339"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="http://www.wildtrotters.com/wp-content/cache/minify/000000/M9BPqcxLzM1M1k8sLk4tKdbPKtYvyC8u0c3JzE7VMcAim1VYmlpUqZebmp6om5uaV0qUIr2i0jwA.js"></script>
+</body>
+</html>
+
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Minified using disk
+Page Caching using disk: enhanced
+Database Caching 1/257 queries in 0.127 seconds using disk
+Object Caching 1955/2364 objects using disk
+
+ Served from: www.wildtrotters.com @ 2015-10-04 19:59:35 by W3 Total Cache -->
