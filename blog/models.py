@@ -70,6 +70,8 @@ class Post(models.Model):
         return self.title
     def get_absolute_url(self):
         return '/blog/post/'+ self.slug
+    def crop_first_image(self):
+        return self.first_image
     def teaser(self):
         txt = re.sub("\{\{.*\}\}","",BeautifulSoup(self.body).text)
         i = 350

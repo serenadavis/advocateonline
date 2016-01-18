@@ -1,7 +1,6 @@
 {% extends "blog_base.html" %}
 {% load staticfiles %}
 
-
 {% block content %}
 <div class="container">
     {% if name %}
@@ -24,7 +23,7 @@
             http://stackoverflow.com/questions/6637168/python-django-templates-and-testing-if-a-variable-is-null-or-empty-string?rq=1
             http://stackoverflow.com/questions/12507281/determine-empty-template-variable-in-django -->
             {% if post.first_image_id %}
-            <figure style="margin-bottom: 10px;"><a href="{{post.get_absolute_url}}" class="underline"><img class='img-responsive' style="margin: 0 auto;" src="{{post.first_image.path}}"></a></figure>
+            <figure style="margin-bottom: 10px;" class="container-blog"><a href="{{post.get_absolute_url}}" class="underline"><img class='img-responsive img-blog' style="margin: 0 auto;" src="{{post.first_image.path}}"></a></figure>
             {% endif %}
             <p>{{post.teaser}}</p>
             <h4><a class="read-more" href="{{post.get_absolute_url}}">Read More</a></h4>

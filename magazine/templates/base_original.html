@@ -112,6 +112,22 @@
 
 <body class='container-fluid'>
 {% include 'header.html' %}
+<div class="container">
+    <a href="/">
+      {% if name == "fiction" %}
+      <div style="background-image: url('{% static "magazine/images/banner1.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
+      {% elif name == "poetry" %}
+      <div style="background-image: url('{% static "magazine/images/banner3.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
+      {% elif name == "features" %}
+      <div style="background-image: url('{% static "magazine/images/banner3.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
+      {% elif name == "art" %}
+      <div style="background-image: url('{% static "magazine/images/banner4.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
+      {% else %}
+      <div style="background-image: url('{% static "magazine/images/banner_summer2015.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
+      {% endif %}
+    </a>
+
+</div>
 
 <!-- <hr class = "navbar-divider"> -->
 <!-- Go to www.addthis.com/dashboard to customize your tools -->

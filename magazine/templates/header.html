@@ -1,10 +1,10 @@
 {% load staticfiles %}
 
- <!-- <div style="background: antiquewhite;">
+ <div style="background: antiquewhite;">
   <a href="/150th">
       <figure class="container" style="padding-right:30px; padding-top:10px; max-width:90%;"><img src="{% static "magazine/images/banner.png" %}" style="margin:auto;" class = "img-responsive" alt="Learn more about the 150th celebration"></figure>
     
-</div></a> --> 
+</div></a> 
 
 <header class="container">
     <div class="row">
@@ -36,7 +36,7 @@
 </header>
 <!-- <hr class = "navbar-divider"> -->
 <div class="container behind-search" data-spy="affix" data-offset-top="300" data-offset-bottom="0" >
-  <nav class="navbar navbar-default  advo-navbar" role="navigation" >
+    <nav class="navbar navbar-default  advo-navbar" role="navigation" >
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -48,7 +48,7 @@
         <a class="navbar-brand mobile-only" href="/">THE HARVARD ADVOCATE </a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
+     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse ">
       <div class="nav-header"> </div>
         <ul class="nav navbar-nav">
@@ -59,25 +59,19 @@
             <li ><a href="/features">FEATURES</a></li>
             <li ><a href="/poetry">POETRY</a></li>
             <li ><a href="/columns">COLUMNS</a></li>
-            <li ><a href="/blog">BLOG</a></li>
+            <li>
+                  <a href="/blog" >BLOG</a>
+              <ul class="dropdown">
+                  <li ><a href="/blog/archives">ARCHIVES</a></li>
+                  <li ><a href="/blog/writing">WRITING</a></li>
+                  <li ><a href="/blog/art">ART</a></li>
+                  <li ><a href="/blog/about">ABOUT</a></li>
+                  <li ><a href="/blog/themes">THEMES</a></li>
+              </ul>
+            </li>
         </ul>
 
     </div><!-- /.navbar-collapse -->
     </nav>
-</div>
-<div class="container behind-search">
-    <a href="/">
-      {% if name == "fiction" %}
-      <div style="background-image: url('{% static "magazine/images/banner1.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
-      {% elif name == "poetry" %}
-      <div style="background-image: url('{% static "magazine/images/banner3.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
-      {% elif name == "features" %}
-      <div style="background-image: url('{% static "magazine/images/banner3.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
-      {% elif name == "art" %}
-      <div style="background-image: url('{% static "magazine/images/banner4.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
-      {% else %}
-      <div style="background-image: url('{% static "magazine/images/banner_summer2015.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
-      {% endif %}
-    </a>
 
 </div>
