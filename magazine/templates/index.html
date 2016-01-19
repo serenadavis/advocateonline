@@ -25,7 +25,9 @@
     			<img src="{{ MEDIA_URL }}{{article.image.photo|safe}}" class = "img-responsive" alt="Main Image" >
         </figure>
       {% else %}
-      <p class="article-summary"> {{article.teaser|safe}}.... <a href="{{ article.get_absolute_url }}" class="">[Continue reading]</a></p>
+      <p class="article-summary"> {{article.teaser|safe}} 
+        <h4> <a href="{{ article.get_absolute_url }}" class="read-more">Read More</a></h4>
+      </p>
       {% endif %}
   </div>
 {% if forloop.counter|divisibleby:2 %}

@@ -6847,3 +6847,16 @@ td.visible-print {
     ul li ul.dropdown li{
         display: block;
   }
+
+  .read-more {
+    font-family: 'futura_std';
+    text-align: center;
+    font-size: 12px;
+    color: #a7a9ac;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h4 {
+  text-align: center;
+}
