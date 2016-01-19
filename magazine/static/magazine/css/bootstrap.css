@@ -6830,9 +6830,8 @@ td.visible-print {
     ul li ul.dropdown{
         position: absolute;
         display: none;
-        line-height: 1;
         padding: 5px 20px;
-        line-height: 21px;
+        line-height: 25px;
         background-color: #f2f2f2;
         overflow: hidden;
         text-align: center;
