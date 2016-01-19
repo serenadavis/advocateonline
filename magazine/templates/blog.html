@@ -12,13 +12,17 @@
         <div class="item">
             
             <h3 class="blog-title"><a class="underline" href="{{post.get_absolute_url}}">{{post.title}}</a></h3>
-
+            {% if post.authors.all %}
             <h4>By {% for author in post.authors.all %}
                 {% if forloop.first %}{% else %}
                     {% if forloop.last %} and {% else %}<span style="margin-left:-5px;">,</span>{% endif %}
                 {% endif %}<a class="no-decoration" href="{{author.get_absolute_url}}">{{author}}</a>
             {% endfor %}
             </h4>
+            {% else %}
+
+            {% endif %}
+
             <!-- How to check if image exists:
             http://stackoverflow.com/questions/6637168/python-django-templates-and-testing-if-a-variable-is-null-or-empty-string?rq=1
             http://stackoverflow.com/questions/12507281/determine-empty-template-variable-in-django -->

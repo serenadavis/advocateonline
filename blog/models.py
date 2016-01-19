@@ -74,8 +74,12 @@ class Post(models.Model):
         return self.first_image
     def teaser(self):
         txt = re.sub("\{\{.*\}\}","",BeautifulSoup(self.body).text)
-        i = 350
+        i = 800
         while len(txt) > i and txt[i-1] != ".":
             i += 1
+        if "(function" in txt:
+            if txt.index("(function") < i:
+                i = txt.index("(function") 
         return txt[:i]
+
 
