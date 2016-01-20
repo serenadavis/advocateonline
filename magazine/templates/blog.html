@@ -30,7 +30,7 @@
             <figure style="margin-bottom: 10px;" class="container-blog"><a href="{{post.get_absolute_url}}" class="underline"><img class='img-responsive img-blog' style="margin: 0 auto;" src="{{post.first_image.path}}"></a></figure>
             {% endif %}
             <p>{{post.teaser}}</p>
-            <h4><a class="read-more" href="{{post.get_absolute_url}}">Read More</a></h4>
+            <p><a class="read-more" href="{{post.get_absolute_url}}">Read More</a></p>
         </div>
 
     {% endfor %}

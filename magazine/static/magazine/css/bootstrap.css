@@ -6847,3 +6847,28 @@ td.visible-print {
     ul li ul.dropdown li{
         display: block;
   }
+
+.read-more {
+  font-family: 'futura_std';
+  text-align: center;
+  font-size: 12px;
+  color: #a7a9ac;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.decade {
+  width: 100%;
+  border: #ffffff;
+  background-color: #CCCCCC;
+  vertical-align: middle;
+  margin: 1vh;
+}
+.decade h3 {
+  margin: 0px;
+  padding: 0px;
+}
+
+.decade:hover {
+  background-color: background-color: #999999; 
+}
