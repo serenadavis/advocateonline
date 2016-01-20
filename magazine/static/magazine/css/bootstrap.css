@@ -6857,16 +6857,16 @@ td.visible-print {
   letter-spacing: 1px;
 }
 
-.decade h3 {
-  margin: 1px;
-  border: #ffffff;
-  height: 42px;
-}
-
 .decade {
+  width: 100%;
+  border: #ffffff;
   background-color: #CCCCCC;
-  padding: 0px;
+  vertical-align: middle;
+  margin: 1vh;
+}
+.decade h3 {
   margin: 0px;
+  padding: 0px;
 }
 
 .decade:hover {
