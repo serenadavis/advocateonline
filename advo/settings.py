@@ -59,6 +59,7 @@ INSTALLED_APPS = (
     'contacts',
     'redactor',
     'select2',
+    'anthology',
 )
 
 MIDDLEWARE_CLASSES = (
