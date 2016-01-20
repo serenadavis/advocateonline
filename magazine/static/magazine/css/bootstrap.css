@@ -6848,15 +6848,27 @@ td.visible-print {
         display: block;
   }
 
-  .read-more {
-    font-family: 'futura_std';
-    text-align: center;
-    font-size: 12px;
-    color: #a7a9ac;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.read-more {
+  font-family: 'futura_std';
+  text-align: center;
+  font-size: 12px;
+  color: #a7a9ac;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-h4 {
-  text-align: center;
+.decade h3 {
+  margin: 1px;
+  border: #ffffff;
+  height: 42px;
+}
+
+.decade {
+  background-color: #CCCCCC;
+  padding: 0px;
+  margin: 0px;
+}
+
+.decade:hover {
+  background-color: background-color: #999999; 
 }
