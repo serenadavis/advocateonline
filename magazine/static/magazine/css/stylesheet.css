@@ -582,7 +582,7 @@ ul li ul.dropdown li{
   display: table;
   width: 100%;
   border: #ffffff;
-  background-color: #CCCCCC;
+  background-color: pink;
   margin: 0.8vh;
   height: 12vh;
 }
@@ -592,6 +592,7 @@ ul li ul.dropdown li{
 }
 .panel {
 	margin: 0.8vh;
+	margin-top: -0.8vh;
 	width: 100%;
 	padding: 0% 5% 1% 5%;
 	background-color: pink;
