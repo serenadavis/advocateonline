@@ -45,7 +45,7 @@
 
 		// open panel when clicked
 		$(".decade").click(function() {
-			// open/close panel
+			// open/close panel when decade clicked
   			var panelId = "#panel" + $(this).attr("id").replace("flip", "");
   			$(panelId).slideToggle("fast");
   			
@@ -54,11 +54,10 @@
         	$('html,body')
         	.animate({scrollTop: targetOffset}, 500);
 
-        	
+        // make the decade active
    			$(this).toggleClass('active');
-
 		});
-		// close the panel if clicked
+		// close the panel if clicked *** need to change this to X button ***
 		$(".panel").click(function() {
 			var decadeId = "#flip" + $(this).attr("id").replace("panel", "");
 			$(this).slideToggle("fast");
@@ -76,7 +75,6 @@
 
 	<div class="decade-container">
 	{% for decade in decades %}
-		<!-- <div class="hvr-grow"> -->
 		<div class="decade hvr-fade" id= 'flip{{decade.id}}'>
 			<h3> {{ decade.name }} </h3>
 		</div>
@@ -84,7 +82,6 @@
 			<h3> Info </h3>
       {{decade.intro|safe}}
 		</div>
-		<!-- </div> -->
 	{% endfor %}
 	</div>
 </body>
