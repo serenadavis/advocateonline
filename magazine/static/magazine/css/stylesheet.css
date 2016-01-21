@@ -526,6 +526,78 @@ article.poetry p {
   color: gray;
   text-decoration: none;
 }
+
+
+
+/* dropdown menu */
+.dropdown {
+	padding: 0;
+}
+.dropdown li{
+    text-align: left;
+}
+.dropdown li a{
+    font-size: 95%;
+}
+ul li a:hover{
+    text-decoration: none;
+    text-shadow: 1.5px 1.5px #F3BB2A;
+}
+ul li ul.dropdown{
+	position: absolute;
+    display: none;
+    padding: 5px 20px;
+    line-height: 25px;
+   	background-color: #f2f2f2;
+  	overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 5px;
+}
+.dropdown li+li{
+    border-top: 1px solid #000000;
+}
+ul li:hover ul.dropdown{
+   	display: block; /* Display the dropdown */
+}
+ul li ul.dropdown li{
+    display: block;
+}
+
+/* format read more */
+.read-more {
+  font-family: 'futura_std';
+  text-align: center;
+  font-size: 12px;
+  color: #a7a9ac;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* anthology formatting */
+.anthology {
+	overflow-x: hidden;
+}
+.decade {
+  display: table;
+  width: 100%;
+  border: #ffffff;
+  background-color: #CCCCCC;
+  margin: 0.8vh;
+  height: 12vh;
+}
+.decade h3 {
+  margin: 0px;
+  line-height: 12vh;
+}
+.panel {
+	margin: 0.8vh;
+	width: 100%;
+	padding: 0% 5% 1% 5%;
+	background-color: pink;
+	border-radius: 0;
+}
+
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen
 and (min-device-width : 320px)
@@ -565,4 +637,5 @@ and (max-device-width : 480px) {
 	color: #ffffff;
 	background-color: #000000;
 	border-color: #000000;
+}
 }

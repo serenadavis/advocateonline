@@ -8,12 +8,6 @@ import select2.fields
 import os
 import datetime
 
-class Decade(models.Model):
-	name = models.CharField(max_length=255)
-
-	def __unicode__(self):
-		return self.name
-
 
 class Tag(models.Model):
     name = models.CharField(max_length=255)
@@ -60,6 +54,20 @@ class Theme(models.Model):
     def __unicode__(self):
         return self.name
 
+class Decade(models.Model):
+    name = models.CharField(max_length=255)
+    intro = RedactorField(
+        verbose_name=u'Text',
+        redactor_options={'lang': 'en', 'focus': 'true'},
+        upload_to='tmp/',
+        allow_file_upload=True,
+        allow_image_upload=True
+    )
+    cover_image = models.ForeignKey(Images,null=True, blank=True, default = None)
+    slug = models.SlugField(max_length=100)
+    def __unicode__(self):
+        return self.name
+
 # Create your models here.
 class Content(models.Model):
     title = models.CharField(max_length=300)
@@ -92,3 +100,4 @@ class Content(models.Model):
             if txt.index("(function") < i:
                 i = txt.index("(function") 
         return txt[:i]
+
