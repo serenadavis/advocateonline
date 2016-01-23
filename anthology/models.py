@@ -43,7 +43,7 @@ class Images(models.Model):
     caption = models.TextField(max_length=10000, blank=True)
     slug = models.SlugField(max_length=100)
     def __unicode__(self):
-        return self.id
+        return unicode(self.id)
     def get_absolute_url(self):
         return "/media/" + path
 

@@ -600,6 +600,22 @@ ul li ul.dropdown li{
 	background-color: #EEEEEE;
 	border-radius: 0;
 }
+.xbutton {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	color: #666666;
+	background-color: transparent;
+	border-color: transparent;
+	padding: 0;
+	border: 0;
+}
+.xbutton:focus {
+	outline: none;
+}
+h3 .xbutton {
+	font-size: 50px;
+}
 
 /* BACKGROUND TRANSITIONS */
 /* Fade */
@@ -633,23 +649,6 @@ ul li ul.dropdown li{
 }
 .hvr-fade h3 {
 	opacity: 1.0;
-}
-
-/* just for now */
-#flip1 {
-	background-image: url("../images/testimage.jpg");
-}
-
-#flip2 {
-	background-image: url("../images/banner1.jpg");
-}
-
-#flip3 {
-	background-image: url("../images/banner2.jpg");
-}
-
-#flip4 {
-	background-image: url("../images/banner3.jpg");
 }
 
 /* Smartphones (portrait and landscape) ----------- */
