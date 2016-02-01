@@ -138,7 +138,7 @@ TINYMCE_DEFAULT_CONFIG = {
     'paste_retain_style_properties': "color font-size",
     'content_css': "/static/magazine/css/tinymce_custom.css",
     'theme': "advanced",
-    'cleanup_on_startup': True,
+    'cleanup_on_startup': False,
     'custom_undo_redo_levels': 10,
 }
 # Setting up logs
