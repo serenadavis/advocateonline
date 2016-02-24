@@ -16,13 +16,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "iwdq=bgnj2tsp*uc2(_kd59!0724wrkf(@m9$g0^7rds)jgruj"
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -51,7 +44,6 @@ INSTALLED_APPS = (
     'haystack',
     'tinymce',
     'ajax_select',
-    'south',
     'magazine',
     'blog',
     'payments',
@@ -79,16 +71,6 @@ WSGI_APPLICATION = 'advo.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'advocate',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost'
-    }
-}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
@@ -139,7 +121,7 @@ TINYMCE_DEFAULT_CONFIG = {
     'paste_retain_style_properties': "color font-size",
     'content_css': "/static/magazine/css/tinymce_custom.css",
     'theme': "advanced",
-    'cleanup_on_startup': True,
+    'cleanup_on_startup': False,
     'custom_undo_redo_levels': 10,
 }
 # Setting up logs
