@@ -83,18 +83,11 @@
 		ANTHOLOGY
 	</h1>
 
-	<div class="decade-container">
 	{% for decade in decades %}
 		<div class="decade hvr-fade" id= 'flip{{decade.id}}' 
       style='background-image: url("{% static decade.cover_image.path %}");'>
 			<h3> {{ decade.name }} </h3>
 		</div>
-		<div class = "panel" id='panel{{decade.id}}'>
-			<h3> Info </h3>
-      {{decade.intro|safe}}
-
-      <h3> <button class = "xbutton" id='xbutton{{decade.id}}'> &times; </button> </h3>
-		</div>
+    {% include "panel.html" with decade=decade %}  
 	{% endfor %}
-	</div>
 </body>

@@ -577,26 +577,25 @@ ul li ul.dropdown li{
 /* anthology formatting */
 .anthology {
 	overflow-x: hidden;
-	width: 100%;
+	width: 102%;
 }
 .decade {
-  display: table;
-  width: 99.2%;
   border: #ffffff;
   background-color: #CCCCCC;
-  margin: 0.8vh;
-  height: 12vh;
   background-size: 100%;
+  width: 19.2%;
+  margin: 0.2%;
+  position: relative;
+  /*float: left;*/
 }
 .decade h3 {
   margin: 0vh;
-  line-height: 12vh;
+  line-height: 30vh;
 }
 .panel {
-	margin: 0.8vh;
-	margin-top: -0.8vh;
-	width: 99.2%;
-	padding: 0% 5% 1% 5%;
+	float: left;
+	width: 100%;
+	margin-top: -0.1%;
 	background-color: #EEEEEE;
 	border-radius: 0;
 }
@@ -615,6 +614,58 @@ ul li ul.dropdown li{
 }
 h3 .xbutton {
 	font-size: 50px;
+}
+
+
+/* for mobile */
+@media only screen
+	and (min-device-width : 320px)
+	and (max-device-width : 480px) {
+	/* anthology formatting */
+	.anthology {
+		overflow-x: hidden;
+		width: 100%;
+	}
+	.decade {
+	  display: block;
+	  width: 99.2%;
+	  border: #ffffff;
+	  background-color: #CCCCCC;
+	  margin: 0.8vh;
+	  height: 12vh;
+	  background-size: 100%;
+	  float: left;
+	}
+	.decade h3 {
+	  margin: 0vh;
+	  line-height: 12vh;
+	}
+	.panel {
+		display: block;
+		margin: 0.8vh;
+		margin-top: -0.8vh;
+		width: 99.2%;
+		padding: 0% 5% 1% 5%;
+		background-color: #EEEEEE;
+		border-radius: 0;
+		float: left;
+	}
+	.xbutton {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		color: #666666;
+		background-color: transparent;
+		border-color: transparent;
+		padding: 0;
+		border: 0;
+	}
+	.xbutton:focus {
+		outline: none;
+	}
+	h3 .xbutton {
+		font-size: 50px;
+	}
 }
 
 /* BACKGROUND TRANSITIONS */

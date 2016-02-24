@@ -15,6 +15,7 @@ from .models import *
 def main(request):
     template_name = 'anthology_home.html'
     decades = Decade.objects.all()
-    all_posts_sorted = list(reversed(sorted(decades, key=lambda d: d.id)))
-    data = {"decades" : decades}
+    # sort the decades by their first four chars (the lower date in their range)
+    all_decades_sorted = list((sorted(decades, key=lambda d: int(d.name[:4]) )))
+    data = {"decades" : all_decades_sorted}
     return render_to_response(template_name, data, context_instance=RequestContext(request))
