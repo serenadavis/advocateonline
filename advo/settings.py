@@ -44,7 +44,6 @@ INSTALLED_APPS = (
     'haystack',
     'tinymce',
     'ajax_select',
-    'south',
     'magazine',
     'blog',
     'payments',
