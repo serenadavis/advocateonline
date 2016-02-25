@@ -38,16 +38,16 @@
       {% for title, post in blog.items %}
      <div class="col-md-6">
            <a href="./blog"><h2 class="subheader">FROM THE BLOG</h2></a>
-                 <a href="{{ article.get_absolute_url }}" class="no-decoration"> <h4 class="subheader-article-name"> {{post.title}}</h4> </a>
+                 <a href="{{ post.get_absolute_url }}" class="no-decoration"> <h4 class="subheader-article-name"> {{post.title}}</h4> </a>
                         {% if post.authors.all %}
             {% for author in post.authors.all %}
                 {% if forloop.first %}{% else %}
                     {% if forloop.last %} and {% else %}<span style="margin-left:-5px;">,</span>{% endif %}
                 {% endif %}
-                <a href="{{ author.get_absolute_url }}" class="no-decoration"> <h3 class="subheader-article-author"> {{ author }} </h3> </a>
+                <a href="{{ post.get_absolute_url }}" class="no-decoration"> <h3 class="subheader-article-author"> {{ author }} </h3> </a>
             {% endfor %}
             {% else %}
-
+                <br>
             {% endif %}
 
             <!-- How to check if image exists:
@@ -57,6 +57,7 @@
                 <figure class="resize-image" style="margin:auto;">
                   <a href="{{post.get_absolute_url}}" ><img class='img-responsive' src="{{post.first_image.path}}"></a>
                 </figure>
+                <br>
             {% endif %}
 
             <p class="article-summary"> {{post.teaser|safe}}</p>
