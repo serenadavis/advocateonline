@@ -115,19 +115,18 @@
 <div class="container">
     <a href="/">
       {% if name == "fiction" %}
-      <div style="background-image: url('{% static "magazine/images/banner1.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
+      <div style="background-image: url('{% static "magazine/images/banner1.jpg" %}')" class = "header-image img-responsive" alt="Main Image" > </div>
       {% elif name == "poetry" %}
-      <div style="background-image: url('{% static "magazine/images/banner3.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
+      <div style="background-image: url('{% static "magazine/images/banner3.jpg" %}')" class = "header-image img-responsive" alt="Main Image" > </div>
       {% elif name == "features" %}
-      <div style="background-image: url('{% static "magazine/images/banner3.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
+      <div style="background-image: url('{% static "magazine/images/banner3.jpg" %}')" class = "header-image img-responsive" alt="Main Image" > </div>
       {% elif name == "art" %}
-      <div style="background-image: url('{% static "magazine/images/banner4.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
+      <div style="background-image: url('{% static "magazine/images/banner4.jpg" %}')" class = "header-image img-responsive" alt="Main Image" > </div>
       {% else %}
-      <div style="background-image: url('{% static "magazine/images/banner_summer2015.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
+      <div style="background-image: url('{% static "magazine/images/banner_summer2015.jpg" %}')" class = "header-image img-responsive" alt="Main Image" > </div>
       {% endif %}
     </a>
 
-</div>
 </div>
 
 <!-- <hr class = "navbar-divider"> -->
@@ -138,27 +137,10 @@
 {% block content %}
 {% endblock %}
 
+
 </body>
 
-<footer>
-	<!-- <hr class = "navbar-divider"> -->
-	<div class="container">
-		<nav class="navbar navbar-default advo-navbar footer-navbar" role="navigation">
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<ul class="nav navbar-nav footer-navbar">
-				<li > <a href="/advertise">ADVERTISE</a></li>
-				<li ><a href="/alumni">ALUMNI</a></li>
-				<li ><a href="/contact">CONTACT US</a></li>
-				<li ><a href="/comp">COMP</a></li>
-				<li ><a href="/submit">SUBMIT</a></li>
-			</ul>
-		</nav>
-		<div class="copyright">
-			COPYRIGHT &#169; THE HARVARD ADVOCATE 2016 | <a href="/admin">LOG IN</a>
-		</div>
-	</div>
-	</div>
-</footer>
+
 
 </html>
 
