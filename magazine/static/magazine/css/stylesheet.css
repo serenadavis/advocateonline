@@ -585,8 +585,6 @@ ul li ul.dropdown li{
   background-size: 100%;
   width: 19.2%;
   margin: 0.2%;
-  position: relative;
-  /*float: left;*/
 }
 .decade h3 {
   margin: 0vh;
@@ -627,14 +625,13 @@ h3 .xbutton {
 		width: 100%;
 	}
 	.decade {
-	  display: block;
+	  display: table;
 	  width: 99.2%;
 	  border: #ffffff;
 	  background-color: #CCCCCC;
 	  margin: 0.8vh;
 	  height: 12vh;
 	  background-size: 100%;
-	  float: left;
 	}
 	.decade h3 {
 	  margin: 0vh;
@@ -648,7 +645,6 @@ h3 .xbutton {
 		padding: 0% 5% 1% 5%;
 		background-color: #EEEEEE;
 		border-radius: 0;
-		float: left;
 	}
 	.xbutton {
 		display: block;

@@ -24,16 +24,6 @@
         	<!--pass in art image link HERE-->
     			<img src="{{ MEDIA_URL }}{{article.image.photo|safe}}" class = "img-responsive" alt="Main Image" >
         </figure>
-<<<<<<< HEAD
-      {% else %}
-      <p class="article-summary"> {{article.teaser|safe}} 
-        <h4> <a href="{{ article.get_absolute_url }}" class="read-more">Read More</a></h4>
-      </p>
-=======
-      {% else %}            
-      <p class="article-summary"> {{article.teaser|safe}}</p>
-      <p><a class="read-more" href="{{article.get_absolute_url}}">Read More</a></p>
->>>>>>> 0fd48b9ed9f56dcb500b872da0b4cfb5304c9de1
       {% endif %}
   </div>
 {% if forloop.counter|divisibleby:2 %}

@@ -51,7 +51,6 @@ INSTALLED_APPS = (
     'contacts',
     'redactor',
     'select2',
-    'anthology',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -175,3 +174,10 @@ try:
     from search_settings import *
 except ImportError:
     pass
+
+### SUSPECT STUFF I ADDED ###
+DEBUG = True
+
+from django.utils.crypto import get_random_string
+chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
+SECRET_KEY = get_random_string(50, chars)
