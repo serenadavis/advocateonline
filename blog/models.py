@@ -1,9 +1,14 @@
 from django.db import models
 import tinymce
+import os
 from bs4 import BeautifulSoup
 import re
 from redactor.fields import RedactorField
 import select2.fields
+
+def upload_image_to(instance, filename):
+    fname = ''.join([c for c in filename if c.isalnum() or c == '.'])
+    return os.path.join('sites', 'default', 'files', fname)
 
 class Tag(models.Model):
     name = models.CharField(max_length=255)
@@ -38,7 +43,7 @@ class Images(models.Model):
     caption = models.TextField(max_length=10000, blank=True)
     slug = models.SlugField(max_length=100)
     def __unicode__(self):
-        return self.id
+        return str(self.id)
     def get_absolute_url(self):
         return "/media/" + path
 
@@ -61,11 +66,12 @@ class Post(models.Model):
         allow_image_upload=True
     )
     created = models.DateTimeField(auto_now_add=True)
-    tags = select2.fields.ManyToManyField(Tag)
+    tags = select2.fields.ManyToManyField(Tag, blank=True, default = None)
     posted = select2.fields.ManyToManyField(Category)
-    authors = select2.fields.ManyToManyField(Author)
+    authors = select2.fields.ManyToManyField(Author, blank=True, default = None)
     theme = select2.fields.ForeignKey(Theme)
     first_image = models.ForeignKey(Images,null=True, blank=True, default = None)
+    lead_photo = models.ImageField(upload_to=upload_image_to, blank=True, null=True)
     def __unicode__(self):
         return self.title
     def get_absolute_url(self):

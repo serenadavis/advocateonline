@@ -2,27 +2,24 @@ from django.forms import ModelForm
 
 from ajax_select import make_ajax_field
 
-from .models import Content, Tag
+from .models import Post, Tag
 
 from haystack.forms import SearchForm
 
-class ContentForm(ModelForm):
+class BlogForm(ModelForm):
     class Meta:
-        model = Content
+        model = Post
         fields = '__all__'
 
-    contributors = make_ajax_field(Content, 'contributors', 'contributor')
-    tags = make_ajax_field(Content, 'tags', 'tag')
 
-
-class ContentSearchForm(SearchForm):
+class BlogSearchForm(SearchForm):
 
     def no_query_found(self):
         return self.searchqueryset.all()
 
     def search(self):
         print 'hello'
-        sqs = super(ContentSearchForm, self).search()
+        sqs = super(BlogSearchForm, self).search()
 
         print 'hello'
 

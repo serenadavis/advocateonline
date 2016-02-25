@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404, render_to_response
 from django.template.context import RequestContext
 # from .models import Article, Content, Issue , Subscriber# '.' signifies the current directory
 from .models import Article, Content, Image, Issue, Contributor # '.' signifies the current directory
+from blog.models import Post, Author
 from collections import OrderedDict
 from itertools import chain
 import json
@@ -26,6 +27,7 @@ def index(request):
   # for each article with this issue id
   articles_in_issue = Article.objects.published().filter(issue=issue)
   data = {
+    'blog': { },
     'sections': { },
     'issue': issue,
   }
@@ -42,6 +44,10 @@ def index(request):
   for key in data['sections']:
     if data['sections'][key]:
       data['sections'][key]= random.choice(data['sections'][key])
+  posts = Post.objects.all()
+  recent_blog = list(reversed(sorted(posts, key=lambda i: i.created)))[:2 ]
+  data['blog']['post1'] = recent_blog[0]
+  data['blog']['post2'] = recent_blog[1]
   template_name = 'index.html'
   return render_to_response(template_name, data, context_instance=RequestContext(request))
 
