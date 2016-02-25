@@ -24,16 +24,10 @@
         	<!--pass in art image link HERE-->
     			<img src="{{ MEDIA_URL }}{{article.image.photo|safe}}" class = "img-responsive" alt="Main Image" >
         </figure>
-<<<<<<< HEAD
       {% else %}
       <p class="article-summary"> {{article.teaser|safe}} 
         <h4> <a href="{{ article.get_absolute_url }}" class="read-more">Read More</a></h4>
       </p>
-=======
-      {% else %}            
-      <p class="article-summary"> {{article.teaser|safe}}</p>
-      <p><a class="read-more" href="{{article.get_absolute_url}}">Read More</a></p>
->>>>>>> d9ec3e48e03eb914ede9083f81508c58bc044fd2
       {% endif %}
   </div>
 {% if forloop.counter|divisibleby:2 %}
@@ -54,7 +48,7 @@
                 <a href="{{ author.get_absolute_url }}" class="no-decoration"> <h3 class="subheader-article-author"> {{ author }} </h3> </a>
             {% endfor %}
             {% else %}
-
+            <br>
             {% endif %}
 
             <!-- How to check if image exists:
