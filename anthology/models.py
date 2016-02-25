@@ -9,6 +9,11 @@ import os
 import datetime
 
 
+def upload_image_to(instance, filename):
+    fname = ''.join([c for c in filename if c.isalnum() or c == '.'])
+    return os.path.join('sites', 'default', 'files', fname)
+
+
 class Tag(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=100)
@@ -63,7 +68,7 @@ class Decade(models.Model):
         allow_file_upload=True,
         allow_image_upload=True
     )
-    cover_image = models.ForeignKey(Images,null=True, blank=True, default = None)
+    cover_image = models.ImageField(upload_to=upload_image_to, blank=True, null=True)
     slug = models.SlugField(max_length=100)
     def __unicode__(self):
         return self.name
@@ -84,7 +89,7 @@ class Content(models.Model):
     posted = select2.fields.ManyToManyField(Category)
     authors = select2.fields.ManyToManyField(Author)
     decade = select2.fields.ForeignKey(Decade)
-    first_image = models.ForeignKey(Images,null=True, blank=True, default = None)
+    lead_photo = models.ImageField(upload_to=upload_image_to, blank=True, null=True)
     def __unicode__(self):
         return self.title
     def get_absolute_url(self):
@@ -93,7 +98,7 @@ class Content(models.Model):
         return self.first_image
     def teaser(self):
         txt = re.sub("\{\{.*\}\}","",BeautifulSoup(self.body).text)
-        i = 800
+        i = 400
         while len(txt) > i and txt[i-1] != ".":
             i += 1
         if "(function" in txt:
