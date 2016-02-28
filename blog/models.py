@@ -66,9 +66,9 @@ class Post(models.Model):
         allow_image_upload=True
     )
     created = models.DateTimeField(auto_now_add=True)
-    tags = select2.fields.ManyToManyField(Tag,null=True, blank=True, default = None)
+    tags = select2.fields.ManyToManyField(Tag, blank=True, default = None)
     posted = select2.fields.ManyToManyField(Category)
-    authors = select2.fields.ManyToManyField(Author, null=True, blank=True, default = None)
+    authors = select2.fields.ManyToManyField(Author, blank=True, default = None)
     theme = select2.fields.ForeignKey(Theme)
     first_image = models.ForeignKey(Images,null=True, blank=True, default = None)
     lead_photo = models.ImageField(upload_to=upload_image_to, blank=True, null=True)

@@ -6811,3 +6811,52 @@ td.visible-print {
     display: none !important;
   }
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+/* dropdown menu */
+    
+    .dropdown {
+        padding: 0;
+    }
+    .dropdown li{
+        text-align: left;
+    }
+    .dropdown li a{
+      font-size: 95%;
+    }
+    ul li a:hover{
+        text-decoration: none;
+        text-shadow: 1.5px 1.5px #F3BB2A;
+    }
+    ul li ul.dropdown{
+        position: absolute;
+        display: none;
+        padding: 5px 20px;
+        line-height: 25px;
+        background-color: #f2f2f2;
+        overflow: hidden;
+        text-align: center;
+        white-space: nowrap;
+        border-radius: 5px;
+    }
+    .dropdown li+li{
+      border-top: 1px solid #000000;
+    }
+    ul li:hover ul.dropdown{
+        display: block; /* Display the dropdown */
+    }
+    ul li ul.dropdown li{
+        display: block;
+  }
+
+.read-more {
+  font-family: 'futura_std';
+  text-align: center;
+  font-size: 12px;
+  color: #a7a9ac;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
