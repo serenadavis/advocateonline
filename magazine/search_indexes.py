@@ -1,6 +1,7 @@
 from haystack import indexes
 from .models import Content
 from .models import Section
+from blog.models import Post
 
 class ContentIndex(indexes.SearchIndex, indexes.Indexable):
     title = indexes.CharField(model_attr='title')

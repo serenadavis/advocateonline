@@ -181,6 +181,14 @@ class FilterSearchView(SearchView):
                         return redirect(Contributor.objects.get(name = self.query))
                 except Contributor.DoesNotExist:
                         pass
+                try:
+                        return redirect(Post.objects.get(title = self.query))
+                except Post.DoesNotExist:
+                        pass
+                try:
+                        return redirect(Author.objects.get(name = self.query))
+                except Author.DoesNotExist:
+                        pass
 
                 context.update(self.extra_context())
                 return render_to_response(self.template, context, context_instance=self.context_class(self.request))
