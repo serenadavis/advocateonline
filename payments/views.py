@@ -227,6 +227,8 @@ def galaDonation(request):
             amount += 600
         elif subscriptionType == "5 Tickets":
             amount += 750
+    except:
+        print "no ticket"
 
     try:
         subscriptionType = request.POST['ticketAnthologyType']
@@ -242,6 +244,8 @@ def galaDonation(request):
             amount += 1200
         elif subscriptionType == "5 Tickets":
             amount += 1500
+    except:
+        print "no ticket + anthology"
 
     try:
         subscriptionType = request.POST['ticketAnthologyUnderwriteType']
@@ -257,6 +261,8 @@ def galaDonation(request):
             amount += 2000
         elif subscriptionType == "5 Tickets":
             amount += 2500
+    except:
+        print "no ticket + anthology + underwrite"
 
     try:
         subscriptionType = request.POST['subscriptionType']
@@ -272,9 +278,14 @@ def galaDonation(request):
             amount += 75
         elif subscriptionType == "One year (4 issues) - International & Institutions":
             amount += 45
+    except:
+        print "no subscription"
 
     try:
         amount += int(request.POST['amount'])
+    except: 
+        print "no donation" 
+        
     amount = amount*100
 
     # Create the charge on Stripe's servers - this will charge the user's card

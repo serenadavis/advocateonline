@@ -39,7 +39,7 @@ urlpatterns = patterns('',
 
     url(r'^donate$', 'payments.views.donate'),
     url(r'^sendDonation$','payments.views.sendDonation'),
-    url(r'^galaDonation$','payments.views.galaDonation'),
+    url(r'^galadonation$','payments.views.galaDonation'),
     url(r'^stripeSubmit$','payments.views.stripeSubmit'),
     #http://stackoverflow.com/questions/901551/how-do-i-include-image-files-in-django-templates
     #http://stackoverflow.com/questions/19132123/name-settings-is-not-defined
