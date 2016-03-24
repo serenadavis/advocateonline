@@ -205,6 +205,138 @@ def sendDonation(request):
       return render_to_response("paymenterror.html", data, context_instance=RequestContext(request))
 
 
+def galaDonation(request):
+    # get form details
+    # logger.error("")
+    if "stripeToken" not in request.POST:
+      return render_to_response("donate.html", context_instance=RequestContext(request))
+    token = request.POST['stripeToken']
+
+    amount = 0
+    try:
+        subscriptionType = request.POST['ticketType']
+        if subscriptionType == "0 Tickets" :
+            amount += 0
+        elif subscriptionType == "1 Tickets":
+            amount += 150
+        elif subscriptionType == "2 Tickets" :
+            amount += 300
+        elif subscriptionType == "3 Tickets":
+            amount += 450
+                elif subscriptionType == "4 Tickets" :
+            amount += 600
+        elif subscriptionType == "5 Tickets":
+            amount += 750
+
+    try:
+        subscriptionType = request.POST['ticketAnthologyType']
+        if subscriptionType == "0 Tickets" :
+            amount += 0
+        elif subscriptionType == "1 Tickets":
+            amount += 300
+        elif subscriptionType == "2 Tickets" :
+            amount += 600
+        elif subscriptionType == "3 Tickets":
+            amount += 900
+                elif subscriptionType == "4 Tickets" :
+            amount += 1200
+        elif subscriptionType == "5 Tickets":
+            amount += 1500
+
+    try:
+        subscriptionType = request.POST['ticketAnthologyUnderwriteType']
+        if subscriptionType == "0 Tickets" :
+            amount += 0
+        elif subscriptionType == "1 Tickets":
+            amount += 500
+        elif subscriptionType == "2 Tickets" :
+            amount += 1000
+        elif subscriptionType == "3 Tickets":
+            amount += 1500
+                elif subscriptionType == "4 Tickets" :
+            amount += 2000
+        elif subscriptionType == "5 Tickets":
+            amount += 2500
+
+    try:
+        subscriptionType = request.POST['subscriptionType']
+        if subscriptionType == "Three years (12 issues) - U.S." :
+            amount += 90
+        elif subscriptionType == "Two years (8 issues) - U.S.":
+            amount += 69
+        elif subscriptionType == "One year (4 issues) - U.S.":
+            amount += 35
+        elif subscriptionType == "Three years (12 issues) - International & Institutions":
+            amount += 110
+        elif subscriptionType == "Two years (8 issues) - International & Institutions":
+            amount += 75
+        elif subscriptionType == "One year (4 issues) - International & Institutions":
+            amount += 45
+
+    try:
+        amount += int(request.POST['amount'])
+    amount = amount*100
+
+    # Create the charge on Stripe's servers - this will charge the user's card
+    try:
+        page = 'donate'
+        name = request.POST['name']
+        email = request.POST['email']
+        comment=request.POST['comment']
+
+        # Create customer on Stripe
+        stripe.api_key = settings.STRIPE_DONATE_SECRET_KEY
+        customer = stripe.Customer.create(
+            card = token,
+            description = comment,
+            email = email,
+            metadata = {
+                'Name': name,
+                'Address': request.POST['streetAddress1'],
+                'Address Line 2': request.POST['streetAddress2'],
+                'City': request.POST['city'],
+                'State': request.POST['state'],
+                'Zip Code': request.POST['zipCode'],
+                'Country': request.POST['country'],
+            }
+        )
+
+        donation = Donation.objects.create(
+            name=request.POST['name'],
+            email=request.POST['email'],
+            streetAddress1=request.POST['streetAddress1'],
+            streetAddress2=request.POST['streetAddress2'],
+            city=request.POST['city'],
+            state=request.POST['state'],
+            country=request.POST['country'],
+            zipCode=request.POST['zipCode'],
+            customerID = customer.id,
+            amount=int(request.POST['amount']),
+            comment=request.POST['comment'],
+            time = getEasternTimeZoneString()
+        )
+        chargeCustomer(amount,customer.id,page)
+        template_name = 'success.html'
+        return render_to_response(template_name, context_instance=RequestContext(request))
+    except stripe.CardError as problem:
+      # The card has been declined
+      template = "Looks like there is a problem with your payment information: {0}. Arguments:\n{1!r}"
+      message = template.format(type(problem).__name__, ex.problem)
+      data = {
+        "message": message
+      }
+      return render_to_response("paymenterror.html", data, context_instance=RequestContext(request))
+    except Exception as problem:
+      # There is a different problem
+      # logger.error(problem)
+      message = "There are has been an error with our servers. Your card should not have been charged. If it was please get in contact with tech@theharvardadvocate.com and we will be glad to resolve this."
+      data = {
+        "message": message
+      }
+      return render_to_response("paymenterror.html", data, context_instance=RequestContext(request))
+
+
+
 def createCustomer(token,name,email,page) :
     if page == 'donate':
         stripe.api_key = settings.STRIPE_DONATE_SECRET_KEY

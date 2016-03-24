@@ -198,6 +198,11 @@ def subscribe(request):
   template_name = 'subscribe.html'
   return render_to_response(template_name, context_instance=RequestContext(request))
 
+def gala(request):
+  template_name = 'gala.html'
+  return render_to_response(template_name, context_instance=RequestContext(request))
+
+
 def stripeSubmit(request):
   # Get the credit card details submitted by the form
   token = request.POST['stripeToken']
