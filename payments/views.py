@@ -223,7 +223,7 @@ def galaDonation(request):
             amount += 300
         elif subscriptionType == "3 Tickets":
             amount += 450
-                elif subscriptionType == "4 Tickets" :
+        elif subscriptionType == "4 Tickets" :
             amount += 600
         elif subscriptionType == "5 Tickets":
             amount += 750
@@ -238,7 +238,7 @@ def galaDonation(request):
             amount += 600
         elif subscriptionType == "3 Tickets":
             amount += 900
-                elif subscriptionType == "4 Tickets" :
+        elif subscriptionType == "4 Tickets" :
             amount += 1200
         elif subscriptionType == "5 Tickets":
             amount += 1500
@@ -253,7 +253,7 @@ def galaDonation(request):
             amount += 1000
         elif subscriptionType == "3 Tickets":
             amount += 1500
-                elif subscriptionType == "4 Tickets" :
+        elif subscriptionType == "4 Tickets" :
             amount += 2000
         elif subscriptionType == "5 Tickets":
             amount += 2500
@@ -311,7 +311,7 @@ def galaDonation(request):
             country=request.POST['country'],
             zipCode=request.POST['zipCode'],
             customerID = customer.id,
-            amount=int(request.POST['amount']),
+            amount= amount,
             comment=request.POST['comment'],
             time = getEasternTimeZoneString()
         )
