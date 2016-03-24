@@ -1,7 +1,6 @@
-{% extends "base_original.html" %}
+{% extends "gala_base.html" %}
 
 {% block content %}
-{% load staticfiles %}
 
 
 <style type="text/css">
@@ -17,8 +16,8 @@ p {
 <h3> Save the Date </h3>
 
 <div>
-    <a href="/gala">
-      <img src="/media/gala/gala-invite.png" class = "img-responsive" alt="Main Image" style="margin:auto;">
+    <a href="/benefit">
+      <img src="/media/gala/gala-invite.jpg" class = "img-responsive" alt="Main Image" style="margin:auto;">
     </a>
 </div>
 <br>
@@ -38,7 +37,7 @@ p {
   <div style="margin: 40px auto 0px auto; background: #eee; max-width: 600px; padding: 20px;">
         
         <div class="form-container active">
-            <form action="/sendDonation" method="post" id="payment-form"> {% csrf_token %} 
+            <form action="/galadonation" method="post" id="payment-form"> {% csrf_token %} 
                <select class="form-control" name="ticketType"> 
                     <option value="0 Tickets">0 Tickets- U.S. $0.00 USD</option> 
                     <option value="1 Tickets">1 Ticket- U.S. $150.00 USD</option> 
@@ -90,13 +89,19 @@ p {
             </form>
         </div>
     </div>
+<br>
+<div>
+    <a href="/benefit">
+      <img src="/media/gala/gala-benefits.jpg" class = "img-responsive" alt="Main Image" style="margin:auto;">
+    </a>
+</div>
 
-    <div>
+<!--     <div>
 Benefit Committee: Kurt Andersen, Joan Bingham, Lea Carpenter,  Andrew Cogan, Anne Fulenwider, Henry Louis Gates, Jr., Keith Gessen, Mark Greif, Alexandra Jacobs, Leslie Jamison, Colin Jost, David Kuhn, Honor Moore, BJ Novak, Katie Roiphe, Jeannette Sanger, Gay Talese, Jeffrey Toobin 
 </div>
 <div>
 Trustees of the Advocate: Charles Atkinson, James Atlas, Louis Begley, Peter Brooks, Emily Chertoff, Leslie Dunton-Downer, Jonathan Galassi, Lev Grossman, Angela Mariani, D.T. Max, Celia McGee, Douglas McIntyre, Susan Morrison, Thomas Stewart, Jean Strouse, Austin T. Wilkie 
-</div>
+</div> -->
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script type="text/javascript">
 
