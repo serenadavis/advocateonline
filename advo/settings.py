@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 ALLOWED_HOSTS = []
 
 ADMINS = (
-    ('Jenny Gao', 'technology@theharvardadvocate.com'),
+    ('Brendan Bozorgmir', 'technology@theharvardadvocate.com'),
     ('Yuqi Hou', 'hou@college.harvard.edu'),
     ('Luciano Arango', 'lucianoarango@college.harvard.edu'),
     ('Alex Sedlack', 'asedlack@college.harvard.edu'),
