@@ -211,7 +211,7 @@ def galaDonation(request):
     if "stripeToken" not in request.POST:
       return render_to_response("gala.html", context_instance=RequestContext(request))
     token = request.POST['stripeToken']
-
+    comment= ""
     amount = 0
     try:
         subscriptionType = request.POST['ticketType']
@@ -227,6 +227,7 @@ def galaDonation(request):
             amount += 600
         elif subscriptionType == "5 Tickets":
             amount += 750
+        comm += "Standard tickets: " + subscriptionType
     except:
         print "no ticket"
 
@@ -244,6 +245,7 @@ def galaDonation(request):
             amount += 1200
         elif subscriptionType == "5 Tickets":
             amount += 1500
+        comm += ",  Ticket and Anthology: " + subscriptionType
     except:
         print "no ticket + anthology"
 
@@ -261,6 +263,7 @@ def galaDonation(request):
             amount += 2000
         elif subscriptionType == "5 Tickets":
             amount += 2500
+        comm += ",  Ticket and Anthology and underwrite : " + subscriptionType
     except:
         print "no ticket + anthology + underwrite"
 
@@ -278,11 +281,13 @@ def galaDonation(request):
             amount += 75
         elif subscriptionType == "One year (4 issues) - International & Institutions":
             amount += 45
+        comm += ",  Subscription : " + subscriptionType
     except:
         print "no subscription"
 
     try:
         amount += int(request.POST['amount'])
+        comm += ",  Donation : " + request.POST['amount']
     except: 
         print "no donation" 
 
@@ -324,7 +329,7 @@ def galaDonation(request):
             zipCode=request.POST['zipCode'],
             customerID = customer.id,
             amount= amount,
-            comment=request.POST['comment'],
+            comment= comment + " FULL NAMES: " + request.POST['comment'],
             time = getEasternTimeZoneString()
         )
         chargeCustomer(amount,customer.id,page)
@@ -363,7 +368,7 @@ def createCustomer(token,name,email,page) :
     return customer
 
 def chargeCustomer(amt, customerID, page):
-    if page == 'donate':
+    if page == 'donate' or page == 'gala':
         stripe.api_key = settings.STRIPE_DONATE_SECRET_KEY
     else:
         stripe.api_key = settings.STRIPE_BUY_SECRET_KEY
