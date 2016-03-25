@@ -11,7 +11,7 @@ from magazine import views
 import logging
 
 
-# logger = logging.getLogger("payments")
+logger = logging.getLogger("payments")
 
 def donate(request):
     template_name = 'donate.html'
@@ -229,7 +229,7 @@ def galaDonation(request):
             amount += 750
         comm += "Standard tickets: " + subscriptionType
     except:
-        print "no ticket"
+        logger.log("no ticket")
 
     try:
         subscriptionType = request.POST['ticketAnthologyType']
@@ -247,7 +247,7 @@ def galaDonation(request):
             amount += 1500
         comm += ",  Ticket and Anthology: " + subscriptionType
     except:
-        print "no ticket + anthology"
+        logger.log("no ticket + anthology")
 
     try:
         subscriptionType = request.POST['ticketAnthologyUnderwriteType']
@@ -265,7 +265,7 @@ def galaDonation(request):
             amount += 2500
         comm += ",  Ticket and Anthology and underwrite : " + subscriptionType
     except:
-        print "no ticket + anthology + underwrite"
+        logger.log("no ticket + anthology + underwrite")
 
     try:
         subscriptionType = request.POST['subscriptionType']
@@ -283,15 +283,15 @@ def galaDonation(request):
             amount += 45
         comm += ",  Subscription : " + subscriptionType
     except:
-        print "no subscription"
+        logger.log("no subscription")
 
     try:
         amount += int(request.POST['amount'])
         comm += ",  Donation : " + request.POST['amount']
     except: 
-        print "no donation" 
+        logger.log("no donation")
 
-    print amount   
+    logger.error(amount)  
     amount = amount*100
 
     # Create the charge on Stripe's servers - this will charge the user's card
@@ -329,7 +329,7 @@ def galaDonation(request):
             zipCode=request.POST['zipCode'],
             customerID = customer.id,
             amount= amount,
-            comment= comment + " FULL NAMES: " + request.POST['comment'],
+            comment= comm + " FULL NAMES: " + comment,
             time = getEasternTimeZoneString()
         )
         chargeCustomer(amount,customer.id,page)
