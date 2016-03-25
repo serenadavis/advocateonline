@@ -209,7 +209,7 @@ def galaDonation(request):
     # get form details
     # logger.error("")
     if "stripeToken" not in request.POST:
-      return render_to_response("donate.html", context_instance=RequestContext(request))
+      return render_to_response("gala.html", context_instance=RequestContext(request))
     token = request.POST['stripeToken']
 
     amount = 0
@@ -285,12 +285,13 @@ def galaDonation(request):
         amount += int(request.POST['amount'])
     except: 
         print "no donation" 
-        
+
+    print amount   
     amount = amount*100
 
     # Create the charge on Stripe's servers - this will charge the user's card
     try:
-        page = 'donate'
+        page = 'gala'
         name = request.POST['name']
         email = request.POST['email']
         comment=request.POST['comment']
