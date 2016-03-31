@@ -229,7 +229,8 @@ def galaDonation(request):
             amount += 750
         comm += "Standard tickets: " + subscriptionType
     except:
-        logger.log("no ticket")
+        #logger.log("no ticket")
+        print 1
 
     try:
         subscriptionType = request.POST['ticketAnthologyType']
@@ -247,7 +248,8 @@ def galaDonation(request):
             amount += 1500
         comm += ",  Ticket and Anthology: " + subscriptionType
     except:
-        logger.log("no ticket + anthology")
+        #logger.log("no ticket + anthology")
+        print 1
 
     try:
         subscriptionType = request.POST['ticketAnthologyUnderwriteType']
@@ -265,7 +267,8 @@ def galaDonation(request):
             amount += 2500
         comm += ",  Ticket and Anthology and underwrite : " + subscriptionType
     except:
-        logger.log("no ticket + anthology + underwrite")
+        #logger.log("no ticket + anthology + underwrite")
+        print 1
 
     try:
         subscriptionType = request.POST['subscriptionType']
@@ -283,15 +286,17 @@ def galaDonation(request):
             amount += 45
         comm += ",  Subscription : " + subscriptionType
     except:
-        logger.log("no subscription")
+        #logger.log("no subscription")
+        print 1
 
     try:
         amount += int(request.POST['amount'])
         comm += ",  Donation : " + request.POST['amount']
     except: 
-        logger.log("no donation")
+        #logger.log("no donation")
+        print 1
 
-    logger.error(amount)  
+    #logger.error(amount)  
     amount = amount*100
 
     # Create the charge on Stripe's servers - this will charge the user's card
