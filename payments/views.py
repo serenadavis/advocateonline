@@ -211,7 +211,7 @@ def galaDonation(request):
     if "stripeToken" not in request.POST:
       return render_to_response("gala.html", context_instance=RequestContext(request))
     token = request.POST['stripeToken']
-    comment= ""
+    comm= ""
     amount = 0
     try:
         subscriptionType = request.POST['ticketType']
