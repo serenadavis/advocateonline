@@ -333,8 +333,8 @@ def galaDonation(request):
             country=request.POST['country'],
             zipCode=request.POST['zipCode'],
             customerID = customer.id,
-            amount= amount,
-            comment= comm + " FULL NAMES: " + comment,
+            amount=int(request.POST['amount']),
+            comment= comm + " FULL NAMES: " +  str(request.POST['comment']),
             time = getEasternTimeZoneString()
         )
         chargeCustomer(amount,customer.id,page)
