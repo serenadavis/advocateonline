@@ -1,9 +1,78 @@
 <!doctype html>
+<<<<<<< HEAD
 {% extends "anthology_base.html" %}
 {% load staticfiles %}
+=======
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>The Harvard Advocate</title>
+  <meta name="description" content="Harvard's undergraduate journal of fiction, poetry, art and criticism.">
+  <meta name="author" content="The Harvard Advocate">
+  {% load staticfiles %}
+>>>>>>> abd991c17187e73b0aa89a8ef0b962dd7683fc0e
 
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet"  href="{% static 'magazine/css/bootstrap.css' %}"></link>
+  <link rel="stylesheet"  href="{% static 'magazine/css/stylesheet.css' %}"></link>
+  <link rel="stylesheet"  href="{% static 'magazine/css/card.css' %}"></link>
+  <link rel="stylesheet"  href="{% static 'magazine/css/tinymce_custom.css' %}"></link>
+  <link rel="stylesheet"  href="{% static 'magazine/css/bootstrap-theme.css' %}"></link>
+  <link rel="stylesheet"  href="{% static 'magazine/css/search_style.css' %}"></link>
 
-{% block content %}
+  <!-- Latest JQuery -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="{% static 'magazine/js/imagesloaded.pkgd.min.js' %}"></script>
+  <script src="{% static 'magazine/js/imagesloaded.pkgd.js' %}"></script>
+
+  <!-- Advocate Javascript -->
+  <script src="{% static 'magazine/js/main.js' %}"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-59103813-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+    <!-- Javascript for panels -->
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    // hide all panels on load
+    $(".panel").hide();
+    // open panel when clicked
+    $(".decade").click(function() {
+        // open/close panel when decade clicked
+        var panelId = "#panel" + $(this).attr("id").replace("flip", "");
+        $(panelId).slideToggle("slow");
+        // scroll to top of panel
+        var targetOffset = $(this).offset().top;
+        $('html,body').animate({scrollTop: targetOffset}, 500);
+        // make the decade active/inactive
+        $(this).toggleClass('active');
+        open = $(this);
+    });
+    $(".xbutton").click(function() {
+        // open/close panel when decade clicked
+        var panelId = "#panel" + $(this).attr("id").replace("xbutton", "");
+        $(panelId).slideToggle("slow");
+        var decadeId = "#flip" + $(this).attr("id").replace("xbutton", "");
+        
+        // scroll to top of panel
+        var targetOffset = $(decadeId).offset().top;
+        $('html,body').animate({scrollTop: targetOffset}, 500);
+        // make the decade inactive
+        $(decadeId).toggleClass('active');
+    });
+  });
+  </script>
+</head>
 
   	<!-- Javascript for panels -->
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
@@ -83,5 +152,3 @@
 	{% endfor %}
   <div> &nbsp; </div>
 </body>
-
-{% endblock %}

@@ -62,6 +62,15 @@ def contributor_page(request, author_id):
     return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 
+def tag_page(request, slug):
+    this_tag =  get_object_or_404(Tag,slug__iexact=slug)
+    data = {}
+    data["author"] = this_tag.name
+    data["articles"] =  Post.objects.filter(tags__name=this_tag.name)
+    template_name = 'blog_contributor.html'
+    return render_to_response(template_name, data, context_instance=RequestContext(request))
+
+
 def view_category(request, slug):
     category = get_object_or_404(Category, slug=slug)
     return render_to_response('blog_post.html', {
