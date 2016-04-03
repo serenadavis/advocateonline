@@ -36,12 +36,10 @@ def main(request):
     return render_to_response(template_name, data, context_instance=RequestContext(request))
     
 def post(request, slug):
-    print 'GETTING ARTICLE'
     post = get_object_or_404(Post, slug__iexact=slug)
     data = {
         'post': post
     }
-    print post
     template_name = 'blog_post.html'
     return render_to_response(template_name, data, context_instance=RequestContext(request))
 
@@ -67,7 +65,7 @@ def tag_page(request, slug):
     data = {}
     data["author"] = this_tag.name
     data["articles"] =  Post.objects.filter(tags__name=this_tag.name)
-    template_name = 'blog_contributor.html'
+    template_name = 'blog_tags.html'
     return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 
