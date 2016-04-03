@@ -5,6 +5,7 @@ from .forms import ContentForm
 admin.site.register(Issue)
 admin.site.register(Section)
 admin.site.register(Contributor)
+admin.site.register(ShopItem)
 
 class TagAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}

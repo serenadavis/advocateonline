@@ -1,4 +1,4 @@
-from django.forms import ModelForm
+from django import forms
 
 from ajax_select import make_ajax_field
 
@@ -6,7 +6,7 @@ from .models import Content, Tag
 
 from haystack.forms import SearchForm
 
-class ContentForm(ModelForm):
+class ContentForm(forms.ModelForm):
     class Meta:
         model = Content
         fields = '__all__'
@@ -32,3 +32,10 @@ class ContentSearchForm(SearchForm):
         sqs = sqs.order_by(title)
 
         return sqs
+
+class UploadShopItemForm(forms.Form):
+    name = forms.CharField(max_length=255)
+    description = forms.CharField(max_length=4095)
+    price = forms.CharField(max_length=32)
+    imagefile = forms.FileField()
+
