@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os, base64
+import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -35,9 +35,6 @@ EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'sammysignal@gmail.com'
-EMAIL_HOST_PASSWORD = base64.b64decode('eXVsaXR0bGU=')
-DEFAULT_FROM_EMAIL = 'sammysignal@gmail.com'
 
 # Application definition
 
