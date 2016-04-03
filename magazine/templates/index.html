@@ -32,9 +32,41 @@
 {% if forloop.counter|divisibleby:2 %}
 </div>
 {% endif %}
-
 {% endfor %}
-  </div>
+
+  <div class="row">
+      {% for title, post in blog.items %}
+     <div class="col-md-6">
+           <a href="./blog"><h2 class="subheader">FROM THE BLOG</h2></a>
+                 <a href="{{ post.get_absolute_url }}" class="no-decoration"> <h4 class="subheader-article-name"> {{post.title}}</h4> </a>
+                        {% if post.authors.all %}
+            {% for author in post.authors.all %}
+                {% if forloop.first %}{% else %}
+                    {% if forloop.last %} and {% else %}<span style="margin-left:-5px;">,</span>{% endif %}
+                {% endif %}
+                <a href="{{ post.get_absolute_url }}" class="no-decoration"> <h3 class="subheader-article-author"> {{ author }} </h3> </a>
+            {% endfor %}
+            {% else %}
+                <br>
+            {% endif %}
+
+            <!-- How to check if image exists:
+            http://stackoverflow.com/questions/6637168/python-django-templates-and-testing-if-a-variable-is-null-or-empty-string?rq=1
+            http://stackoverflow.com/questions/12507281/determine-empty-template-variable-in-django -->
+            {% if post.first_image_id %}
+                <figure class="resize-image" style="margin:auto;">
+                  <a href="{{post.get_absolute_url}}" ><img class='img-responsive' src="{{post.first_image.path}}"></a>
+                </figure>
+                <br>
+            {% endif %}
+
+            <p class="article-summary"> {{post.teaser|safe}}</p>
+      <p><a class="read-more" href="{{post.get_absolute_url}}">Read More</a></p>
+        </div>
+        {% endfor %}
+    </div>
+
+
   <div class="row">
      <div class="col-md-6">
       <article>
@@ -54,10 +86,8 @@
         </figure>
               <p class="article-summary"> At  <a href="http://ribbedtee.com/f/undershirt-wearing-guide/" class=""> RibbedTee.com</a> it's our focus to help men look & feel great in their clothes, so we've designed a collection of undershirts to meet every guy's needs</a></p>
 
-        </article>
     </div>
   </div>
-
 </div>
 
 

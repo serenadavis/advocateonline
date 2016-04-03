@@ -9,6 +9,7 @@ from haystack.forms import SearchForm
 class ContentForm(forms.ModelForm):
     class Meta:
         model = Content
+        fields = '__all__'
 
     contributors = make_ajax_field(Content, 'contributors', 'contributor')
     tags = make_ajax_field(Content, 'tags', 'tag')

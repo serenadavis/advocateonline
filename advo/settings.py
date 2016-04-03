@@ -16,18 +16,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "iwdq=bgnj2tsp*uc2(_kd59!0724wrkf(@m9$g0^7rds)jgruj"
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
 ADMINS = (
-    ('Jenny Gao', 'technology@theharvardadvocate.com'),
+    ('Brendan Bozorgmir', 'technology@theharvardadvocate.com'),
     ('Yuqi Hou', 'hou@college.harvard.edu'),
     ('Luciano Arango', 'lucianoarango@college.harvard.edu'),
     ('Alex Sedlack', 'asedlack@college.harvard.edu'),
@@ -59,7 +52,6 @@ INSTALLED_APPS = (
     'haystack',
     'tinymce',
     'ajax_select',
-    'south',
     'magazine',
     'blog',
     'payments',

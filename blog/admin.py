@@ -1,9 +1,11 @@
 from django.contrib import admin
 from .models import *
-from mce_filebrowser.admin import MCEFilebrowserAdmin
+from .forms import BlogForm
 
-class PostAdmin(MCEFilebrowserAdmin):
-    search_fields = ['tags']
+
+class PostAdmin(admin.ModelAdmin):
+	form = BlogForm
+	search_fields = ['tags']
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Images)

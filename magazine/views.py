@@ -4,6 +4,7 @@ from django.http import HttpResponse
 # from .models import Article, Content, Issue , Subscriber# '.' signifies the current directory
 from .models import Article, Content, Image, Issue, Contributor, ShopItem # '.' signifies the current directory
 from .forms import UploadShopItemForm
+from blog.models import Post, Author
 from collections import OrderedDict
 from itertools import chain
 import json
@@ -28,6 +29,7 @@ def index(request):
   # for each article with this issue id
   articles_in_issue = Article.objects.published().filter(issue=issue)
   data = {
+    'blog': { },
     'sections': { },
     'issue': issue,
   }
@@ -44,6 +46,10 @@ def index(request):
   for key in data['sections']:
     if data['sections'][key]:
       data['sections'][key]= random.choice(data['sections'][key])
+  posts = Post.objects.all()
+  recent_blog = list(reversed(sorted(posts, key=lambda i: i.created)))[:2 ]
+  data['blog']['post1'] = recent_blog[0]
+  data['blog']['post2'] = recent_blog[1]
   template_name = 'index.html'
   return render_to_response(template_name, data, context_instance=RequestContext(request))
 
@@ -177,6 +183,14 @@ class FilterSearchView(SearchView):
                         return redirect(Contributor.objects.get(name = self.query))
                 except Contributor.DoesNotExist:
                         pass
+                try:
+                        return redirect(Post.objects.get(title = self.query))
+                except Post.DoesNotExist:
+                        pass
+                try:
+                        return redirect(Author.objects.get(name = self.query))
+                except Author.DoesNotExist:
+                        pass
 
                 context.update(self.extra_context())
                 return render_to_response(self.template, context, context_instance=self.context_class(self.request))
@@ -185,6 +199,11 @@ class FilterSearchView(SearchView):
 def subscribe(request):
   template_name = 'subscribe.html'
   return render_to_response(template_name, context_instance=RequestContext(request))
+
+def gala(request):
+  template_name = 'gala.html'
+  return render_to_response(template_name, context_instance=RequestContext(request))
+
 
 def stripeSubmit(request):
   # Get the credit card details submitted by the form
