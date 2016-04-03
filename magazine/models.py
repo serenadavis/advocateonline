@@ -28,6 +28,9 @@ def upload_image_to(instance, filename):
     return os.path.join('sites', 'default', 'files', fname)
     #return os.path.join('images', str(instance.issue.year), str(instance.issue.issue), now() + '_' + fname)
 
+def get_image_path(instance, filename):
+    return os.path.join('static/images/shop/', filename)
+
 class Issue(models.Model):
     name = models.CharField(max_length=255, unique=True)
     theme = models.CharField(max_length=255, blank=True, null=True)
@@ -180,4 +183,13 @@ class Purchase(models.Model):
     amount = models.IntegerField()
     purchases_json = models.CharField(max_length=255)
     time = models.CharField(max_length=255)
+
+class ShopItem(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    image = models.ImageField(upload_to=get_image_path, blank=True, null=True)
+
+
+
 

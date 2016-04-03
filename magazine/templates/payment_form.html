@@ -87,4 +87,8 @@
 </div>
 <p class="small">Your private credit card data will never touch our servers.</p>
 <span class="payment-errors" style="color:red;"></span>
+{% if totalStr %}
+<button type="submit" class="btn btn-success btn-block">Submit Payment of ${{totalStr}}</button>
+{% else %}
 <button type="submit" class="btn btn-success btn-block">Submit Payment</button>
+{% endif %}

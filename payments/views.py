@@ -1,3 +1,4 @@
+from django.core.mail import send_mail
 from django.shortcuts import get_object_or_404, render_to_response
 from django.template.context import RequestContext
 from magazine.models import Subscriber, Donation, Purchase # '.' signifies the current directory
@@ -8,7 +9,7 @@ from django.conf import settings
 from datetime import datetime
 from pytz import timezone
 from magazine import views
-import logging
+import logging, base64
 
 
 # logger = logging.getLogger("payments")
@@ -135,6 +136,74 @@ def stripeSubmit(request):
         "message": message
       }
       return render_to_response("paymenterror.html", data, context_instance=RequestContext(request))
+
+def stripeSubmitShop(request):
+    # Get the credit card details submitted by the cart form
+
+    if "stripeToken" not in request.POST:
+      return render_to_response("cart.html", context_instance=RequestContext(request))
+    token = request.POST['stripeToken']
+    # Create the charge on Stripe's servers - this will charge the user's card
+    # print "getting total"
+    # total = request.POST['total']
+    # print "total:"
+    # print total
+    # print "total has type:"
+    # print type(total)
+    stripe.api_key = settings.STRIPE_BUY_SECRET_KEY
+
+
+    # For testing:
+    emailBody = "Hi " + request.POST['name'] + "! We are writing to confirm your purchases on theharvardadvocate.com. You will be charged " + str(total) + " cents.\n\nHere is a description of your purchases:\n\n" + request.POST['purchaseDescription'] + ".\n\nThese will be emailed to the following address:\n\n" + request.POST['streetAddress1'] + "\n" + request.POST['streetAddress2'] + "\n" + request.POST['city'] + ", " + request.POST['state'] + " " + request.POST['zipCode'] + "\n" + request.POST['country'] + "\n\nIf any of this information looks incorrect please send an email to tech@theharvardadvocate.com\n\nThank you for supporting the Harvard Advocate!"
+    send_mail('Purchase Confirmation', emailBody, 'sammysignal@gmail.com', [request.POST['email'], 'tech@theharvardadvocate.com'], fail_silently=False)
+
+
+    # print "got here too"
+    # create a stripe customer
+    customer = stripe.Customer.create(
+        card = token,
+        description = request.POST['purchaseDescription'],
+        email = request.POST['email'],
+        metadata = {
+            'Name': request.POST['name'],
+            'Address': request.POST['streetAddress1'],
+            'Address Line 2': request.POST['streetAddress2'],
+            'City': request.POST['city'],
+            'State': request.POST['state'],
+            'Zip Code': request.POST['zipCode'],
+            'Country': request.POST['country'],
+        }
+    )
+
+    # print "customer created"
+
+    try:
+        print "about to charge customer for " + str(int(total)) + " cents."
+        chargeCustomer(int(total),customer.id,'shop')
+
+
+        emailBody = "Hi " + request.POST['name'] + "! We are writing to confirm your purchases on theharvardadvocate.com. You will be charged " + str(total) + " cents.\n\nHere is a description of your purchases:\n\n" + request.POST['purchaseDescription'] + ".\n\nThese will be emailed to the following address:\n\n" + request.POST['streetAddress1'] + "\n" + request.POST['streetAddress2'] + "\n" + request.POST['city'] + ", " + request.POST['state'] + " " + request.POST['zipCode'] + "\n" + request.POST['country'] + "\n\nIf any of this information looks incorrect please send an email to tech@theharvardadvocate.com\n\nThank you for supporting the Harvard Advocate!"
+        send_mail('Purchase Confirmation', emailBody, 'sammysignal@gmail.com', [request.POST['email'], 'tech@theharvardadvocate.com'], fail_silently=False)
+
+        template_name = 'success.html'
+        return render_to_response(template_name, context_instance=RequestContext(request))
+    except stripe.CardError as problem:
+      # The card has been declined
+      template = "Looks like there is a problem with your payment information: {0}. Arguments:\n{1!r}"
+      message = template.format(type(problem).__name__, ex.problem)
+      data = {
+        "message": message
+      }
+      return render_to_response("paymenterror.html", data, context_instance=RequestContext(request))
+    except Exception as problem:
+      # There is a different problem
+      # logger.error(problem)
+      message = "There are has been an error with our servers. You card should not have been charged. If it was please get in contact with tech@theharvardadvocate.com and we will be glad to resolve this."
+      data = {
+        "message": message
+      }
+      return render_to_response("paymenterror.html", data, context_instance=RequestContext(request)) 
+
 
 def sendDonation(request):
     # get form details

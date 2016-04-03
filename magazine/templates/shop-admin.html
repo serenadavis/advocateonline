@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <!-- upload new shop item -->
+        <form id="shop-upload" style="border: solid 1px black"
+        enctype="multipart/form-data" method="post">{% csrf_token %}
+            <p>Item Name:</p>
+            <input type="text" name="name" size="30">
+            <p>Item Description:</p>
+            <input type="textarea" name="description" size="30">
+            <p>Item Price:</p>
+            <input type="text" name="price" size="30">
+            <p>Item image</p>
+            <input id="imageField" type="file" name="imagefile">
+            <img id="blah" src="#" alt="your image"/>
+            <br>
+            <input id="upload-submit" type="submit" value="Submit">
+        </form>
+
+        {{ form }}
+
+        <form style="visibility: hidden;" id="dummy">
+            {% csrf_token %}
+            <input id="id-to-delete" type="text" name="id" size="30">
+            <input id="delete-submit" type="submit" value="Submit">
+        </form>
+
+
+        Delete Items:
+
+        <div style="border: solid 1px black">
+            {% for shop_item in shop_items %}
+                <p class="shopItem" id="shopID-{{shop_item.id}}">
+                    {{ shop_item.name }}, {{shop_item.price}}
+                </p>
+            {% endfor %}
+        </div>
+        <style>
+            .shopItem:hover {
+                background-color: #FEDCBA;
+            }
+        </style>
+        <!-- delete shop item -->
+        <script>
+        $(document).ready(function(){
+            $('#upload-submit').on('click', function() {
+                $.post("/shop-upload", $('#shop-upload').serialize(), function(){
+                    console.log('reloading!')
+                });
+            });
+
+            $('.shopItem').on('click', function(){
+                var r = confirm("are you sure you want to delete this item: " + JSON.stringify(this));
+                if (r == true) {
+                    console.log('delete!');
+                    console.log(this);
+                    var toDeleteID = this.getAttribute('id').split('-')[1];
+                    $('#id-to-delete').attr('value', toDeleteID);
+                    $.post("/shop-delete", $('#dummy').serialize(), function(){
+                        window.location = window.location.origin + '/shop-admin';
+                    });
+                }
+                else {
+                    console.log('nope');
+                    console.log(this);
+                }
+            });
+        });
+
+        </script>
+    </body>
+</html>

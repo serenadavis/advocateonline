@@ -1,0 +1,82 @@
+{% extends "base_original.html" %}{% block content %}
+{% load staticfiles %}
+
+<br>
+<div style="height: auto;">
+  <img class="item-img-lg" src="/media/{{item.image}}" alt="shopItem">
+
+  <div id="info-container">
+    <center>
+    <p class="hidden-title" style="display: none;">{{item.title}}</p>
+    <h2 class="subheader" style="font-size: 16px;">{{item.title}}</h2>
+    <p class="item-description">{{item.description}}</p>
+    <p>${{item.price}}</p>
+    <br><br>
+    <p class="add-to-cart" data-shopitem-id="{{item.id}}">Add to Cart</p>
+    </center>
+  </div>
+  <div style="clear: both;"></div>
+  <br>
+   <a href="/cart" style="float:right;">
+      <button type="button" class="btn btn-primary-outline" style="width: 200px; clear: both;">Go to Cart</button>
+  </a>
+   <a href="/shop" style="float:right; margin-right: 5%;">
+      <button type="button" class="btn btn-primary-outline" style="width: 200px; clear: both;">Return to Shop</button>
+  </a>
+
+</div>
+
+<script src="{% static 'magazine/js/notify.min.js' %}"></script>
+<style>
+.item-img-lg {
+    max-width: 400px;
+    max-height: 800px;
+    float: left;
+}
+#info-container {
+  float: left;
+  margin-left: 10%;
+  max-height: 800px;
+  max-width: 300px;
+}
+
+.add-to-cart {
+    bottom: 0;
+    border: 1px solid black;
+    margin: 2px;
+}
+.add-to-cart:hover {
+    border: 3px solid black;
+    margin: 0;
+    cursor: pointer;
+}
+</style>
+
+<script>
+    $('.add-to-cart').on('click', function(){
+        //alert(this.getAttribute('data-shopitem-id'));
+        var itemTitle = this.parentElement.getElementsByClassName('hidden-title')[0].innerHTML;
+        var itemId = this.getAttribute('data-shopitem-id');
+        var jqxhr = $.post( "/cart", {'action': 'insert', 'itemId': itemId, 'csrfmiddlewaretoken': "{% csrf_token %}".split("value='")[1].split("'")[0]} , function(a) {
+          //alert( a );
+          console.log(a);
+        })
+          .done(function(a) {
+            var response = JSON.parse(a);
+            if (response['code'] == 0){
+                $.notify("Item '" + itemTitle + "' added to cart.", "success");
+            }
+            else if (response['code'] == 1) {
+                $.notify(response['responseText'], "info");
+            }
+            else {
+                $.notify(response['responseText'], "error");
+            }
+          })
+          .fail(function() {
+            alert( "error" );
+          })
+    })
+</script>
+
+{% endblock %}
