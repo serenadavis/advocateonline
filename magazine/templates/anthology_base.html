@@ -101,10 +101,8 @@
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
   ga('create', 'UA-59103813-1', 'auto');
   ga('send', 'pageview');
-
 </script>
 
 </head>
@@ -114,18 +112,19 @@
 <div class="container">
     <a href="/">
       {% if name == "fiction" %}
-      <div style="background-image: url('{% static "magazine/images/banner1.jpg" %}')" class = "header-image img-responsive" alt="Main Image" > </div>
+      <div style="background-image: url('{% static "magazine/images/banner1.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
       {% elif name == "poetry" %}
-      <div style="background-image: url('{% static "magazine/images/banner3.jpg" %}')" class = "header-image img-responsive" alt="Main Image" > </div>
+      <div style="background-image: url('{% static "magazine/images/banner3.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
       {% elif name == "features" %}
-      <div style="background-image: url('{% static "magazine/images/banner3.jpg" %}')" class = "header-image img-responsive" alt="Main Image" > </div>
+      <div style="background-image: url('{% static "magazine/images/banner3.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
       {% elif name == "art" %}
-      <div style="background-image: url('{% static "magazine/images/banner4.jpg" %}')" class = "header-image img-responsive" alt="Main Image" > </div>
+      <div style="background-image: url('{% static "magazine/images/banner4.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
       {% else %}
-      <div style="background-image: url('{% static "magazine/images/banner_summer2015.jpg" %}')" class = "header-image img-responsive" alt="Main Image" > </div>
+      <div style="background-image: url('{% static "magazine/images/banner_summer2015.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
       {% endif %}
     </a>
 
+</div>
 </div>
 
 <!-- <hr class = "navbar-divider"> -->
@@ -136,10 +135,26 @@
 {% block content %}
 {% endblock %}
 
-
 </body>
 
-
+<footer>
+  <!-- <hr class = "navbar-divider"> -->
+  <div class="container">
+    <nav class="navbar navbar-default advo-navbar footer-navbar" role="navigation">
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <ul class="nav navbar-nav footer-navbar">
+        <li > <a href="/advertise">ADVERTISE</a></li>
+        <li ><a href="/alumni">ALUMNI</a></li>
+        <li ><a href="/contact">CONTACT US</a></li>
+        <li ><a href="/comp">COMP</a></li>
+        <li ><a href="/submit">SUBMIT</a></li>
+      </ul>
+    </nav>
+    <div class="copyright">
+      COPYRIGHT &#169; THE HARVARD ADVOCATE 2016 | <a href="/admin">LOG IN</a>
+    </div>
+  </div>
+  </div>
+</footer>
 
 </html>
-
