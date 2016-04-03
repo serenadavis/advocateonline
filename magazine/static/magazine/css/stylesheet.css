@@ -471,7 +471,6 @@ article.poetry p {
 	max-height: 500px;
 }
 
-
 .container{
 	max-width: 900px;
 }
@@ -596,6 +595,7 @@ ul li ul.dropdown li{
 	margin-top: -0.1%;
 	background-color: #EEEEEE;
 	border-radius: 0;
+	position: relative;
 }
 .xbutton {
 	display: block;

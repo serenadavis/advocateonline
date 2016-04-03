@@ -70,6 +70,11 @@ class Decade(models.Model):
     )
     cover_image = models.ImageField(upload_to=upload_image_to, blank=True, null=True)
     slug = models.SlugField(max_length=100)
+    def get_image(self):
+        if self.cover_image:
+            return self.cover_image.url
+        else:
+            return ""
     def __unicode__(self):
         return self.name
 
