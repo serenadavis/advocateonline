@@ -355,10 +355,14 @@ def galaDonation(request):
     try:
         donation_amount = int(request.POST['amount'])
         amount += donation_amount
-        comm += ",  Donation : " + request.POST['amount']
+        comm += ",  Donation : " + str(donation_amount)
     except: 
         #logger.log("no donation")
         print 1
+
+    try:
+        names = str(request.POST['comment'])
+        comm += " FULL NAMES: " +  names
 
     #logger.error(amount)  
     amount = amount*100
@@ -397,8 +401,8 @@ def galaDonation(request):
             country=request.POST['country'],
             zipCode=request.POST['zipCode'],
             customerID = customer.id,
-            amount=int(request.POST['amount']),
-            comment= comm + " FULL NAMES: " +  str(request.POST['comment']),
+            amount=amount,
+            comment= comm,
             time = getEasternTimeZoneString()
         )
         chargeCustomer(amount,customer.id,page)
