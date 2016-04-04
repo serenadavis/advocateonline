@@ -362,7 +362,9 @@ def galaDonation(request):
 
     try:
         names = str(request.POST['comment'])
-        comm += " FULL NAMES: " +  names
+        comm += ", FULL NAMES: " +  names
+    except:
+        print 1
 
     #logger.error(amount)  
     amount = amount*100
