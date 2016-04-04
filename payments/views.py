@@ -315,7 +315,7 @@ def galaDonation(request):
         print 1
 
     try:
-        subscriptionType = request.POST['ticketAnthologyUnderwriteType']
+        subscriptionType = request.POST['ticketAnthologyUnderWriteType']
         if subscriptionType == "0 Tickets" :
             amount += 0
         elif subscriptionType == "1 Tickets":
