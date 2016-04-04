@@ -353,7 +353,8 @@ def galaDonation(request):
         print 1
 
     try:
-        amount += int(request.POST['amount'])
+        donation_amount = int(request.POST['amount'])
+        amount += donation_amount
         comm += ",  Donation : " + request.POST['amount']
     except: 
         #logger.log("no donation")
