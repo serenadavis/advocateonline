@@ -4,6 +4,8 @@ from django.contrib import admin
 
 from ajax_select import urls as ajax_select_urls
 
+from rest_framework import routers, serializers, viewsets
+
 from magazine.views import FilterSearchView
 
 admin.autodiscover()
@@ -51,5 +53,6 @@ urlpatterns = patterns('',
     #http://stackoverflow.com/questions/19132123/name-settings-is-not-defined
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     url(r'^redactor/', include('redactor.urls')),
+    url(r'^api/', include('api.urls')),
 )
 

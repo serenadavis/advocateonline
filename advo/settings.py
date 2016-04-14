@@ -56,6 +56,8 @@ INSTALLED_APPS = (
     'contacts',
     'redactor',
     'select2',
+    'rest_framework',
+    'api',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -128,6 +130,14 @@ TINYMCE_DEFAULT_CONFIG = {
     'cleanup_on_startup': False,
     'custom_undo_redo_levels': 10,
 }
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES':[
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+    'PAGE_SIZE': 10
+}
+
 # Setting up logs
 # http://ianalexandr.com/blog/getting-started-with-django-logging-in-5-minutes.html
 # LOGGING = {
