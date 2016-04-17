@@ -1,7 +1,9 @@
 from django.shortcuts import get_object_or_404, render_to_response
 from django.template.context import RequestContext
+from django.http import HttpResponse
 # from .models import Article, Content, Issue , Subscriber# '.' signifies the current directory
-from .models import Article, Content, Image, Issue, Contributor # '.' signifies the current directory
+from .models import Article, Content, Image, Issue, Contributor, ShopItem # '.' signifies the current directory
+from .forms import UploadShopItemForm
 from blog.models import Post, Author
 from collections import OrderedDict
 from itertools import chain
@@ -181,6 +183,14 @@ class FilterSearchView(SearchView):
                         return redirect(Contributor.objects.get(name = self.query))
                 except Contributor.DoesNotExist:
                         pass
+                try:
+                        return redirect(Post.objects.get(title = self.query))
+                except Post.DoesNotExist:
+                        pass
+                try:
+                        return redirect(Author.objects.get(name = self.query))
+                except Author.DoesNotExist:
+                        pass
 
                 context.update(self.extra_context())
                 return render_to_response(self.template, context, context_instance=self.context_class(self.request))
@@ -189,6 +199,11 @@ class FilterSearchView(SearchView):
 def subscribe(request):
   template_name = 'subscribe.html'
   return render_to_response(template_name, context_instance=RequestContext(request))
+
+def gala(request):
+  template_name = 'gala.html'
+  return render_to_response(template_name, context_instance=RequestContext(request))
+
 
 def stripeSubmit(request):
   # Get the credit card details submitted by the form
@@ -274,16 +289,101 @@ def advertise(request):
   return render_to_response(template_name, context_instance=RequestContext(request))
 
 def shop(request):
-  all_issues = Issue.objects.all()
-  season = {'Winter': 0, 'Spring': 1, 'Commencement': 2, 'Fall': 3}
-  #all_issues_sorted = reversed(sorted(all_issues, key=lambda i: i.year))
-  all_issues_sorted = reversed(sorted(all_issues, key=lambda i: i.year * 10 + season[i.issue]))
+  all_items = ShopItem.objects.all()
   data = {
-    'issues': all_issues_sorted,
+    'items': all_items,
     'page': 'shop',
   }
   template_name = 'shop.html'
   return render_to_response(template_name, data, context_instance=RequestContext(request))
+
+def shopItemView(request, id):
+  item = ShopItem.objects.filter(id=id)
+  if item:
+    data = {
+      'item': item[0],
+      'page': 'shopItemView',
+    }
+    template_name = 'shop_item_view.html'
+    return render_to_response(template_name, data, context_instance=RequestContext(request))
+  else: # item does not exist
+    return HttpResponse('404: Page not found.')
+
+
+def shop_admin(request):
+  if request.method == 'GET':
+    form = UploadShopItemForm()
+    return render_to_response('shop-admin.html', {'shop_items': ShopItem.objects.all(), 'form': form}, context_instance=RequestContext(request))
+  #return HttpResponse("")
+  return HttpResponse("<script>window.location = window.location.origin + '/shop-admin';</script>")
+
+def shop_upload(request):
+  if request.method == 'POST':
+    item_name = request.POST['name']
+    item_description = request.POST['description']
+    item_price = request.POST['price']
+    item_imagefile = request.POST['imagefile']
+    new_item = ShopItem(name=item_name, description=item_description, price=item_price)#, profile_image=item_imagefile)
+    new_item.save()
+    return render_to_response('shop-admin.html', {}, context_instance=RequestContext(request))
+  return HttpResponse("There's nothing here.")
+
+def shop_delete(request):
+  if request.method == 'POST':
+    print "request.POST:"
+    print dir(request.POST)
+    print "keys"
+    print request.POST.keys()
+    print "token"
+    print request.POST['csrfmiddlewaretoken']
+    ShopItem.objects.filter(id=request.POST['id']).delete()
+    return HttpResponse("success!")
+
+def cart(request):
+  if request.method == 'GET':
+    cartSession = request.session.get('cartItems', False)
+    if cartSession:
+      all_items = ShopItem.objects.filter(id__in=cartSession)
+      purchase_description = [itm.title for itm in all_items]
+      purchase_description = ', '.join(purchase_description)
+      purchase_description = purchase_description.replace('"', "'")
+      total = int(sum([item.price for item in all_items])*100)
+      totalStr = str(total)
+      totalStr = totalStr[:-2] + "." + totalStr[-2:]
+      data = {'items': all_items, 'page': 'cart', 'total': total, 'totalStr': totalStr, 'purchaseDescription': purchase_description}
+      return render_to_response("cart.html", data, context_instance=RequestContext(request))
+    else:
+      data = {'items': [], 'page': 'cart'}
+      return render_to_response("cart.html", data, context_instance=RequestContext(request))
+  if request.method == 'POST':
+    if request.POST['itemId']:
+      cartSession = request.session.get('cartItems', False)
+      # insert request
+      if request.POST['action'] == "insert":
+        if cartSession:
+          if request.POST['itemId'] in cartSession:
+            return HttpResponse('{"code": 1, "responseText": "Item already added."}')
+          else:
+            request.session['cartItems'].append(request.POST['itemId'])
+            request.session.modified = True
+        else:
+          request.session['cartItems'] = [request.POST['itemId']]
+          request.session.modified = True
+        return HttpResponse('{"code": 0, "responseText": "success!"}')
+      # delete request
+      elif request.POST['action'] == "delete":
+        if request.POST['itemId'] in cartSession:
+          cartSession = [i for i in cartSession if i != request.POST['itemId']]
+          request.session['cartItems'] = cartSession
+          request.session.modified = True
+          return HttpResponse('{"code": 0, "responseText": "success!"}')
+        else:
+          return HttpResponse('{"code": 0, "responseText": "nothing to delete."}')
+      else:
+        return HttpResponse('{"code": 4, "responseText": "Invalid action"}')
+    else:
+      return HttpResponse('{"code": 2, "responseText": "Invalid post data."}')
+  return HttpResponse('{"code": 3, "responseText": "Invalid request"}')
 
 def onefifty(request):
   template_name = '150th.html'

@@ -13,25 +13,20 @@
             
             <h3 class="blog-title"><a class="underline" href="{{post.get_absolute_url}}">{{post.title}}</a></h3>
             {% if post.authors.all %}
-            <h4>By {% for author in post.authors.all %}
-                {% if forloop.first %}{% else %}
-                    {% if forloop.last %} and {% else %}<span style="margin-left:-5px;">,</span>{% endif %}
-                {% endif %}<a class="no-decoration" href="{{author.get_absolute_url}}">{{author}}</a>
-            {% endfor %}
-            </h4>
-            {% else %}
-
+                <h4>By 
+                {% for author in post.authors.all %}
+                    {% if forloop.first %}{% else %}
+                        {% if forloop.last %} and {% else %}<span style="margin-left:-5px;">,</span>{% endif %}
+                    {% endif %}<a class="no-decoration" href="{{author.get_absolute_url}}">{{author}}</a>
+                {% endfor %}
+                </h4>
             {% endif %}
-
-            <!-- How to check if image exists:
-            http://stackoverflow.com/questions/6637168/python-django-templates-and-testing-if-a-variable-is-null-or-empty-string?rq=1
-            http://stackoverflow.com/questions/12507281/determine-empty-template-variable-in-django -->
-            <h6 class = "blog-title">{{ post.created | date:"M d, Y" }} <h6>
+            <h6 class = "blog-date">{{ post.created | date:"M d, Y" }}<h6>
             {% if post.first_image_id %}
             <figure style="margin-bottom: 10px;" class="container-blog"><a href="{{post.get_absolute_url}}" class="underline"><img class='img-responsive img-blog' style="margin: 0 auto;" src="{{post.first_image.path}}"></a></figure>
             {% endif %}
-            <p>{{post.teaser}}</p>
-            <p><a class="read-more" href="{{post.get_absolute_url}}">Read More</a></p>
+            <p class="post-teaser">{{post.teaser}}</p>
+            <a class="read-more" href="{{post.get_absolute_url}}">Read More</a>
         </div>
 
     {% endfor %}

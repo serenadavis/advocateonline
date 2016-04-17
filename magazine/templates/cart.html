@@ -1,0 +1,150 @@
+{% extends "base_original.html" %}{% block content %}
+{% load staticfiles %}
+
+<div class="container">
+    <h1 class="header">SHOPPING CART</h1>
+    {% if items %}
+     <p class = "text">Please review your purchases, then checkout with the flow below.</p>
+     <br>
+     <ul style="list-style-type: none">
+     {% for item in items %}
+        <li class="shopItem">
+          <div class="cart-img-container">
+            <a href="/shop/{{item.id}}"><img src="/media/{{item.image}}" alt="shopItem"></a>
+          </div>
+          <div class="cart-txt-container">
+            <h3>{{item.title}}</h3>
+            <p>${{item.price}}</p>
+            <p class="delete-from-cart" data-shopitem-id="{{item.id}}">Delete from cart</p>
+          </div>
+        </li>
+     {% endfor %}
+   </ul>
+   {% else %}
+     <p class = "text">Your shopping cart is empty. Click <a href="/shop" style="color: blue;">here</a> to visit our shop.</p>
+   {% endif %}
+
+{% if items %}
+
+<div class="container">
+    <h1 class="header">Checkout</h1>
+    <div style="margin: 40px auto 0px auto; background: #eee; max-width: 80%; padding: 20px;">
+        <div class="form-container active">
+            <form action="/stripeSubmitShop" method="post" id="payment-form">{% csrf_token %} 
+                <h3 class="signup-subheading">Total: &nbsp;&nbsp;&nbsp; ${{totalStr}}</h3>
+                <h3 class="signup-subheading">Mailing Address</h3>
+                
+                {% include 'payment_form.html' with totalStr=totalStr %}
+
+                <input type="hidden" name="purchaseDescription" value="{{purchaseDescription}}"/>
+                <!--{% include 'paymentData.html' with page="Subscribe" only  %}-->
+
+                <input name="currency_code" type="hidden" value="USD"/>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+
+  // This identifies your website in the createToken call below
+  //Stripe.setPublishableKey('pk_test_7mkjcG8fQj3qmdhCgP92Pq4g');
+  Stripe.setPublishableKey('pk_live_D7yZGFFO2av0FKrXYKwGU6Ye');
+  
+  var stripeResponseHandler= function(status, response) {
+  var $form = $('#payment-form');
+
+  if (response.error) {
+    // Show the errors on the form
+    $form.find('.payment-errors').text(response.error.message);
+    $form.find('button').prop('disabled', false);
+  } else {
+    // response contains id and card, which contains additional card details
+    var token = response.id;
+    // Insert the token into the form so it gets submitted to the server
+    $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+    // Insert the payment amount so it gets submitted to the server
+    $form.append($('<input type="hidden" name="total" />').val({{total}}));
+    $form.get(0).submit();
+  }
+};
+
+jQuery(function($) {
+  $('#payment-form').submit(function(event) {
+    var $form = $(this);
+
+    // Disable the submit button to prevent repeated clicks
+    $form.find('button').prop('disabled', true);
+
+    Stripe.card.createToken($form, stripeResponseHandler);
+
+    // Prevent the form from submitting with the default action
+    return false;
+  });
+});
+</script>
+
+
+
+<style>
+.cart-img-container {
+  float: left;
+  margin-bottom: 10px;
+  margin-right: 5%;
+}
+.cart-txt-container {
+  float: left;
+}
+.shopItem {
+    width: 100%;
+    display: inline;
+    float: left;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.delete-from-cart {
+    border: 1px solid white;
+}
+.delete-from-cart:hover {
+    border: 1px solid black;
+    cursor: pointer;
+}
+.shopItem img {
+    margin: auto;
+    max-width: 100px;
+    max-height: 200px;
+}
+</style>
+
+<script src="{% static 'magazine/js/notify.min.js' %}"></script>
+<script>
+    $('.delete-from-cart').on('click', function(){
+      var itemId = this.getAttribute('data-shopitem-id');
+      var jqxhr = $.post( "cart", {'action': 'delete', 'itemId': itemId, 'csrfmiddlewaretoken': "{% csrf_token %}".split("value='")[1].split("'")[0]} , function(a) {
+            console.log(a);
+            console.log($);
+          })
+            .done(function(a) {
+              var response = JSON.parse(a);
+              if (response['code'] == 0){
+                  //$.notify("Item '" + "" + "' deleted from cart.", "success");
+                  location.reload();
+              }
+              else if (response['code'] == 1) {
+                  console.log($);
+                  $.notify(a['responseText'], "success");
+              }
+              else {
+                  $.notify(a['responseText'], "error");
+              }
+            })
+            .fail(function(e) {
+              alert( "error. see console for details." );
+              console.log(e);
+            })
+    });
+</script>
+
+{% endif %}
+
+{% endblock %}

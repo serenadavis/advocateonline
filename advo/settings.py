@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 ALLOWED_HOSTS = []
 
 ADMINS = (
-    ('Jenny Gao', 'technology@theharvardadvocate.com'),
+    ('Brendan Bozorgmir', 'technology@theharvardadvocate.com'),
     ('Yuqi Hou', 'hou@college.harvard.edu'),
     ('Luciano Arango', 'lucianoarango@college.harvard.edu'),
     ('Alex Sedlack', 'asedlack@college.harvard.edu'),
@@ -30,6 +30,11 @@ ADMINS = (
 MANAGERS = ADMINS
 
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
 
 # Application definition
 
@@ -176,9 +181,7 @@ try:
 except ImportError:
     pass
 
-### SUSPECT STUFF I ADDED ###
-DEBUG = True
 
-from django.utils.crypto import get_random_string
-chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
-SECRET_KEY = get_random_string(50, chars)
+import django
+from django.conf import settings
+from django.core.mail import send_mail
