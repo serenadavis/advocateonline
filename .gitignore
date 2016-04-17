@@ -6,4 +6,5 @@ advo/local_settings.py
 advo/sample_local_settings.py
 sql/*
 *.DS_Store
+*.sql
 advocatemain.log
