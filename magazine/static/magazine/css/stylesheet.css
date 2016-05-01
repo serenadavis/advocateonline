@@ -595,7 +595,7 @@ ul li ul.dropdown li{
 }
 .decade h3 {
   margin: 0vh;
-  line-height: 30vh;
+  line-height: 24vh;
 }
 .panel {
 	float: left;
@@ -620,6 +620,8 @@ ul li ul.dropdown li{
 }
 h3 .xbutton {
 	font-size: 50px;
+	position: relative;
+	display: block;
 }
 
 
