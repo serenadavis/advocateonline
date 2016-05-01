@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta charset="utf-8">
+  {% block meta %}
+  <title>The Harvard Advocate</title>
+  <meta name="description" content="Harvard's undergraduate journal of fiction, poetry, art and criticism.">
+  <meta name="author" content="The Harvard Advocate">
+  {% endblock %}
+
+  {% load staticfiles %}
+  <link rel="shortcut icon" href="{% static 'magazine/images/favicon.ico' %}" type="image/x-icon" />
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet"  href="{% static 'magazine/css/bootstrap.css' %}">
+ <!-- Making Credit Cards look nice -->
+   <link rel="stylesheet"  href="{% static 'magazine/css/card.css' %}">
+  <!--  Theme -->
+  <link rel="stylesheet"  href="{% static 'magazine/css/bootstrap-theme.css' %}">
+  <!-- Latest JQuery -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  
+
+  <!-- Advocate Javascript -->
+  <script src="{% static 'magazine/js/main.js' %}"></script>
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="{% static 'magazine/css/stylesheet.css' %}">
+
+  <!-- Typeaheadjs -->
+  <script src="{% static 'magazine/js/typeahead.bundle.min.js' %}"></script>
+  <script src="{% static 'magazine/js/typeahead.jquery.min.js' %}"></script>
+  <script src="{% static 'magazine/js/bloodhound.min.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'magazine/css/search_style.css' %}"></link>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+      var authors = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        local: $.map({{typeahead_authors | safe}}, function(author) {return { name: author }; })
+      });
+    
+      var titles = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title'),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        local: $.map({{typeahead_titles | safe}}, function(content) {return { title: content}; })
+      });
+    
+      authors.initialize();
+      titles.initialize();
+    
+      $('input.typeahead').typeahead({
+        hint: true,
+        highlight: true,
+        minLength: 1
+      },
+      {
+        name: 'Authors',
+        highlight: true,
+        displayKey: 'name',
+        source: authors.ttAdapter(),
+        templates: { header: '<h3 class="typeahead-datasets">Authors</h3>', 
+                     suggestion: function (data) {
+                          return '<p align="right">' +  data.name +  '</p>'; }
+                   }
+      },
+      {
+        name: 'Titles',
+        displayKey: 'title',
+        source: titles.ttAdapter(),
+        templates: { header: '<h3 class="typeahead-datasets">Titles</h3>',
+                     suggestion: function (data) {
+                          return '<p align="right">' + data.title + '</p>'; }
+                   }
+      });
+    });
+</script>
+
+<script type="text/javascript">
+    $(function() {
+      $('form').each(function() {
+        $(this).find('input').keypress(function(e) {
+          if(e.which == 10 || e.which == 13)
+          {
+            this.form.submit();
+          }
+        });
+        $(this).find('input[type=submit]').hide();
+      });
+    });
+</script>
+ 
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-59103813-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body class='container-fluid'>
+{% include 'header.html' %}
+<div class="container">
+    <a href="/">
+      {% if name == "fiction" %}
+      <div style="background-image: url('{% static "magazine/images/banner1.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
+      {% elif name == "poetry" %}
+      <div style="background-image: url('{% static "magazine/images/banner3.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
+      {% elif name == "features" %}
+      <div style="background-image: url('{% static "magazine/images/banner3.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
+      {% elif name == "art" %}
+      <div style="background-image: url('{% static "magazine/images/banner4.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
+      {% else %}
+      <div style="background-image: url('{% static "magazine/images/banner_summer2015.jpg" %}')" class = "header-image img-responsive" alt="Main Image" >
+      {% endif %}
+    </a>
+
+</div>
+</div>
+
+<!-- <hr class = "navbar-divider"> -->
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<!-- <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54c2b7196cc0867d" async="async"></script> -->
+
+
+{% block content %}
+{% endblock %}
+
+</body>
+
+<footer>
+  <!-- <hr class = "navbar-divider"> -->
+  <div class="container">
+    <nav class="navbar navbar-default advo-navbar footer-navbar" role="navigation">
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <ul class="nav navbar-nav footer-navbar">
+        <li > <a href="/advertise">ADVERTISE</a></li>
+        <li ><a href="/alumni">ALUMNI</a></li>
+        <li ><a href="/contact">CONTACT US</a></li>
+        <li ><a href="/comp">COMP</a></li>
+        <li ><a href="/submit">SUBMIT</a></li>
+      </ul>
+    </nav>
+    <div class="copyright">
+      COPYRIGHT &#169; THE HARVARD ADVOCATE 2016 | <a href="/admin">LOG IN</a>
+    </div>
+  </div>
+  </div>
+</footer>
+
+</html>
