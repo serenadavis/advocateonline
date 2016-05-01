@@ -138,6 +138,9 @@ body{
 
 	}
 }
+.affix + .container {
+    padding-top:50px
+}
 .no-underline{
   text-decoration: none;
 }
