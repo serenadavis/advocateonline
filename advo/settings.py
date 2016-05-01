@@ -21,10 +21,10 @@ ALLOWED_HOSTS = []
 
 ADMINS = (
     ('Brendan Bozorgmir', 'technology@theharvardadvocate.com'),
-    ('Yuqi Hou', 'hou@college.harvard.edu'),
-    ('Luciano Arango', 'lucianoarango@college.harvard.edu'),
+    ('Nicholas Hasselmo', 'nicholashasselmo@college.harvard.edu'),
+    ('Alexander Goldberg', 'alexandergoldberg@college.harvard.edu'),
     ('Alex Sedlack', 'asedlack@college.harvard.edu'),
-    ('Diane Yang', 'dianeyang@college.harvard.edu')
+    ('Sammy Mehra', 'smehra@college.harvard.edu')
 )
 
 MANAGERS = ADMINS

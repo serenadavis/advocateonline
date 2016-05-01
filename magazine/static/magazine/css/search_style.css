@@ -1,6 +1,6 @@
 .typeahead, .tt-query, .tt-hint {
     border: 1px solid #fff;
-    float: right;
+    /*float: right;*/
     border-radius: 8px;
     outline: medium none;
 }
