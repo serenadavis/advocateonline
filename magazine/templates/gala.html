@@ -22,7 +22,8 @@ p {
 <br>
 
     <p class="text">
-        <li class="text"> One ticket - U.S. $150.00 USD <br></li>
+        <li class="text"> One ticket for Recent Grads (Last 10 Years) - U.S. $100.00 USD <br></li>
+        <li class="text"> One ticket (All Others) - U.S. $150.00 USD <br></li>
         <li class="text"> One ticket and a numbered limited-edition letter press edition of <i>150 Years at the Advocate</i> printed by Thornwillow Press
 - U.S. $300.00 USD <br></li>
         <li class="text"> One ticket, <i>150 Years at the Advocate</i>, and underwrites a ticket to the event for one undergraduate - U.S. $500.00 USD <br></li>
@@ -36,6 +37,14 @@ p {
         
         <div class="form-container active">
             <form action="/galadonation" method="post" id="payment-form"> {% csrf_token %} 
+                    <select class="form-control" name="ticketRecentType"> 
+                    <option value="0 Tickets">0 Tickets (Recent Grads Only)- U.S. $0.00 USD</option> 
+                    <option value="1 Tickets">1 Ticket (Recent Grads Only)- U.S. $100.00 USD</option> 
+                    <option value="2 Tickets">2 Tickets (Recent Grads Only)- U.S. $200.00 USD</option> 
+                    <option value="3 Tickets">3 Tickets (Recent Grads Only)- U.S. $300.00 USD</option> 
+                    <option value="4 Tickets">4 Tickets (Recent Grads Only)- U.S. $400.00 USD</option> 
+                    <option value="5 Tickets">5 Tickets (Recent Grads Only)- U.S. $500.00 USD</option> 
+                </select>
                <select class="form-control" name="ticketType"> 
                     <option value="0 Tickets">0 Tickets- U.S. $0.00 USD</option> 
                     <option value="1 Tickets">1 Ticket- U.S. $150.00 USD</option> 

@@ -294,6 +294,24 @@ def galaDonation(request):
     except:
         #logger.log("no ticket")
         print 1
+     try:
+        subscriptionType = request.POST['ticketRecentType']
+        if subscriptionType == "0 Tickets" :
+            amount += 0
+        elif subscriptionType == "1 Tickets":
+            amount += 100
+        elif subscriptionType == "2 Tickets" :
+            amount += 200
+        elif subscriptionType == "3 Tickets":
+            amount += 300
+        elif subscriptionType == "4 Tickets" :
+            amount += 400
+        elif subscriptionType == "5 Tickets":
+            amount += 500
+        comm += ",  Recent Grad Tickets: " + subscriptionType
+    except:
+        #logger.log("no ticket")
+        print 1
 
     try:
         subscriptionType = request.POST['ticketAnthologyType']
