@@ -64,14 +64,14 @@
   <h1>
     ANTHOLOGY
   </h1>
-
+  <div class = "container">
   {% for decade, content in decades.items %}
     <div class="decade hvr-fade" id= 'flip{{decade.id}}' style='background-image: url("{{decade.get_image}}");'>
       <h3> {{ decade.name }} </h3>
     </div>
     {% include "panel.html" %}  
   {% endfor %}
-  <div> &nbsp; </div>
+  </div>
 </body>
 
 {% endblock %}
