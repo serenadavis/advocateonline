@@ -25,6 +25,9 @@
             {% if post.first_image_id %}
             <figure style="margin-bottom: 10px;" class="container-blog"><a href="{{post.get_absolute_url}}" class="underline"><img class='img-responsive img-blog' style="margin: 0 auto;" src="{{post.first_image.path}}"></a></figure>
             {% endif %}
+            {% if post.lead_photo and post.lead_photo|length > 0 %}
+             <figure><a href="{{post.get_absolute_url}}" class="no-decoration"><img class='img-responsive' style="margin: 0 auto;" src="{{MEDIA_URL}}{{ post.lead_photo }}"></a></figure>
+            {% endif %}
             <p class="post-teaser">{{post.teaser}}</p>
             <a class="read-more" href="{{post.get_absolute_url}}">Read More</a>
         </div>
