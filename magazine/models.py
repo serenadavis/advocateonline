@@ -144,7 +144,7 @@ class Donation(models.Model):
     customerID = models.CharField(max_length=255)
     time = models.CharField(max_length=255)
     def __unicode__(self):
-        return self.name
+        return self.name + "  " + self.comment
 
 
 class Subscriber(models.Model):
