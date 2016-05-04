@@ -143,6 +143,8 @@ class Donation(models.Model):
     zipCode = models.CharField(max_length=255)
     customerID = models.CharField(max_length=255)
     time = models.CharField(max_length=255)
+    def __unicode__(self):
+        return self.name
 
 
 class Subscriber(models.Model):

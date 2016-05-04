@@ -6,6 +6,8 @@ admin.site.register(Issue)
 admin.site.register(Section)
 admin.site.register(Contributor)
 admin.site.register(ShopItem)
+admin.site.register(Donation)
+admin.site.register(Subscriber)
 
 class TagAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
