@@ -392,13 +392,13 @@ def galaDonation(request):
         page = 'gala'
         name = request.POST['name']
         email = request.POST['email']
-        comment=request.POST['comment']
+        #comment=request.POST['comment']
 
         # Create customer on Stripe
         stripe.api_key = settings.STRIPE_DONATE_SECRET_KEY
         customer = stripe.Customer.create(
             card = token,
-            description = comment,
+            description = comm,
             email = email,
             metadata = {
                 'Name': name,
@@ -504,7 +504,7 @@ def financialdonation(request):
         stripe.api_key = settings.STRIPE_DONATE_SECRET_KEY
         customer = stripe.Customer.create(
             card = token,
-            description = comment,
+            description = comm,
             email = email,
             metadata = {
                 'Name': name,
