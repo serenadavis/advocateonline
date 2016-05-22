@@ -452,8 +452,6 @@ def galaDonation(request):
 
 
 def financialdonation(request):
-    # get form details
-    # logger.error("")
     if "stripeToken" not in request.POST:
       return render_to_response("financialaid.html", context_instance=RequestContext(request))
     token = request.POST['stripeToken']
@@ -461,7 +459,7 @@ def financialdonation(request):
     amount = 0
     try:
         subscriptionType = request.POST['donateType']
-        if subscriptionType == "Herodotus" :
+        if subscriptionType == "Herodotus":
             amount += 50
         elif subscriptionType == "Odysseus":
             amount += 100
@@ -490,7 +488,7 @@ def financialdonation(request):
 
     try:
         names = str(request.POST['comment'])
-        comm += ", FULL NAMES: " +  names
+        comm += ", Additional Comment: " +  names
     except:
         print 1
 
@@ -502,8 +500,6 @@ def financialdonation(request):
         page = 'financialaid'
         name = request.POST['name']
         email = request.POST['email']
-        comment=request.POST['comment']
-
         # Create customer on Stripe
         stripe.api_key = settings.STRIPE_DONATE_SECRET_KEY
         customer = stripe.Customer.create(
@@ -520,7 +516,6 @@ def financialdonation(request):
                 'Country': request.POST['country'],
             }
         )
-
         donation = Donation.objects.create(
             name=request.POST['name'],
             email=request.POST['email'],
