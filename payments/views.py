@@ -572,7 +572,7 @@ def createCustomer(token,name,email,page) :
     return customer
 
 def chargeCustomer(amt, customerID, page):
-    if page == 'donate' or page == 'gala':
+    if page == 'donate' or page == 'gala' or page == 'financialaid':
         stripe.api_key = settings.STRIPE_DONATE_SECRET_KEY
     else:
         stripe.api_key = settings.STRIPE_BUY_SECRET_KEY
