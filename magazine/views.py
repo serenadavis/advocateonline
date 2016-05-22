@@ -204,6 +204,10 @@ def gala(request):
   template_name = 'gala.html'
   return render_to_response(template_name, context_instance=RequestContext(request))
 
+def financialaid(request):
+  template_name = 'financialaid.html'
+  return render_to_response(template_name, context_instance=RequestContext(request))
+
 
 def stripeSubmit(request):
   # Get the credit card details submitted by the form
