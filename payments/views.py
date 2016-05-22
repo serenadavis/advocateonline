@@ -544,7 +544,8 @@ def financialdonation(request):
     except Exception as problem:
       # There is a different problem
       # logger.error(problem)
-      message = "There are has been an error with our servers. Your card should not have been charged. If it was please get in contact with tech@theharvardadvocate.com and we will be glad to resolve this."
+      #message = "There are has been an error with our servers. Your card should not have been charged. If it was please get in contact with tech@theharvardadvocate.com and we will be glad to resolve this."
+      message = problem.message
       data = {
         "message": message
       }
