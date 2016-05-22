@@ -46,7 +46,7 @@ urlpatterns = patterns('',
     url(r'^donate$', 'payments.views.donate'),
     url(r'^sendDonation$','payments.views.sendDonation'),
     url(r'^galadonation$','payments.views.galaDonation'),
-    url(r'^financialdonation$', 'magazine.views.financialdonation'),
+    url(r'^financialdonation$', 'payments.views.financialdonation'),
     url(r'^stripeSubmit$','payments.views.stripeSubmit'),
     url(r'^stripeSubmitShop$','payments.views.stripeSubmitShop'),
     #http://stackoverflow.com/questions/901551/how-do-i-include-image-files-in-django-templates
