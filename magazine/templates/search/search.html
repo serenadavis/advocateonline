@@ -30,7 +30,7 @@
     {% for result in page.object_list %}
       <dt>
 	        <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a> -
-          {% if result.object.model == Blog.Post %}
+          {% if result.object.authors %}
           <a href="{{ result.object.authors.all.first.get_absolute_url }}" class="author no-decoration">
               {{ result.object.authors.all.first }}
           </a>
