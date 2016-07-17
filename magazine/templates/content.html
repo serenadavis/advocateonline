@@ -22,9 +22,11 @@
 <!--   {% post_to_facebook object_or_url "Post to Facebook" %} {% post_to_twitter "Check this Harvard Advocate piece out:" object_or_url "Post to Twitter" %} </h3> -->
 
 
+  {% if art_content.image.photo %}
   <figure>
     <img src="{{ MEDIA_URL }}{{art_content.image.photo|safe}}" class = "header-image img-responsive" alt="Main Image" >
   </figure>
+  {% endif %}
 
 <p class = "art-medium"> {{art_content.medium|safe}}</p>
 <p class = "art-medium"> {{art_content.body|safe}}</p>
