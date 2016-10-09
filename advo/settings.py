@@ -23,7 +23,7 @@ ADMINS = (
     ('Brendan Bozorgmir', 'technology@theharvardadvocate.com'),
     ('Nicholas Hasselmo', 'nicholashasselmo@college.harvard.edu'),
     ('Alexander Goldberg', 'alexandergoldberg@college.harvard.edu'),
-    ('Alex Sedlack', 'asedlack@college.harvard.edu'),
+    # ('Alex Sedlack', 'asedlack@college.harvard.edu'),
     ('Sammy Mehra', 'smehra@college.harvard.edu')
 )
 
