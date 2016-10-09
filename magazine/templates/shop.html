@@ -7,9 +7,9 @@
     <h1 class="header">SHOP</h1>
 
      <p class = "text">Welcome to The Harvard Advocate's Store! Below you can find back issues that you may purchase. All issues are $10 (domestic shipping $2; international shipping $5) unless otherwise indicated. Check back with us for Advogear as well. You can use the online checkout system by clicking "Add to Cart" below the thumbnails. <b>Click on image to see details.</b></p>
-     <ul style="list-style-type: none; display: inline-block; margin: auto;">
+     <!-- <ul style="list-style-type: none; display: inline-block; margin: auto;"> -->
      {% for item in items %}
-      {% if forloop.counter0|divisibleby:3 %}
+      {% if forloop.counter0|divisibleby:4 %}
       <div class="row">
       {% endif %}
         <div class="shopItem col-xs-6 col-sm-3 col-md-3 col-lg-3">
@@ -20,11 +20,11 @@
             <p>${{item.price}}</p>
             <p class="add-to-cart" data-shopitem-id="{{item.id}}">Add to Cart</p>
         </div>
-      {% if forloop.counter|divisibleby:3 %}
+      {% if forloop.counter|divisibleby:4 %}
         </div>
       {% endif %}
      {% endfor %}
-     </ul>
+     <!-- </ul> -->
      <div style="width: 200px; margin: auto;">
          <a href="/cart">
             <button type="button" class="btn btn-primary-outline" style="width: 200px; clear: both;">Go to Cart</button>
