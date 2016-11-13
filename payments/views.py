@@ -150,8 +150,8 @@ def stripeSubmitShop(request):
     # print total
     # print "total has type:"
     # print type(total)
-    stripe.api_key = settings.STRIPE_TEST_SECRET_KEY
-    # stripe.api_key = settings.STRIPE_BUY_SECRET_KEY
+    #stripe.api_key = settings.STRIPE_TEST_SECRET_KEY
+    stripe.api_key = settings.STRIPE_BUY_SECRET_KEY
 
     # print "got here too"
     # create a stripe customer
