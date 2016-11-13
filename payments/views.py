@@ -145,7 +145,7 @@ def stripeSubmitShop(request):
     token = request.POST['stripeToken']
     # Create the charge on Stripe's servers - this will charge the user's card
     # print "getting total"
-    # total = request.POST['total']
+    total = request.POST['total']
     # print "total:"
     # print total
     # print "total has type:"
