@@ -7,11 +7,11 @@ class ContentAdmin(MCEFilebrowserAdmin):
     search_fields = ['tags']
 
 
-class DecadeAdmin(admin.ModelAdmin):
+class PathAdmin(admin.ModelAdmin):
 	list_display = ['name']
 
 # Register your models here.
-admin.site.register(Decade, DecadeAdmin)
+admin.site.register(Path, PathAdmin)
 admin.site.register(Content, ContentAdmin)
 admin.site.register(Images)
 admin.site.register(Tag)
