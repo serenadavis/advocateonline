@@ -4,4 +4,14 @@
     </a>
 
     <h1> Anthology </h1>
+
+    <div class='container'> 
+    {% for path in paths.keys %}
+			<div class = "path hvr-fade" >
+				<a href="#section{{path.number}}" data-number="{{path.number}}">
+					<h3> {{path.name}} </h3>
+				</a>
+			</div>
+	{% endfor %}
+    </div>
 </div>
