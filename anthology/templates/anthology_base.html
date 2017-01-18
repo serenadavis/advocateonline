@@ -46,14 +46,16 @@
 	</section>
 
 
-	{% for path in paths.keys %}
+	{% for path, content in paths.items %}
 	<section id="section{{path.number}}" class="cd-section">
 
 		<div class="subsections">
 			<ul>
-				{% for i in subsections %}
+				{% for i, subContent in content.items %}
 				<li id="#subsection{{path.number}}{{i}}" class="cd-subsection is-visible" data-number="{{i}}">
-					{% if i == 0 %} {% include "path_home.html" %} {% else %} {% include "path_content.html" %} {% endif %}
+					{% if i == 0 %} {% include "path_home.html" %} 
+					{% else %} {% include "path_content.html" %} 
+					{% endif %}
 				</li>
 				{% endfor %}
 			</ul>

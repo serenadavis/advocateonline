@@ -347,6 +347,14 @@ a:hover .nav-icon:after {
   font-size: 1.25rem;
 }
 
+.path-content p {
+  position: relative;
+  text-align: left;
+  color: grey;
+  font-size: 15px;
+  font-size: 1.25rem;
+}
+
 /* Homepage  */
 
 .anthology-home {
