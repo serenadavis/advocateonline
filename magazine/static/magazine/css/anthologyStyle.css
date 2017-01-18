@@ -37,15 +37,20 @@ img {
   max-width: 100%;
 }
 
+.hidden {
+  display: none;
+}
+
 
 /* -------------------------------- 
 
-Main components 
+Sections
 
 -------------------------------- */
 .cd-section {
   min-height: 100%;
   position: relative;
+  padding: 2em 0;
 }
 
 .cd-section:nth-of-type(odd) {
@@ -56,10 +61,43 @@ Main components
   background-color: #bdd8e6;
 }
 
-
 .cd-nav-trigger {
   display: none;
 }
+
+.path-content {
+  max-height: 75%;
+  overflow: auto;
+}
+
+.cd-section .path-home, .path-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  width: 90%;
+  max-width: 768px;
+  text-align: center;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .cd-section h1 {
+    font-size: 30px;
+    font-size: 1.875rem;
+  }
+  .cd-section p {
+    font-size: 20px;
+    font-size: 1.25rem;
+  }
+}
+
 
 /* -------------------------------- 
 
@@ -150,8 +188,11 @@ Vertical Navigation
   transform-origin: 100% 50%;
 }
 
+/* -------------------------------- 
 
-/* Horizontal Navigation */
+Horizontal Navigation 
+
+-------------------------------- */
 
 .cd-subsection {
   transition: opacity 0.5s ease-out;
@@ -273,19 +314,11 @@ a:hover .nav-icon:after {
   border-right: 0.3em solid #ffffff;
 }
 
-/* Path Formatting */
+ /*Path Formatting */
 
-.path-home {
-  text-align: center;
-  min-height: 100%;
-  min-width: 100%;
-  position: absolute;
-}
 
 .path-home h1 {
   position: relative;
-  margin-top: 25%;
-  text-align: center;
   color: white;
   font-weight: 300;
   text-transform: uppercase;
@@ -297,23 +330,15 @@ a:hover .nav-icon:after {
  position: relative;
   display: inline;
   margin: auto;
-  text-align: center;
   color: grey;
   font-weight: 300;
   font-size: 10px;
   font-size: 1.25rem;
 }
 
-.path-content {
-  text-align: center;
-  min-height: 100%;
-  min-width: 100%;
-  position: absolute;
-}
 
 .path-content h1 {
   position: relative;
-  margin-top: 25%;
   text-align: center;
   color: white;
   font-weight: 300;
@@ -321,6 +346,8 @@ a:hover .nav-icon:after {
   font-size: 20px;
   font-size: 1.25rem;
 }
+
+/* Homepage  */
 
 .anthology-home {
    text-align: center;
@@ -340,7 +367,7 @@ a:hover .nav-icon:after {
   font-size: 6.25rem;
 }
 
-.container {
+.path-container {
   position: absolute;
   text-align: center;
   width: 100%;
@@ -349,14 +376,10 @@ a:hover .nav-icon:after {
   bottom: 22%;
 }
 
-.container:before,
-.container:after {
+.path-container:before,
+.path-container:after {
   display: table;
   content: " ";
-}
-
-.hidden {
-  display: none;
 }
 
 .path {
@@ -367,8 +390,6 @@ a:hover .nav-icon:after {
   width: 19.5%;
   /*background-repeat: no-repeat;*/
 }
-
-
 
 .path h3 {
   text-align: center;
