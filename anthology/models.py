@@ -59,7 +59,7 @@ class Theme(models.Model):
     def __unicode__(self):
         return self.name
 
-class Decade(models.Model):
+class Path(models.Model):
     name = models.CharField(max_length=255)
     intro = RedactorField(
         verbose_name=u'Text',
@@ -68,6 +68,7 @@ class Decade(models.Model):
         allow_file_upload=True,
         allow_image_upload=True
     )
+    number = models.IntegerField()
     cover_image = models.ImageField(upload_to=upload_image_to, blank=True, null=True)
     slug = models.SlugField(max_length=100)
     def get_image(self):
@@ -80,6 +81,7 @@ class Decade(models.Model):
 
 # Create your models here.
 class Content(models.Model):
+    subsection = models.IntegerField()
     title = models.CharField(max_length=300)
     slug = models.SlugField(max_length=100)
     body = RedactorField(
@@ -93,14 +95,14 @@ class Content(models.Model):
     tags = select2.fields.ManyToManyField(Tag)
     posted = select2.fields.ManyToManyField(Category)
     authors = select2.fields.ManyToManyField(Author)
-    decade = select2.fields.ForeignKey(Decade)
+    path = select2.fields.ForeignKey(Path, default=None)
     lead_photo = models.ImageField(upload_to=upload_image_to, blank=True, null=True)
     def __unicode__(self):
         return self.title
     def get_absolute_url(self):
         return '/anthology/content/'+ self.slug
     def crop_first_image(self):
-        return self.first_image
+        return self.lead_photo
     def teaser(self):
         txt = re.sub("\{\{.*\}\}","",BeautifulSoup(self.body).text)
         i = 400

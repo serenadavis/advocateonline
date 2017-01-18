@@ -1,0 +1,17 @@
+<div class="path-content">
+    <h1>
+     {{subContent.title|safe}}
+    </h1>
+    <h2>
+     {% for author in subContent.authors.all %}
+        {{author}} 
+     {% endfor %}
+    </h2>
+    {% if subContent.lead_photo and subContent.lead_photo|length > 0 %}
+    <figure><img class='img-responsive' style="margin: 0 auto;" src="{{MEDIA_URL}}{{ subContent.lead_photo }}"></a></figure>
+    {% endif %}
+    <article>
+    <p>{{subContent.body|safe}}</p>
+	</article>	
+</div>
+

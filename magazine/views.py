@@ -222,7 +222,6 @@ def stripeSubmit(request):
       description="payinguser@example.com",
     )
 
-
     subscriber = Subscriber.objects.create(
       name=request.POST['name'],
       email=request.POST['email'],

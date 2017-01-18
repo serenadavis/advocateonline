@@ -173,7 +173,7 @@ def stripeSubmitShop(request):
     # print "customer created"
 
     try:
-        print "about to charge customer for " + str(int(total)) + " cents."
+        print "about to charge customer for $" + str(int(total)/100) + " .00."
         chargeCustomer(int(total),customer.id,'shop')
 
         emailBody = "Hi " + request.POST['name'] + "! We are writing to confirm your purchases on theharvardadvocate.com. You will be charged " + str(total) + " cents.\n\nHere is a description of your purchases:\n\n" + request.POST['purchaseDescription'] + ".\n\nThese will be emailed to the following address:\n\n" + request.POST['streetAddress1'] + "\n" + request.POST['streetAddress2'] + "\n" + request.POST['city'] + ", " + request.POST['state'] + " " + request.POST['zipCode'] + "\n" + request.POST['country'] + "\n\nIf any of this information looks incorrect please send an email to tech@theharvardadvocate.com\n\nThank you for supporting the Harvard Advocate!"

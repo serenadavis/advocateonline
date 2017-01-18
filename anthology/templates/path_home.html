@@ -1,0 +1,9 @@
+<div class="path-home" {% comment %} style='background-image: url("{{path.get_image}}")' {% endcomment %}>
+    <h1>
+        {{path.name}}
+    </h1>
+    <br>
+    <p>
+        {{path.intro | safe}}
+    </p>
+</div>
