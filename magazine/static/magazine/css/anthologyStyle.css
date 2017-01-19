@@ -108,27 +108,29 @@ Sections
   height: 90%;
   z-index: 1;
 }
- 
-/*.cd-section img {
-  max-width: 10%;
-}*/
+
  
 .path-content .one-col {
   position: relative;
   height: 85%;
   overflow: scroll;
   z-index: 2;
+  width: 80%;
+  float: left;
+  left: 10%;
+  padding: 2% 4%;
+  border: double black 3px;
 }
 
 /* Two Column Format */
 
 .col1.left {
   overflow: scroll;
+  overflow: -moz-scrollbars-vertical; 
   float: left;
   width: 60%;
   left: 6%;
   padding: 0% 5%;
-  /*background-color: beige;*/
   height: 85%;
   z-index: 2;
 }
@@ -143,7 +145,7 @@ Sections
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .col2.left img {
@@ -153,33 +155,34 @@ Sections
 }
 
 .col1.right {
+  overflow: -moz-scrollbars-vertical; 
   float: left;
   width: 40%;
   left: 6%;
-  /*background-color: green;*/
   height: 85%;
   z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .col1.right img {
   flex-shrink: 0;
   min-width: 100%;
-  min-height: 100%
+  min-height: 100%;
 }
 
 .col2.right {
   overflow: scroll;
   float: left;
-  width: 60%;
+  width: 50%;
   left: 46%;
-  padding: 0% 5%;
-  /*background-color: beige;*/
+  padding: 1% 3%;
   height: 85%;
   z-index: 2;
+  border: double black 3px;
+  margin: 0% 5%;
 }
 
 
@@ -196,24 +199,29 @@ Sections
 
  /*Path Formatting */
 
+.path-home {
+   background-color: linen;
+}
 
 .path-home h1 {
   position: relative;
-  color: white;
+  color: black;
   font-weight: 300;
   text-transform: uppercase;
-  font-size: 20px;
-  font-size: 1.25rem;
+  font-size: 50px;
+  margin-bottom: 10px;
+  letter-spacing: 4px;
 }
 
 .path-home p {
  position: relative;
   display: inline;
-  margin: auto;
+  text-align: center;
   color: grey;
   font-weight: 300;
-  font-size: 10px;
-  font-size: 1.25rem;
+  font-family: Minion Pro Regular;
+  font-size: 1rem;
+  line-height: 110%;
 }
 
 .path-content h1 {

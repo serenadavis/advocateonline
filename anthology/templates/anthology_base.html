@@ -47,7 +47,7 @@
 
 
 	{% for path, content in paths.items %}
-  <section id="section{{path.number}}" class="cd-section">
+  <section id="section{{path.number}}" class="cd-section" {% comment %} style='background-image: url("{{path.get_image}}")' {% endcomment %}>
 
 		<div class="subsections">
 			<ul>
