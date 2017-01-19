@@ -133,6 +133,7 @@ Sections
   padding: 0% 5%;
   height: 85%;
   z-index: 2;
+  border: double black 3px;
 }
 
 .col2.left {
