@@ -79,7 +79,10 @@ Sections
   left: 0%;
   top: 0%;
   opacity: 0.5;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
+
 
 .cd-section .path-home{
   position: absolute;
