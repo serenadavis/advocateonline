@@ -28,8 +28,8 @@ from .models import *
 def main(request):
     template_name = 'anthology_base.html'
     paths = Path.objects.all()
-    SUBS = 7
-    sortedPaths = list(sorted(paths, key=lambda p: p.number))
+    SUBS = 4
+    sortedPaths = list(sorted(paths, key=lambda p: p.number, reverse=False))
     pathContent = {}
     for path in sortedPaths:
         allPathContent = Content.objects.all().filter(path=path)

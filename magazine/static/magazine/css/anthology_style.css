@@ -72,6 +72,15 @@ Sections
   display: none;
 }
 
+.cd-section .cover-photo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0%;
+  top: 0%;
+  opacity: 0.5;
+}
+
 .cd-section .path-home{
   position: absolute;
   left: 50%;
@@ -87,7 +96,6 @@ Sections
   max-width: 80%;
   text-align: center;
   padding: 2% 4%;
-  /*background-color: beige;*/
 }
 
 .cd-section .path-content {
@@ -199,9 +207,6 @@ Sections
 
  /*Path Formatting */
 
-.path-home {
-   background-color: linen;
-}
 
 .path-home h1 {
   position: relative;
@@ -217,7 +222,7 @@ Sections
  position: relative;
   display: inline;
   text-align: center;
-  color: grey;
+  color:#3e3947;
   font-weight: 300;
   font-family: Minion Pro Regular;
   font-size: 1rem;
@@ -316,7 +321,7 @@ Vertical Navigation
   height: 12px;
   width: 12px;
   border-radius: 50%;
-  background-color: #778899;
+  background-color: #3e3947;
   -webkit-transition: -webkit-transform 0.2s, background-color 0.5s;
   -moz-transition: -moz-transform 0.2s, background-color 0.5s;
   transition: transform 0.2s, background-color 0.5s;
@@ -387,7 +392,7 @@ Horizontal Navigation
   height: 12px;
   width: 12px;
   border-radius: 50%;
-  background-color: #778899;
+  background-color: #3e3947;
 }
 
  #cd-horizontal-nav a {
@@ -496,9 +501,9 @@ a:hover .nav-icon:after {
   position: absolute;
   text-align: center;
   width: 100%;
-  height: 15%;
+  height: 30%;
   top: auto;
-  bottom: 22%;
+  bottom: 0%;
 }
 
 .path-container:before,
@@ -512,19 +517,21 @@ a:hover .nav-icon:after {
   border: #ffffff;
   background-color: #CCCCCC;
   background-size: 100%;
-  width: 19.5%;
-  background-repeat: no-repeat;
-  background-size: cover
+  width: 24%;
+  height: 80%;
 }
 
 .path h3 {
-  text-align: center;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
   opacity: 1;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: white;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  line-height: 650%;
+  font-family: 'league_gothicregular';
 }
 
 .hvr-fade {
