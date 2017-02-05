@@ -81,7 +81,7 @@ class Path(models.Model):
 
 # Create your models here.
 class Content(models.Model):
-    subsection = models.IntegerField()
+    subsection = models.IntegerField(default=0)
     title = models.CharField(max_length=300)
     slug = models.SlugField(max_length=100)
     body = RedactorField(
