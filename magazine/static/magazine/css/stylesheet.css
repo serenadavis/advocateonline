@@ -734,7 +734,10 @@ and (max-device-width : 480px) {
 	font-size: 16px;
 }
 
+}
+
 /* Miscellaneous */
+
 .btn-150th {
 	color: #000000;
 	background: none;
@@ -752,5 +755,13 @@ and (max-device-width : 480px) {
 
 
 .gala{
-	margin:0em
+	margin:0em;
+}
+
+#submit {
+	text-align: center;
+}
+
+#submit a {
+	color:darkblue;
 }
