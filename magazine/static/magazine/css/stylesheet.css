@@ -765,3 +765,7 @@ and (max-device-width : 480px) {
 #submit a {
 	color:darkblue;
 }
+
+#submit h4 {
+	font-size: 30px;
+}
