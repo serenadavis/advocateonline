@@ -116,16 +116,15 @@ def sections(request):
     template_name = 'blog.html'
     return render_to_response(template_name, data, context_instance=RequestContext(request))
 
-def individual_theme(request):
-    section = request.path
-    section = section.replace("/","").replace("blog","")
+def individual_theme(request, theme_id):
+    section = theme_id
 
     data = {
         "name":section,
         "issues": []
     }
 
-    posts_in_cat = Post.objects.filter(theme__name = theme)
+    posts_in_cat = Post.objects.filter(theme__name = theme_id)
     all_posts_sorted = list(reversed(sorted(posts_in_cat, key=lambda i: i.created)))
 
     paginator = Paginator(all_posts_sorted, 12) # Show 25 contacts per page
@@ -144,6 +143,6 @@ def individual_theme(request):
         'posts': blog_page,
         'posts_data': list(blog_page),
         'name': section
-    }    
+    }
     template_name = 'blog_section.html'
     return render_to_response(template_name, data, context_instance=RequestContext(request))
