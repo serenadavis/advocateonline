@@ -48,6 +48,11 @@ def about(request):
     template_name = 'blog_about.html'
     return render_to_response(template_name, {}, context_instance=RequestContext(request))
 
+def submit(request):
+    template_name = 'blog_submit.html'
+    return render_to_response(template_name, {}, context_instance=RequestContext(request))
+
+
 
 def contributor_page(request, author_id):
     this_author =  get_object_or_404(Author,id=author_id)
