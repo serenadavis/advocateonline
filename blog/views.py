@@ -144,5 +144,5 @@ def individual_theme(request, theme_id):
         'posts_data': list(blog_page),
         'name': section
     }
-    template_name = 'blog_section.html'
+    template_name = 'blog.html'
     return render_to_response(template_name, data, context_instance=RequestContext(request))

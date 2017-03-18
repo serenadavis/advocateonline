@@ -68,9 +68,75 @@
   </script>
 
 </head>
+
+
 <body class='container-fluid'>
-  {% include "header.html" %}
-   <div class="container">
+  
+  <header class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 f-t-links top-line">Join us: <a  class = "social-media-link" href = "https://www.facebook.com/harvardadvocate">F</a> <a class = "social-media-link"  href="https://twitter.com/harvardadvocate">T</a>
+      </div>
+      
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" >
+        <!-- <figure><img src="{% static "magazine/images/seal_banner.jpeg" %}" class = "logo-container" alt="Main Image" ></figure> -->
+          <a class="no-decoration no-underline" href="/"> <h1 class="main-title">THE HARVARD ADVOCATE</h1></a>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 top-line">
+          <div class="form-group search-group">
+            <form type="get" action="/search/" class="search-form" role="search">
+                  <input type="text" name="q" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Search"></input>
+                  <div class="clearfix"></div>
+                  <hr class="search-bottom-border">
+              </form>
+
+              <ul class="search-form-links list-unstyled">
+                <li>
+                  <a class="no-decoration top-line" href="/subscribe">Subscribe</a>
+<!--                   <a class="no-decoration top-line" href="/shop">Shop</a>
+ -->                  <a class="no-decoration top-line" href="https://theharvardadvocate.com/shop">Shop</a>
+                  <a class="no-decoration top-line" href="https://theharvardadvocate.com/financialaid">Donate</a>
+                </li>
+              </ul>
+           </div>
+        </div>
+    </div>
+
+</header>
+<!-- <hr class = "navbar-divider"> -->
+<div id="nav" class="container behind-search" data-spy="affix" data-offset-top="187" data-offset-bottom="0" >
+    <nav class="navbar navbar-default  advo-navbar" role="navigation" >
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand mobile-only" href="/">THE HARVARD ADVOCATE </a>
+    </div>
+
+ 
+     <!-- Collect the nav links, forms, and other content for toggling -->
+     <div class="collapse navbar-collapse navbar-ex1-collapse ">
+       <div class="nav-header"> </div>
+         <ul class="nav navbar-nav">
+           <!--   <li > <div class="foo"> </div><li> -->
+             <li ><a href="/blog">HOME</a></li>
+             <li ><a href="/blog/about">ABOUT</a></li>
+             <li ><a href="/blog/theme/critique">CRITIQUE</a></li>
+             <li ><a href="/blog/theme/echo">ECHO</a></li>
+             <li ><a href="/blog/theme/hyperlink">HYPERLINK</a></li>
+             <li ><a href="/blog/theme/transcripts">TRANSCRIPTS</a></li>
+             <li ><a href="/">MAIN SITE</a></li>
+ 
+ 
+         </ul>
+     </div><!-- /.navbar-collapse -->
+   </nav>
+ </div>
+
+  <div class="container">
       <a href="/blog">
         <img src="/media/blog/notes_from_blog_banner.png" class = "header-image blog-header-image img-responsive" alt="Main Image" >
       </a>
