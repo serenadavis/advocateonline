@@ -11,10 +11,8 @@ import random
 
 from .models import *
 
-def main(request):
+def new_main(request):
     """Main listing."""
-   
-    # all_posts_sorted = list(reversed(sorted(posts, key=lambda i: i.created)))
 
     themes = {}
     allThemes = ["critique", "echo", "hyperlink", "transcripts"]
@@ -35,7 +33,7 @@ def main(request):
     return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 
-def old_main(request):
+def main(request):
     """Main listing."""
     posts = Post.objects.all()
     all_posts_sorted = list(reversed(sorted(posts, key=lambda i: i.created)))
@@ -56,7 +54,7 @@ def old_main(request):
         'posts': blog_page,
         'posts_data': list(blog_page)
     }
-    template_name = 'blog_index.html'
+    template_name = 'blog.html'
     return render_to_response(template_name, data, context_instance=RequestContext(request))
     
 def post(request, slug):
