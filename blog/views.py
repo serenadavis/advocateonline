@@ -37,18 +37,7 @@ def main(request):
     """Main listing."""
     posts = Post.objects.all()
     all_posts_sorted = list(reversed(sorted(posts, key=lambda i: i.created)))
-
-    paginator = Paginator(all_posts_sorted, 12) # Show 25 contacts per page
-    page = request.GET.get('page')
-    try:
-        blog_page = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        blog_page = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        blog_page = paginator.page(paginator.num_pages)
-    image_list = []
+    blog_page = paginate_posts(request, all_posts_sorted)
 
     data = {
         'posts': blog_page,
@@ -56,7 +45,7 @@ def main(request):
     }
     template_name = 'blog.html'
     return render_to_response(template_name, data, context_instance=RequestContext(request))
-    
+
 def post(request, slug):
     post = get_object_or_404(Post, slug__iexact=slug)
     data = {
@@ -78,12 +67,17 @@ def submit(request):
 
 def contributor_page(request, author_id):
     this_author =  get_object_or_404(Author,id=author_id)
-    # author.name = name.replace("_", " ")
-    # author.id = author_id
-    data = {}
-    data["author"] = this_author.name
-    data["articles"] =  Post.objects.filter(authors__name=this_author.name)
-    template_name = 'blog_contributor.html'
+    articles =  Post.objects.filter(authors__name=this_author.name)
+    all_posts_sorted = list(reversed(sorted(articles, key=lambda i: i.created)))
+
+    blog_page = paginate_posts(request, all_posts_sorted)
+
+    data = {
+        'posts': blog_page,
+        'posts_data': list(blog_page),
+        'name': this_author.name
+    }
+    template_name = 'blog.html'
     return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 
@@ -139,17 +133,22 @@ def sections(request):
     return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 def individual_theme(request, theme_id):
-    section = theme_id
-
-    data = {
-        "name":section,
-        "issues": []
-    }
-
     posts_in_cat = Post.objects.filter(theme__name = theme_id)
     all_posts_sorted = list(reversed(sorted(posts_in_cat, key=lambda i: i.created)))
 
-    paginator = Paginator(all_posts_sorted, 12) # Show 25 contacts per page
+    blog_page = paginate_posts(request, all_posts_sorted)
+    data = {
+        'posts': blog_page,
+        'posts_data': list(blog_page),
+        'name': theme_id
+    }
+
+    template_name = 'blog.html'
+    return render_to_response(template_name, data, context_instance=RequestContext(request))
+
+
+def paginate_posts(request, posts):
+    paginator = Paginator(posts, 12) # Show 25 contacts per page
     page = request.GET.get('page')
     try:
         blog_page = paginator.page(page)
@@ -161,10 +160,6 @@ def individual_theme(request, theme_id):
         blog_page = paginator.page(paginator.num_pages)
     image_list = []
 
-    data = {
-        'posts': blog_page,
-        'posts_data': list(blog_page),
-        'name': section
-    }
-    template_name = 'blog.html'
-    return render_to_response(template_name, data, context_instance=RequestContext(request))
+    return blog_page
+
+    
