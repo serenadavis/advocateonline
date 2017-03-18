@@ -17,7 +17,7 @@ def main(request):
     # all_posts_sorted = list(reversed(sorted(posts, key=lambda i: i.created)))
 
     themes = {}
-    allThemes = ["compass", "marginalia", "fever", "echo"]
+    allThemes = ["critique", "echo", "hyperlink", "transcripts"]
     for theme in allThemes:
         posts = Post.objects.all().filter(theme__name=theme)
         # sort to get recent posts
@@ -30,6 +30,7 @@ def main(request):
         'themes': themes,
         # 'posts_data': list(blog_page)
     }
+
     template_name = 'blog_index.html'
     return render_to_response(template_name, data, context_instance=RequestContext(request))
 
