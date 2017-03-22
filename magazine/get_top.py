@@ -39,7 +39,7 @@ def get_analytics(top=10):
 
     Grab the most visited urls from Google Analytics, find the
     corresponding content, and return a sorted list consisting of tuples
-    of the corresponding Content/(Blog)Post Object and its number 
+    of the corresponding Content/(Blog)Post Object and its number
     of page views.
     """
 
@@ -80,6 +80,7 @@ def get_analytics(top=10):
             slug = slug_from_page_path(page_path)
             pageviews = int(entry[PAGEVIEWS])
 
+            content = None
             # Try to find the content from the url
             if '/article/' in page_path:
                 matches = Content.objects.filter(slug=slug)
@@ -105,7 +106,7 @@ def get_analytics(top=10):
                           key=lambda x: x[1], reverse=True)[:top]
     for idx, article in enumerate(articles):
         print '\t{}. {}, {}'.format(idx + 1,
-                                article[0].title.encode('utf-8'), article[1])
+                                    article[0].title.encode('utf-8'), article[1])
 
     if len(articles) == top:
         return articles
