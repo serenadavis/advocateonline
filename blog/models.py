@@ -88,4 +88,23 @@ class Post(models.Model):
                 i = txt.index("(function") 
         return txt[:i]
 
+class Miscellany(models.Model):
+  body_text = models.TextField(max_length=255)
+  link = models.CharField(max_length=255, blank=True, null=True)
+  pub_date = models.DateTimeField(auto_now_add=True)
+  nickname = models.CharField(max_length=10)
+  image = models.ImageField(upload_to=upload_image_to, blank=True, null=True)
+  votes = models.IntegerField(default=0)
+  smoke_image = models.ImageField(upload_to=upload_image_to,
+    default= "smoke_small.png")
 
+#class PostLove(models.Model):
+  #user = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True,
+#      related_name='postlovesAsUser')
+#  post = models.ForeignKey(Miscellany, on_delete=models.CASCADE,
+#  related_name='postlovesAsMiscellany')
+#  total_loves = models.IntegerField(default=0)
+  #def__str__(self):
+  #  return '{0}'.format(self.post.title)
+
+  

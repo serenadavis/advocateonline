@@ -1,0 +1,27 @@
+{% extends "base_original.html" %}
+{% load staticfiles %}
+
+{% block content %} 
+<h1> MISCELLANY </h1>
+
+<fieldset>
+    <div class="form-group" style="align:center;">
+        Write your post <br>
+        <input autocomplete="off" autofocus class="form-control"
+                                            name="body_text"
+                                                                 placeholder="Post"
+                                                                 type =
+                                                                 "text"/>
+        Write your nickname <br>
+        <input autocomplete="off" autofocus class="form-control"
+                                            name="nickname"
+                                            placeholder="Nicknalme" type="text"/>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-default" type="submit">Post</button>
+    </div>
+</fieldset>
+                                      
+
+
+{% endblock %}

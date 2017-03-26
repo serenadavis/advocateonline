@@ -8,8 +8,20 @@ import json
 import stripe
 from django.conf import settings
 import random
-
 from .models import *
+from django.shortcuts import redirect
+from django import forms
+from django.shortcuts  import render
+from django.http import HttpResponseRedirect, HttpResponse
+from .forms import MiscForm
+from .forms import ImageUploadForm
+from django.db.models import F
+#from django.urls import reverse
+
+
+class ImageUploadForm(forms.Form):
+  image = forms.ImageField()
+
 
 def main(request):
     """Main listing."""
@@ -142,3 +154,136 @@ def individual_theme(request):
     }    
     template_name = 'blog_section.html'
     return render_to_response(template_name, data, context_instance=RequestContext(request))
+
+def miscellany(request):
+    #Miscellany.objects.filter().update(votes=F('votes')+1)
+    #Miscellany.objects.filter(pk=pk).update(votes=F('votes')+1)
+    all_miscellany = Miscellany.objects.all()
+    data = {
+        'miscellany': all_miscellany
+    
+    }
+    template_name = 'blog_miscellany.html'
+    #return HttpResponse(template_name.render(data))
+    return render_to_response(template_name, data, context_instance=RequestContext(request))
+
+#def vote(request, Miscellany_id):
+#  Miscellany = get_object_or_404(Miscellany, pk=Miscellany_id)
+#  Miscellany.votes += 1
+#  Miscellany.save()
+#  return HttpResponseRedirect('blog_miscellany.html',
+#    args=(Miscellany.id,))
+
+def submit(request):
+  if request.method == 'POST':
+    form = MiscForm(request.POST, request.FILES)
+    if form.is_valid():
+      form.save()
+      return redirect('blog_miscellany.html')
+  else:
+    form = MiscForm()
+  return render(request, 'blog_submit.html', {'form': form })
+
+
+#class PostLoveView(View):
+#  def post(self, request):
+#    data = {}
+#    user = request.user
+#    post_id = int(request.POST['post_id'])
+#    post = get_objects_or_404(Miscellany, id=post_id)
+#    loved = PostLove.objects.get_or_create(post=post)
+#    user_loved = get_object_or_none(PostLove, user=user, post=post)
+#    if user_loved:
+#      loved.user.remove(user)
+#      PostLove.objects.filter(post=post).update(total_loves=F('total_loves')-1)
+#      data['success'] = 'unloved'
+#    else: 
+#      loved.user.add(user)
+#      PostLove.objects.filter(user=user,
+#          post=post).update(total_loves=F('total_loves')+1)
+#    retrun JsonResponse(data)
+
+
+def vote(request, pk):
+  Miscellany.objects.filter(pk=pk).update(votes=F('votes')+1)
+  return redirect('blog_miscellany.html')
+  #data['success'] = 'loved'
+  #return JsonResponse(data)
+
+  #if request.method == 'POST':
+  #  form = ImageUploadForm(request.POST, request.FILES)
+  #  if form.is_valid():
+  #    m = Miscellany.objects.create(
+  #        image = request.POST['image']
+  #        )
+      #m = Miscellany.objects.get(pk=course_id)
+      #m.image = form.cleaned_data['image']
+      #m.save()
+  #  miscpost = Miscellany.objects.create(
+  #      body_text=request.POST['body_text'],
+  #      nickname=request.POST['nickname'],
+  #      link=request.POST['link']
+  #      ) 
+   # return redirect("blog_miscellany.html")
+  #else:
+  #  return render_to_response("blog_submit.html",
+   #     context_instance=RequestContext(request))
+  
+
+
+
+
+  #if request.method == 'GET':
+  #  form = MiscForm()
+    # template_name = 'blog_submit.html'
+  #  return render_to_response("blog_submit.html", context_instance=RequestContext(request))
+
+####
+ # if request.method == 'POST':
+ #   form = MiscForm(request.POST)
+ #   if form.is_valid():
+ #     miscpost = Miscellany.objects.create(
+ #         body_text=request.POST['body_text'],
+ #         nickname=request.POST['nickname'],
+ #         link=request.POST['link'],
+#
+#          )
+#      #body_text=form.cleaned_data['body_text']
+#      #link=form.cleaned_data['link']
+#      #nickname=cleaned_data['nickname']
+#      #post=Miscellany.objects.create(body_text=body_text, link=link,
+#      #    nickname=nickname)
+#      return redirect("blog_miscellany.html")
+#  else:
+#    form = MiscForm()
+#  return render(request, 'blog_submit.html',{'form':form})
+
+   # form = ImageUploadForm(request.POST, request.FILES)
+   # if form.is_valid():
+   #   m = Miscellany.objects.get(pk=course_id)
+   #   m.model_image = form.cleaned_data['image']
+   #   m.save()
+
+
+    #miscpost = Miscellany.objects.create(
+    #  body_text=request.POST['body_text'],
+    # nickname=request.POST['nickname'],
+    # link=request.POST['link'],
+    #  image=request.POST['image'],
+
+
+    # if form.is_valid():
+      #  m = Miscellany.objects.get(pk=course_id)
+       # m.model_image = form.cleaned_data['image']
+      #  m.save()
+    
+    
+# def upload_pic(request):
+#  if request.method == 'POST':
+#    form = ImageUploadForm(request.POST, request.FILES)
+#    if form.is_valid():
+#      m = Miscellany.objects.get(pk=course_id)
+#      m.model_image  = form.cleaned_data['image']
+#      m.save()
+#      return HttpResponse('image upload success')
+#  return HttpResponseForbidden('allowed only via POST')

@@ -193,5 +193,3 @@ class ShopItem(models.Model):
     image = models.ImageField(upload_to=get_image_path, blank=True, null=True)
 
 
-
-

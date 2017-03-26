@@ -1,0 +1,27 @@
+{% extends "base_original.html" %}
+{% load staticfiles %}
+    
+{% block content %}
+
+
+<h1> MISCELLANY </h1>
+<a href= "/blog/blog_submit" class="no-decoration"><h3> submit a
+        thought </h3></a>
+<div class = "hihihi">
+    {% for post in miscellany%}
+    {#  {% if forloop.counter0|divisibleby:2 %} #}
+        <div class="postbox">
+            <div class = "post-info-wrap">
+                <div class = "post-body"> 
+                    <div class = "post-body"> {{ post.body_text}} </div>
+                
+                <div class = "post-nickname">  {{post.nickname}} </div>
+                <div class = "post-pub_date"> {{post.pub_date}} </div>
+            </div>
+            </div>
+        </div>
+        {#  {% endif %} #}
+          {% endfor %} 
+</div>  
+
+{% endblock %}

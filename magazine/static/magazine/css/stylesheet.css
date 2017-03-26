@@ -391,7 +391,6 @@ article.poetry p {
 	font-size: 18px;
 	padding-left: 50px;
 }
-
 .central-message{
   font-size: 19px;
   font-size: 1.2rem;
@@ -533,6 +532,97 @@ article.poetry p {
 .sponsored-link{
   color: gray;
   text-decoration: none;
+}
+.miscellanytitle {
+    font-style: italic;
+    font-size: 2rem;
+}
+.miscellanyblog {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.hihihi {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.postbox {
+    width: 90% 
+    max-width: 400px;
+    margin-bottom: 2rem;
+    border: default-border;
+    border-radius: 5px;
+    text-align: left;
+
+}
+
+.post-info-wrap {
+    padding: 0 1rem;
+}
+
+.post-nickname {
+    font-style: italic;
+    font-size: 1rem;
+    text-align: right;
+}
+
+.post-body {
+    font-style bold;
+    font-size 1.7rem;
+    display: inline-block;
+}
+
+.post-pub_date {
+    font-style: italic
+    font-size: 0.75rem;
+    text-align: left;
+    color: #8e8e8e
+}
+
+.post-link {
+    text-align: left;
+    color: #0B0080
+}
+
+
+flexbox {
+    display: -webkit-box
+    display: -moz-box
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+}
+
+inline-flexbox {
+    display: -webkit-inline-box
+    display: -mox-inline-box
+    display: -webkit-inline-flex
+    display: -ms-inline-flexbox
+    display inline-flex
+}
+
+flex {
+    -webkit-box-flex arguments
+    -moz-box-flex arguments
+    -webkit-flex arguments
+    -ms-flex arguments
+    flex arguments
+}
+
+order {
+    -webkit-box-ordinal-group arguments
+    -moz-box-ordinal-group arguments
+    -ms-flex-order arguments
+    -webkit-order arguments
+    order arguments
 }
 
 
@@ -754,3 +844,5 @@ and (max-device-width : 480px) {
 .gala{
 	margin:0em
 }
+
+
