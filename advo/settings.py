@@ -57,6 +57,8 @@ INSTALLED_APPS = (
     'redactor',
     'select2',
     'anthology',
+    'advertisement',
+    'versatileimagefield'
 )
 
 MIDDLEWARE_CLASSES = (

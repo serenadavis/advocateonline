@@ -11,6 +11,7 @@ import json
 import stripe
 from django.conf import settings
 import random
+from advertisement.helper import getAds
 
 from haystack.query import SearchQuerySet
 from haystack.views import SearchView
@@ -50,6 +51,11 @@ def index(request):
   recent_blog = list(reversed(sorted(posts, key=lambda i: i.created)))[:2 ]
   data['blog']['post1'] = recent_blog[0]
   data['blog']['post2'] = recent_blog[1]
+
+  data['toplist'] = [{'title' : "article one", 'url' : "google.com", 'author' : "samantha"}, {'title' : "article two", 'url' : "google.com", 'author' : "cameron"}, {'title' : "article three", 'url' : "google.com", 'author' : "joe"}]
+
+  data['ads'] = getAds('home')
+
   template_name = 'index.html'
   return render_to_response(template_name, data, context_instance=RequestContext(request))
 
@@ -267,6 +273,9 @@ def sections(request):
       }
 
     data["issues"].append(datum)
+
+
+    data['ads'] = getAds(section)
 
   # for issue in data["issues"]:
   #   for article in issue["articles"]:

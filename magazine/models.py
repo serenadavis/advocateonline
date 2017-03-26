@@ -8,6 +8,8 @@ from django.utils.encoding import smart_unicode, smart_str
 from tinymce import models as tinymce_models
 from bs4 import BeautifulSoup
 import re
+from versatileimagefield.fields import VersatileImageField
+
 
 
 def now():
@@ -34,7 +36,7 @@ def get_image_path(instance, filename):
 class Issue(models.Model):
     name = models.CharField(max_length=255, unique=True)
     theme = models.CharField(max_length=255, blank=True, null=True)
-    cover_image = models.ImageField(upload_to=issue_upload_to, blank=True, null=True)
+    cover_image = VersatileImageField(upload_to=issue_upload_to, blank=True, null=True)
 
     ISSUE_CHOICES = (
         ('Fall', 'Fall'),
@@ -118,16 +120,16 @@ class Content(models.Model):
     def description(self):
         txt = ' '.join(BeautifulSoup(self.teaser).findAll(text=True))
         return txt
-
+  
 class Article(Content):
     objects = ContentManager()
-    photo = models.ImageField(upload_to=upload_image_to, blank=True, null=True)
+    photo = VersatileImageField(upload_to=upload_image_to, blank=True, null=True)
     def get_absolute_url(self):
         return '/article/{0}/{1}'.format(self.id, self.slug.lower())
 
 class Image(Content):
     objects = ContentManager()
-    photo = models.ImageField(upload_to=upload_image_to)
+    photo = VersatileImageField(upload_to=upload_image_to)
 
 class Donation(models.Model):
 

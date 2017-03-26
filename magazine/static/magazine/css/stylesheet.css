@@ -192,6 +192,7 @@ body{
 .resize-image { max-width: 418px; height: 240px; overflow: hidden; }
 .resize-image img { width: 100%; }
 
+
 .header-image{
   width: 100%;
   padding-bottom: 20%;
