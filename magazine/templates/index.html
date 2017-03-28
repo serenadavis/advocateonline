@@ -8,31 +8,31 @@
 <h1 class="header">CURRENT ISSUE: <a href="{{issue.get_absolute_url}}"> {{issue}} </a></h1>
 
 {% for section, article in sections.items %}
-{% if forloop.counter0|divisibleby:2 %}
-<div class="row">
-{% endif %}
-   <div class="col-md-6">
-      <a href="./{{section}}"><h2 class="subheader">{{section|upper}}</h2></a>
-     <a href="{{ article.get_absolute_url }}" class="no-decoration"> <h4 class="subheader-article-name"> {{article.title}}</h4> </a>
-       {% for author in article.contributors.all %}
-         <a href="{{ author.get_absolute_url }}" class="no-decoration"> <h3 class="subheader-article-author"> {{ author.name }} </h3> </a>
-        {% empty %}
-          <h3 class="subheader-article-author"> No Author </h3>
-       {% endfor %}
-      {% if section == "art" %}
-        <figure class="resize-image" style="margin:auto;">
-        	<!--pass in art image link HERE-->
-    			<img src="{{ MEDIA_URL }}{{article.image.photo|safe}}" class = "img-responsive" alt="Main Image" >
-        </figure>
-      {% else %}
-      <p class="article-summary"> {{article.teaser|safe}} 
-        <h4> <a href="{{ article.get_absolute_url }}" class="read-more">Read More</a></h4>
-      </p>
-      {% endif %}
-  </div>
-{% if forloop.counter|divisibleby:2 %}
-</div>
-{% endif %}
+    {% if forloop.counter0|divisibleby:2 %}
+    <div class="row">
+    {% endif %}
+       <div class="col-md-6">
+          <a href="./{{section}}"><h2 class="subheader">{{section|upper}}</h2></a>
+         <a href="{{ article.get_absolute_url }}" class="no-decoration"> <h4 class="subheader-article-name"> {{article.title}}</h4> </a>
+           {% for author in article.contributors.all %}
+             <a href="{{ author.get_absolute_url }}" class="no-decoration"> <h3 class="subheader-article-author"> {{ author.name }} </h3> </a>
+            {% empty %}
+              <h3 class="subheader-article-author"> No Author </h3>
+           {% endfor %}
+          {% if section == "art" %}
+            <figure class="resize-image" style="margin:auto;">
+            	<!--pass in art image link HERE-->
+        			<img src="{{ MEDIA_URL }}{{article.image.photo|safe}}" class = "img-responsive" alt="Main Image" >
+            </figure>
+          {% else %}
+          <p class="article-summary"> {{article.teaser|safe}} 
+            <h4> <a href="{{ article.get_absolute_url }}" class="read-more">Read More</a></h4>
+          </p>
+          {% endif %}
+      </div>
+    {% if forloop.counter|divisibleby:2 %}
+    </div>
+    {% endif %}
 {% endfor %}
 
   <div class="row">
@@ -99,4 +99,4 @@
 </div>
 
 
-  {% endblock %}
+{% endblock %}

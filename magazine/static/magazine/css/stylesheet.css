@@ -481,7 +481,7 @@ article.poetry p {
 }
 
 .container{
-	max-width: 900px;
+	max-width: 1200px;
 }
 .center{
 	text-align: center;
@@ -735,6 +735,17 @@ and (max-device-width : 480px) {
 }
 
 }
+
+/* sidebar */
+.content {
+    max-width: 71%;
+}
+
+.mostviewed {
+    max-width: 28%;
+}
+
+
 
 /* Miscellaneous */
 
