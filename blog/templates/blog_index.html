@@ -1,0 +1,63 @@
+{% extends "blog_base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container">
+   <h1 class="header">RECENTLY PUBLISHED </a></h1>
+
+{% for theme, post in themes.items %}
+{% if forloop.counter0|divisibleby:2 %}
+<div class="row">
+{% endif %}
+   <div class="col-md-6">
+      <a href="./theme/{{theme}}"><h2 class="subheader">{{theme|upper}}</h2></a>
+     <a href="{{ post.get_absolute_url }}" class="no-decoration"> <h4 class="subheader-article-name"> {{post.title}}</h4> </a>
+       {% for author in post.authors.all %}
+         <a href="{{ author.get_absolute_url }}" class="no-decoration"> <h3 class="subheader-article-author"> {{ author.name }} </h3> </a>
+        {% empty %}
+          <h3 class="subheader-article-author"> No Author </h3>
+       {% endfor %}
+        {% if post.lead_photo and post.lead_photo|length > 0 %}
+             <figure><a href="{{post.get_absolute_url}}" class="no-decoration"><img class='img-responsive-blog'" src="{{MEDIA_URL}}{{ post.lead_photo }}"></a></figure>
+        {% endif %}
+    
+      <p class="article-summary"> {{post.teaser|safe}} 
+        <h4> <a href="{{ post.get_absolute_url }}" class="read-more">Read More</a></h4>
+      </p>
+  </div>
+{% if forloop.counter|divisibleby:2 %}
+</div>
+{% endif %}
+{% endfor %}
+
+    <div class = "container">
+ <div class="item">
+    <div class="row">
+     <div class="col-md-4">
+      <article>
+      <a href = "/advertise" class = "sponsored-link"> Sponsored </a>
+        <figure class="resize-image" style="margin:auto;">
+          <!--pass in art image link HERE-->
+          <a href = "http://www.purekauai.com/"> <img src="/media/ads/kauai.jpg" class = "img-responsive" alt="Main Image" > </a>
+        </figure>
+        </article>
+    </div>
+       <div class="col-md-4">
+      <article>
+      <a href = "/advertise" class = "sponsored-link"> Sponsored </a>
+        <figure class="resize-image" style="margin:auto;">
+          <!--pass in art image link HERE-->
+          <a href = "https://www.glasswithatwist.com "> <img src="/media/ads/glass_with_a_twist.jpg" class = "img-responsive" alt="Main Image" > </a>
+    </div>
+    <div class="col-md-4">
+      <article>
+      <a href = "/advertise" class = "sponsored-link"> Sponsored </a>
+        <figure class="resize-image" style="margin:auto;">
+          <!--pass in art image link HERE-->
+          <a href = "https://www.shanvalley.com"> <img src="/media/ads/shan.jpg" class = "img-responsive" alt="Main Image" > </a>
+    </div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
