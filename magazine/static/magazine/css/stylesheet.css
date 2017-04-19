@@ -763,9 +763,15 @@ and (max-device-width : 480px) {
 }
 
 #submit a {
+	font-size: 30px;
 	color:darkblue;
 }
 
-#submit h4 {
-	font-size: 30px;
+.submitAd {
+	text-align: center;
+}
+
+.submitAd a {
+	color:darkblue;
+	font-size: 20px;
 }

@@ -291,6 +291,10 @@ def advertise(request):
   template_name = 'advertise.html'
   return render_to_response(template_name, context_instance=RequestContext(request))
 
+def adSubmit(request):
+  template_name = 'adSubmit.html'
+  return render_to_response(template_name, context_instance=RequestContext(request))
+
 def shop(request):
   all_items = ShopItem.objects.all()
   data = {
