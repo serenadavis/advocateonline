@@ -19,8 +19,6 @@ urlpatterns = patterns('',
     url(r'^select2/', include('select2.urls')),
     url(r'^blog_miscellany','blog.views.miscellany'),
     url(r'^blog_submit','blog.views.submit'),
-    #url(r'^blog_miscellany', views.PostLoveView.as_view(), name='post_love'),
-    url(r'^blog_miscellany', 'blog.views.vote'),
     # url(r'^writing', 'blog.views.writing'),
     # url(r'^multimedia', 'blog.views.multimedia'),
     # url(r'^themes', 'blog.views.themes')

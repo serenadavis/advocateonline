@@ -11,41 +11,4 @@
 </form>
 
 
-<!--
-
-<form action="/blog/blog_submit" id=submit onsubmit="return
-    validateForm()" method = "post" > -->
-<!--  {% csrf_token %} 
-  <fieldset>
-    <div class="form-group" style="align:center;">
-       Write your post <br>
-        <input autocomplete="off" autofocus class="form-control"
-                                            name="body_text"
-                                                                 placeholder="Post"
-                                                                 id=body_text
-                                                                 type =
-                                                                 "text"/>
-         Add a link (optional) <br>
-        <input autocomplete="off" autofocus class="form-control"
-        name="link" placeholder="http:// or https://" id=link type =
-        "text"/>
-        Write your nickname <br>
-        <input autocomplete="off" autofocus class="form-control"
-                                            name="nickname"
-                                            placeholder="Nickname" id=nickname type="text"/>
-        Add an image (optional) <br>
-        <form action="/blog/blog_submit" id=image  method="post"
-                                            enctype="multipart/form-data">
-                                            <p>
-        <input id="image" type="file" name="image" accept="image/*">
-                                            </p>
-        <input type="submit" value="Submit">
-        </form>
-    </div>
-    <div class="form-group">
-        <button class="btn btn-default" type="submit">Post</button>
-    </div>
-</fieldset>
-</form> 
-
 {% endblock %}

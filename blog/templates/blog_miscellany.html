@@ -2,6 +2,7 @@
 {% load staticfiles %}
     
 {% block content %}
+
 <h1> MISCELLANY </h1>
 <div class="container">
 <a href= "/blog/blog_submit" class="no-decoration"><h3> submit a
@@ -23,12 +24,8 @@
         <a href = {{post.link}} target="_blank" class = "no-decoration"><p class="post-link">
             {{post.link}}</p></a>
            {% endif %}
-        <form id="voteform" form action="blog_miscellany.html" method="post">
-            {% csrf_token %}
-            <INPUT type="image" src="{{ MEDIA_URL }}{{post.smoke_image|safe}}"
-                            value="Vote" id="vote-button" span id="vote-count">
-        </form>
-          <div class="post-nickname"> {{post.nickname}} </div>
+          
+        <div class="post-nickname"> {{post.nickname}} </div> </p>
     </div>
 {% if forloop.counter|divisibleby:2 %}
 </div>
