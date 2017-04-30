@@ -34,6 +34,7 @@ def slug_from_page_path(page_path):
 
 
 def get_analytics(top=10):
+    print("A N A L Y T I C S")
     """
     Generate list of the most read articles.
 
@@ -79,6 +80,8 @@ def get_analytics(top=10):
             page_path = entry[PAGE_URL]
             slug = slug_from_page_path(page_path)
             pageviews = int(entry[PAGEVIEWS])
+            print page_path
+            print slug
 
             content = None
             # Try to find the content from the url
@@ -107,7 +110,7 @@ def get_analytics(top=10):
     for idx, article in enumerate(articles):
         print '\t{}. {}, {}'.format(idx + 1,
                                     article[0].title.encode('utf-8'), article[1])
-
+    print(articles)
     if len(articles) == top:
         return articles
     else:

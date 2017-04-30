@@ -11,6 +11,7 @@ import json
 import stripe
 from django.conf import settings
 import random
+import get_top
 
 from haystack.query import SearchQuerySet
 from haystack.views import SearchView
@@ -19,6 +20,7 @@ from django.shortcuts import redirect
 from itertools import chain
 import logging
 
+ANALYTICS_NUM = 10 
 
 logger = logging.getLogger("magazine")
 
@@ -50,6 +52,10 @@ def index(request):
   recent_blog = list(reversed(sorted(posts, key=lambda i: i.created)))[:2 ]
   data['blog']['post1'] = recent_blog[0]
   data['blog']['post2'] = recent_blog[1]
+  data['top_content'] = [] 
+  top = get_top.get_analytics(top=ANALYTICS_NUM)
+  for article in top:
+     data['top_content'].append([article[0], article[0].get_absolute_url()])
   template_name = 'index.html'
   return render_to_response(template_name, data, context_instance=RequestContext(request))
 
@@ -59,6 +65,11 @@ def article(request, id, slug):
     'article': article
   }
   template_name = 'article.html'
+  data['top_content'] = [] 
+  top = get_top.get_analytics(top=ANALYTICS_NUM)
+  for article in top:
+     data['top_content'].append([article[0], article[0].get_absolute_url()])
+
   return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 def content_piece(request, id):
@@ -67,6 +78,8 @@ def content_piece(request, id):
   data = {
     'art_content': image
   }
+
+  data['top_urls'] = get_top.get_analytics(top=ANALYTICS_NUM)
   template_name = 'content.html'
   # if not data['art_content']:
   #   print "here"
@@ -81,7 +94,6 @@ def contributor_page(request, author_id, name):
   data["articles"] =  chain( Article.objects.filter(contributors=author) , Image.objects.filter(contributors=author))
   template_name = 'contributor.html'
   return render_to_response(template_name, data, context_instance=RequestContext(request))
-
 
 def issues(request):
   all_issues = Issue.objects.all()
@@ -195,7 +207,6 @@ class FilterSearchView(SearchView):
                 context.update(self.extra_context())
                 return render_to_response(self.template, context, context_instance=self.context_class(self.request))
 
-
 def subscribe(request):
   template_name = 'subscribe.html'
   return render_to_response(template_name, context_instance=RequestContext(request))
@@ -207,7 +218,6 @@ def gala(request):
 def financialaid(request):
   template_name = 'financialaid.html'
   return render_to_response(template_name, context_instance=RequestContext(request))
-
 
 def stripeSubmit(request):
   # Get the credit card details submitted by the form
@@ -311,7 +321,6 @@ def shopItemView(request, id):
     return render_to_response(template_name, data, context_instance=RequestContext(request))
   else: # item does not exist
     return HttpResponse('404: Page not found.')
-
 
 def shop_admin(request):
   if request.method == 'GET':

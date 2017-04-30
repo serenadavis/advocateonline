@@ -15,7 +15,27 @@ body {
          url('../fonts/league_gothic.svg#league_gothicregular') format('svg');
     font-weight: normal;
     font-style: normal;
+}
 
+.body-content {
+    margin: 0 auto;
+    max-width: 100%;
+    min-width: 500px;
+    overflow: hidden; 
+}
+
+.content {
+    display: block;
+}
+
+.content.narrow {
+    max-width: 70%;
+    float: left;
+    left-padding: 10px;
+}
+
+.content.wide {
+    max-width: 100%;
 }
 
 @font-face {
@@ -481,7 +501,7 @@ article.poetry p {
 }
 
 .container{
-	max-width: 1200px;
+	max-width: 1000px;
 }
 .center{
 	text-align: center;
@@ -737,12 +757,55 @@ and (max-device-width : 480px) {
 }
 
 /* sidebar */
-.content {
-    max-width: 71%;
+
+.popular {
+    /*margin-left: 60px; */
+    position: absolute;
+    display: block;
+    right: 18%; 
+    width: 17%;
+    top: 344px; 
+    max-width: 500px;
+    padding-bottom: 30px;
 }
 
-.mostviewed {
-    max-width: 28%;
+.popular.sticky {
+    position: fixed;
+    top: 80px;
+}
+
+.popular .popular_title {
+    /*display: inline-block; */
+    width: 90%;
+    height: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-family: futura;
+    padding 10px;
+    font-size: 22px;
+    padding: 15px;
+    border-bottom: 1px solid #000;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.popular .popular_content {
+}
+
+.popular .popular_article {
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    padding-top: 8px;
+}
+
+.body-content {
+    max-width: 1600px;
+    overflow: hidden;
 }
 
 

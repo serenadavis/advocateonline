@@ -135,16 +135,40 @@
 <!-- <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54c2b7196cc0867d" async="async"></script> -->
 
 
-<main>
-<div class="content">
+<div class="body-content">
+{% if top_content %}
+<div class="content narrow"> 
+{% else %}
+<div class="content wide">
+{% endif %}
 {% block content %}
 {% endblock %}
 </div>
-<div class="mostviewed">
-{% block mostviewed %}
-{% endblock %}
 </div>
-</main>
+
+<div class="popular">
+    {% if top_content %}
+    <h1 class="popular_title">MOST POPULAR</h1>
+    <div class="popular_content">
+    {% for article in top_content %}
+       <div class="popular_article"> 
+       {{ forloop.counter}}.   <i><a href={{ article.1 }}>{{ article.0.contributors.0 }} {{ article.0.title }}</a></i>
+       </div>
+    {% endfor %}
+    </div>
+    {% endif %}
+</div>
+</div>
+
+<script>
+var $window = $(window),
+    $stickyDiv = $(".popular"),
+    stickyTop = $stickyDiv.offset().top;
+
+    $window.scroll(function() {
+        $stickyDiv.toggleClass('sticky', $window.scrollTop() > stickyTop - 80);
+    });
+</script>
 
 <div class = "container">
   {% if name == "poetry" %}
