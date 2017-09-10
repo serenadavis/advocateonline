@@ -176,8 +176,10 @@ def stripeSubmitShop(request):
         print "about to charge customer for $" + str(int(total)/100) + " .00."
         chargeCustomer(int(total),customer.id,'shop')
 
-        emailBody = "Hi " + request.POST['name'] + "! We are writing to confirm your purchases on theharvardadvocate.com. You will be charged " + str(total) + " cents.\n\nHere is a description of your purchases:\n\n" + request.POST['purchaseDescription'] + ".\n\nThese will be emailed to the following address:\n\n" + request.POST['streetAddress1'] + "\n" + request.POST['streetAddress2'] + "\n" + request.POST['city'] + ", " + request.POST['state'] + " " + request.POST['zipCode'] + "\n" + request.POST['country'] + "\n\nIf any of this information looks incorrect please send an email to tech@theharvardadvocate.com\n\nThank you for supporting the Harvard Advocate!"
+        emailBody = "Hi " + request.POST['name'] + "! We are writing to confirm your purchases on theharvardadvocate.com. You will be charged $" + str(total/100) + "." + str((total * 100) % 100) + ".\n\nHere is a description of your purchases:\n\n" + request.POST['purchaseDescription'] + ".\n\nThese will be emailed to the following address:\n\n" + request.POST['streetAddress1'] + "\n" + request.POST['streetAddress2'] + "\n" + request.POST['city'] + ", " + request.POST['state'] + " " + request.POST['zipCode'] + "\n" + request.POST['country'] + "\n\nIf any of this information looks incorrect please send an email to tech@theharvardadvocate.com\n\nThank you for supporting the Harvard Advocate!"
         send_mail('Purchase Confirmation', emailBody, 'tech@theharvardadvocate.com', [request.POST['email'], 'tech@theharvardadvocate.com'], fail_silently=False)
+        send_mail('Purchase Confirmation', emailBody, 'tech@theharvardadvocate.com', ['hermes@theharvardadvocate.com', 'president@theharvardadvocate.com'], fail_silently=False)
+
 
         template_name = 'success.html'
         return render_to_response(template_name, context_instance=RequestContext(request))

@@ -187,3 +187,20 @@ except ImportError:
 import django
 from django.conf import settings
 from django.core.mail import send_mail
+
+
+# Config for API calls to Google Analytics
+# Not a secure way of doing this, but this key 
+# only works for read-only calls to Google Analytics
+ANALYTICS_CONFIG = {
+    "type": "service_account",
+    "project_id": "advocate-analytics",
+    "private_key_id": "da5a9f50a9c56af955df0eabd5bde7764050973d",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDjfALo+DqYzOxX\nZa6hO3Y07+PmQ89UyX8RyRjagPT2azERV7yZAPILmEwjECvUm13HaFsWQXzvLFst\nHRiGmmpSpDB4WJtVydX4oXVWjVUJ79Lk534ZX7wnZQ4ZqAB1YbHpEg9KKsyxXOaR\n6uaonNZG5iAWQRSr4rvisvw7a2jpsfH+xZtmG/7qZ44AuRgzbnanrzKoVYg2pGdJ\nf4bxIgUPiTNiyLXLo/5hPX4P2ppKVezs5HIqZRkF9FoIW57WSAvxwbUmm2BOAH5c\nSLxtE8RcQm4OJ0ugDVImGQMfkpNOjWDnGBciNoCRyl0dx0mtyr0Oj/Blw/+F53s/\nneoszH8NAgMBAAECggEAC6RbGcUqaouCRO7FQych44+rYCt0PuiZAjYCeZxD7SCL\nQFH3KvVrbcB7lQfM1nKlGAF1N+xeEnd4qxRkHu9kJZqViHMwb/GGa9UHhkhxY7LM\nXj6iq3XE0VdQo2t/qoI3crAj7C3IkAMrIaid6V8tcC9y0PC/uBRAfVefpQLYOa1y\n9I54hlvj+cq1dRQiWIghQnML/8gGZ7p+U9TZPqDTvNA2OooY4jTo6lH9azf4Zvcf\nkh6D5TF+lDGfPxR2SFHxpraC+Og9/kqI2CjJAeHc9dYptv8bbXkrOfbX14OTDyUR\nt9d0hZwTAzbgyTjjY3mHFv+FPxSnrDJCtf3vaF04AQKBgQD9D6GG/HXIKHols1cA\nQuv2SW+RvLPozulgdPSas2hGodBdvShK6VGYOwlpW3TxGlrlWap66RgcWhYw1qTL\n9KodUYCL2vWQ56QbhJgGSoHx+dWTcFdBCEACbMLnQX7mPyzcXQ8Y/YJNu5sKvtG9\nmy7ycL1phA3C8Meglc1IxFlhAQKBgQDmIFbUsV1fYzrcLrsia/hdq+0CQAwCCcex\nUcgOBHmZ+MsSzb/ofqeljyj1A12ZZIeVJIvJezP4HZRRvxf1x37yFj5I8Gu7qrWa\nDNeMj/StUAVjnGBEQHBKwKiOe6jtbMqLzAtoTxiY3RAHGuaKXaToWANbe3EG76cw\nSF9oSvCSDQKBgQC+LdUSgQBzIBhL5O9pPuHeAWpbeBksyPMSjlKVQGcJTeotyE5T\nney4HwX/q7/Cwi+1VSGNpUd9ZyZuJaFLtd9ykSGt+Su7bpoiJA+sCqqFk2Ayoaax\nNOYF7H69FLetiaTJJxaFjV8z0928wZMWj11Ezf1LIvbEnfcoc+wG16jkAQKBgQC5\nX6OSga1tgUmQxDQKbl8LVcr93QnPOoGZ3P8CC6jI1xj+dK76Ycw6GTAs7iEfx1NQ\nWLgh/RTH8Uvg7cYnPiSMbk6OAt1FtyXCikW3/N5kHem5a+ZAFIhgLwGYhRR27QPb\nyOoHhG+T879NeeXr37NPVlaeArnxlGthAWuZX4SaoQKBgQDbwixLkiZW6z2lo+JK\nQQVnNcJ68Q7qOQqP/IEQXb4XO719EgcUPnuJSMLM3P4ybG0Mp3zbZc9I/BFlp9or\n/clt0vMgCyKN5tY9135ZSo351vdNuRh5ZtGp+HKlTq348cN+oC7czH0SBhjXoNJh\nJIA00CdNJvNONOThfAGKNcgFXA==\n-----END PRIVATE KEY-----\n",
+    "client_email": "get-analytics@advocate-analytics.iam.gserviceaccount.com",
+    "client_id": "117242232832448157884",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://accounts.google.com/o/oauth2/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/get-analytics%40advocate-analytics.iam.gserviceaccount.com"
+}
