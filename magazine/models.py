@@ -2,7 +2,7 @@ import os
 import datetime
 
 from django.db import models
-from django.db.models import Q
+from django.db.models import Q, ImageField
 from django.utils.text import slugify
 from django.utils.encoding import smart_unicode, smart_str
 from tinymce import models as tinymce_models
@@ -36,7 +36,7 @@ def get_image_path(instance, filename):
 class Issue(models.Model):
     name = models.CharField(max_length=255, unique=True)
     theme = models.CharField(max_length=255, blank=True, null=True)
-    cover_image = VersatileImageField(upload_to=issue_upload_to, blank=True, null=True)
+    cover_image = ImageField(upload_to=issue_upload_to, blank=True, null=True)
 
     ISSUE_CHOICES = (
         ('Fall', 'Fall'),
