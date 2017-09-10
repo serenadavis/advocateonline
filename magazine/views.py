@@ -11,6 +11,9 @@ import json
 import stripe
 from django.conf import settings
 import random
+import re
+from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import MultipleObjectsReturned
 
 from haystack.query import SearchQuerySet
 from haystack.views import SearchView
@@ -61,8 +64,21 @@ def article(request, id, slug):
   template_name = 'article.html'
   return render_to_response(template_name, data, context_instance=RequestContext(request))
 
-def content_piece(request, id):
-  image = get_object_or_404(Content, id=id)
+def content_piece(request, slug):
+  if slug.isdigit():
+    image = get_object_or_404(Content, id=slug)
+  else: # handle legacy links in the form of /content/short-slug
+    try:
+      image = Content.objects.get(slug__iexact=slug)
+    except ObjectDoesNotExist:
+      # check if linked slug is simply shortened and missing words
+      slug_regex = r"[a-zA-Z\d_\-]*" + slug.replace("-", r"-([a-zA-Z\d_\-]+-)?") + r"[a-zA-Z\d_\-]*"
+      try:
+        image = Content.objects.get(slug__iregex=slug_regex)
+      except (MultipleObjectsReturned, ObjectDoesNotExist):
+        # search the words instead if there isn't exactly one match
+        slug = slug.replace("-","+")
+        return redirect('/search/?q=' + slug)
   # print image.contributors
   data = {
     'art_content': image
