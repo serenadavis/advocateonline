@@ -8,6 +8,7 @@ import json
 import stripe
 from django.conf import settings
 import random
+from advertisement.helper import getAds
 
 from .models import *
 
@@ -44,6 +45,8 @@ def main(request):
         'posts_data': list(blog_page)
     }
     template_name = 'blog.html'
+    data['ads'] = getAds('blog')
+
     return render_to_response(template_name, data, context_instance=RequestContext(request))
 
 def post(request, slug):

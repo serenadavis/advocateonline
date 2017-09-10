@@ -24,7 +24,7 @@
 
   {% if art_content.image.photo %}
   <figure>
-    <img src="{{ MEDIA_URL }}{{art_content.image.photo|safe}}" class = "header-image img-responsive" alt="Main Image" >
+    <img src="{{ art_content.image.photo.url }}" class = "header-image img-responsive" alt="Main Image" >
   </figure>
   {% endif %}
 

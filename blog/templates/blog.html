@@ -58,29 +58,23 @@
     <div class = "container">
  <div class="item">
     <div class="row">
-     <div class="col-md-4">
-      <article>
-      <a href = "/advertise" class = "sponsored-link"> Sponsored </a>
-        <figure class="resize-image" style="margin:auto;">
-          <!--pass in art image link HERE-->
-          <a href = "http://www.purekauai.com/"> <img src="/media/ads/kauai.jpg" class = "img-responsive" alt="Main Image" > </a>
-        </figure>
-        </article>
-    </div>
-       <div class="col-md-4">
-      <article>
-      <a href = "/advertise" class = "sponsored-link"> Sponsored </a>
-        <figure class="resize-image" style="margin:auto;">
-          <!--pass in art image link HERE-->
-          <a href = "https://www.glasswithatwist.com "> <img src="/media/ads/glass_with_a_twist.jpg" class = "img-responsive" alt="Main Image" > </a>
-    </div>
+     
+
+ {% if ads %}
+
+    {% for ad in ads %}
     <div class="col-md-4">
       <article>
       <a href = "/advertise" class = "sponsored-link"> Sponsored </a>
         <figure class="resize-image" style="margin:auto;">
           <!--pass in art image link HERE-->
-          <a href = "https://www.shanvalley.com"> <img src="/media/ads/shan.jpg" class = "img-responsive" alt="Main Image" > </a>
-    </div>
+          <a href = "{{ ad.url }}"> <img src=" {{ ad.image.url }}" class = "img-responsive" alt="Main Image" > </a>
+   </div>
+
+   {% endfor %}
+
+    {% endif %}
+     
 </div>
 </div>
 </div>
