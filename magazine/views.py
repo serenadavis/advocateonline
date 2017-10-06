@@ -455,3 +455,7 @@ def onefifty(request):
 def comp(request):
   template_name = 'comp.html'
   return render_to_response(template_name, context_instance=RequestContext(request))
+
+def homepage_redesign_jack(request):
+  template_name = 'homepage_redesign_jack.html'
+  return render_to_response(template_name, context_instance=RequestContext(request))
