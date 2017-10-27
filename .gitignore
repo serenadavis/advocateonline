@@ -8,3 +8,6 @@ sql/*
 *.DS_Store
 *.sql
 advocatemain.log
+
+# database dumps
+sept2017dump.json
