@@ -22,6 +22,12 @@ body {
 	font-family: 'futura_std';
 	src: url('../fonts/FuturaStd-Book.otf');
 }
+
+@font-face {
+  font-family: 'Futura Light';
+  src: url('../fonts/futura-light.ttf');
+}
+
 a {
     color: black;
 }
@@ -1121,4 +1127,73 @@ main {
 
 .archive-item .item-sample embed, .archive-item .item-sample iframe {
 	height: 100px !important;
+}
+
+
+/* Comp: Jack Zhang, Homepage Redesign */
+
+
+/* Grid Setup */
+
+.homepage {
+  box-sizing: border-box !important;
+}
+
+.homepage .top-features {
+  height: 400px;
+}
+
+.homepage .top-features .container-left {
+  width: 50%;
+  float: left;
+}
+
+.homepage .top-features .container-right {
+  width: 50%;
+  float: left;
+}
+
+.homepage .feature-text-left {
+  text-align: left;
+}
+
+.homepage .feature-text-right {
+  text-align: right;
+}
+
+
+/* Element Styling */
+
+.homepage .category-rule {
+  position: relative;
+  margin: 35px 20px 20px;
+  border-top: 1px solid black;
+  z-index: 0;
+}
+
+.homepage .category-label {
+  position: absolute;
+  background-color: white;
+  padding: 0 15px;
+  top: -8px;
+  left: 50%;
+  z-index: 20;
+  font-family: futura;
+  font-size: 11px;
+  letter-spacing: 1px;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
+
+.homepage .feature-image-primary {
+  height: 265px;
+  padding: 0 13px;
+  text-align: center;
+}
+
+.homepage .feature-title {
+  font-family: 'futura';
+  font-weight: bold;
+  font-size: 20px;
+  margin: 13px;
 }
