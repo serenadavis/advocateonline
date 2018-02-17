@@ -5,6 +5,9 @@ from django.contrib import admin
 from ajax_select import urls as ajax_select_urls
 
 from magazine.views import FilterSearchView
+from django.views.generic.base import RedirectView
+
+favicon_view = RedirectView.as_view(url='/static/magazine/images/favicon.ico', permanent=True)
 
 admin.autodiscover()
 
@@ -55,6 +58,7 @@ urlpatterns = patterns('',
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     url(r'^redactor/', include('redactor.urls')),
     url(r'^anthology/', include('anthology.urls')),
-    url(r'^advertisement$',include('advertisement.urls'))
+    url(r'^advertisement$',include('advertisement.urls')),
+    url(r'^favicon\.ico$', favicon_view)
 )
 
