@@ -765,7 +765,12 @@ and (max-device-width : 480px) {
 
 #submit a {
 	font-size: 30px;
-	color:darkblue;
+	color: black;
+}
+
+#submit b {
+	font-size: 30px;
+	color: black;
 }
 
 .submitAd {
