@@ -6,6 +6,7 @@ html {
 body {
 	font-family: Minion Pro Regular;
   color: #000;
+  padding-top: 20px;
 }
 
 @font-face {
@@ -546,7 +547,7 @@ article.poetry p {
 }
 
 .container{
-	max-width: 1000px;
+	max-width: 1050px;
 }
 .center{
 	text-align: center;
@@ -1144,21 +1145,32 @@ main {
 
 .homepage {
   box-sizing: border-box !important;
+  position: relative;
 }
 
-.homepage .top-features {
-  height: 800px;
-}
-
-.homepage .top-features .container-left {
+.homepage .container-left {
   width: 50%;
   float: left;
 }
 
-.homepage .top-features .container-right {
+.homepage .container-right {
   width: 50%;
   float: left;
 }
+
+.banner-advertisement-container {
+  margin-top: 30px;
+  height: 140px;
+  background-color: #2C5D63;
+}
+
+.banner-advertisement-container h4 {
+  padding-top: 20px;
+  padding-left: 20px;
+  color: grey;
+}
+
+
 
 /* Element Styling */
 
@@ -1170,8 +1182,11 @@ main {
 }
 
 .homepage .category-label {
+  display: block;
   position: absolute;
   background-color: white;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
   padding: 0 15px;
   top: -8px;
   left: 50%;
@@ -1225,4 +1240,31 @@ main {
   letter-spacing: .5px;
   text-transform: uppercase;
   font-family: Arial, sans-serif;
+}
+
+.homepage .current-issue-title {
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 29px;
+  line-height: 33px;
+  margin: 13px;
+}
+
+.homepage .feature-list-item {
+  font-family: Georgia;
+  font-weight: normal;
+  font-size: 14px;
+  margin: 13px;
+  margin-bottom: 10px;
+}
+
+.homepage .homepage-list {
+  padding: 2px 0 0 0;
+  margin: 0;
+}
+
+.homepage .homepage-list li {
+  margin-left: 40px;
 }
