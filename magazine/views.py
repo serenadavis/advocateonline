@@ -5,6 +5,7 @@ from django.http import HttpResponse, JsonResponse
 from .models import Article, Content, Image, Issue, Contributor, ShopItem # '.' signifies the current directory
 import django.db.models as models
 from .forms import UploadShopItemForm
+from .get_top import get_analytics
 from blog.models import Post, Author
 from collections import OrderedDict
 from itertools import chain
@@ -63,6 +64,61 @@ def index(request):
 
   template_name = 'index.html'
   return render_to_response(template_name, data, context_instance=RequestContext(request))
+
+
+def homepage_redesign_jack(request):
+  data = {}
+
+  # current_issue
+  issue = Issue.objects.last()
+  data['issue'] = issue
+
+  all_articles = Article.objects.published()
+  articles_in_issue = all_articles.filter(issue=issue)
+  art_in_issue = Image.objects.published().filter(issue=issue)
+
+  # most_read (from Google Analytics)
+  most_read_list = get_analytics(top=5)
+  most_read = []
+  for item in most_read_list:
+    article, _ = item
+    most_read.append(article)
+  data['most_read'] = most_read
+
+  # editors_picks (randomly generated)
+  editors_picks = []
+  editors_picks_article_indicies = random.sample(range(0, len(all_articles) - 1), 5)
+  for index in editors_picks_article_indicies:
+    editors_picks.append(all_articles[index])
+  data['editors_picks'] = editors_picks
+
+  # advertisement
+  advertisement = {
+    'image_url': '/static/magazine/images/banner1.jpg',
+    'ad_url': 'https://google.com'
+  }
+  data['advertisement'] = advertisement
+
+  # feature_1 - Any
+
+  # feature_2 - Blog
+
+  # feature_3 - Art
+
+  # feature_4 - Any
+
+  # feature_5 - Any
+
+  # feature_6 - Any
+
+  # feature_7 - Any
+
+  # feature_8 - Any
+
+
+  template_name = 'homepage_redesign_jack.html'
+  return render_to_response(template_name, data, context_instance=RequestContext(request))
+
 
 def article(request, id, slug):
   article = get_object_or_404(Article, id=id)
@@ -454,8 +510,4 @@ def onefifty(request):
 
 def comp(request):
   template_name = 'comp.html'
-  return render_to_response(template_name, context_instance=RequestContext(request))
-
-def homepage_redesign_jack(request):
-  template_name = 'homepage_redesign_jack.html'
   return render_to_response(template_name, context_instance=RequestContext(request))

@@ -6,7 +6,7 @@ html {
 body {
 	font-family: Minion Pro Regular;
   color: #000;
-  padding-top: 20px;
+  padding: 20px 0;
 }
 
 @font-face {
@@ -139,7 +139,7 @@ body{
 }
 @media screen and (max-width: 946px) {
 	.affix .nav-header::before {
-	   content: "THE HARVARD ADVOCATE";
+	   content: "The Harvard Advocate";
 	   float: left;
 	   display: none;
 	   padding: 15px;
@@ -157,7 +157,8 @@ body{
 }
 .main-title{
   color: black;
-	font-size: 45px;
+	font-size: 40px;
+  font-weight: bold;
 	margin: 40px auto;
 	letter-spacing: 0px;
 }
@@ -366,10 +367,13 @@ body{
 }
 @media screen and (min-width: 947px) {
 	.affix .nav-header::before {
-	   content: "THE HARVARD ADVOCATE";
-	   float: left;
-	   display: inline-block;
-	   padding: 15px;
+	   content: "The Harvard Advocate";
+     float: left;
+     display: inline-block;
+     font-size: 15px;
+     font-weight: bold;
+     padding: 12.5px;
+     font-family: Georgia;
 	}
 }
 
@@ -512,7 +516,8 @@ article.poetry p {
   font-size: 20px;
 }
 .advo-navbar{
-	font-family: futura;
+  font-family: Georgia;
+  font-weight: bold;
 	color: black;
 	margin:0 auto;
 	border: none;
@@ -1148,20 +1153,38 @@ main {
   position: relative;
 }
 
-.homepage .container-left {
+.homepage .container-left-half,
+.homepage .container-left-quarter {
   width: 50%;
   float: left;
+  padding: 0 5px;
 }
 
-.homepage .container-right {
+.homepage .container-right-half,
+.homepage .container-right-quarter {
   width: 50%;
   float: left;
+  padding: 0 5px;
+}
+
+.homepage #feature-1 {
+  height: 500px;
+}
+
+.homepage #feature-2,
+.homepage #feature-3,
+.homepage #feature-4,
+.homepage #feature- 5,
+.homepage #feature-6,
+.homepage #feature-7 {
+  height: 250px;
 }
 
 .banner-advertisement-container {
-  margin-top: 30px;
+  margin: 25px 70px 10px;
   height: 140px;
-  background-color: #2C5D63;
+  border: 1px solid rgb(175, 175, 175);
+  background-color: white;
 }
 
 .banner-advertisement-container h4 {
@@ -1170,13 +1193,11 @@ main {
   color: grey;
 }
 
-
-
 /* Element Styling */
 
 .homepage .category-rule {
   position: relative;
-  margin: 35px 7px 18px;
+  margin: 28px 13px 18px;
   border-top: 1px solid rgb(175, 175, 175);
   z-index: 0;
 }
@@ -1184,11 +1205,12 @@ main {
 .homepage .category-label {
   display: block;
   position: absolute;
+  font-weight: bold;
   background-color: white;
   text-transform: uppercase;
   margin: 0 0 10px 0;
-  padding: 0 15px;
-  top: -8px;
+  padding: 0 12px;
+  top: -6px;
   left: 50%;
   z-index: 20;
   font-family: Arial, sans-serif;
@@ -1200,64 +1222,124 @@ main {
 
 .homepage .feature-image-primary {
   height: 296px;
+  width: 100%;
   padding: 0 13px;
   text-align: center;
 }
 
-.homepage .feature-title {
+.homepage .feature-title-large {
   font-family: Georgia;
-  font-weight: normal;
-  font-size: 29px;
-  line-height: 33px;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 31px;
   letter-spacing: -0.5px;
-  margin: 13px;
+  margin: 15px 13px
 }
 
-.homepage .feature-description {
+.homepage .feature-title-small {
+  font-family: Georgia;
+  font-weight: bold;
+  font-size: 19px;
+  line-height: 22px;
+  letter-spacing: -0.5px;
+  margin: 10px 13px;
+}
+
+.homepage .feature-description-large {
   font-family: Georgia;
   font-weight: normal;
   font-size: 14px;
   margin: 13px;
   margin-bottom: 10px;
+  color: rgba(0,0,0,.64);
+}
+
+.homepage .feature-description-small {
+  font-family: Georgia;
+  font-weight: normal;
+  font-size: 14px;
+  margin: 10px 13px;
+  margin-bottom: 10px;
+  color: rgba(0,0,0,.64);
+}
+
+.homepage .feature-image-container-large {
+  margin-top: 10px;
+  height: 270px;
+  width: 100%;
+  padding: 0 13px;
+}
+
+.homepage .feature-image-container-small {
+  height: 100px;
+  width: 100%;
+  padding: 0 13px;
+}
+
+.homepage .feature-image {
+  border: 1px rgb(175,175,175) solid;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
 }
 
 .homepage .feature-author {
   font-family: Georgia;
-  font-weight: bold;
-  color: rgb(120, 120, 120);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
+  margin-top: 15px;
   margin-left: 13px;
   text-align: left;
 }
 
 .homepage .feature-release-date {
+  color: rgba(0,0,0,.64);
   float: right;
   margin-right: 13px;
   font-size: 11px;
-  font-weight: bold;
   line-height: 20px;
   letter-spacing: .5px;
   text-transform: uppercase;
   font-family: Arial, sans-serif;
 }
 
-.homepage .current-issue-title {
+.homepage .feature-release-date-small {
+  color: rgba(0,0,0,.64);
+  margin: 0 13px;
+  font-size: 11px;
+  line-height: 20px;
+  letter-spacing: .7px;
   text-transform: uppercase;
-  letter-spacing: 1.3px;
-  font-family: Arial;
-  font-weight: bold;
-  font-size: 29px;
-  line-height: 33px;
-  margin: 13px;
+  font-family: Arial, sans-serif;
 }
 
-.homepage .feature-list-item {
-  font-family: Georgia;
-  font-weight: normal;
-  font-size: 14px;
-  margin: 13px;
-  margin-bottom: 10px;
+.homepage .current-issue-label {
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1.5px;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 33px;
+  margin: 20px auto 0;
+}
+
+.homepage .feature-image-container-current-issue {
+  width: 100%;
+  height: 250px;
+  padding: 0 50px;
+  margin-top: 6px;
+}
+
+.homepage .current-issue-shop {
+  color: rgba(0,0,0,.64);
+  padding-left: 50px;
+  margin-top: 8px;
+  font-size: 11px;
+  line-height: 20px;
+  letter-spacing: .7px;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
 }
 
 .homepage .homepage-list {
@@ -1266,5 +1348,73 @@ main {
 }
 
 .homepage .homepage-list li {
-  margin-left: 40px;
+  margin-left: 45px;
+}
+
+.homepage .feature-list-item {
+  font-family: Arial;
+  font-weight: normal;
+  font-size: 12px;
+  margin: 12px 0;
+  color: rgb(120, 120, 120);
+}
+
+.homepage .feature-list-item-title {
+  color: black;
+  font-family: Georgia;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 7px;
+}
+
+.homepage .feature-list-item-author {
+  color: black;
+  margin-top: 3px;
+  font-family: Georgia;
+  font-size: 14px;
+  margin-left: 7px;
+}
+
+.homepage .feature-list-item-release-date {
+  color: rgba(0,0,0,.64);
+  font-size: 11px;
+  line-height: 20px;
+  letter-spacing: .7px;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+  margin-left: 7px;
+}
+
+
+/* Responsive Styling */
+
+@media (max-width: 900px) {
+  .homepage .container-left-half,
+  .homepage .container-right-half {
+    width: 100%;
+  }
+
+  .homepage #feature-1 {
+    height: 100%;
+  }
+
+  .homepage #feature-2,
+  .homepage #feature-3,
+  .homepage #feature-4,
+  .homepage #feature- 5,
+  .homepage #feature-6,
+  .homepage #feature-7 {
+    height: 200px;
+  }
+}
+
+@media (max-width: 500px) {
+  .homepage .container-left-quarter,
+  .homepage .container-right-quarter {
+    width: 100%;
+  }
+
+  .homepage .homepage-list li {
+    margin-left: 27px;
+  }
 }
