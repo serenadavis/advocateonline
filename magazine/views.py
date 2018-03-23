@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render_to_response
 from django.template.context import RequestContext
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 # from .models import Article, Content, Issue , Subscriber# '.' signifies the current directory
 from .models import Article, Content, Image, Issue, Contributor, ShopItem # '.' signifies the current directory
 from .forms import UploadShopItemForm
@@ -278,6 +278,32 @@ def sections(request):
   print(featured_articles[0])
   template_name = 'section.html'
   return render_to_response(template_name, data, context_instance=RequestContext(request))
+
+def explore_archives(request):
+  section, num, issue = request.GET.get("section"), int(request.GET.get("num")), request.GET.get("issue")
+  last_issue = Issue.objects.get
+  articles = None
+  if issue:
+    articles = Article.objects.published().filter(section__name=section, issue=issue)[:num]
+  else:
+    articles = select_random(num, Article.objects.published().filter(section__name=section))
+  result = {
+    "result": [serialize_article(a) for a in articles]
+  }
+  return JsonResponse(result, safe=False)
+
+def serialize_article(a):
+  return {
+    "id": a.id,
+    "title": a.title,
+    "contributors": [str(c) for c in a.contributors.all()],
+    "body": a.body
+  }
+
+def select_random(num, query):
+  total = query.count()
+  indx = [random.randint(0, total-1) for _ in xrange(num)]
+  return [query[i] for i in indx]
 
 def submit(request):
   template_name = 'submit.html'
