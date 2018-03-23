@@ -26,6 +26,7 @@ import logging
 
 logger = logging.getLogger("magazine")
 
+
 # Create your views here.
 def index(request):
   issue = Issue.objects.last()
@@ -268,35 +269,13 @@ def sections(request):
   # For all issues
   all_issues = Issue.objects.all()
   season = {'Winter': 0, 'Spring': 1, 'Commencement': 2, 'Fall': 3}
-  all_issues = reversed(sorted(all_issues, key=lambda i: i.year))
-  #all_issues_sorted = reversed(sorted(all_issues, key=lambda i: i.year * 10 + season[i.issue]))
+  featured_articles = Article.objects.published().filter(section__name =section).order_by('publishDate')[:5]
   data = {
-    "name":section,
-    "issues": []
+    "section": section,
+    "featured_articles": featured_articles,
+    "ads": getAds(section)
   }
-
-  for issue in all_issues:
-    articles_in_issue = Article.objects.published().filter(issue=issue, section__name =section)
-    if section == "art":
-      if articles_in_issue:
-        articles_in_issue = list(chain(articles_in_issue,Image.objects.published().filter(issue=issue, section__name =section) ))
-      else:
-        articles_in_issue = Image.objects.published().filter(issue=issue, section__name =section)
-
-    datum = {
-      'obj':issue,
-      'articles': articles_in_issue
-      }
-
-    data["issues"].append(datum)
-
-
-    data['ads'] = getAds(section)
-
-  # for issue in data["issues"]:
-  #   for article in issue["articles"]:
-  #     print article.contributors.all()
-
+  print(featured_articles[0])
   template_name = 'section.html'
   return render_to_response(template_name, data, context_instance=RequestContext(request))
 
