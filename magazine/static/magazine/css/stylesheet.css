@@ -842,7 +842,6 @@ and (max-device-width : 480px) {
 	transition: all 0.2s;
 	height: 500px;
 	position: relative;
-	border: 1px solid darkgray;
 	padding: 5px;
 	padding: 10px 15px;
 	overflow: hidden;
@@ -934,7 +933,7 @@ and (max-device-width : 480px) {
 }
 
 .featured-item-links {
-	width: 320px;
+	width: 335px;
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -1055,11 +1054,12 @@ and (max-device-width : 480px) {
 	cursor: pointer;
 	width: 300px;
 	margin: 0 auto;
+	padding: 4px;
 }
 
 .load-more-underline {
 	border-bottom: thin solid black;
-	width: 100px;
+	width: 80px;
 	margin: 0 auto;
 	margin-top: 5px;
 }
@@ -1091,6 +1091,14 @@ main {
 	.archive, .features {
 		padding-left: 0;
 	}
+
+	.featured-item {
+		border: 1px solid darkgray;
+	}
+}
+
+.poetry-page .featured-item {
+	border: darkgray solid thin;
 }
 
 /* Art Section Adjustment */
