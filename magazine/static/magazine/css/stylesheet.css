@@ -548,7 +548,7 @@ article.poetry p {
 .dropdown li a{
     font-size: 95%;
 }
-ul li a:hover{
+ul li a:hover, .load-more:hover {
     text-decoration: none;
     text-shadow: 1.5px 1.5px #F3BB2A;
 }
@@ -804,14 +804,6 @@ and (max-device-width : 480px) {
 	height: 1%;
 }
 
-.item {
-	border: 1px solid black;
-	padding: 5px;
-	overflow: hidden;
-	height: 1%;
-	padding: 10px 15px;
-}
-
 .featured-item {
 	width: 420px;
 	opacity: 0;
@@ -819,16 +811,20 @@ and (max-device-width : 480px) {
 	transition: all 0.2s;
 	height: 500px;
 	position: relative;
+	border: 1px solid darkgray;
+	padding: 5px;
+	padding: 10px 15px;
+	overflow: hidden;
 }
 
 
-.featured-item .shadow {
+.featured-item .shadow, .archive-item .shadow {
 	position: absolute;
-	top: 0;
+	bottom: 0;
 	left: 0;
 	width: 100%;
-	height: calc(100%);
-	background: linear-gradient(to top, rgba(255,255,255,1) 0%,rgba(255,255,255, 1) 5%,rgba(255,255,255, 0) 20%,rgba(255,255,255,0) 100%);
+	height: calc(25%);
+	background: linear-gradient(to top, rgba(255,255,255,1) 0%,rgba(255,255,255, 1) 20%,rgba(255,255,255, 0) 100%);
 }
 
 .featured-item.selected {
@@ -841,6 +837,12 @@ and (max-device-width : 480px) {
 	bottom: 12px;
 	left: 0;
 	width: 100%;
+}
+
+.item-continue-reading a:hover {
+	cursor: pointer;
+    text-shadow: 1.5px 1.5px #F3BB2A;
+    text-decoration: none;
 }
 
 .item-title {
@@ -872,14 +874,22 @@ and (max-device-width : 480px) {
 
 .item-sample {
 	margin-top: 5px;
-	overflow-y: hidden;
+	overflow: hidden;
 	height: calc(100% - 20px);
-	overflow-y: hidden;
 }
 
-.item-sample p {
+.item-sample p, .item-sample span, .item-sample div {
 	font-size: 14px !important;
 	font-family: Georgia !important;
+	color: black !important;
+	line-height: 1.4em !important;
+	text-align: left !important;
+	margin-bottom: 0.2em !important;
+	text-indent: 1.2em !important;
+}
+
+.poetry-page .item-sample p, .poetry-page  .item-sample span, .poetry-page  .item-sample div {
+	text-indent: 0 !important;
 }
 
 .item-continue-reading {
@@ -954,9 +964,8 @@ and (max-device-width : 480px) {
 }
 
 .archive-item {
-	display: flex;
 	flex-direction: column;
-	border: lightgray solid thin;
+	border: darkgray solid thin;
 	background-color: white;
 	animation: 1s all;
 	width: calc(33% - 10px);
@@ -966,14 +975,25 @@ and (max-device-width : 480px) {
 	float: left;
 	font-size: 0.8em;
 	padding: 15px;
-	overflow-y: hidden;
+	overflow: hidden;
 	transition: all 0.2s ease-out;
+	position: relative;
 }
 
-.archive-item:hover {
+/*.archive-item:hover  .item-title, .archive-item:hover  .item-author {
 	background-color: darkgray;
 	cursor: pointer;
+    text-shadow: 1.5px 1.5px #F3BB2A;
+}*/
+
+.archive-item .shadow {
+	background: linear-gradient(to top, rgba(255,255,255,1) 0%,rgba(255,255,255, 1) 30%,rgba(255,255,255, 0) 100%);
 }
+
+/*.archive-item:hover .shadow, .archive-item:hover .item-continue-reading {
+	opacity: 0;
+	transition: all 0.2s;
+}*/
 
 .archive-item .item-title {
 	font-size: 1.85em;
@@ -989,10 +1009,17 @@ and (max-device-width : 480px) {
 }
 
 .archive-item .item-sample {
-	height: calc(100% - 110px);
+	height: calc(100% - 50px);
 }
 
-.description {
+.archive-item .item-continue-reading {
+	position: absolute;
+	bottom: 12px;
+	left: 0;
+	width: 100%;
+}
+
+.description, .issue-selector {
 	font-style: italic;
 	padding-left: 25px;
 	margin-top: -15px;
@@ -1005,13 +1032,62 @@ and (max-device-width : 480px) {
 	text-align: center;
 	font-size: 1.2em;
 	cursor: pointer;
-	border-bottom: 1px black solid;
-	padding-bottom: 2px;
 	width: 300px;
 	margin: 0 auto;
+}
+
+.load-more-underline {
+	border-bottom: thin solid black;
+	width: 100px;
+	margin: 0 auto;
+	margin-top: 5px;
+}
+
+.load-more:not(.all), .load-more-underline:not(.all) {
+	display: none;
 }
 
 main {
 	max-width: 900px;
 	margin: 0 auto;
+}
+
+@media only screen and (max-width: 880px) {
+	.featured-item-links {
+		display: none;
+	}
+	.featured-item {
+		display: block;
+		opacity: 1;
+		margin-bottom: 2em;
+		width: 100%;
+		max-height: 27em;
+	}
+	.archive-item {
+		width: 100%;
+	}
+
+	.archive, .features {
+		padding-left: 0;
+	}
+}
+
+/* Art Section Adjustment */
+.item-sample embed, .item-sample iframe {
+	width: calc(100% - 33px) !important;
+	height: 300px !important;
+}
+
+.item-sample img {
+	width: calc(100% - 33px);
+	margin: 0 auto;
+	display: block;
+}
+
+.art-page .archive-item {
+	height: 300px;
+}
+
+.archive-item .item-sample embed, .archive-item .item-sample iframe {
+	height: 100px !important;
 }

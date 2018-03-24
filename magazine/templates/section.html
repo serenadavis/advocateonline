@@ -7,7 +7,7 @@
 <h3 class="section-title">
 Featured {{ section }}
 </h3>
-<div class="features">
+<div class="features {{ section }}-page">
   <ul class="featured-item-links">
     {% for article in featured_articles %}
     <li {% if forloop.first %} class="selected" {% endif %} data-item-id="{{ article.id }}"><span class="item-title">{{ article.title }}</span><span class="item-author">By {% for author in article.contributors.all %}
@@ -22,84 +22,53 @@ Featured {{ section }}
              <a href="{{ author.get_absolute_url }}">{{ author.name }}</a>
         {% endfor %}</span>
       <span class="title-underline"></span>
-      <div class="item-sample">{% autoescape off %}{{ article.body }}}{% endautoescape %}</div>
-      {% if section != 'art' %}
+      <div class="item-sample">{% if article.photo %}<img src="//theharvardadvocate.com/media/{{article.photo}}" />{% endif %}{% autoescape off %}{{ article.body }}{% endautoescape %}</div>
       <div class="shadow"></div>
-      <div class="item-continue-reading"><a href="/content/{{ article.id }}">Continue Reading >></a></div>
-      {% endif %}
+      <div class="item-continue-reading"><a href="/content/{{ article.id }}">{% if section == "art" %} See More >> {% else %} Continue Reading >> {% endif %}</a></div>
     </div>
   {% endfor %}
+</div>
+<div class = "container">
+ <div class="item">
+   <div class="row">
+
+ {% if ads %}
+
+    {% for ad in ads %}
+    <div class="col-md-4">
+      <article>
+      <a href = "/advertise" class = "sponsored-link"> Sponsored </a>
+        <figure class="resize-image" style="margin:auto;">
+          <!--pass in art image link HERE-->
+          <a href = "{{ ad.url }}"> <img src=" {{ ad.image.url }}" class = "img-responsive" alt="Main Image" > </a>
+   </div>
+
+   {% endfor %}
+
+    {% endif %}
+    
+  </div>
+  </div>
 </div>
 <h3 class="section-title">
 Explore The {{ section }} Archives
 </h3>
 <span class="description">Browse works selected from past issues</span>
-<ul class="archive">
-  <li class="archive-item">
-      <span class="item-title">Epidemic2</span>
-      <span class="item-author">By Jorge Olivera Castilla</span>
-      <span class="title-underline"></span>
-      <div class="item-sample">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras volutpat lobortis erat vel vestibulum. Nullam tellus nisl, vestibulum et enim quis, suscipit bibendum diam. Curabitur placerat eros a risus sodales, in pharetra massa pulvinar. Donec massa lorem, interdum at porta id, malesuada in lacus. Cras finibus, lacus imperdiet aliquam sagittis, est ipsum posuere lorem, quis pellentesque dolor dolor sit amet orci. Fusce sed nisl id ante efficitur euismod nec vitae lectus. Nam lectus sapien, cursus ut malesuada varius, hendrerit ac leo. Fusce cursus nibh facilisis sem ornare imperdiet. Sed ultrices id massa vel tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris fringilla pharetra suscipit. Sed sem velit, lobortis vitae dapibus eu, malesuada a massa. Morbi pulvinar, orci et lacinia vulputate, augue nisl mollis odio, venenatis pellentesque nibh leo at turpis. Phasellus et suscipit leo. Praesent quam dolor, condimentum a purus quis, fermentum vestibulum lorem. Proin eget pretium erat, ut tristique nulla.</div>
-      <div class="item-continue-reading">Continue Reading >></div>
-  </li>
-  <li class="archive-item">
-      <span class="item-title">Epidemic2</span>
-      <span class="item-author">By Jorge Olivera Castilla</span>
-      <span class="title-underline"></span>
-      <div class="item-sample">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras volutpat lobortis erat vel vestibulum. Nullam tellus nisl, vestibulum et enim quis, suscipit bibendum diam. Curabitur placerat eros a risus sodales, in pharetra massa pulvinar. Donec massa lorem, interdum at porta id, malesuada in lacus. Cras finibus, lacus imperdiet aliquam sagittis, est ipsum posuere lorem, quis pellentesque dolor dolor sit amet orci. Fusce sed nisl id ante efficitur euismod nec vitae lectus. Nam lectus sapien, cursus ut malesuada varius, hendrerit ac leo. Fusce cursus nibh facilisis sem ornare imperdiet. Sed ultrices id massa vel tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris fringilla pharetra suscipit. Sed sem velit, lobortis vitae dapibus eu, malesuada a massa. Morbi pulvinar, orci et lacinia vulputate, augue nisl mollis odio, venenatis pellentesque nibh leo at turpis. Phasellus et suscipit leo. Praesent quam dolor, condimentum a purus quis, fermentum vestibulum lorem. Proin eget pretium erat, ut tristique nulla.</div>
-      <div class="item-continue-reading">Continue Reading >></div>
-  </li>
-  <li class="archive-item">
-      <span class="item-title">Epidemic2</span>
-      <span class="item-author">By Jorge Olivera Castilla</span>
-      <span class="title-underline"></span>
-      <div class="item-sample">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras volutpat lobortis erat vel vestibulum. Nullam tellus nisl, vestibulum et enim quis, suscipit bibendum diam. Curabitur placerat eros a risus sodales, in pharetra massa pulvinar. Donec massa lorem, interdum at porta id, malesuada in lacus. Cras finibus, lacus imperdiet aliquam sagittis, est ipsum posuere lorem, quis pellentesque dolor dolor sit amet orci. Fusce sed nisl id ante efficitur euismod nec vitae lectus. Nam lectus sapien, cursus ut malesuada varius, hendrerit ac leo. Fusce cursus nibh facilisis sem ornare imperdiet. Sed ultrices id massa vel tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris fringilla pharetra suscipit. Sed sem velit, lobortis vitae dapibus eu, malesuada a massa. Morbi pulvinar, orci et lacinia vulputate, augue nisl mollis odio, venenatis pellentesque nibh leo at turpis. Phasellus et suscipit leo. Praesent quam dolor, condimentum a purus quis, fermentum vestibulum lorem. Proin eget pretium erat, ut tristique nulla.</div>
-      <div class="item-continue-reading">Continue Reading >></div>
-  </li>
-  <li class="archive-item">
-      <span class="item-title">Epidemic2</span>
-      <span class="item-author">By Jorge Olivera Castilla</span>
-      <span class="title-underline"></span>
-      <div class="item-sample">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras volutpat lobortis erat vel vestibulum. Nullam tellus nisl, vestibulum et enim quis, suscipit bibendum diam. Curabitur placerat eros a risus sodales, in pharetra massa pulvinar. Donec massa lorem, interdum at porta id, malesuada in lacus. Cras finibus, lacus imperdiet aliquam sagittis, est ipsum posuere lorem, quis pellentesque dolor dolor sit amet orci. Fusce sed nisl id ante efficitur euismod nec vitae lectus. Nam lectus sapien, cursus ut malesuada varius, hendrerit ac leo. Fusce cursus nibh facilisis sem ornare imperdiet. Sed ultrices id massa vel tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris fringilla pharetra suscipit. Sed sem velit, lobortis vitae dapibus eu, malesuada a massa. Morbi pulvinar, orci et lacinia vulputate, augue nisl mollis odio, venenatis pellentesque nibh leo at turpis. Phasellus et suscipit leo. Praesent quam dolor, condimentum a purus quis, fermentum vestibulum lorem. Proin eget pretium erat, ut tristique nulla.</div>
-      <div class="item-continue-reading">Continue Reading >></div>
-  </li>
-  <li class="archive-item">
-      <span class="item-title">Epidemic2</span>
-      <span class="item-author">By Jorge Olivera Castilla</span>
-      <span class="title-underline"></span>
-      <div class="item-sample">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras volutpat lobortis erat vel vestibulum. Nullam tellus nisl, vestibulum et enim quis, suscipit bibendum diam. Curabitur placerat eros a risus sodales, in pharetra massa pulvinar. Donec massa lorem, interdum at porta id, malesuada in lacus. Cras finibus, lacus imperdiet aliquam sagittis, est ipsum posuere lorem, quis pellentesque dolor dolor sit amet orci. Fusce sed nisl id ante efficitur euismod nec vitae lectus. Nam lectus sapien, cursus ut malesuada varius, hendrerit ac leo. Fusce cursus nibh facilisis sem ornare imperdiet. Sed ultrices id massa vel tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris fringilla pharetra suscipit. Sed sem velit, lobortis vitae dapibus eu, malesuada a massa. Morbi pulvinar, orci et lacinia vulputate, augue nisl mollis odio, venenatis pellentesque nibh leo at turpis. Phasellus et suscipit leo. Praesent quam dolor, condimentum a purus quis, fermentum vestibulum lorem. Proin eget pretium erat, ut tristique nulla.</div>
-      <div class="item-continue-reading">Continue Reading >></div>
-  </li>
-  <li class="archive-item">
-      <span class="item-title">Epidemic2</span>
-      <span class="item-author">By Jorge Olivera Castilla</span>
-      <span class="title-underline"></span>
-      <div class="item-sample">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras volutpat lobortis erat vel vestibulum. Nullam tellus nisl, vestibulum et enim quis, suscipit bibendum diam. Curabitur placerat eros a risus sodales, in pharetra massa pulvinar. Donec massa lorem, interdum at porta id, malesuada in lacus. Cras finibus, lacus imperdiet aliquam sagittis, est ipsum posuere lorem, quis pellentesque dolor dolor sit amet orci. Fusce sed nisl id ante efficitur euismod nec vitae lectus. Nam lectus sapien, cursus ut malesuada varius, hendrerit ac leo. Fusce cursus nibh facilisis sem ornare imperdiet. Sed ultrices id massa vel tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris fringilla pharetra suscipit. Sed sem velit, lobortis vitae dapibus eu, malesuada a massa. Morbi pulvinar, orci et lacinia vulputate, augue nisl mollis odio, venenatis pellentesque nibh leo at turpis. Phasellus et suscipit leo. Praesent quam dolor, condimentum a purus quis, fermentum vestibulum lorem. Proin eget pretium erat, ut tristique nulla.</div>
-      <div class="item-continue-reading">Continue Reading >></div>
-  </li>
-  <li class="archive-item">
-      <span class="item-title">Epidemic2</span>
-      <span class="item-author">By Jorge Olivera Castilla</span>
-      <span class="title-underline"></span>
-      <div class="item-sample">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras volutpat lobortis erat vel vestibulum. Nullam tellus nisl, vestibulum et enim quis, suscipit bibendum diam. Curabitur placerat eros a risus sodales, in pharetra massa pulvinar. Donec massa lorem, interdum at porta id, malesuada in lacus. Cras finibus, lacus imperdiet aliquam sagittis, est ipsum posuere lorem, quis pellentesque dolor dolor sit amet orci. Fusce sed nisl id ante efficitur euismod nec vitae lectus. Nam lectus sapien, cursus ut malesuada varius, hendrerit ac leo. Fusce cursus nibh facilisis sem ornare imperdiet. Sed ultrices id massa vel tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris fringilla pharetra suscipit. Sed sem velit, lobortis vitae dapibus eu, malesuada a massa. Morbi pulvinar, orci et lacinia vulputate, augue nisl mollis odio, venenatis pellentesque nibh leo at turpis. Phasellus et suscipit leo. Praesent quam dolor, condimentum a purus quis, fermentum vestibulum lorem. Proin eget pretium erat, ut tristique nulla.</div>
-      <div class="item-continue-reading">Continue Reading >></div>
-  </li>
-  <li class="archive-item">
-      <span class="item-title">Epidemic2</span>
-      <span class="item-author">By Jorge Olivera Castilla</span>
-      <span class="title-underline"></span>
-      <div class="item-sample">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras volutpat lobortis erat vel vestibulum. Nullam tellus nisl, vestibulum et enim quis, suscipit bibendum diam. Curabitur placerat eros a risus sodales, in pharetra massa pulvinar. Donec massa lorem, interdum at porta id, malesuada in lacus. Cras finibus, lacus imperdiet aliquam sagittis, est ipsum posuere lorem, quis pellentesque dolor dolor sit amet orci. Fusce sed nisl id ante efficitur euismod nec vitae lectus. Nam lectus sapien, cursus ut malesuada varius, hendrerit ac leo. Fusce cursus nibh facilisis sem ornare imperdiet. Sed ultrices id massa vel tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris fringilla pharetra suscipit. Sed sem velit, lobortis vitae dapibus eu, malesuada a massa. Morbi pulvinar, orci et lacinia vulputate, augue nisl mollis odio, venenatis pellentesque nibh leo at turpis. Phasellus et suscipit leo. Praesent quam dolor, condimentum a purus quis, fermentum vestibulum lorem. Proin eget pretium erat, ut tristique nulla.</div>
-      <div class="item-continue-reading">Continue Reading >></div>
-  </li>
-  <li class="archive-item">
-      <span class="item-title">Epidemic2 But Are there more coming Are there?</span>
-      <span class="item-author">By Jorge Olivera Castilla</span>
-      <span class="title-underline"></span>
-      <div class="item-sample">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras volutpat lobortis erat vel vestibulum. Nullam tellus nisl, vestibulum et enim quis, suscipit bibendum diam. Curabitur placerat eros a risus sodales, in pharetra massa pulvinar. Donec massa lorem, interdum at porta id, malesuada in lacus. Cras finibus, lacus imperdiet aliquam sagittis, est ipsum posuere lorem, quis pellentesque dolor dolor sit amet orci. Fusce sed nisl id ante efficitur euismod nec vitae lectus. Nam lectus sapien, cursus ut malesuada varius, hendrerit ac leo. Fusce cursus nibh facilisis sem ornare imperdiet. Sed ultrices id massa vel tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris fringilla pharetra suscipit. Sed sem velit, lobortis vitae dapibus eu, malesuada a massa. Morbi pulvinar, orci et lacinia vulputate, augue nisl mollis odio, venenatis pellentesque nibh leo at turpis. Phasellus et suscipit leo. Praesent quam dolor, condimentum a purus quis, fermentum vestibulum lorem. Proin eget pretium erat, ut tristique nulla.</div>
-      <div class="item-continue-reading">Continue Reading >></div>
-  </li>
+
+<div class="issue-selector">
+<span class="select-issue-label">Select an issue: </span>
+<select class="select-issue-dropdown">
+    <option value="all">All Issues</option>
+    {% for issue in issues %}
+      <option value={{ issue.id }}>{{ issue.name }}</option>
+    {% endfor %}
+</select>
+</div>
+
+<ul class="archive {{ section }}-page">
 </ul>
 
-<div class="load-more">Load More</div>
+<div class="load-more">Explore More {{section | title }}<div class="load-more-underline"></div></div>
+
 
 {% endblock %}
