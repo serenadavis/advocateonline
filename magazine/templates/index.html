@@ -14,7 +14,7 @@
             {% empty %}
             <h3 class="subheader-article-author"> No Author </h3> {% endfor %} {% if section == "art" %}
             <figure class="resize-image" style="margin:auto;">
-                <!--pass in art image link HERE-->
+                <a href="{{ article.get_absolute_url }}" class="no-decoration">
                 <img src="{{ MEDIA_URL }}{{article.image.photo|safe}}" class="img-responsive" alt="Main Image">
             </figure>
             {% else %}
