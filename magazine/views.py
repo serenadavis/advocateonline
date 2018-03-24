@@ -3,6 +3,7 @@ from django.template.context import RequestContext
 from django.http import HttpResponse, JsonResponse
 # from .models import Article, Content, Issue , Subscriber# '.' signifies the current directory
 from .models import Article, Content, Image, Issue, Contributor, ShopItem # '.' signifies the current directory
+import django.db.models as models
 from .forms import UploadShopItemForm
 from blog.models import Post, Author
 from collections import OrderedDict
@@ -267,26 +268,50 @@ def sections(request):
   section = section.replace("/","")
 
   # For all issues
-  all_issues = Issue.objects.all()
+  all_issues = query_all_issues_sorted()
   season = {'Winter': 0, 'Spring': 1, 'Commencement': 2, 'Fall': 3}
-  featured_articles = Article.objects.published().filter(section__name =section).order_by('publishDate')[:5]
+  featured_articles = list(Article.objects.published().filter(section__name =section).order_by('-publishDate')[:5])
+  if section == "art":
+      images = list(Image.objects.published().filter(section__name =section).order_by('-publishDate')[:5])
+      if featured_articles:
+        featured_articles = sorted(featured_articles + images, key = lambda x: x.publishDate)[5:]
+      else:
+        featured_articles = images
   data = {
     "section": section,
-    "featured_articles": featured_articles,
-    "ads": getAds(section)
+    "featured_articles": list(featured_articles)[:5],
+    "ads": getAds(section),
+    "issues": list(all_issues)
   }
-  print(featured_articles[0])
   template_name = 'section.html'
   return render_to_response(template_name, data, context_instance=RequestContext(request))
+
+def query_all_issues_sorted():
+  return Issue.objects.annotate(custom_order=
+    models.Case(
+      models.When(issue='Winter', then=models.Value(0)),
+      models.When(issue='Spring', then=models.Value(1)),
+      models.When(issue='Commencement', then=models.Value(2)),
+      models.When(issue='Summer', then=models.Value(3)),
+      models.When(issue='Fall', then=models.Value(4)),
+      default = models.Value(5),
+      output_field = models.IntegerField(), )
+    ).order_by('-year', '-custom_order')
 
 def explore_archives(request):
   section, num, issue = request.GET.get("section"), int(request.GET.get("num")), request.GET.get("issue")
   last_issue = Issue.objects.get
   articles = None
   if issue:
-    articles = Article.objects.published().filter(section__name=section, issue=issue)[:num]
+    articles = list(Article.objects.published().filter(section__name=section, issue=issue))
+    articles += list(Image.objects.published().filter(section__name=section, issue=issue))
   else:
-    articles = select_random(num, Article.objects.published().filter(section__name=section))
+    if section == "art":
+      image_query = Image.objects.published().filter(section__name=section)
+      articles = select_random(num, image_query)
+    else:
+      article_query = Article.objects.published().filter(section__name=section)
+      articles = select_random(num, article_query)
   result = {
     "result": [serialize_article(a) for a in articles]
   }
@@ -297,7 +322,8 @@ def serialize_article(a):
     "id": a.id,
     "title": a.title,
     "contributors": [str(c) for c in a.contributors.all()],
-    "body": a.body
+    "body": a.body,
+    "photo": str(a.photo)
   }
 
 def select_random(num, query):
