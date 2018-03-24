@@ -846,21 +846,22 @@ and (max-device-width : 480px) {
 }
 
 .item-title {
-	font-family: urbana;
+	font-family: urbana, 'league_gothicregular';
 	display: block;
 	font-weight: 300;
 	font-size: 2.3em;
 	text-align: center;
 	line-height: 1em;
 	margin-bottom: 0.25em;
+	font-weight: 1000;
 }
 
 .item-author {
-	font-family: oxtail;
+	font-family: oxtail, Georgia;
 	display: block;
-	font-weight: 1000;
 	margin-top: -2px;
 	text-align: center;
+	text-transform: uppercase;
 }
 
 .title-underline {
@@ -980,20 +981,9 @@ and (max-device-width : 480px) {
 	position: relative;
 }
 
-/*.archive-item:hover  .item-title, .archive-item:hover  .item-author {
-	background-color: darkgray;
-	cursor: pointer;
-    text-shadow: 1.5px 1.5px #F3BB2A;
-}*/
-
 .archive-item .shadow {
 	background: linear-gradient(to top, rgba(255,255,255,1) 0%,rgba(255,255,255, 1) 30%,rgba(255,255,255, 0) 100%);
 }
-
-/*.archive-item:hover .shadow, .archive-item:hover .item-continue-reading {
-	opacity: 0;
-	transition: all 0.2s;
-}*/
 
 .archive-item .item-title {
 	font-size: 1.85em;
