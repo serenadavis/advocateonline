@@ -322,7 +322,7 @@ def serialize_article(a):
     "id": a.id,
     "title": a.title,
     "contributors": [str(c) for c in a.contributors.all()],
-    "body": a.body,
+    "body": a.body[0:2000],
     "photo": str(a.photo)
   }
 
