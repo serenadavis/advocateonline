@@ -24,7 +24,7 @@ $(document).ready(function() {
 function make_archive_item(a) {
 	var by = a.contributors.join(" ")
 	var message = section() == "art" ? "See More >>" : "Continue Reading >>";
-	var photo = a.photo ? `<a href="/content/{{ article.id }}"><img src="//theharvardadvocate.com/media/${a.photo}" /></a>` : "";
+	var photo = a.photo ? `<a href="/content/${a.id}"><img src="//theharvardadvocate.com/media/${a.photo}" /></a>` : "";
 	return $(
 	  `<li class="archive-item">
       <span class="item-title">${a.title}</span>
