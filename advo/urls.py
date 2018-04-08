@@ -59,6 +59,8 @@ urlpatterns = patterns('',
     url(r'^redactor/', include('redactor.urls')),
     url(r'^anthology/', include('anthology.urls')),
     url(r'^advertisement$',include('advertisement.urls')),
-    url(r'^favicon\.ico$', favicon_view)
+    url(r'^favicon\.ico$', favicon_view),
+
+    url(r'^explore_archives', 'magazine.views.explore_archives')
 )
 
