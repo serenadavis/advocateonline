@@ -27,8 +27,8 @@ function make_archive_item(a) {
 	var photo = a.photo ? `<a href="/content/${a.id}"><img src="//theharvardadvocate.com/media/${a.photo}" /></a>` : "";
 	return $(
 	  `<li class="archive-item">
-      <span class="item-title">${a.title}</span>
-      <span class="item-author">By ${by}</span>
+      <span class="item-title"><a href="/content/${a.id}">${a.title}</a></span>
+      <span class="item-author"><a href="/content/${a.id}">By ${by}</a></span>
       <span class="title-underline"></span>
       <div class="item-sample">${photo}${a.body}</div>
       <div class="shadow"></div>
