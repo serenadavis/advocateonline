@@ -1,8 +1,9 @@
 from django.shortcuts import get_object_or_404, render_to_response
 from django.template.context import RequestContext
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 # from .models import Article, Content, Issue , Subscriber# '.' signifies the current directory
 from .models import Article, Content, Image, Issue, Contributor, ShopItem # '.' signifies the current directory
+import django.db.models as models
 from .forms import UploadShopItemForm
 from blog.models import Post, Author
 from collections import OrderedDict
@@ -25,6 +26,7 @@ import logging
 
 
 logger = logging.getLogger("magazine")
+
 
 # Create your views here.
 def index(request):
@@ -266,39 +268,68 @@ def sections(request):
   section = section.replace("/","")
 
   # For all issues
-  all_issues = Issue.objects.all()
+  all_issues = query_all_issues_sorted()
   season = {'Winter': 0, 'Spring': 1, 'Commencement': 2, 'Fall': 3}
-  all_issues = reversed(sorted(all_issues, key=lambda i: i.year))
-  #all_issues_sorted = reversed(sorted(all_issues, key=lambda i: i.year * 10 + season[i.issue]))
-  data = {
-    "name":section,
-    "issues": []
-  }
-
-  for issue in all_issues:
-    articles_in_issue = Article.objects.published().filter(issue=issue, section__name =section)
-    if section == "art":
-      if articles_in_issue:
-        articles_in_issue = list(chain(articles_in_issue,Image.objects.published().filter(issue=issue, section__name =section) ))
+  featured_articles = list(Article.objects.published().filter(section__name =section).order_by('-publishDate')[:5])
+  if section == "art":
+      images = list(Image.objects.published().filter(section__name =section).order_by('-publishDate')[:5])
+      if featured_articles:
+        featured_articles = sorted(featured_articles + images, key = lambda x: x.publishDate)[5:]
       else:
-        articles_in_issue = Image.objects.published().filter(issue=issue, section__name =section)
-
-    datum = {
-      'obj':issue,
-      'articles': articles_in_issue
-      }
-
-    data["issues"].append(datum)
-
-
-    data['ads'] = getAds(section)
-
-  # for issue in data["issues"]:
-  #   for article in issue["articles"]:
-  #     print article.contributors.all()
-
+        featured_articles = images
+  data = {
+    "section": section,
+    "featured_articles": list(featured_articles)[:5],
+    "ads": getAds(section),
+    "issues": list(all_issues)
+  }
   template_name = 'section.html'
   return render_to_response(template_name, data, context_instance=RequestContext(request))
+
+def query_all_issues_sorted():
+  return Issue.objects.annotate(custom_order=
+    models.Case(
+      models.When(issue='Winter', then=models.Value(0)),
+      models.When(issue='Spring', then=models.Value(1)),
+      models.When(issue='Commencement', then=models.Value(2)),
+      models.When(issue='Summer', then=models.Value(3)),
+      models.When(issue='Fall', then=models.Value(4)),
+      default = models.Value(5),
+      output_field = models.IntegerField(), )
+    ).order_by('-year', '-custom_order')
+
+def explore_archives(request):
+  section, num, issue = request.GET.get("section"), int(request.GET.get("num")), request.GET.get("issue")
+  last_issue = Issue.objects.get
+  articles = None
+  if issue:
+    articles = list(Article.objects.published().filter(section__name=section, issue=issue))
+    articles += list(Image.objects.published().filter(section__name=section, issue=issue))
+  else:
+    if section == "art":
+      image_query = Image.objects.published().filter(section__name=section)
+      articles = select_random(num, image_query)
+    else:
+      article_query = Article.objects.published().filter(section__name=section)
+      articles = select_random(num, article_query)
+  result = {
+    "result": [serialize_article(a) for a in articles]
+  }
+  return JsonResponse(result, safe=False)
+
+def serialize_article(a):
+  return {
+    "id": a.id,
+    "title": a.title,
+    "contributors": [str(c) for c in a.contributors.all()],
+    "body": a.body[0:2000],
+    "photo": str(a.photo)
+  }
+
+def select_random(num, query):
+  total = query.count()
+  indx = [random.randint(0, total-1) for _ in xrange(num)]
+  return [query[i] for i in indx]
 
 def submit(request):
   template_name = 'submit.html'

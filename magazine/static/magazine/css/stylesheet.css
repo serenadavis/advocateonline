@@ -174,6 +174,8 @@ body{
 	width:100px;
 	height: auto;
 }
+
+/* Old social media icon styling
 .social-media-link{
 	padding: 0px 5px 0px 5px;
 	border: solid 1px #000;
@@ -181,6 +183,49 @@ body{
 	font-weight: bold;
 	text-decoration: none;
 }
+*/
+
+/* Style all font awesome icons */
+.fa {
+    padding: 3px;
+    font-size: 100px;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+    opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+    background: white;
+    color: lightgray;
+}
+
+/* Twitter */
+.fa-twitter {
+    background: white;
+    color: lightgray;
+}
+
+/* Instagram */
+.fa-instagram {
+    background: white;
+    color: lightgray;
+}
+
+/* Snapchat */
+.fa-snapchat-ghost {
+    background: white;
+    color: lightgray;
+    /* text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */
+}
+
+
 .preview-image{
 	width:300px;
 	max-width: 100%;
@@ -548,7 +593,7 @@ article.poetry p {
 .dropdown li a{
     font-size: 95%;
 }
-ul li a:hover{
+ul li a:hover, .load-more:hover {
     text-decoration: none;
     text-shadow: 1.5px 1.5px #F3BB2A;
 }
@@ -759,15 +804,6 @@ and (max-device-width : 480px) {
 	margin:0em;
 }
 
-#submit {
-	text-align: center;
-}
-
-#submit a {
-	font-size: 30px;
-	color:darkblue;
-}
-
 .submitAd {
 	text-align: center;
 }
@@ -775,4 +811,312 @@ and (max-device-width : 480px) {
 .submitAd a {
 	color:darkblue;
 	font-size: 20px;
+}
+
+/* Advo CSS */
+.section-title {
+	font-family: 'league_gothicregular';
+	text-transform: uppercase;
+	font-weight: 300;
+	padding-left: 20px;
+	text-align: left;
+	padding-top: 20px;
+	font-size: 30px;
+	margin-bottom: 20px;
+	clear: both;
+}
+
+
+.features {
+	padding-left: 25px;
+	width: 100%;
+	margin-bottom: 20px;
+	overflow: hidden;
+	height: 1%;
+}
+
+.featured-item {
+	width: 420px;
+	opacity: 0;
+	display: none;
+	transition: all 0.2s;
+	height: 500px;
+	position: relative;
+	padding: 5px;
+	padding: 10px 15px;
+	overflow: hidden;
+}
+
+
+.featured-item .shadow, .archive-item .shadow {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: calc(25%);
+	background: linear-gradient(to top, rgba(255,255,255,1) 0%,rgba(255,255,255, 1) 20%,rgba(255,255,255, 0) 100%);
+}
+
+.featured-item.selected {
+	display: block;
+	opacity: 1;
+}
+
+.featured-item .item-continue-reading {
+	position: absolute;
+	bottom: 12px;
+	left: 0;
+	width: 100%;
+}
+
+.item-continue-reading a:hover {
+	cursor: pointer;
+    text-shadow: 1.5px 1.5px #F3BB2A;
+    text-decoration: none;
+}
+
+.item-title {
+	font-family: urbana, 'league_gothicregular';
+	display: block;
+	font-weight: 300;
+	font-size: 2.3em;
+	text-align: center;
+	line-height: 1em;
+	margin-bottom: 0.25em;
+	font-weight: 1000;
+}
+
+.item-author {
+	font-family: oxtail, Georgia;
+	display: block;
+	margin-top: -2px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.title-underline {
+	border-bottom: thin solid black;
+	display: block;
+	width: 6em;
+	height: 0.6em;
+	margin: 0 auto;
+	margin-bottom: 1em;
+}
+
+.item-sample {
+	margin-top: 5px;
+	overflow: hidden;
+	height: calc(100% - 20px);
+}
+
+.item-sample p, .item-sample span, .item-sample div {
+	font-size: 14px !important;
+	font-family: Georgia !important;
+	color: black !important;
+	line-height: 1.4em !important;
+	text-align: left !important;
+	margin-bottom: 0.2em !important;
+	text-indent: 1.2em !important;
+}
+
+.poetry-page .item-sample p, .poetry-page  .item-sample span, .poetry-page  .item-sample div {
+	text-indent: 0 !important;
+}
+
+.item-continue-reading {
+	font-style: italic;
+	text-align: right;
+	font-size: 1.2em;
+	text-align: center;
+	margin-top: 20px;
+	cursor: pointer;
+}
+
+.featured-item-links {
+	width: 335px;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: block;
+	float: left;
+	animation: 1s ease-out 0s 1 slideInFromLeft;
+	margin-right: 10px;
+	margin-top: 45px;
+}
+
+.featured-item-links li {
+	list-style: none;
+	display: block;
+	width: 200px;
+	padding: 7px;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 18px;
+	width: 200px;
+	height: 1%;
+	overflow: hidden;
+	border: white 1px solid;
+	margin-bottom: 20px;
+}
+
+.featured-item-links li:hover:not(.selected) {
+	cursor: pointer;
+}
+
+.featured-item-links li .title-underline {
+	opacity: 1;
+	width: 3em;
+	height: 0.35em;
+	margin-bottom: 0.1em;
+}
+
+.featured-item-links li:not(.selected) .title-underline {
+	opacity: 0;
+	transition: all 0.1s;
+}
+
+.featured-item-links li:hover:not(.selected) .title-underline {
+	opacity: 0.5;
+	transition: all 0.2s;
+}
+
+.featured-item-links .item-title {
+	font-size: 1.0em;
+}
+
+.featured-item-links .item-author {
+	font-size: 0.6em;
+}
+
+.archive {
+	margin-bottom: 20px;
+	overflow: hidden;
+	height: 1%;
+}
+
+.archive-item {
+	flex-direction: column;
+	border: darkgray solid thin;
+	background-color: white;
+	animation: 1s all;
+	width: calc(33% - 10px);
+	height: 400px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	float: left;
+	font-size: 0.8em;
+	padding: 15px;
+	overflow: hidden;
+	transition: all 0.2s ease-out;
+	position: relative;
+}
+
+.archive-item .shadow {
+	background: linear-gradient(to top, rgba(255,255,255,1) 0%,rgba(255,255,255, 1) 30%,rgba(255,255,255, 0) 100%);
+}
+
+.archive-item .item-title {
+	font-size: 1.85em;
+}
+
+.archive-item .item-author {
+	font-size: 1em;
+}
+
+
+.archive-item .title-underline {
+	margin-bottom: 1.1em;
+}
+
+.archive-item .item-sample {
+	height: calc(100% - 50px);
+}
+
+.archive-item .item-continue-reading {
+	position: absolute;
+	bottom: 12px;
+	left: 0;
+	width: 100%;
+}
+
+.description, .issue-selector {
+	font-style: italic;
+	padding-left: 25px;
+	margin-top: -15px;
+	margin-bottom: 20px;
+	display: block;
+}
+
+.load-more {
+	font-style: italic;
+	text-align: center;
+	font-size: 1.2em;
+	cursor: pointer;
+	width: 300px;
+	margin: 0 auto;
+	padding: 4px;
+}
+
+.load-more-underline {
+	border-bottom: thin solid black;
+	width: 80px;
+	margin: 0 auto;
+	margin-top: 5px;
+}
+
+.load-more:not(.all), .load-more-underline:not(.all) {
+	display: none;
+}
+
+main {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+@media only screen and (max-width: 880px) {
+	.featured-item-links {
+		display: none;
+	}
+	.featured-item {
+		display: block;
+		opacity: 1;
+		margin-bottom: 2em;
+		width: 100%;
+		max-height: 27em;
+	}
+	.archive-item {
+		width: 100%;
+	}
+
+	.archive, .features {
+		padding-left: 0;
+	}
+
+	.featured-item {
+		border: 1px solid darkgray;
+	}
+}
+
+.poetry-page .featured-item {
+	border: darkgray solid thin;
+}
+
+/* Art Section Adjustment */
+.item-sample embed, .item-sample iframe {
+	width: calc(100% - 33px) !important;
+	height: 300px !important;
+}
+
+.item-sample img {
+	width: calc(100% - 33px);
+	margin: 0 auto;
+	display: block;
+}
+
+.art-page .archive-item {
+	height: 300px;
+}
+
+.archive-item .item-sample embed, .archive-item .item-sample iframe {
+	height: 100px !important;
 }

@@ -21,7 +21,7 @@ urlpatterns = patterns('',
     url(r'^submit$', 'magazine.views.submit'),
     url(r'^contact$', 'magazine.views.contact'),
     url(r'^alumni$', 'magazine.views.alumni'),
-    url(r"^fiction/$|^poetry/$|^art/$|^features/$|^columns/$|^notes/$", 'magazine.views.sections'),
+    url(r"^fiction/$|^poetry/$|^art/$|^features/$|^columns/$|^notes/$|^interviews/$", 'magazine.views.sections'),
     url(r'^advertise$', 'magazine.views.advertise'),
     url(r'^adSubmit$', 'magazine.views.adSubmit'),
     url(r'^150th$', 'magazine.views.onefifty'),
@@ -39,7 +39,7 @@ urlpatterns = patterns('',
     url(r'^contributor/(?P<author_id>[\d]+)/(?P<name>.*)/$', 'magazine.views.contributor_page'),
     # url(r'^blog/', include('blog.urls')),
     url(r'^mce_filebrowser/', include('mce_filebrowser.urls')),
-    url(r'^search(?:/(?P<type_filter>[art|features|poetry|fiction]+))?/?$', FilterSearchView(), name='filter_search'),
+    url(r'^search(?:/(?P<type_filter>[art|features|poetry|fiction|columns|notes|interviews]+))?/?$', FilterSearchView(), name='filter_search'),
     url(r'^blog/', include('blog.urls')),
     url(r'^shopSubmit$','payments.views.shopSubmit'),
     url(r'^grappelli/', include('grappelli.urls')),
@@ -59,6 +59,8 @@ urlpatterns = patterns('',
     url(r'^redactor/', include('redactor.urls')),
     url(r'^anthology/', include('anthology.urls')),
     url(r'^advertisement$',include('advertisement.urls')),
-    url(r'^favicon\.ico$', favicon_view)
+    url(r'^favicon\.ico$', favicon_view),
+
+    url(r'^explore_archives', 'magazine.views.explore_archives')
 )
 

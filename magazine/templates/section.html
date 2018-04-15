@@ -2,41 +2,32 @@
 
 {% block content %}
 {% load staticfiles %}
+<script src="{% static 'magazine/js/section.js' %}"></script>
 
-<div class="container">
-<h1 class="header">{{ name }}</h1>
-
-{% for issue in issues %}
-{% if forloop.counter0|divisibleby:2 %}
-<div class="row">
-{% endif %}
-  {% if issue.articles|length > 0 %}
-    {% if name == 'columns' %}
-    <div class="col-md-12">
-    {% else %}
-    <div class="col-md-6">
-    {% endif %}
-     <a href="{{issue.obj.get_absolute_url}}"class="no-decoration"><h2 class="subheader">{{issue.obj}}</h2></a>
-     {% for article in issue.articles %}
-      <div class="section-article">
-        <a href="{{ article.get_absolute_url }}"><p class="name">{{article.title}}</p></a>
-        
-        {% for author in article.contributors.all %}
-          <a href="{{ author.get_absolute_url }}"><p class="no-decoration author">{{ author.name }}</p></a>
-        {% endfor %}
-      </div>
-     {% endfor %}
+<h3 class="section-title">
+Featured {{ section }}
+</h3>
+<div class="features {{ section }}-page">
+  <ul class="featured-item-links">
+    {% for article in featured_articles %}
+    <li {% if forloop.first %} class="selected" {% endif %} data-item-id="{{ article.id }}"><span class="item-title">{{ article.title }}</span><span class="item-author">By {% for author in article.contributors.all %}
+             {{ author.name }}
+        {% endfor %}</span><span class="title-underline"></span></li>
+    {% endfor %}
+  </ul>
+  {% for article in featured_articles %}
+  <div class="item featured-item {% if forloop.first %} selected {% endif %}" data-item-id="{{ article.id }}">
+      <span class="item-title">{{ article.title }}</span>
+      <span class="item-author">By {% for author in article.contributors.all %}
+             <a href="{{ author.get_absolute_url }}">{{ author.name }}</a>
+        {% endfor %}</span>
+      <span class="title-underline"></span>
+      <div class="item-sample">{% if article.photo %}<a href="/content/{{ article.id }}"><img src="//theharvardadvocate.com/media/{{article.photo}}" /></a>{% else %}{% autoescape off %}{{ article.body }}{% endautoescape %}{% endif %}</div>
+      <div class="shadow"></div>
+      <div class="item-continue-reading"><a href="/content/{{ article.id }}">{% if section == "art" %} See More >> {% else %} Continue Reading >> {% endif %}</a></div>
     </div>
-  {% endif %}
-{% if forloop.counter|divisibleby:2 %}
+  {% endfor %}
 </div>
-{% endif %}
-
-
-{% endfor %}
-
-</div>
-
 <div class = "container">
  <div class="item">
    <div class="row">
@@ -59,4 +50,25 @@
   </div>
   </div>
 </div>
+<h3 class="section-title">
+Explore The {{ section }} Archives
+</h3>
+<span class="description">Browse works selected from past issues</span>
+
+<div class="issue-selector">
+<span class="select-issue-label">Select an issue: </span>
+<select class="select-issue-dropdown">
+    <option value="all">All Issues</option>
+    {% for issue in issues %}
+      <option value={{ issue.id }}>{{ issue.name }}</option>
+    {% endfor %}
+</select>
+</div>
+
+<ul class="archive {{ section }}-page">
+</ul>
+
+<div class="load-more">Explore More {{section | title }}<div class="load-more-underline"></div></div>
+
+
 {% endblock %}
