@@ -1097,10 +1097,6 @@ main {
 	}
 }
 
-.poetry-page .featured-item {
-	border: darkgray solid thin;
-}
-
 /* Art Section Adjustment */
 .item-sample embed, .item-sample iframe {
 	width: calc(100% - 33px) !important;
