@@ -17,7 +17,7 @@ Featured {{ section }}
   </ul>
   {% for article in featured_articles %}
   <div class="item featured-item {% if forloop.first %} selected {% endif %}" data-item-id="{{ article.id }}">
-      <span class="item-title">{{ article.title }}</span>
+      <span class="item-title"><a href="/content/{{ article.id }}">{{ article.title }}</a></span>
       <span class="item-author">By {% for author in article.contributors.all %}
              <a href="{{ author.get_absolute_url }}">{{ author.name }}</a>
         {% endfor %}</span>
