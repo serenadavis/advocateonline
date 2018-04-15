@@ -70,7 +70,7 @@ def article(request, id, slug):
   template_name = 'article.html'
   return render_to_response(template_name, data, context_instance=RequestContext(request))
 
-def content_piece(request, slug):
+def content_piece(request, slug, id=''):
   if slug.isdigit():
     image = get_object_or_404(Content, id=slug)
   else: # handle legacy links in the form of /content/short-slug
