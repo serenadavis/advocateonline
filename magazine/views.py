@@ -455,3 +455,9 @@ def onefifty(request):
 def comp(request):
   template_name = 'comp.html'
   return render_to_response(template_name, context_instance=RequestContext(request))
+
+def tech(request):
+  template_name = 'tech.html'
+  return render_to_response(template_name, context_instance=RequestContext(request))
+
+
