@@ -121,14 +121,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.request',
-    #http://stackoverflow.com/questions/3756841/django-media-url-blank
-    'django.core.context_processors.media',
-    'magazine.context_processors.search_typeahead',
-)
-
 AJAX_LOOKUP_CHANNELS = {
      'contributor' : ('magazine.lookups', 'ContributorLookup'),
      'tag' : ('magazine.lookups', 'TagLookup'),
