@@ -236,7 +236,7 @@ DATABASES = {
         'NAME': os.getenv('RDS_DB_NAME', 'advocate'),
         'USER': os.getenv('RDS_USERNAME', 'root'),
         'PASSWORD': os.getenv('RDS_PASSWORD', 'password'),
-        'HOST': os.getenv('RDS_HOSTNAME', 'localhost').
+        'HOST': os.getenv('RDS_HOSTNAME', 'localhost'),
         'PORT': os.getenv('RDS_PORT', '')
     }
 }
