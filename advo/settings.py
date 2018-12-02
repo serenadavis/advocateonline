@@ -233,9 +233,10 @@ else:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'advocate',
-        'USER': os.getenv('DB_USER', 'root'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'password'),
-        'HOST': os.getenv('DB_HOST', 'localhost')
+        'NAME': os.getenv('RDS_DB_NAME', 'advocate'),
+        'USER': os.getenv('RDS_USERNAME', 'root'),
+        'PASSWORD': os.getenv('RDS_PASSWORD', 'password'),
+        'HOST': os.getenv('RDS_HOSTNAME', 'localhost').
+        'PORT': os.getenv('RDS_PORT', '')
     }
 }
