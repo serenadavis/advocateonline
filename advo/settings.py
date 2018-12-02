@@ -210,3 +210,30 @@ ANALYTICS_CONFIG = {
     "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
     "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/get-analytics%40advocate-analytics.iam.gserviceaccount.com"
 }
+
+# -----------------------------------------------------------------------------------
+# THE PARAMETERS BELOW ARE SET AS ENVIRONMENT VARIABLES ON THE PRODUCTION SERVER
+# THESE VALUES SHOULD NOT BE HARDCODED INTO SOURCE CODE
+
+from django.utils.crypto import get_random_string
+
+chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
+SECRET_KEY = os.getenv('SECRET_KEY', get_random_string(50, chars))
+
+DEBUG = None
+
+if os.getenv('IS_PROD') != 'TRUE':
+    DEBUG = True
+else:
+    DEBUG = False
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'advocate',
+        'USER': os.getenv('DB_USER', 'root'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'password'),
+        'HOST': os.getenv('DB_HOST', 'localhost')
+    }
+}
