@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render_to_response
+from django.shortcuts import get_object_or_404, render
 from django.template.context import RequestContext
 from django.http import HttpResponse, JsonResponse
 # from .models import Article, Content, Issue , Subscriber# '.' signifies the current directory
@@ -62,7 +62,7 @@ def index(request):
   data['ads'] = getAds('home')
 
   template_name = 'index.html'
-  return render_to_response(template_name, data, context_instance=RequestContext(request))
+  return render(request, template_name, data)
 
 def article(request, id, slug):
   article = get_object_or_404(Article, id=id)
@@ -70,7 +70,7 @@ def article(request, id, slug):
     'article': article
   }
   template_name = 'article.html'
-  return render_to_response(template_name, data, context_instance=RequestContext(request))
+  return render(request, template_name, data)
 
 def content_piece(request, slug, id=''):
   if slug.isdigit():
@@ -94,7 +94,7 @@ def content_piece(request, slug, id=''):
   template_name = 'content.html'
   # if not data['art_content']:
   #   print "here"
-  return render_to_response(template_name, data, context_instance=RequestContext(request))
+  return render(request, template_name, data)
 
 def contributor_page(request, author_id, name):
   author =  get_object_or_404( Contributor, id=author_id, name = name.replace("_", " "))
@@ -104,7 +104,7 @@ def contributor_page(request, author_id, name):
   data["author"] = author.name
   data["articles"] =  chain( Article.objects.filter(contributors=author) , Image.objects.filter(contributors=author))
   template_name = 'contributor.html'
-  return render_to_response(template_name, data, context_instance=RequestContext(request))
+  return render(request, template_name, data)
 
 
 def issues(request):
@@ -117,11 +117,11 @@ def issues(request):
     'issues': all_issues_sorted
   }
   template_name = 'issues.html'
-  return render_to_response(template_name, data, context_instance=RequestContext(request))
+  return render(request, template_name, data)
 
 def masthead(request):
   template_name = 'about_us.html'
-  return render_to_response(template_name, context_instance=RequestContext(request))
+  return render(request, template_name, {})
 
 def singleissue(request, season, year):
   template_name = 'singleissue.html'
@@ -154,7 +154,7 @@ def singleissue(request, season, year):
     'content_list' : content
     }
 
-  return render_to_response(template_name, data, context_instance=RequestContext(request))
+  return render(request, template_name, data)
 
 class FilterSearchView(SearchView):
         template_name = 'search/search.html'
@@ -217,20 +217,20 @@ class FilterSearchView(SearchView):
                         pass
 
                 context.update(self.extra_context())
-                return render_to_response(self.template, context, context_instance=self.context_class(self.request))
+                return render(self.query, self.template, context)
 
 
 def subscribe(request):
   template_name = 'subscribe.html'
-  return render_to_response(template_name, context_instance=RequestContext(request))
+  return render(request, template_name)
 
 def gala(request):
   template_name = 'gala.html'
-  return render_to_response(template_name, context_instance=RequestContext(request))
+  return render(request, template_name)
 
 def financialaid(request):
   template_name = 'financialaid.html'
-  return render_to_response(template_name, context_instance=RequestContext(request))
+  return render(request, template_name)
 
 
 def stripeSubmit(request):
@@ -284,7 +284,7 @@ def sections(request):
     "issues": list(all_issues)
   }
   template_name = 'section.html'
-  return render_to_response(template_name, data, context_instance=RequestContext(request))
+  return render(request, template_name, data)
 
 def query_all_issues_sorted():
   return Issue.objects.annotate(custom_order=
@@ -333,23 +333,23 @@ def select_random(num, query):
 
 def submit(request):
   template_name = 'submit.html'
-  return render_to_response(template_name, context_instance=RequestContext(request))
+  return render(request, template_name)
 
 def contact(request):
   template_name = 'contact_us.html'
-  return render_to_response(template_name, context_instance=RequestContext(request))
+  return render(request, template_name)
 
 def alumni(request):
   template_name = 'alumni.html'
-  return render_to_response(template_name, context_instance=RequestContext(request))
+  return render(request, template_name)
 
 def advertise(request):
   template_name = 'advertise.html'
-  return render_to_response(template_name, context_instance=RequestContext(request))
+  return render(request, template_name)
 
 def adSubmit(request):
   template_name = 'adSubmit.html'
-  return render_to_response(template_name, context_instance=RequestContext(request))
+  return render(request, template_name)
 
 def shop(request):
   all_items = ShopItem.objects.all()
@@ -358,7 +358,7 @@ def shop(request):
     'page': 'shop',
   }
   template_name = 'shop.html'
-  return render_to_response(template_name, data, context_instance=RequestContext(request))
+  return render(request, template_name, data)
 
 def shopItemView(request, id):
   item = ShopItem.objects.filter(id=id)
@@ -368,7 +368,7 @@ def shopItemView(request, id):
       'page': 'shopItemView',
     }
     template_name = 'shop_item_view.html'
-    return render_to_response(template_name, data, context_instance=RequestContext(request))
+    return render(request, template_name, data)
   else: # item does not exist
     return HttpResponse('404: Page not found.')
 
@@ -376,7 +376,7 @@ def shopItemView(request, id):
 def shop_admin(request):
   if request.method == 'GET':
     form = UploadShopItemForm()
-    return render_to_response('shop-admin.html', {'shop_items': ShopItem.objects.all(), 'form': form}, context_instance=RequestContext(request))
+    return render(request, 'shop-admin.html', {'shop_items': ShopItem.objects.all(), 'form': form})
   #return HttpResponse("")
   return HttpResponse("<script>window.location = window.location.origin + '/shop-admin';</script>")
 
@@ -388,7 +388,7 @@ def shop_upload(request):
     item_imagefile = request.POST['imagefile']
     new_item = ShopItem(name=item_name, description=item_description, price=item_price)#, profile_image=item_imagefile)
     new_item.save()
-    return render_to_response('shop-admin.html', {}, context_instance=RequestContext(request))
+    return render(request, 'shop-admin.html', {})
   return HttpResponse("There's nothing here.")
 
 def shop_delete(request):
@@ -414,10 +414,10 @@ def cart(request):
       totalStr = str(total)
       totalStr = totalStr[:-2] + "." + totalStr[-2:]
       data = {'items': all_items, 'page': 'cart', 'total': total, 'totalStr': totalStr, 'purchaseDescription': purchase_description}
-      return render_to_response("cart.html", data, context_instance=RequestContext(request))
+      return render(request, "cart.html", data)
     else:
       data = {'items': [], 'page': 'cart'}
-      return render_to_response("cart.html", data, context_instance=RequestContext(request))
+      return render(request, "cart.html", data)
   if request.method == 'POST':
     if request.POST['itemId']:
       cartSession = request.session.get('cartItems', False)
@@ -450,14 +450,14 @@ def cart(request):
 
 def onefifty(request):
   template_name = '150th.html'
-  return render_to_response(template_name, context_instance=RequestContext(request))
+  return render(request, template_name)
 
 def comp(request):
   template_name = 'comp.html'
-  return render_to_response(template_name, context_instance=RequestContext(request))
+  return render(request, template_name)
 
 def tech(request):
   template_name = 'tech.html'
-  return render_to_response(template_name, context_instance=RequestContext(request))
+  return render(request, template_name)
 
 
