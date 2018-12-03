@@ -9,7 +9,7 @@ sql/*
 *.sql
 advocatemain.log
 venv/
-
+media/
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml

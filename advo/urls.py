@@ -1,6 +1,7 @@
 from django.conf.urls import include, url
 from django.conf import settings
 from django.contrib import admin
+from django.conf.urls.static import static
 
 from ajax_select import urls as ajax_select_urls
 
@@ -55,7 +56,7 @@ urlpatterns = [
     url(r'^stripeSubmitShop$', payments.views.stripeSubmitShop),
     #http://stackoverflow.com/questions/901551/how-do-i-include-image-files-in-django-templates
     #http://stackoverflow.com/questions/19132123/name-settings-is-not-defined
-    url(r'^media/(?P<path>.*)$', django.views.static.serve, {'document_root': settings.MEDIA_ROOT}),
+    #url(r'^media/(?P<path>.*)$', django.views.static.serve, {'document_root': settings.MEDIA_ROOT}),
     url(r'^redactor/', include('redactor.urls')),
     url(r'^anthology/', include('anthology.urls')),
     url(r'^advertisement',include('advertisement.urls')),
@@ -64,4 +65,5 @@ urlpatterns = [
 
     url(r'^explore_archives', magazine.views.explore_archives)
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

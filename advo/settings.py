@@ -56,6 +56,7 @@ INSTALLED_APPS = (
     'contacts',
     'redactor',
     'select2',
+    'storages',
     'anthology',
     'advertisement',
     'versatileimagefield'
@@ -97,7 +98,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
@@ -240,3 +240,22 @@ DATABASES = {
         'PORT': os.getenv('RDS_PORT', '')
     }
 }
+
+AWS_STORAGE_BUCKET_NAME = 'advomedia'
+AWS_S3_REGION_NAME = 'us-east-1'  # e.g. us-east-2
+AWS_ACCESS_KEY_ID = 'AKIAJHQOE6PVTU55NJOA' #os.getenv('AWS_ACCESS_KEY_ID', 'AKIAJHQOE6PVTU55NJOA')
+AWS_SECRET_ACCESS_KEY = 'OXDMJ+VYOWnALgpENuIRc0/l7CjOYWWT/ol9Y0a3' #os.getenv('AWS_SECRET_ACCESS_KEY', 'OXDMJ+VYOWnALgpENuIRc0/l7CjOYWWT/ol9Y0a3')
+
+# Tell django-storages the domain to use to refer to static files.
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+# Tell the staticfiles app to use S3Boto3 storage when writing the collected static files (when
+# you run `collectstatic`).
+STATICFILES_LOCATION = 'static'
+
+if DEBUG == False:
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+
+MEDIAFILES_LOCATION = 'media'
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)

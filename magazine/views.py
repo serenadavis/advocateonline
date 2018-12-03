@@ -281,8 +281,10 @@ def sections(request):
     "section": section,
     "featured_articles": list(featured_articles)[:5],
     "ads": getAds(section),
-    "issues": list(all_issues)
+    "issues": list(all_issues),
+    "MEDIA_URL": settings.MEDIA_URL
   }
+  print(data)
   template_name = 'section.html'
   return render(request, template_name, data)
 
@@ -323,7 +325,7 @@ def serialize_article(a):
     "title": a.title,
     "contributors": [str(c) for c in a.contributors.all()],
     "body": a.body,
-    "photo": str(a.photo)
+    "photo": settings.MEDIA_URL+str(a.photo)
   }
 
 def select_random(num, query):
