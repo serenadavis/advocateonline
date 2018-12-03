@@ -243,8 +243,8 @@ DATABASES = {
 
 AWS_STORAGE_BUCKET_NAME = 'advomedia'
 AWS_S3_REGION_NAME = 'us-east-1'  # e.g. us-east-2
-AWS_ACCESS_KEY_ID = 'AKIAJHQOE6PVTU55NJOA' #os.getenv('AWS_ACCESS_KEY_ID', 'AKIAJHQOE6PVTU55NJOA')
-AWS_SECRET_ACCESS_KEY = 'OXDMJ+VYOWnALgpENuIRc0/l7CjOYWWT/ol9Y0a3' #os.getenv('AWS_SECRET_ACCESS_KEY', 'OXDMJ+VYOWnALgpENuIRc0/l7CjOYWWT/ol9Y0a3')
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID', '')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', '')
 
 # Tell django-storages the domain to use to refer to static files.
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
