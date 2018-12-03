@@ -60,7 +60,7 @@ def index(request):
   data['toplist'] = [{'title' : "article one", 'url' : "google.com", 'author' : "samantha"}, {'title' : "article two", 'url' : "google.com", 'author' : "cameron"}, {'title' : "article three", 'url' : "google.com", 'author' : "joe"}]
 
   data['ads'] = getAds('home')
-
+  data['MEDIA_URL'] = settings.MEDIA_URL
   template_name = 'index.html'
   return render(request, template_name, data)
 
