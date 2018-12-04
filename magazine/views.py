@@ -284,7 +284,6 @@ def sections(request):
     "issues": list(all_issues),
     "MEDIA_URL": settings.MEDIA_URL
   }
-  print(data)
   template_name = 'section.html'
   return render(request, template_name, data)
 
@@ -325,7 +324,7 @@ def serialize_article(a):
     "title": a.title,
     "contributors": [str(c) for c in a.contributors.all()],
     "body": a.body,
-    "photo": settings.MEDIA_URL+str(a.photo)
+    "photo": settings.MEDIA_URL+str(a.photo) if a.photo else str(a.photo)
   }
 
 def select_random(num, query):
