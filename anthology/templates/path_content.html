@@ -7,7 +7,7 @@
         {{author}} 
      {% endfor %}
     </h2>
-    {% if subContent.lead_photo and subContent.lead_photo|length > 0 %}
+    {% if subContent.lead_photo %}
         {% if subContent.subsection|divisibleby:2  %}
             <div class="col1 left">
             <article>
@@ -16,13 +16,13 @@
             </div>
 
             <div class="col2 left">
-            {% if subContent.lead_photo and subContent.lead_photo|length > 0 %}
+            {% if subContent.lead_photo %}
             <figure><img style="margin: 0 auto;" src="{{MEDIA_URL}}{{ subContent.lead_photo }}"></a></figure>
             {% endif %}
             </div>
         {% else %}
                 <div class="col1 right">
-                {% if subContent.lead_photo and subContent.lead_photo|length > 0 %}
+                {% if subContent.lead_photo %}
                 <figure><img style="margin: 0 auto;" src="{{MEDIA_URL}}{{ subContent.lead_photo }}"></a></figure>
                 {% endif %}
                 </div>

@@ -12,6 +12,12 @@ favicon_view = RedirectView.as_view(url='/static/magazine/images/favicon.ico', p
 
 admin.autodiscover()
 
+
+from django.views.generic.base import RedirectView
+
+class MediaRedirectView(RedirectView):
+  url = settings.MEDIA_URL+'%(name)s'
+
 urlpatterns = [
     # Examples:
     url(r'^$', magazine.views.index),
@@ -56,7 +62,7 @@ urlpatterns = [
     url(r'^stripeSubmitShop$', payments.views.stripeSubmitShop),
     #http://stackoverflow.com/questions/901551/how-do-i-include-image-files-in-django-templates
     #http://stackoverflow.com/questions/19132123/name-settings-is-not-defined
-    #url(r'^media/(?P<path>.*)$', django.views.static.serve, {'document_root': settings.MEDIA_ROOT}),
+    url(r'^media/(?P<name>.*)', MediaRedirectView.as_view()),
     url(r'^redactor/', include('redactor.urls')),
     url(r'^anthology/', include('anthology.urls')),
     url(r'^advertisement',include('advertisement.urls')),

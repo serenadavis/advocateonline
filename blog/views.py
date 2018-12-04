@@ -46,7 +46,6 @@ def main(request):
     }
     template_name = 'blog.html'
     data['ads'] = getAds('blog')
-
     return render(request, template_name, data)
 
 def post(request, slug):
@@ -131,7 +130,7 @@ def sections(request):
         'posts': blog_page,
         'posts_data': list(blog_page),
         'name': section
-    }    
+    }
     template_name = 'blog.html'
     return render(request, template_name, data)
 
@@ -145,7 +144,6 @@ def individual_theme(request, theme_id):
         'posts_data': list(blog_page),
         'name': theme_id
     }
-
     template_name = 'blog.html'
     return render(request, template_name, data)
 
