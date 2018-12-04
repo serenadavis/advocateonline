@@ -242,21 +242,32 @@ DATABASES = {
     }
 }
 
+# AWS S3 Stuff (for media and static files)
 AWS_STORAGE_BUCKET_NAME = 'advomedia'
 AWS_S3_REGION_NAME = 'us-east-1'  # e.g. us-east-2
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID', '')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', '')
-
-# Tell  django-storages the domain to use to refer to static files.
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-# Tell the staticfiles app to use S3Boto3 storage when writing the collected static files (when
-# you run `collectstatic`).
 STATICFILES_LOCATION = 'static'
-
+# If we are debugging serve static files locally
 if DEBUG == False:
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 
 MEDIAFILES_LOCATION = 'media'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+
+# Stripe stuff
+STRIPE_TEST_SECRET_KEY = os.getenv('STRIPE_TEST_SECRET_KEY')
+STRIPE_BUY_SECRET_KEY = os.getenv('STRIPE_BUY_SECRET_KEY')
+STRIPE_DONATE_SECRET_KEY = os.getenv('STRIPE_DONATE_SECRET_KEY')
+
+# Email stuff
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'tech@theharvardadvocate.com'
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL= 'tech@theharvardadvocate.com'
+SERVER_EMAIL = 'webmaster@theharvardadvocate.com'
