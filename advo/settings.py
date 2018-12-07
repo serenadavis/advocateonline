@@ -243,7 +243,7 @@ DATABASES = {
 }
 
 # AWS S3 Stuff (for media and static files)
-AWS_STORAGE_BUCKET_NAME = 'advomedia'
+AWS_STORAGE_BUCKET_NAME = 'advo-media'
 AWS_S3_REGION_NAME = 'us-east-1'  # e.g. us-east-2
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID', '')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', '')
