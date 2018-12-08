@@ -271,3 +271,6 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL= 'tech@theharvardadvocate.com'
 SERVER_EMAIL = 'webmaster@theharvardadvocate.com'
+
+# Redirect HTTP to HTTPS
+SECURE_SSL_REDIRECT = True
