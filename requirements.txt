@@ -32,7 +32,7 @@ Django-tinymce-filebrowser==0.2.1
 django-versatileimagefield==1.10
 django-wysiwyg-redactor==0.5.1
 docutils==0.14
-elasticsearch==5.5.3
+elasticsearch==2.4.1
 enum34==1.1.6
 futures==3.2.0
 google-api-python-client==1.7.5
