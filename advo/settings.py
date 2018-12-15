@@ -112,7 +112,8 @@ TEMPLATES = [
             'django.template.context_processors.request',
             'django.contrib.auth.context_processors.auth',
             'django.contrib.messages.context_processors.messages',
-            "advo.context_processors.admin_media"
+            "advo.context_processors.admin_media",
+            'magazine.context_processors.search_typeahead'
         ],
     },
 },
