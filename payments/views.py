@@ -1,5 +1,5 @@
 from django.core.mail import send_mail
-from django.shortcuts import get_object_or_404, render_to_response
+from django.shortcuts import get_object_or_404, render
 from django.template.context import RequestContext
 from magazine.models import Subscriber, Donation, Purchase # '.' signifies the current directory
 from collections import OrderedDict
@@ -16,11 +16,11 @@ logger = logging.getLogger("payments")
 
 def donate(request):
     template_name = 'donate.html'
-    return render_to_response(template_name, context_instance=RequestContext(request))
+    return render(request, template_name)
 
 def subscribe(request):
     template_name = 'subscribe.html'
-    return render_to_response(template_name, context_instance=RequestContext(request))
+    return render(request, template_name)
 
 def shopSubmit(request):
     cost_of_issue = 10
@@ -53,7 +53,7 @@ def shopSubmit(request):
         time = getEasternTimeZoneString()
     )
     template_name = 'success.html'
-    return render_to_response(template_name, context_instance=RequestContext(request))
+    return render(request, template_name)
 
 def writeToLog(text):
     file = open("logFile.txt", "a")
@@ -65,7 +65,7 @@ def stripeSubmit(request):
     # Get the credit card details submitted by the form
 
     if "stripeToken" not in request.POST:
-      return render_to_response("subscribe.html", context_instance=RequestContext(request))
+      return render(request, "subscribe.html")
     token = request.POST['stripeToken']
     # Create the charge on Stripe's servers - this will charge the user's card
     try:
@@ -119,7 +119,7 @@ def stripeSubmit(request):
 
         chargeCustomer(amount*100,customer.id,'subscribe')
         template_name = 'success.html'
-        return render_to_response(template_name, context_instance=RequestContext(request))
+        return render(request, template_name)
     except stripe.CardError as problem:
       # The card has been declined
       template = "Looks like there is a problem with your payment information: {0}. Arguments:\n{1!r}"
@@ -127,7 +127,7 @@ def stripeSubmit(request):
       data = {
         "message": message
       }
-      return render_to_response("paymenterror.html", data, context_instance=RequestContext(request))
+      return render(request, "paymenterror.html", data)
     except Exception as problem:
       # There is a different problem
       # logger.error(problem)
@@ -135,13 +135,13 @@ def stripeSubmit(request):
       data = {
         "message": message
       }
-      return render_to_response("paymenterror.html", data, context_instance=RequestContext(request))
+      return render(request, "paymenterror.html", data)
 
 def stripeSubmitShop(request):
     # Get the credit card details submitted by the cart form
 
     if "stripeToken" not in request.POST:
-      return render_to_response("cart.html", context_instance=RequestContext(request))
+      return render(request, "cart.html")
     token = request.POST['stripeToken']
     # Create the charge on Stripe's servers - this will charge the user's card
     # print "getting total"
@@ -182,7 +182,7 @@ def stripeSubmitShop(request):
 
 
         template_name = 'success.html'
-        return render_to_response(template_name, context_instance=RequestContext(request))
+        return render(request, template_name)
     except stripe.CardError as problem:
       # The card has been declined
       template = "Looks like there is a problem with your payment information: {0}. Arguments:\n{1!r}"
@@ -190,7 +190,7 @@ def stripeSubmitShop(request):
       data = {
         "message": message
       }
-      return render_to_response("paymenterror.html", data, context_instance=RequestContext(request))
+      return render(request, "paymenterror.html", data)
     except Exception as problem:
       # There is a different problem
       # logger.error(problem)
@@ -198,14 +198,14 @@ def stripeSubmitShop(request):
       data = {
         "message": message
       }
-      return render_to_response("paymenterror.html", data, context_instance=RequestContext(request)) 
+      return render(request, "paymenterror.html", data) 
 
 
 def sendDonation(request):
     # get form details
     # logger.error("")
     if "stripeToken" not in request.POST:
-      return render_to_response("donate.html", context_instance=RequestContext(request))
+      return render(request, "donate.html")
     token = request.POST['stripeToken']
 
 
@@ -251,7 +251,7 @@ def sendDonation(request):
         )
         chargeCustomer(amount,customer.id,page)
         template_name = 'success.html'
-        return render_to_response(template_name, context_instance=RequestContext(request))
+        return render(request, template_name)
     except stripe.CardError as problem:
       # The card has been declined
       template = "Looks like there is a problem with your payment information: {0}. Arguments:\n{1!r}"
@@ -259,7 +259,7 @@ def sendDonation(request):
       data = {
         "message": message
       }
-      return render_to_response("paymenterror.html", data, context_instance=RequestContext(request))
+      return render(request, "paymenterror.html", data)
     except Exception as problem:
       # There is a different problem
       # logger.error(problem)
@@ -267,14 +267,14 @@ def sendDonation(request):
       data = {
         "message": message
       }
-      return render_to_response("paymenterror.html", data, context_instance=RequestContext(request))
+      return render(request, "paymenterror.html", data)
 
 
 def galaDonation(request):
     # get form details
     # logger.error("")
     if "stripeToken" not in request.POST:
-      return render_to_response("gala.html", context_instance=RequestContext(request))
+      return render(request, "gala.html")
     token = request.POST['stripeToken']
     comm= ""
     amount = 0
@@ -429,7 +429,7 @@ def galaDonation(request):
         )
         chargeCustomer(amount,customer.id,page)
         template_name = 'success.html'
-        return render_to_response(template_name, context_instance=RequestContext(request))
+        return render(request, template_name)
     except stripe.CardError as problem:
       # The card has been declined
       template = "Looks like there is a problem with your payment information: {0}. Arguments:\n{1!r}"
@@ -437,7 +437,7 @@ def galaDonation(request):
       data = {
         "message": message
       }
-      return render_to_response("paymenterror.html", data, context_instance=RequestContext(request))
+      return render(request, "paymenterror.html", data)
     except Exception as problem:
       # There is a different problem
       # logger.error(problem)
@@ -445,7 +445,7 @@ def galaDonation(request):
       data = {
         "message": message
       }
-      return render_to_response("paymenterror.html", data, context_instance=RequestContext(request))
+      return render(request, "paymenterror.html", data)
 
     # sending emails
     # try:
@@ -455,7 +455,7 @@ def galaDonation(request):
 
 def financialdonation(request):
     if "stripeToken" not in request.POST:
-      return render_to_response("financialaid.html", context_instance=RequestContext(request))
+      return render(request, "financialaid.html")
     token = request.POST['stripeToken']
     comm= ""
     amount = 0
@@ -534,7 +534,7 @@ def financialdonation(request):
         )
         chargeCustomer(amount,customer.id,page)
         template_name = 'success.html'
-        return render_to_response(template_name, context_instance=RequestContext(request))
+        return render(request, template_name)
     except stripe.CardError as problem:
       # The card has been declined
       template = "Looks like there is a problem with your payment information: {0}. Arguments:\n{1!r}"
@@ -542,7 +542,7 @@ def financialdonation(request):
       data = {
         "message": message
       }
-      return render_to_response("paymenterror.html", data, context_instance=RequestContext(request))
+      return render(request, "paymenterror.html", data)
     except Exception as problem:
       # There is a different problem
       # logger.error(problem)
@@ -551,7 +551,7 @@ def financialdonation(request):
       data = {
         "message": message
       }
-      return render_to_response("paymenterror.html", data, context_instance=RequestContext(request))
+      return render(request, "paymenterror.html", data)
 
     # sending emails
     # try:

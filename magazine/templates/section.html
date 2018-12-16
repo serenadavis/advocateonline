@@ -22,7 +22,7 @@ Featured {{ section }}
              <a href="{{ author.get_absolute_url }}">{{ author.name }}</a>
         {% endfor %}</span>
       <span class="title-underline"></span>
-      <div class="item-sample">{% if article.photo %}<a href="/content/{{ article.id }}"><img src="//theharvardadvocate.com/media/{{article.photo}}" /></a>{% else %}{% autoescape off %}{{ article.body }}{% endautoescape %}{% endif %}</div>
+      <div class="item-sample">{% if article.photo %}<a href="/content/{{ article.id }}"><img src="{{ MEDIA_URL }}{{article.photo}}" /></a>{% else %}{% autoescape off %}{{ article.body }}{% endautoescape %}{% endif %}</div>
       <div class="shadow"></div>
       <div class="item-continue-reading"><a href="/content/{{ article.id }}">{% if section == "art" %} See More >> {% else %} Continue Reading >> {% endif %}</a></div>
     </div>
