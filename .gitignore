@@ -8,6 +8,15 @@ sql/*
 *.DS_Store
 *.sql
 advocatemain.log
+<<<<<<< HEAD
 
 # database dumps
 sept2017dump.json
+=======
+venv/
+media/
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+>>>>>>> aa437d8dc14dbda9c709206853c9b2723d4e04f7

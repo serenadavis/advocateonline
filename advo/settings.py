@@ -20,11 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 ALLOWED_HOSTS = []
 
 ADMINS = (
-    ('Brendan Bozorgmir', 'technology@theharvardadvocate.com'),
-    ('Nicholas Hasselmo', 'nicholashasselmo@college.harvard.edu'),
-    ('Alexander Goldberg', 'alexandergoldberg@college.harvard.edu'),
-    # ('Alex Sedlack', 'asedlack@college.harvard.edu'),
-    ('Sammy Mehra', 'smehra@college.harvard.edu')
+    ('Tech Editor', 'tech@theharvardadvocate.com')
 )
 
 MANAGERS = ADMINS
@@ -56,6 +52,7 @@ INSTALLED_APPS = (
     'contacts',
     'redactor',
     'select2',
+    'storages',
     'anthology',
     'advertisement',
     'versatileimagefield'
@@ -97,22 +94,29 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
+TEMPLATES = [
+{
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'DIRS': [os.path.join(BASE_DIR, 'templates')],
+    'APP_DIRS': True,
+    'OPTIONS': {
+        'context_processors': [
+            'django.template.context_processors.debug',
+            'django.template.context_processors.request',
+            'django.contrib.auth.context_processors.auth',
+            'django.contrib.messages.context_processors.messages',
+            "advo.context_processors.admin_media",
+            'magazine.context_processors.search_typeahead'
+        ],
+    },
+},
+]
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.FileSystemFinder',
-)
-
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.request',
-    #http://stackoverflow.com/questions/3756841/django-media-url-blank
-    'django.core.context_processors.media',
-    'magazine.context_processors.search_typeahead',
 )
 
 AJAX_LOOKUP_CHANNELS = {
@@ -204,3 +208,66 @@ ANALYTICS_CONFIG = {
     "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
     "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/get-analytics%40advocate-analytics.iam.gserviceaccount.com"
 }
+
+# -----------------------------------------------------------------------------------
+# THE PARAMETERS BELOW ARE SET AS ENVIRONMENT VARIABLES ON THE PRODUCTION SERVER
+# THESE VALUES SHOULD NOT BE HARDCODED INTO SOURCE CODE
+
+from django.utils.crypto import get_random_string
+
+ALLOWED_HOSTS = ['*']
+
+chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
+SECRET_KEY = os.getenv('SECRET_KEY', get_random_string(50, chars))
+
+DEBUG = None
+
+if os.getenv('IS_PROD') != 'TRUE':
+    DEBUG = True
+else:
+    DEBUG = False
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('RDS_DB_NAME', 'advocate'),
+        'USER': os.getenv('RDS_USERNAME', 'root'),
+        'PASSWORD': os.getenv('RDS_PASSWORD', 'password'),
+        'HOST': os.getenv('RDS_HOSTNAME', 'localhost'),
+        'PORT': os.getenv('RDS_PORT', '')
+    }
+}
+
+# AWS S3 Stuff (for media and static files)
+AWS_STORAGE_BUCKET_NAME = 'advo-media'
+AWS_S3_REGION_NAME = 'us-east-1'  # e.g. us-east-2
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID', '')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', '')
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+STATICFILES_LOCATION = 'static'
+# If we are debugging serve static files locally
+if DEBUG == False:
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+
+MEDIAFILES_LOCATION = 'media'
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+
+# Stripe stuff
+STRIPE_TEST_SECRET_KEY = os.getenv('STRIPE_TEST_SECRET_KEY')
+STRIPE_BUY_SECRET_KEY = os.getenv('STRIPE_BUY_SECRET_KEY')
+STRIPE_DONATE_SECRET_KEY = os.getenv('STRIPE_DONATE_SECRET_KEY')
+
+# Email stuff
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'tech@theharvardadvocate.com'
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL= 'tech@theharvardadvocate.com'
+SERVER_EMAIL = 'webmaster@theharvardadvocate.com'
+
+# Redirect HTTP to HTTPS
+SECURE_SSL_REDIRECT = True

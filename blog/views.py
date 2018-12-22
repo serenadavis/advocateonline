@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render_to_response
+from django.shortcuts import get_object_or_404, render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template.context import RequestContext
 from .models import Post
@@ -31,7 +31,7 @@ def new_main(request):
     }
 
     template_name = 'blog_index.html'
-    return render_to_response(template_name, data, context_instance=RequestContext(request))
+    return render(request, template_name, data)
 
 
 def main(request):
@@ -46,8 +46,7 @@ def main(request):
     }
     template_name = 'blog.html'
     data['ads'] = getAds('blog')
-
-    return render_to_response(template_name, data, context_instance=RequestContext(request))
+    return render(request, template_name, data)
 
 def post(request, slug):
     post = get_object_or_404(Post, slug__iexact=slug)
@@ -55,16 +54,16 @@ def post(request, slug):
         'post': post
     }
     template_name = 'blog_post.html'
-    return render_to_response(template_name, data, context_instance=RequestContext(request))
+    return render(request, template_name, data)
 
 def about(request):
     print 'GETTING ARTICLE'
     template_name = 'blog_about.html'
-    return render_to_response(template_name, {}, context_instance=RequestContext(request))
+    return render(request, template_name, {})
 
 def submit(request):
     template_name = 'blog_submit.html'
-    return render_to_response(template_name, {}, context_instance=RequestContext(request))
+    return render(request, template_name, {})
 
 
 
@@ -81,7 +80,7 @@ def contributor_page(request, author_id):
         'name': this_author.name
     }
     template_name = 'blog.html'
-    return render_to_response(template_name, data, context_instance=RequestContext(request))
+    return render(request, template_name, data)
 
 
 def tag_page(request, slug):
@@ -90,12 +89,12 @@ def tag_page(request, slug):
     data["author"] = this_tag.name
     data["articles"] =  Post.objects.filter(tags__name=this_tag.name)
     template_name = 'blog_tags.html'
-    return render_to_response(template_name, data, context_instance=RequestContext(request))
+    return render(request, template_name, data)
 
 
 def view_category(request, slug):
     category = get_object_or_404(Category, slug=slug)
-    return render_to_response('blog_post.html', {
+    return render(request, 'blog_post.html', {
         'category': category,
         'posts': Post.objects.filter(category=category)
     })
@@ -131,9 +130,9 @@ def sections(request):
         'posts': blog_page,
         'posts_data': list(blog_page),
         'name': section
-    }    
+    }
     template_name = 'blog.html'
-    return render_to_response(template_name, data, context_instance=RequestContext(request))
+    return render(request, template_name, data)
 
 def individual_theme(request, theme_id):
     posts_in_cat = Post.objects.filter(theme__name = theme_id)
@@ -145,9 +144,8 @@ def individual_theme(request, theme_id):
         'posts_data': list(blog_page),
         'name': theme_id
     }
-
     template_name = 'blog.html'
-    return render_to_response(template_name, data, context_instance=RequestContext(request))
+    return render(request, template_name, data)
 
 
 def paginate_posts(request, posts):

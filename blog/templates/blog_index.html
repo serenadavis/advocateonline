@@ -17,8 +17,8 @@
         {% empty %}
           <h3 class="subheader-article-author"> No Author </h3>
        {% endfor %}
-        {% if post.lead_photo and post.lead_photo|length > 0 %}
-             <figure><a href="{{post.get_absolute_url}}" class="no-decoration"><img class='img-responsive-blog'" src="{{MEDIA_URL}}{{ post.lead_photo }}"></a></figure>
+        {% if post.lead_photo %}
+             <figure><a href="{{post.get_absolute_url}}" class="no-decoration"><img class='img-responsive-blog' src="{{MEDIA_URL}}{{ post.lead_photo }}"></a></figure>
         {% endif %}
     
       <p class="article-summary"> {{post.teaser|safe}} 

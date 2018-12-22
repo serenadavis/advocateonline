@@ -1140,6 +1140,7 @@ main {
 
 .archive-item .item-sample embed, .archive-item .item-sample iframe {
 	height: 100px !important;
+<<<<<<< HEAD
 }
 
 
@@ -1418,3 +1419,6 @@ main {
     margin-left: 27px;
   }
 }
+=======
+}
+>>>>>>> aa437d8dc14dbda9c709206853c9b2723d4e04f7
