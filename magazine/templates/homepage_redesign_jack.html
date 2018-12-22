@@ -4,22 +4,30 @@
 
 <div class="homepage">
   <section class="top-features">
-    <div class="container-left-half" id="feature-1">
-      <div class="category-rule">
-        <h4 class="category-label">Featured</h4>
+    <a href='{{ feature_1.get_absolute_url }}'>
+      <div class="container-left-half" id="feature-1">
+        <div class="category-rule">
+          <h4 class="category-label">Featured</h4>
+        </div>
+        <div class="feature-image-container-large">
+          <div class="feature-image" id="feature-1-image"></div>
+        </div>
+        <div class="feature-title-large">
+          {{feature_1.title}}
+        </div>
+        <div class="feature-description-large">
+          {{feature_1.teaser|safe|truncatewords:47}}
+        </div>
+        <span class="feature-author">
+            {% for author in feature_1.contributors.all %}
+              {{ author.name }}
+            {% empty %}
+              <h3 class="subheader-article-author"> No Author </h3> 
+            {% endfor %}
+        </span>
+        <div class="feature-release-date">October 26, 2017</div>
       </div>
-      <div class="feature-image-container-large">
-        <div class="feature-image" id="feature-1-image"></div>
-      </div>
-      <div class="feature-title-large">
-        George Clooney’s Predictable Dystopia
-      </div>
-      <div class="feature-description-large">
-        “Suburbicon” takes aim at that timeworn target: the dark underbelly of mid-century America.
-      </div>
-      <span class="feature-author">Anthony Lane</span>
-      <div class="feature-release-date">October 26, 2017</div>
-    </div>
+    </a>
 
     <div class="container-right-half">
       <div class="container-left-quarter" id="feature-2">
@@ -85,9 +93,16 @@
   <div class="clearfix"></div>
 
   <section class="banner-advertisement">
-    <a href="{{ advertisement.ad_url }}">
-      <div class="banner-advertisement-container" image-url="{{ advertisement.image_url }}"></div>
-    </a>
+      {% if ads %} {% for ad in ads %}
+      <div class="col-md-4">
+          <article>
+              <a href="/advertise" class="sponsored-link"> Sponsored </a>
+              <figure class="resize-image" style="margin:auto;">
+                  <!--pass in art image link HERE-->
+                  <a href="{{ ad.url }}"> <img src=" {{ ad.image.url }}" class="img-responsive" alt="Main Image"> </a>
+              </figure>
+      </div>
+      {% endfor %} {% endif %}
   </section>
 
   <section class="bottom-features">
@@ -98,11 +113,13 @@
           <h4 class="category-label">Current Issue</h4>
         </div>
         <div class="current-issue-label">
-          <a href="{{ issue.get_absolute_url }}">{{ issue }}</a>
+          <a href="{{ issue_url }}">{{ issue_name }}</a>
         </div>
-        <a href="{{ issue.get_absolute_url }}">
+        <a href="{{ issue_url }}">
           <div class="feature-image-container-current-issue">
-            <div class="feature-image" id="feature-current-issue-image" image-url="{{ MEDIA_URL }}{{ issue.cover_image }}"></div>
+            <div class="feature-image" id="feature-current-issue-image">
+                <img style="width: 100%;" src="{{ MEDIA_URL }}{{ issue_cover_image }}">
+            </div>
           </div>
         </a>
         <div class="current-issue-shop">

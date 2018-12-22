@@ -70,7 +70,11 @@ def homepage_redesign_jack(request):
 
   # current_issue
   issue = Issue.objects.last()
-  data['issue'] = issue
+  data['issue_name'] = issue
+  data['issue_cover_image'] = issue.cover_image
+  data['issue_url'] = issue.get_absolute_url()
+  # ads
+  data['ads'] = getAds('home')
 
   all_articles = Article.objects.published()
   articles_in_issue = all_articles.filter(issue=issue)
@@ -99,7 +103,7 @@ def homepage_redesign_jack(request):
   data['advertisement'] = advertisement
 
   # feature_1 - Any
-
+  data['feature_1'] = articles_in_issue[1]
   # feature_2 - Blog
 
   # feature_3 - Art

@@ -1140,7 +1140,6 @@ main {
 
 .archive-item .item-sample embed, .archive-item .item-sample iframe {
 	height: 100px !important;
-<<<<<<< HEAD
 }
 
 
@@ -1169,7 +1168,8 @@ main {
 }
 
 .homepage #feature-1 {
-  height: 500px;
+	/* height: 500px; */
+	padding-bottom: 20px;
 }
 
 .homepage #feature-2,
@@ -1183,7 +1183,7 @@ main {
 
 .banner-advertisement-container {
   margin: 25px 70px 10px;
-  height: 140px;
+	height: 140px;
   border: 1px solid rgb(175, 175, 175);
   background-color: white;
 }
@@ -1327,7 +1327,7 @@ main {
 
 .homepage .feature-image-container-current-issue {
   width: 100%;
-  height: 250px;
+  /* height: 420px; */
   padding: 0 50px;
   margin-top: 6px;
 }
@@ -1419,6 +1419,3 @@ main {
     margin-left: 27px;
   }
 }
-=======
-}
->>>>>>> aa437d8dc14dbda9c709206853c9b2723d4e04f7
