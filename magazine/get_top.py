@@ -32,6 +32,8 @@ def slug_from_page_path(page_path):
     start = page_path.rfind('/', 0, end) + 1
     return page_path[start:end]
 
+LAST_REFRESHED_TIME = None
+GET_ANALYTICS_CACHE = None
 
 def get_analytics(top=10):
     """
@@ -42,6 +44,13 @@ def get_analytics(top=10):
     of the corresponding Content/(Blog)Post Object and its number
     of page views.
     """
+
+    # Use cache data if it is within last day
+    global LAST_REFRESHED_TIME
+    global GET_ANALYTICS_CACHE
+    
+    if LAST_REFRESHED_TIME != None and LAST_REFRESHED_TIME - datetime.datetime.now() < datetime.timedelta(days=1):
+        return GET_ANALYTICS_CACHE
 
     end_date = datetime.datetime.now()
     start_date = end_date - datetime.timedelta(days=10)
@@ -109,6 +118,8 @@ def get_analytics(top=10):
                                     article[0].title.encode('utf-8'), article[1])
 
     if len(articles) == top:
+        GET_ANALYTICS_CACHE = articles
+        LAST_REFRESHED_TIME = datetime.datetime.now()        
         return articles
     else:
         print "\tCouldn't find five most read articles; skipping"

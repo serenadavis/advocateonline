@@ -65,7 +65,6 @@ def index(request):
   template_name = 'index.html'
   return render(request, template_name, data)
 
-
 def homepage_redesign_jack(request):
   data = {}
 
