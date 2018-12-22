@@ -1281,7 +1281,8 @@ main {
   border: 1px rgb(175,175,175) solid;
   height: 100%;
   width: 100%;
-  background-size: cover;
+	background-size: cover;
+	overflow: hidden;
 }
 
 .homepage .feature-author {

@@ -80,6 +80,10 @@ def homepage_redesign_jack(request):
   articles_in_issue = all_articles.filter(issue=issue)
   art_in_issue = Image.objects.published().filter(issue=issue)
 
+  # from the blog
+  posts = Post.objects.all()
+  recent_blog = list(reversed(sorted(posts, key=lambda i: i.created)))[:2 ]
+
   # most_read (from Google Analytics)
   most_read_list = get_analytics(top=5)
   most_read = []
@@ -95,27 +99,23 @@ def homepage_redesign_jack(request):
     editors_picks.append(all_articles[index])
   data['editors_picks'] = editors_picks
 
-  # advertisement
-  advertisement = {
-    'image_url': '/static/magazine/images/banner1.jpg',
-    'ad_url': 'https://google.com'
-  }
-  data['advertisement'] = advertisement
-
   # feature_1 - Any
   data['feature_1'] = articles_in_issue[1]
+
   # feature_2 - Blog
-
+  data['feature_2'] = articles_in_issue[2]
   # feature_3 - Art
-
+  data['feature_3'] = art_in_issue[0]
   # feature_4 - Any
+  data['feature_4'] = articles_in_issue[3]
 
   # feature_5 - Any
+  data['feature_5'] = recent_blog[0]
 
   # feature_6 - Any
-
+  data['feature_6'] = all_articles[7]
   # feature_7 - Any
-
+  data['feature_7'] = all_articles[15]
   # feature_8 - Any
 
 

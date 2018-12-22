@@ -10,7 +10,9 @@
           <h4 class="category-label">Featured</h4>
         </div>
         <div class="feature-image-container-large">
-          <div class="feature-image" id="feature-1-image"></div>
+          <div class="feature-image" id="feature-1-image">
+              <img style="width: 100%;overflow:hidden;" src="{{ MEDIA_URL }}sites/default/files/building_shot.png" >
+          </div>
         </div>
         <div class="feature-title-large">
           {{feature_1.title}}
@@ -20,74 +22,104 @@
         </div>
         <span class="feature-author">
             {% for author in feature_1.contributors.all %}
-              {{ author.name }}
+              <a href="{{ author.get_absolute_url }}" class="no-decoration">{{ author.name }}</a>
             {% empty %}
               <h3 class="subheader-article-author"> No Author </h3> 
             {% endfor %}
         </span>
-        <div class="feature-release-date">October 26, 2017</div>
+        <div class="feature-release-date">{{ feature_1.publishDate |date:"M d Y" }}</div>
       </div>
     </a>
 
     <div class="container-right-half">
-      <div class="container-left-quarter" id="feature-2">
+      <a href="{{ feature_2.get_absolute_url }}">
+        <div class="container-left-quarter" id="feature-2">
+          <div class="category-rule">
+            <h4 class="category-label">{{ feature_2.section }}</h4>
+          </div>
+          <div class="feature-title-small">
+              {{feature_2.title}}
+          </div>
+          <div class="feature-description-small">
+              {{feature_2.teaser| safe | truncatewords:17}}
+          </div>
+          <div class="feature-author">
+              {% for author in feature_2.contributors.all %}
+                <a href="{{ author.get_absolute_url }}">{{ author.name }}</a>
+              {% empty %}
+                <h3 class="subheader-article-author"> No Author </h3> 
+              {% endfor %}
+          </div>
+          <div class="feature-release-date-small">{{ feature_2.publishDate |date:"M d Y" }}</div>
+        </div>
+      </a>
+      <a href="{{ feature_3.get_absolute_url }}">
+        <div class="container-right-quarter" id="feature-3">
+          <div class="category-rule">
+            <h4 class="category-label">{{ feature_3.section }}</h4>
+          </div>
+          <div class="feature-title-small">
+            {{ feature_3.title }}
+          </div>
+          <div class="feature-image-container-small">
+            <div class="feature-image" id="feature-3-image">
+              <img style="width: 100%;" src="{{ MEDIA_URL }}{{feature_3.photo}}" >
+            </div>
+          </div>
+          <div class="feature-author">
+              {% for author in feature_3.contributors.all %}
+                <a href="{{ author.get_absolute_url }}">{{ author.name }}</a>
+              {% empty %}
+                <h3 class="subheader-article-author"> No Author </h3> 
+              {% endfor %}            
+          </div>
+          <div class="feature-release-date-small">{{ feature_2.publishDate |date:"M d Y"  }}</div>
+        </div>
+      </a>
+      <div class="clearfix"></div>
+
+    <a href='{{ feature_4.get_absolute_url }}'> 
+      <div class="container-left-quarter" id="feature-4">
+          <div class="category-rule">
+              <h4 class="category-label">{{ feature_4.section }}</h4>
+            </div>
+            <div class="feature-title-small">
+                {{feature_4.title}}
+            </div>
+            <div class="feature-description-small">
+                {{feature_4.teaser|safe|truncatewords:9}}
+            </div>
+            <div class="feature-author">
+                {% for author in feature_4.contributors.all %}
+                  <a href="{{ author.get_absolute_url }}">{{ author.name }}</a>
+                {% empty %}
+                  <h3 class="subheader-article-author"> No Author </h3> 
+                {% endfor %}
+            </div>
+            <div class="feature-release-date-small">{{ feature_4.publishDate |date:"M d Y" }}</div>
+      </div>
+    </a>
+    <a href="{{ feature_5.get_absolute_url }}">
+      <div class="container-right-quarter" id="feature-5">
         <div class="category-rule">
           <h4 class="category-label">Blog</h4>
         </div>
         <div class="feature-title-small">
-          American Dream
+          {{feature_5.title}}
         </div>
         <div class="feature-description-small">
-          The past days I have spent falling into the blue vortex. What’s really scary about the internet is that it goes on forever...
+          {{ feature_5.body | striptags | truncatewords:13}}
+          <div class="feature-author">
+            {% for author in feature_5.authors.all %}
+              <a href="{{ author.get_absolute_url }}">{{ author.name }}<br></a>
+            {% empty %}
+              <h3 class="subheader-article-author"> No Author </h3> 
+            {% endfor %}
+          </div>
+          <div class="feature-release-date-small">{{ feature_5.created|date:"M d Y" }}</div>
         </div>
-        <div class="feature-author">Faye Yan Zhang</div>
-        <div class="feature-release-date-small">July 4, 1776</div>
       </div>
-
-      <div class="container-right-quarter" id="feature-3">
-        <div class="category-rule">
-          <h4 class="category-label">Art</h4>
-        </div>
-        <div class="feature-title-small">
-          Untitled
-        </div>
-        <div class="feature-image-container-small">
-          <div class="feature-image" id="feature-2-image"></div>
-        </div>
-        <div class="feature-author">John Smith</div>
-        <div class="feature-release-date-small">July 4, 1776</div>
-      </div>
-
-      <div class="clearfix"></div>
-
-      <div class="container-left-quarter" id="feature-4">
-        <div class="category-rule">
-          <h4 class="category-label">Poetry</h4>
-        </div>
-        <div class="feature-title-small">
-          The Annointed
-        </div>
-        <div class="feature-description-small">
-          (Arthur Sze’s ninth book of poetry, Compass Rose (Copper Canyon, 2014), was a finalist for the Pulitzer Prize. A new collection...
-        </div>
-        <div class="feature-author">John Smith</div>
-        <div class="feature-release-date-small">July 4, 1776</div>
-      </div>
-
-      <div class="container-right-quarter" id="feature-5">
-        <div class="category-rule">
-          <h4 class="category-label">Poetry</h4>
-        </div>
-        <div class="feature-title-small">
-          The Annointed
-        </div>
-        <div class="feature-description-small">
-          (Arthur Sze’s ninth book of poetry, Compass Rose (Copper Canyon, 2014), was a finalist for the Pulitzer Prize. A new collection...
-        </div>
-        <div class="feature-author">John Smith</div>
-        <div class="feature-release-date-small">July 4, 1776</div>
-      </div>
-    </div>
+    </a>
   </section>
 
   <div class="clearfix"></div>
@@ -127,49 +159,50 @@
         </div>
       </div>
 
-      <div class="container-left-quarter" id="feature-6">
-        <div class="category-rule">
-          <h4 class="category-label">Art</h4>
-        </div>
-        <div class="feature-title-small">
-          Untitled
-        </div>
-        <div class="feature-image-container-small">
-          <div class="feature-image" id="feature-2-image"></div>
-        </div>
-        <div class="feature-author">John Smith</div>
-        <div class="feature-release-date-small">July 4, 1776</div>
-      </div>
+      <a href="{{ feature_7.get_absolute_url }}">
+          <div class="container-left-quarter" id="feature-7">
+            <div class="category-rule">
+              <h4 class="category-label">{{ feature_7.section }}</h4>
+            </div>
+            <div class="feature-title-small">
+              {{feature_7.title}}
+            </div>
+            <div class="feature-description-small">
+              {{ feature_7.body | safe | truncatewords:8}}
+              <div class="feature-author">
+                {% for author in feature_7.contributors.all %}
+                  <a href="{{ author.get_absolute_url }}">{{ author.name }}<br></a>
+                {% empty %}
+                  <h3 class="subheader-article-author"> No Author </h3> 
+                {% endfor %}
+              </div>
+              <div class="feature-release-date-small">{{ feature_7.publishDate|date:"M d Y" }}</div>
+            </div>
+          </div>
+        </a>
 
-      <div class="container-right-quarter" id="feature-7">
-        <div class="category-rule">
-          <h4 class="category-label">Fiction</h4>
-        </div>
-        <div class="feature-title-small">
-          Untitled
-        </div>
-        <div class="feature-description-small">
-          The past days I have spent falling into the blue vortex. What’s really scary about the internet is that it goes on forever...
-        </div>
-        <div class="feature-author">John Smith</div>
-        <div class="feature-release-date-small">July 4, 1776</div>
-      </div>
-
+      <a href="{{ feature_6.get_absolute_url }}">
+          <div class="container-right-quarter" id="feature-6">
+            <div class="category-rule">
+              <h4 class="category-label">{{ feature_6.section }}</h4>
+            </div>
+            <div class="feature-title-small">
+              {{feature_6.title}}
+            </div>
+            <div class="feature-description-small">
+              {{ feature_6.body | safe | truncatewords:13}}
+              <div class="feature-author">
+                {% for author in feature_6.contributors.all %}
+                  <a href="{{ author.get_absolute_url }}">{{ author.name }}<br></a>
+                {% empty %}
+                  <h3 class="subheader-article-author"> No Author </h3> 
+                {% endfor %}
+              </div>
+              <div class="feature-release-date-small">{{ feature_6.publishDate|date:"M d Y" }}</div>
+            </div>
+          </div>
+        </a>
       <div class="clearfix"></div>
-
-      <div id="feature-8">
-        <div class="category-rule">
-          <h4 class="category-label">Poetry</h4>
-        </div>
-        <div class="feature-title-small">
-          Ascent
-        </div>
-        <div class="feature-description-small">
-          The past days I have spent falling into the blue vortex. What’s really scary about the internet is that it goes on forever...
-        </div>
-        <div class="feature-author">Devon Walker-Figueroa</div>
-        <div class="feature-release-date-small">July 4, 1776</div>
-      </div>
     </div>
 
     <div class="container-right-half">
