@@ -5,6 +5,7 @@ from django.http import HttpResponse, JsonResponse
 from .models import Article, Content, Image, Issue, Contributor, ShopItem # '.' signifies the current directory
 import django.db.models as models
 from .forms import UploadShopItemForm
+from .get_top import get_analytics
 from blog.models import Post, Author
 from collections import OrderedDict
 from itertools import chain
@@ -63,6 +64,64 @@ def index(request):
   data['MEDIA_URL'] = settings.MEDIA_URL
   template_name = 'index.html'
   return render(request, template_name, data)
+
+def homepage_redesign_jack(request):
+  data = {}
+
+  # current_issue
+  issue = Issue.objects.last()
+  data['issue_name'] = issue
+  data['issue_cover_image'] = issue.cover_image
+  data['issue_url'] = issue.get_absolute_url()
+  # ads
+  data['ads'] = getAds('home')
+
+  all_articles = Article.objects.published()
+  articles_in_issue = all_articles.filter(issue=issue)
+  art_in_issue = Image.objects.published().filter(issue=issue)
+
+  # from the blog
+  posts = Post.objects.all()
+  recent_blog = list(reversed(sorted(posts, key=lambda i: i.created)))[:2 ]
+
+  # most_read (from Google Analytics)
+  most_read_list = get_analytics(top=5)
+  most_read = []
+  for item in most_read_list:
+    article, _ = item
+    most_read.append(article)
+  data['most_read'] = most_read
+
+  # editors_picks (randomly generated)
+  editors_picks = []
+  editors_picks_article_indicies = random.sample(range(0, len(all_articles) - 1), 5)
+  for index in editors_picks_article_indicies:
+    editors_picks.append(all_articles[index])
+  data['editors_picks'] = editors_picks
+
+  # feature_1 - Any
+  data['feature_1'] = articles_in_issue[1]
+
+  # feature_2 - Blog
+  data['feature_2'] = articles_in_issue[2]
+  # feature_3 - Art
+  data['feature_3'] = art_in_issue[0]
+  # feature_4 - Any
+  data['feature_4'] = articles_in_issue[3]
+
+  # feature_5 - Any
+  data['feature_5'] = recent_blog[0]
+
+  # feature_6 - Any
+  data['feature_6'] = all_articles[7]
+  # feature_7 - Any
+  data['feature_7'] = all_articles[15]
+  # feature_8 - Any
+
+
+  template_name = 'homepage_redesign_jack.html'
+  return render(request, template_name, data)
+
 
 def article(request, id, slug):
   article = get_object_or_404(Article, id=id)

@@ -20,7 +20,7 @@ class MediaRedirectView(RedirectView):
 
 urlpatterns = [
     # Examples:
-    url(r'^$', magazine.views.index),
+    url(r'^$', magazine.views.homepage_redesign_jack),
     url(r'^issues$', magazine.views.issues),
     url(r'^about$', magazine.views.masthead),
     url(r'^issue/(?P<season>[a-zA-Z]+)-(?P<year>[\d]{4})/$', magazine.views.singleissue),
