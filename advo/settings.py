@@ -274,6 +274,7 @@ SECURE_SSL_REDIRECT = True
 
 
 # Search settings
+import elasticsearch
 from requests_aws4auth import AWS4Auth
 awsauth = AWS4Auth(AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY,'us-east-1','es')
 
