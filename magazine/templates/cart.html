@@ -27,11 +27,12 @@
    {% endif %}
    <div class = "container"style ="display: inline; height: 70px;"></div>
    
-   <div class = "keep-shopping" shop-url="/shop" style= "display: inline; text-align: center" >KEEP SHOPPING</div>
+   <div class = "keep-shopping" shop-url="/shop" style= "margin: auto;">KEEP SHOPPING</div>
+
+   <div class = "container"style ="display: inline; height: 50px;"></div>
    {% if items %}
 
 <div class="container">
-    <div class = "container"style ="display: inline; height: 50px;"></div>
     <h1 class="header">Checkout</h1>
     
     <div style="margin: 40px auto 0px auto; background: #eee; max-width: 80%; padding: 20px;">
@@ -126,21 +127,31 @@ jQuery(function($) {
 
 
 .keep-shopping {
-    position: absolute;
+    margin: auto;
     color: black;
     width: 240px;
-    padding: 5px;
     font-weight: 700px;
     border: 2px solid black;
     text-align: center;
-    left: 490px;
+    align-content: center;
+    box-sizing: border-box;
+    
   }
   
   .keep-shopping:hover {
       border: 3px solid black;
       cursor: pointer;
+      box-sizing: border-box;
   }
 </style>
+
+<script src="{% static 'magazine/js/notify.min.js' %}"></script>
+<script>
+  $('.keep-shopping').on('click', function(){
+    var url= this.getAttribute('shop-url');
+    location.href = url;
+  })
+</script>
 
 <script src="{% static 'magazine/js/notify.min.js' %}"></script>
 <script>
