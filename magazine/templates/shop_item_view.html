@@ -3,55 +3,127 @@
 
 <br>
 <div style="height: auto;">
-  <img class="item-img-lg" src="/media/{{item.image}}" alt="shopItem">
-
-  <div id="info-container">
+  <a href="{{item.get_absolute_url}}" style="float:left;">
+    <img class="item-img-lg" src="/media/{{item.image}}" href="/cart" cart-url="/cart" alt="shopItem">
+  </a>
+  
+  <div id="info-container" style="align-content:center">
     <center>
-    <p class="hidden-title" style="display: none;">{{item.title}}</p>
-    <h2 class="subheader" style="font-size: 16px;">{{item.title}}</h2>
-    <p class="item-description">{{item.description}}</p>
-    <p>${{item.price}}</p>
+    <div class="hidden-title" style="margin-left:40px">{{item.title}}</div>
+    <div class="price" style="margin-left:40px">${{item.price}}</div>
     <br><br>
-    <p class="add-to-cart" data-shopitem-id="{{item.id}}">Add to Cart</p>
+    <div class = "add-to-cart" data-shopitem-id="{{item.id}}"style = "float: left">ADD TO CART</div>
+    <div class = "go-to-cart" cart-url="/cart"style = "float:right">GO TO CART</div>
+    <div class = "keep-shopping" shop-url="/shop" style="align-content:center">KEEP SHOPPING</div>
     </center>
   </div>
-  <div style="clear: both;"></div>
-  <br>
-   <a href="/cart" style="float:right;">
-      <button type="button" class="btn btn-primary-outline" style="width: 200px; clear: both;">Go to Cart</button>
-  </a>
-   <a href="/shop" style="float:right; margin-right: 5%;">
-      <button type="button" class="btn btn-primary-outline" style="width: 200px; clear: both;">Return to Shop</button>
-  </a>
-
+  
+  <div style="clear: both;">
+    
 </div>
+
+
+
+
 
 <script src="{% static 'magazine/js/notify.min.js' %}"></script>
 <style>
-.item-img-lg {
-    max-width: 400px;
-    max-height: 800px;
+  .item-img-lg {
+      max-width: 400px;
+      max-height: 800px;
+      float: left;
+
+  }
+  .item-img-lg:hover{
+      max-width: 400px;
+      max-height: 800px;
+      float: left;
+      border: 3px solid black;
+      cursor: pointer;
+  }
+  #info-container {
     float: left;
-}
-#info-container {
-  float: left;
-  margin-left: 10%;
-  max-height: 800px;
-  max-width: 300px;
-}
+    max-height: 800px;
+    max-width: 350px;
+  }
+  
+  .hidden-title {
+    font-size: 24px;
+    padding-top: 100px;
+    color: black;
+    width: 240px;
+    height: 30px;
+    font-weight: 700px;
+    margin:5px;
+    box-align: center;
+    text-align: center;
+  }
+  .price {
+    font-size: 20px;
+    padding-top: 30px;
+    color: black;
+    width: 240px;
+    height: 30px;
+    font-weight: 700px;
+    margin:5px;
+    box-align: center;
+    text-align: center;
+  }
+  .add-to-cart {
+    padding-top: 5px;
+    width: 120px;
+    height: 30px;
+    box-align: center;
+    margin-left: 50px;
+    margin-right:0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 700px;
+    border: 2px solid black;
+    text-align: center;
+  }
+  
+  .add-to-cart:hover {
+      border: 3px solid black;
+      cursor: pointer;
+  }
+  .go-to-cart {
+    padding-top: 5px;
+    color: black;
+    width: 120px;
+    height: 30px;
+    box-align: center;
+    margin-left: 0px;
+    margin-right:20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 700px;
+    border: 2px solid black;
+    text-align: center;
+  }
+  
+  .go-to-cart:hover {
+      border: 3px solid black;
+      cursor: pointer;
+  }
 
-.add-to-cart {
-    bottom: 0;
-    border: 1px solid black;
-    margin: 2px;
-}
-.add-to-cart:hover {
-    border: 3px solid black;
-    margin: 0;
-    cursor: pointer;
-}
-</style>
-
+  .keep-shopping {
+    padding-top: 5px;
+    color: black;
+    width: 240px;
+    height: 30px;
+    font-weight: 700px;
+    margin:70px;
+    border: 2px solid black;
+    box-align: center;
+    text-align: center;
+  }
+  
+  .keep-shopping:hover {
+      border: 3px solid black;
+      cursor: pointer;
+  }
+  </style>
 <script>
     $('.add-to-cart').on('click', function(){
         //alert(this.getAttribute('data-shopitem-id'));
@@ -64,10 +136,14 @@
           .done(function(a) {
             var response = JSON.parse(a);
             if (response['code'] == 0){
-                $.notify("Item '" + itemTitle + "' added to cart.", "success");
+                $.notify(itemTitle + " added to cart.", "success");
             }
             else if (response['code'] == 1) {
                 $.notify(response['responseText'], "info");
+            }
+            else if (response['code'] == 2) {
+                  console.log($);
+                  $.notify(itemTitle + " added to cart.", "success");
             }
             else {
                 $.notify(response['responseText'], "error");
@@ -79,4 +155,64 @@
     })
 </script>
 
+<script src="{% static 'magazine/js/notify.min.js' %}"></script>
+<script>
+  $('.go-to-cart').on('click', function(){
+    var url= this.getAttribute('cart-url');
+    location.href = url;
+  })
+</script>
+
+<script src="{% static 'magazine/js/notify.min.js' %}"></script>
+<script>
+  $('.keep-shopping').on('click', function(){
+    var url= this.getAttribute('shop-url');
+    location.href = url;
+  })
+</script>
+
+<script src="{% static 'magazine/js/notify.min.js' %}"></script>
+<script>
+  $('.item-img-lg').on('click', function(){
+    var url = this.getAttribute('data-issue-url');
+    location.href = url;
+  })
+</script>
+
+
+
+<script src="{% static 'magazine/js/notify.min.js' %}"></script>
+<script>
+    $('.delete-from-cart').on('click', function(){
+      var itemId = this.getAttribute('data-shopitem-id');
+      var jqxhr = $.post( "cart", {'action': 'delete', 'itemId': itemId, 'csrfmiddlewaretoken': "{% csrf_token %}".split("value='")[1].split("'")[0]} , function(a) {
+            console.log(a);
+            console.log($);
+          })
+            .done(function(a) {
+              var response = JSON.parse(a);
+              if (response['code'] == 0){
+                  //$.notify("Item '" + "" + "' deleted from cart.", "success");
+                  location.reload();
+              }
+              else if (response['code'] == 1) {
+                  console.log($);
+                  $.notify(a['responseText'], "success");
+              }
+              else {
+                  $.notify(a['responseText'], "error");
+              }
+            })
+            .fail(function(e) {
+              alert( "error. see console for details." );
+              console.log(e);
+            })
+    });
+</script>
+
+
+
+
 {% endblock %}
+
+

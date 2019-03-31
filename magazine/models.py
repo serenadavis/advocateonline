@@ -193,7 +193,18 @@ class ShopItem(models.Model):
     description = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image = models.ImageField(upload_to=get_image_path, blank=True, null=True)
+    
+    ISSUE_CHOICES = (
+        ('Fall', 'Fall'),
+        ('Winter', 'Winter'),
+        ('Spring', 'Spring'),
+        ('Commencement', 'Commencement'),
+    )
+    issue = models.CharField(max_length=255, choices=ISSUE_CHOICES, default='Fall')
+    year = models.IntegerField(blank=True, null=True)
 
+    def get_absolute_url(self):
+        return '/issue/{0}-{1}/'.format(self.issue.lower(), self.year)
 
 
 

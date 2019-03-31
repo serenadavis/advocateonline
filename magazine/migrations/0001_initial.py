@@ -102,6 +102,8 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=255)),
                 ('description', models.CharField(max_length=255)),
                 ('price', models.DecimalField(decimal_places=2, max_digits=6)),
+                ('issue', models.CharField(max_length=255)),
+                ('year', models.IntegerField(blank=True,null=True)),
                 ('image', models.ImageField(blank=True, null=True, upload_to=magazine.models.get_image_path)),
             ],
         ),

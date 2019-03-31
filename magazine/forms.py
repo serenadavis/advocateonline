@@ -37,5 +37,7 @@ class UploadShopItemForm(forms.Form):
     name = forms.CharField(max_length=255)
     description = forms.CharField(max_length=4095)
     price = forms.CharField(max_length=32)
+    issue = forms.CharField(max_length=255)
+    year = forms.IntegerField()
     imagefile = forms.FileField()
 

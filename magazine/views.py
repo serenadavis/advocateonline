@@ -445,8 +445,10 @@ def shop_upload(request):
     item_name = request.POST['name']
     item_description = request.POST['description']
     item_price = request.POST['price']
+    item_issue = request.POST['issue']
+    item_year = request.POST['year']
     item_imagefile = request.POST['imagefile']
-    new_item = ShopItem(name=item_name, description=item_description, price=item_price)#, profile_image=item_imagefile)
+    new_item = ShopItem(name=item_name, description=item_description, price=item_price, issue=item_issue, year=item_year)#, profile_image=item_imagefile)
     new_item.save()
     return render(request, 'shop-admin.html', {})
   return HttpResponse("There's nothing here.")
@@ -466,7 +468,11 @@ def cart(request):
   if request.method == 'GET':
     cartSession = request.session.get('cartItems', False)
     if cartSession:
-      all_items = ShopItem.objects.filter(id__in=cartSession)
+      all_items=list()
+      for idtemp in request.session.get('cartItems'):
+        templist = list()
+        templist.append(idtemp)
+        all_items.append(ShopItem.objects.get(id__in=templist))
       purchase_description = [itm.title for itm in all_items]
       purchase_description = ', '.join(purchase_description)
       purchase_description = purchase_description.replace('"', "'")
@@ -485,19 +491,30 @@ def cart(request):
       if request.POST['action'] == "insert":
         if cartSession:
           if request.POST['itemId'] in cartSession:
-            return HttpResponse('{"code": 1, "responseText": "Item already added."}')
+            request.session['cartItems'].append(request.POST['itemId'])
+            request.session.modified = True
+            return HttpResponse('{"code": 2, "responseText": "Item added to cart"}')
           else:
             request.session['cartItems'].append(request.POST['itemId'])
             request.session.modified = True
+            return HttpResponse('{"code": 1, "responseText": "Item added to cart"}')
         else:
           request.session['cartItems'] = [request.POST['itemId']]
           request.session.modified = True
-        return HttpResponse('{"code": 0, "responseText": "success!"}')
+        return HttpResponse('{"code": 0, "responseText": "Item added to cart"}')
       # delete request
       elif request.POST['action'] == "delete":
         if request.POST['itemId'] in cartSession:
-          cartSession = [i for i in cartSession if i != request.POST['itemId']]
-          request.session['cartItems'] = cartSession
+          cartSession2 = list()
+          found = False
+          for i in cartSession:
+            if i!=request.POST['itemId']:
+              cartSession2.append(i)
+            elif not found:
+              found = True
+            else:
+              cartSession2.append(i)
+          request.session['cartItems'] = cartSession2
           request.session.modified = True
           return HttpResponse('{"code": 0, "responseText": "success!"}')
         else:
