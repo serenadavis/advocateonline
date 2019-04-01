@@ -1,9 +1,10 @@
 {% extends "base_original.html" %}{% block content %}
 {% load staticfiles %}
 
+{% if items %}
+
 <div class="container">
     <h1 class="header">SHOPPING CART</h1>
-    {% if items %}
      <p class = "text">Please review your purchases, then checkout with the flow below.</p>
      <p class = "text">When you're done, do you know what would go great with that issue of the Advocate? <a href="https://www.redbubble.com/people/harvardadvocate" style="color: blue;">Advocate merch!</a></p>
      <br>
@@ -22,18 +23,12 @@
      {% endfor %}
      
    </ul>
-   {% else %}
-     <p class = "text">Your shopping cart is empty. Click <a href="/shop" style="color: blue;">here</a> to visit our shop.</p>
-   {% endif %}
-   <div class = "container"style ="display: inline; height: 70px;"></div>
    
+   <div class = "container"style ="display: inline; height: 70px;"></div>
    <div class = "keep-shopping" shop-url="/shop" style= "margin: auto;">KEEP SHOPPING</div>
-
    <div class = "container"style ="display: inline; height: 50px;"></div>
-   {% if items %}
 
-<div class="container">
-    <h1 class="header">Checkout</h1>
+  <h1 class="header">Checkout</h1>
     
     <div style="margin: 40px auto 0px auto; background: #eee; max-width: 80%; padding: 20px;">
         <div class="form-container active">
@@ -49,8 +44,20 @@
                 <input name="currency_code" type="hidden" value="USD"/>
             </form>
         </div>
-    </div>
+        </div>
+
 </div>
+
+{% else %}
+
+<div class="container">
+    <h1 class="header">SHOPPING CART</h1>
+      <p class = "text">Your shopping cart is empty.</p>
+     <div class = "container"style ="display: inline; height: 70px;"></div>
+    <div class = "keep-shopping" shop-url="/shop" style= "margin: auto;">KEEP SHOPPING</div>
+</div>
+
+{% endif %}
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
 
@@ -124,7 +131,23 @@ jQuery(function($) {
     max-width: 100px;
     max-height: 200px;
 }
-
+.keep-shopping-empty {
+    margin: auto;
+    color: black;
+    width: 240px;
+    font-weight: 700px;
+    border: 2px solid black;
+    text-align: center;
+    align-content: center;
+    box-sizing: border-box;
+    
+  }
+  
+  .keep-shopping-empty:hover {
+      border: 3px solid black;
+      cursor: pointer;
+      box-sizing: border-box;
+  }
 
 .keep-shopping {
     margin: auto;
@@ -148,6 +171,14 @@ jQuery(function($) {
 <script src="{% static 'magazine/js/notify.min.js' %}"></script>
 <script>
   $('.keep-shopping').on('click', function(){
+    var url= this.getAttribute('shop-url');
+    location.href = url;
+  })
+</script>
+
+<script src="{% static 'magazine/js/notify.min.js' %}"></script>
+<script>
+  $('.keep-shopping-empty').on('click', function(){
     var url= this.getAttribute('shop-url');
     location.href = url;
   })
@@ -182,7 +213,5 @@ jQuery(function($) {
             })
     });
 </script>
-
-{% endif %}
 
 {% endblock %}
